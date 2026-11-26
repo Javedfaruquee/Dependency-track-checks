@@ -1,0 +1,16 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://example.com/vex/sensorhub-fw-3.1.0",
+  "author": "Example Device Team PSIRT",
+  "timestamp": "2026-11-26T12:00:00Z",
+  "version": 1,
+  "statements": [
+    {"vulnerability": {"name": "CVE-2022-37434"}, "products": [{"@id": "pkg:github/madler/zlib@v1.2.11"}],
+     "status": "fixed", "status_notes": "EXAMPLE: backported fix applied by the build (Yocto CVE_STATUS Patched)"},
+    {"vulnerability": {"name": "CVE-2023-45853"}, "products": [{"@id": "pkg:github/madler/zlib@v1.2.11"}],
+     "status": "not_affected", "justification": "vulnerable_code_not_present",
+     "impact_statement": "EXAMPLE: minizip is not built into the image"},
+    {"vulnerability": {"name": "CVE-2021-3711"}, "products": [{"@id": "pkg:github/openssl/openssl@OpenSSL_1_1_1k"}],
+     "status": "under_investigation"}
+  ]
+}

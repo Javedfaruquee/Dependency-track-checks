@@ -1,0 +1,107 @@
+﻿{
+    "note":  "C/C++ products that NVD files under more than one vendor and that cpe-aliases.json does not cover yet. Check each before adding it: some are different products.",
+    "products":  {
+                     "boost":  [
+                                   "316solutions",
+                                   "boost",
+                                   "pixelyoursiteprofessional"
+                               ],
+                     "busybox":  [
+                                     "busybox",
+                                     "rob_landley"
+                                 ],
+                     "c-ares":  [
+                                    "c-ares",
+                                    "c-ares_project",
+                                    "daniel_stenberg"
+                                ],
+                     "curl":  [
+                                  "curl",
+                                  "curl_project",
+                                  "daniel_stenberg",
+                                  "haxx"
+                              ],
+                     "glibc":  [
+                                   "gentoo",
+                                   "gnu"
+                               ],
+                     "libarchive":  [
+                                        "freebsd",
+                                        "libarchive"
+                                    ],
+                     "libcurl":  [
+                                     "curl",
+                                     "haxx",
+                                     "libcurl"
+                                 ],
+                     "libevent":  [
+                                      "libevent_project",
+                                      "niels_provos"
+                                  ],
+                     "libjpeg-turbo":  [
+                                           "d.r.commander",
+                                           "libjpeg-turbo"
+                                       ],
+                     "libpng":  [
+                                    "greg_roelofs",
+                                    "libpng",
+                                    "png_reference_library",
+                                    "redhat"
+                                ],
+                     "libtasn1":  [
+                                      "free_software_foundation_inc.",
+                                      "gnu"
+                                  ],
+                     "libtiff":  [
+                                     "libtiff",
+                                     "remotesensing",
+                                     "simplesystems"
+                                 ],
+                     "libuv":  [
+                                   "libuv",
+                                   "libuv_project"
+                               ],
+                     "lwip":  [
+                                  "lwip",
+                                  "lwip_project"
+                              ],
+                     "lz4":  [
+                                 "lz4_project",
+                                 "yann_collet"
+                             ],
+                     "mbed_tls":  [
+                                      "arm",
+                                      "trustedfirmware"
+                                  ],
+                     "openssl":  [
+                                     "hpe",
+                                     "openssl",
+                                     "redhat",
+                                     "ruby-lang",
+                                     "sfackler"
+                                 ],
+                     "poco":  [
+                                  "macchina",
+                                  "pocoproject"
+                              ],
+                     "protobuf":  [
+                                      "golang",
+                                      "google",
+                                      "protobuf"
+                                  ],
+                     "qt":  [
+                                "digia",
+                                "qt",
+                                "trolltech"
+                            ],
+                     "xz":  [
+                                "tukaani",
+                                "xz_project"
+                            ],
+                     "zlib":  [
+                                  "cloudflare",
+                                  "ruby-lang",
+                                  "zlib"
+                              ]
+                 }
+}

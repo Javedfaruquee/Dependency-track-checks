@@ -28,6 +28,8 @@ Tokens live in `.env` (not committed): `TRIVY_TOKEN`, `VULNCHECK_TOKEN`. The scr
 | `nvdpp-setup.cmd`, `nvdpp-verify.cmd` | NVD feed adapter adding VulnCheck NVD++ CPEs for CVEs NIST left without CPEs; C/C++ gap SBOM | `nvdpp-results.json`, `nvdpp-verify-results.json` |
 | `conan-audit-test.cmd` | `conan audit` (ConanCenter provider) on the same SBOMs and references | `conan-audit/`, `conan-audit-log.txt` |
 | `cpp-sboms-dt-test.cmd` | The eight CMake-only C++ and firmware SBOMs from `cpp-sboms/`, plus two variants with ConanCenter identifiers | `cpp-sboms-dt-results.json`, `cpp-sboms/dt-exports/`, `cpp-sboms-dt-log.txt` |
+| `nvdpp-v2-verify.cmd` | NVD feed adapter version 2 on the stack: all feeds rebuilt, NVD mirror, findings for the `cpp-sbom-*` projects | `nvdpp-v2-verify-results.json`, `nvdpp-alias-suggestions.json` |
+| `sonar-sbom-test.cmd` | SonarQube staging: imports three sample SBOMs with `sonar.sca.sbomImportPaths` (asks for a Sonar token, hidden) | `sonar-sca-test/` (not in git: internal server data) |
 
 Test SBOMs are in `sboms/`.
 
@@ -45,4 +47,4 @@ Test SBOMs are in `sboms/`.
 
 Point DT's NVD source at `http://nvdpp:8080/feeds`. The adapter passes NIST's yearly feeds through unchanged and rebuilds the modified feed with VulnCheck CPEs for CVEs NIST did not enrich. It refreshes itself while running (no cron or CI job) and falls back to NIST data if VulnCheck is unavailable. VulnCheck community terms require attribution where its CPE data is used.
 
-Open issue: on a second update DT re-ingested the 56,106 enriched CVEs although the adapter had marked them delivered (harmless, about 30 s). Investigate before production use.
+Version 2 (26 Nov 2026) replaces this section's version 1 behaviour; see `nvdpp/README.md`. It rewrites every feed file, not only `modified`, gives each rewritten CVE a stable `lastModified` stored in the cache, and applies CPE vendor aliases from `nvdpp/cpe-aliases.json`. That fixes two version 1 problems: CVEs losing their VulnCheck CPEs after a restart, and all 56,106 enriched CVEs being re-ingested. `nvdpp/tests/test_adapter.py` reproduces both against a client that follows Dependency-Track's NVD rules.

@@ -8,3 +8,7 @@ dt5-api-v2-secrets
 *.tmp
 Thumbs.db
 desktop.ini
+
+# SonarQube staging test: data from an internal server, and the downloaded scanner
+sonar-sca-test/
+.tools/

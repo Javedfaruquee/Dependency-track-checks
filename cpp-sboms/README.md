@@ -50,6 +50,11 @@ The full sbomqs reports are in `scores/`. All eight files pass CycloneDX JSON sc
 
 The coverage check is there because of one result. When OpenSSL was removed from the firmware SBOM, the SBOM still scored 10 out of 10 on BSI and NTIA. Only the check that every ELF file in the image is listed caught it.
 
+## Other converters
+
+- `generators/vcpkg-spdx-to-cdx.py`: vcpkg's per-port SPDX files to one CycloneDX 1.6 SBOM, because Dependency-Track accepts only CycloneDX. It keeps one component per port, with `pkg:conan` identifier, CPE, licence and source SHA-512. Generic converters lose either the package URL or the hashes.
+- `generators/openvex-to-cdx-vex.py`: OpenVEX (for example from Yocto's `sbom-cve-check --export-type openvex`) to a CycloneDX VEX for Dependency-Track's `PUT /api/v1/vex`. `vex/` has a worked example; its statuses are examples, not an assessment.
+
 ## Comparing SBOM managers
 
 `compare/` has the ground truth for both samples (`expected-components.json`). Its script scores any tool's export against that list, and against the CVEs Dependency-Track finds: Manifest Cyber, Sonar, or Dependency-Track itself. See `compare/README.md`. `cpp-sboms-dt-test.cmd`, in the folder above, loads all eight SBOMs into the local Dependency-Track test stack.
@@ -75,7 +80,7 @@ What the results show:
 - **One CPE per component isn't always enough.** NVD files cJSON under two vendor names: `davegamble:cjson` for CVE-2019-11834 and CVE-2019-11835, and `cjson_project:cjson` for CVE-2023-53154. Dependency-Track matches one CPE per component, so it misses the 2019 CVEs. OSS Index didn't add them either. One fix would be to map vendor aliases in the NVD feed adapter.
 - **glibc is overstated.** The sample uses Ubuntu's patched glibc 2.39, and NVD ranges don't know about distribution patches. Real firmware needs the build's patch status, for example Yocto `cve-check` output or a VEX file, so that fixed CVEs are closed.
 - **Dependency-Track is not a faithful archive.** Its export is CycloneDX 1.5. It drops the SHA-512 on the download links, the declared and concluded licence pair, `compositions`, the lifecycle and the manufacturer. The BSI v2.1 required score falls from 10 to 7.4–7.6. So the original signed SBOM is the record, kept in Artifactory, and Dependency-Track is for analysis.
-- **Results changed between runs.** Four recent CVEs matched in the first run but not in the second, 13 minutes later. In both runs the NVD adapter was still loading its VulnCheck data after a container restart. This fits the open adapter issue in `../README.md`; check Dependency-Track's NVD mirror log before production.
+- **Results changed between runs, now fixed.** CVEs that matched in the first run were gone in the second, 13 minutes later, after the NVD adapter restarted. NIST's yearly feed had overwritten their VulnCheck CPEs. Adapter version 2 fixes this and is verified on the test stack (`../nvdpp-v2-verify-results.json`). Three were real losses, and the two that can be named, CVE-2024-8176 and CVE-2026-107496, are back. The fourth, CVE-2026-76844, was a false zlib match, since corrected upstream. With version 2 and its cJSON alias, the complete firmware SBOM shows 181 CVEs and the CMake one 73.
 
 ## Placeholders to replace before real use
 

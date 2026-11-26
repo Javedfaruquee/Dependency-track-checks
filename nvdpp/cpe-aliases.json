@@ -1,0 +1,7 @@
+{
+  "_comment": "CPE vendor aliases for the NVD feed adapter. Each group lists vendor:product names that NVD uses for the SAME software. Every CPE match on one name is copied to the others, so a component with any of these CPEs matches. Add a group only after checking in NVD that the names really are one product (open /aliases/suggest for candidates). After editing, restart the adapter or open /rebuild; changed CVEs are re-delivered once.",
+  "aliases": [
+    {"same": ["cjson_project:cjson", "davegamble:cjson"],
+     "note": "cJSON. 2019 CVEs (CVE-2019-11834, CVE-2019-11835) use davegamble, later ones cjson_project. Found in the C++ SBOM test, 26 Nov 2026."}
+  ]
+}

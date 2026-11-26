@@ -1,0 +1,92 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:97706c53-c9e1-4d4a-b6c3-4463bb7b6fd7",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-26T15:02:20Z",
+  "component": {
+   "type": "firmware",
+   "bom-ref": "sensorhub-fw@3.1.0",
+   "name": "sensorhub-fw",
+   "version": "3.1.0"
+  },
+  "tools": {
+   "components": [
+    {
+     "type": "application",
+     "name": "openvex-to-cdx-vex.py",
+     "version": "1.0"
+    }
+   ]
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "bom-ref": "zlib@1.2.11",
+   "name": "zlib",
+   "version": "1.2.11",
+   "purl": "pkg:github/madler/zlib@v1.2.11",
+   "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*"
+  },
+  {
+   "type": "library",
+   "bom-ref": "openssl@1.1.1k",
+   "name": "openssl",
+   "version": "1.1.1k",
+   "purl": "pkg:github/openssl/openssl@OpenSSL_1_1_1k",
+   "cpe": "cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*"
+  }
+ ],
+ "vulnerabilities": [
+  {
+   "id": "CVE-2022-37434",
+   "analysis": {
+    "state": "resolved",
+    "detail": "EXAMPLE: backported fix applied by the build (Yocto CVE_STATUS Patched)",
+    "response": [
+     "update"
+    ]
+   },
+   "affects": [
+    {
+     "ref": "zlib@1.2.11"
+    }
+   ],
+   "source": {
+    "name": "NVD"
+   }
+  },
+  {
+   "id": "CVE-2023-45853",
+   "analysis": {
+    "state": "not_affected",
+    "justification": "code_not_present",
+    "detail": "EXAMPLE: minizip is not built into the image"
+   },
+   "affects": [
+    {
+     "ref": "zlib@1.2.11"
+    }
+   ],
+   "source": {
+    "name": "NVD"
+   }
+  },
+  {
+   "id": "CVE-2021-3711",
+   "analysis": {
+    "state": "in_triage"
+   },
+   "affects": [
+    {
+     "ref": "openssl@1.1.1k"
+    }
+   ],
+   "source": {
+    "name": "NVD"
+   }
+  }
+ ]
+}

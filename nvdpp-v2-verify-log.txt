@@ -1,0 +1,78 @@
+﻿NVD adapter v2 verification started 2026-11-26T16:31:10
+16:31:20 compose:  Container dt5-test-trivy-1 Starting 
+16:31:20 compose:  Container dt5-test-postgres-1 Starting 
+16:31:20 compose:  Container dt5-test-frontend-1 Starting 
+16:31:20 compose:  Container dt5-test-nvdpp-1 Starting 
+16:31:21 compose:  Container dt5-test-trivy-1 Started 
+16:31:21 compose:  Container dt5-test-postgres-1 Started 
+16:31:21 compose:  Container dt5-test-postgres-1 Waiting 
+16:31:22 compose:  Container dt5-test-nvdpp-1 Started 
+16:31:22 compose:  Container dt5-test-frontend-1 Started 
+16:31:27 compose:  Container dt5-test-postgres-1 Healthy 
+16:31:27 compose:  Container dt5-test-apiserver-1 Starting 
+16:31:28 compose:  Container dt5-test-apiserver-1 Started 
+16:32:02 adapter: phase=building feed 2026 feeds=0 vulncheck=loaded build=
+16:32:32 adapter: phase=building feed 2025 feeds=1 vulncheck=loaded build=
+16:33:02 adapter: phase=building feed 2024 feeds=2 vulncheck=loaded build=
+16:33:32 adapter: phase=building feed 2022 feeds=4 vulncheck=loaded build=
+16:34:03 adapter: phase=building feed 2021 feeds=5 vulncheck=loaded build=
+16:34:33 adapter: phase=building feed 2018 feeds=8 vulncheck=loaded build=
+16:35:03 adapter: phase=building feed 2014 feeds=12 vulncheck=loaded build=
+16:35:33 adapter: phase=building feed 2009 feeds=17 vulncheck=loaded build=
+16:36:03 adapter: phase=building feed 2008 feeds=18 vulncheck=loaded build=
+16:36:33 adapter: phase=building feed 2002 feeds=24 vulncheck=loaded build=
+16:37:03 adapter: phase=ready feeds=26 vulncheck=loaded build=2026-11-26T15:36:46.949
+16:37:03 adapter build: {"built_at":"2026-11-26T15:36:46.949","error":null,"seconds":317.7,"candidates":62433,"assigned_total":62385,"assigned_new":9813,"assigned_kept":5426,"migrated_from_v1":52604,"last_issued":"2026-11-26T15:00:14.813","nist_base":"2026-11-26T15:00:05.000"}
+16:37:03 aliases: {"cjson_project:cjson":["davegamble:cjson"],"davegamble:cjson":["cjson_project:cjson"]}
+16:37:03 alias suggestions saved: 22 products
+16:37:06 NVD mirror triggered
+16:37:27 nvd mirror: {"status":"RUNNING","started_at":1795707431845}
+16:38:27 nvd mirror: {"status":"COMPLETED","started_at":1795707431845,"completed_at":1795707498573}
+16:38:28 apiserver: 2026-11-26 15:37:47,036 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2026]: consumed 8969 CVE(s), skipped 89084 below watermark [vulnDataSourceName=nvd]
+16:38:28 apiserver: 2026-11-26 15:37:52,184 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2025]: consumed 460 CVE(s), skipped 45085 below watermark [vulnDataSourceName=nvd]
+16:38:28 apiserver: 2026-11-26 15:37:57,874 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2024]: consumed 272 CVE(s), skipped 39112 below watermark [vulnDataSourceName=nvd]
+16:38:28 apiserver: 2026-11-26 15:38:00,002 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2023]: consumed 29 CVE(s), skipped 31488 below watermark [vulnDataSourceName=nvd]
+16:38:28 apiserver: 2026-11-26 15:38:01,629 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2022]: consumed 10 CVE(s), skipped 27634 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:03,047 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2021]: consumed 8 CVE(s), skipped 23493 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:04,340 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2020]: consumed 7 CVE(s), skipped 21135 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:05,258 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2019]: consumed 10 CVE(s), skipped 17679 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:06,278 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2018]: consumed 5 CVE(s), skipped 17817 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:07,607 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2017]: consumed 3 CVE(s), skipped 17111 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:08,280 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2016]: consumed 2 CVE(s), skipped 10656 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:08,331 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2015]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:08,374 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2014]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:08,926 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2013]: consumed 1 CVE(s), skipped 6835 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,364 INFO [NvdVulnDataSource] Finished YearDataFeed[year=2012]: consumed 3 CVE(s), skipped 5943 below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,410 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2011]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,454 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2010]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,498 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2009]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,542 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2008]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,586 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2007]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,630 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2006]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,678 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2005]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,726 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2004]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,770 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2003]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:09,814 INFO [NvdVulnDataSource] Skipping YearDataFeed[year=2002]: Below watermark [vulnDataSourceName=nvd]
+16:38:29 apiserver: 2026-11-26 15:38:12,626 INFO [NvdVulnDataSource] Finished ModifiedDataFeed[]: consumed 5763 CVE(s), skipped 3470 below watermark [vulnDataSourceName=nvd]
+16:38:32 waiting 180 s for re-analysis
+16:41:34 cpp-sbom-cmake-build-derived: findings=73
+16:41:34 cpp-sbom-cmake-build-derived-conanpurl: findings=75
+16:41:34 cpp-sbom-cmake-cdxgen: findings=0
+16:41:34 cpp-sbom-cmake-syft-binary: findings=0
+16:41:34 cpp-sbom-cmake-syft-source: findings=0
+16:41:35 cpp-sbom-fw-build-manifest: findings=181
+16:41:35 cpp-sbom-fw-build-manifest-conanpurl: findings=194
+16:41:35 cpp-sbom-fw-cvebintool: findings=119
+16:41:35 cpp-sbom-fw-syft-extracted: findings=32
+16:41:36 cpp-sbom-fw-syft-packed: findings=0
+16:41:37 compose:  Container dt5-test-apiserver-1 Stopping 
+16:41:37 compose:  Container dt5-test-trivy-1 Stopping 
+16:41:37 compose:  Container dt5-test-frontend-1 Stopping 
+16:41:38 compose:  Container dt5-test-nvdpp-1 Stopping 
+16:41:38 compose:  Container dt5-test-trivy-1 Stopped 
+16:41:38 compose:  Container dt5-test-frontend-1 Stopped 
+16:41:39 compose:  Container dt5-test-apiserver-1 Stopped 
+16:41:39 compose:  Container dt5-test-postgres-1 Stopping 
+16:41:40 compose:  Container dt5-test-postgres-1 Stopped 
+16:41:41 compose:  Container dt5-test-nvdpp-1 Stopped 
+16:41:41 DONE - containers stopped; images and data volumes kept.
