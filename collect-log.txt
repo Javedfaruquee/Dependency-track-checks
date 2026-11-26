@@ -1,0 +1,89 @@
+﻿dt5 collect started 2026-11-11T18:50:06
+18:50:08 compose:  Container dt5-test-apiserver-1 Running 
+18:50:08 compose:  Container dt5-test-frontend-1 Running 
+18:50:08 compose:  Container dt5-test-postgres-1 Recreate 
+18:50:09 compose:  Container dt5-test-postgres-1 Recreated 
+18:50:09 compose:  Container dt5-test-postgres-1 Starting 
+18:50:09 compose:  Container dt5-test-postgres-1 Started 
+18:50:09 compose:  Container dt5-test-postgres-1 Waiting 
+18:50:14 compose:  Container dt5-test-postgres-1 Healthy 
+18:50:18 forceChangePassword (fine on re-runs): The remote server returned an error: (401) Unauthorized. | INVALID_CREDENTIALS
+18:50:19 login ok
+18:50:19 using Administrators team API key (odt_nA42...)
+18:50:19 DIAG (after login): apiserver state 0 restarts, started 2026-11-11T17:47:26.8747316Z, status running, OOMKilled false
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.statement.SqlStatements.handleException(SqlStatements.java:528)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.statement.SqlStatement.internalExecute(SqlStatement.java:1833)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.result.ResultProducers.lambda$createResultBearing$0(ResultProducers.java:110)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.result.internal.ResultSetSupplier.get(ResultSetSupplier.java:55)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.result.internal.ResultSetResultIterator.<init>(ResultSetResultIterator.java:53)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.result.internal.ResultSetResultIterable.iterator(ResultSetResultIterable.java:50)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.result.ResultIterable.stream(ResultIterable.java:266)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.result.ResultIterable.collect(ResultIterable.java:340)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.result.ResultIterable.list(ResultIterable.java:315)
+18:50:20 apiserver-log: 	at org.dependencytrack.dex.engine.persistence.ActivityDao.pollAndLockActivityTasks(ActivityDao.java:288)
+18:50:20 apiserver-log: 	at org.dependencytrack.dex.engine.DexEngineImpl.lambda$pollActivityTasks$0(DexEngineImpl.java:1411)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.transaction.LocalTransactionHandler$BoundLocalTransactionHandler.inTransaction(LocalTransactionHandler.java:285)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.Handle.inTransaction(Handle.java:760)
+18:50:20 apiserver-log: 	at org.jdbi.v3.core.Jdbi.lambda$inTransaction$0(Jdbi.java:457)
+18:50:21 apiserver-log: 	at org.jdbi.v3.core.Jdbi.withHandle(Jdbi.java:423)
+18:50:21 apiserver-log: 	at org.jdbi.v3.core.Jdbi.inTransaction(Jdbi.java:457)
+18:50:21 apiserver-log: 	at org.dependencytrack.dex.engine.DexEngineImpl.pollActivityTasks(DexEngineImpl.java:1408)
+18:50:21 apiserver-log: 	at org.dependencytrack.dex.engine.ActivityTaskWorker.poll(ActivityTaskWorker.java:88)
+18:50:21 apiserver-log: 	at org.dependencytrack.dex.engine.AbstractTaskWorker.pollAndDispatch(AbstractTaskWorker.java:273)
+18:50:21 apiserver-log: 	at java.base/java.lang.Thread.run(Unknown Source)
+18:50:21 apiserver-log: 	Suppressed: org.jdbi.v3.core.transaction.UnableToRestoreAutoCommitStateException: java.sql.SQLException: Connection is closed
+18:50:21 apiserver-log: 		at org.jdbi.v3.core.transaction.LocalTransactionHandler$BoundLocalTransactionHandler.restoreAutoCommitState(LocalTransactionHandler.java:326)
+18:50:21 apiserver-log: 		at org.jdbi.v3.core.transaction.LocalTransactionHandler$BoundLocalTransactionHandler.rollback(LocalTransactionHandler.java:216)
+18:50:21 apiserver-log: 		at org.jdbi.v3.core.Handle.rollback(Handle.java:582)
+18:50:21 apiserver-log: 		at org.jdbi.v3.core.transaction.LocalTransactionHandler$BoundLocalTransactionHandler.inTransaction(LocalTransactionHandler.java:299)
+18:50:21 apiserver-log: 		... 8 common frames omitted
+18:50:21 apiserver-log: 	Caused by: java.sql.SQLException: Connection is closed
+18:50:21 apiserver-log: 		at com.zaxxer.hikari.pool.ProxyConnection$ClosedConnection.lambda$getClosedConnection$0(ProxyConnection.java:559)
+18:50:21 apiserver-log: 		at jdk.proxy3/jdk.proxy3.$Proxy3.setAutoCommit(Unknown Source)
+18:50:21 apiserver-log: 		at com.zaxxer.hikari.pool.ProxyConnection.setAutoCommit(ProxyConnection.java:412)
+18:50:21 apiserver-log: 		at com.zaxxer.hikari.pool.HikariProxyConnection.setAutoCommit(HikariProxyConnection.java)
+18:50:21 apiserver-log: 		at org.jdbi.v3.core.transaction.LocalTransactionHandler$BoundLocalTransactionHandler.restoreAutoCommitState(LocalTransactionHandler.java:324)
+18:50:21 apiserver-log: 		... 11 common frames omitted
+18:50:21 apiserver-log: Caused by: org.postgresql.util.PSQLException: FATAL: terminating connection due to administrator command
+18:50:21 apiserver-log: 	at org.postgresql.core.v3.QueryExecutorImpl.receiveErrorResponse(QueryExecutorImpl.java:2993)
+18:50:21 apiserver-log: 	at org.postgresql.core.v3.QueryExecutorImpl.processResults(QueryExecutorImpl.java:2656)
+18:50:21 apiserver-log: 	at org.postgresql.core.v3.QueryExecutorImpl.execute(QueryExecutorImpl.java:446)
+18:50:21 apiserver-log: 	at org.postgresql.jdbc.PgStatement.executeInternal(PgStatement.java:533)
+18:50:21 apiserver-log: 	at org.postgresql.jdbc.PgStatement.execute(PgStatement.java:449)
+18:50:21 apiserver-log: 	at org.postgresql.jdbc.PgPreparedStatement.executeWithFlags(PgPreparedStatement.java:197)
+18:50:21 apiserver-log: 	at org.postgresql.jdbc.PgPreparedStatement.execute(PgPreparedStatement.java:183)
+18:50:21 apiserver-log: 	at com.zaxxer.hikari.pool.ProxyPreparedStatement.execute(ProxyPreparedStatement.java:44)
+18:50:21 apiserver-log: 	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.execute(HikariProxyPreparedStatement.java)
+18:50:21 apiserver-log: 	at org.jdbi.v3.core.statement.SqlLoggerUtil.wrap(SqlLoggerUtil.java:32)
+18:50:21 apiserver-log: 	at org.jdbi.v3.core.statement.SqlStatement.internalExecute(SqlStatement.java:1831)
+18:50:21 apiserver-log: 	... 18 common frames omitted
+18:50:21 apiserver-log: 2026-11-11 17:50:08,759 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@1ae69cd4 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:21 apiserver-log: 2026-11-11 17:50:08,759 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@6ebc0a03 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:21 apiserver-log: 2026-11-11 17:50:08,760 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@233b9f88 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:08,760 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@4e4a0c44 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:08,761 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@60642965 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:08,761 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@6e06cb78 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:08,762 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@11bedeef (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:08,762 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@f08d8b0 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:08,763 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@4ee6e735 (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:08,763 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@16e3b89a (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:08,765 WARN [PoolBase] default - Failed to validate connection org.postgresql.jdbc.PgConnection@714d550f (This connection has been closed.). Possibly consider using a shorter maxLifetime value.
+18:50:22 apiserver-log: 2026-11-11 17:50:18,071 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=88f0bcea-476d-4962-8461-3ea6f7b1feb8, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+18:50:22 apiserver-log: 2026-11-11 17:50:19,152 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=d7b97758-1381-4656-89e4-463388c40d51, requestMethod=POST, requestUri=/v1/user/login]
+18:50:22 apiserver-log: 2026-11-11 17:50:19,268 INFO [TeamResource] API key created: nA42Cr1K (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=5d12d226-700a-44f2-9b34-46a962e9e1b5, requestMethod=PUT]
+18:50:23 waiting 120 s for re-analysis
+18:52:25 conan-native: components=3 findings=0
+18:52:26 conan-normalised: components=3 findings=65
+18:52:27 python-control: components=12 findings=100
+18:52:27 vcpkg-native: components=42 findings=0
+18:52:28 vcpkg-normalised: components=2 findings=0
+18:52:28 vcpkg-spdx-zlib-direct: components=0 findings=0
+18:52:28 vendored-declared: components=3 findings=5
+18:52:28 vendored-syft: components=5 findings=0
+18:52:30 compose:  Container dt5-test-apiserver-1 Stopping 
+18:52:30 compose:  Container dt5-test-frontend-1 Stopping 
+18:52:31 compose:  Container dt5-test-frontend-1 Stopped 
+18:52:32 compose:  Container dt5-test-apiserver-1 Stopped 
+18:52:32 compose:  Container dt5-test-postgres-1 Stopping 
+18:52:32 compose:  Container dt5-test-postgres-1 Stopped 
+18:52:32 DONE - containers stopped; images and data volumes kept. Restart later with: docker compose up -d (in this folder)

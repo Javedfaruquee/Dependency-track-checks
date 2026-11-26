@@ -1,0 +1,182 @@
+dt5 OSV more-ecosystems run started 2026-11-11T19:36:43
+19:36:46 compose:  Container dt5-test-postgres-1 Starting 
+19:36:46 compose:  Container dt5-test-frontend-1 Starting 
+19:36:47 compose:  Container dt5-test-frontend-1 Started 
+19:36:47 compose:  Container dt5-test-postgres-1 Started 
+19:36:47 compose:  Container dt5-test-postgres-1 Waiting 
+19:36:53 compose:  Container dt5-test-postgres-1 Healthy 
+19:36:53 compose:  Container dt5-test-apiserver-1 Starting 
+19:36:53 compose:  Container dt5-test-apiserver-1 Started 
+19:37:29 forceChangePassword (fine on re-runs): The remote server returned an error: (401) Unauthorized. | INVALID_CREDENTIALS
+19:37:34 login ok
+19:37:36 using Administrators team API key (odt_Oa64...)
+19:37:39 DIAG (after login): apiserver state 0 restarts, started 2026-11-11T18:36:53.232562151Z, status running, OOMKilled false
+19:37:41 apiserver-log: 2026-11-11 18:28:07,495 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:88683381-56ef-46d3-894e-3234b0a4b948, workflowRunId=01a1cbdd-f2c2-7f53-bebf-be51f29b9de8, projectUuid=88683381-56ef-46d3-894e-3234b0a4b948]
+19:37:41 apiserver-log: 2026-11-11 18:28:08,105 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:743cd75f-5bbc-4841-b777-36ab7f116473, workflowRunId=01a1cbdd-f176-78b4-b2f8-c6b177a7b446, projectUuid=743cd75f-5bbc-4841-b777-36ab7f116473]
+19:37:41 apiserver-log: 2026-11-11 18:30:11,337 INFO [Server] Stopped oejs.Server@31caf651{STOPPING}[12.1.14,sto=0]
+19:37:41 apiserver-log: 2026-11-11 18:30:11,362 INFO [AbstractConnector] Stopped oejs.ServerConnector@28a4d87f{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:37:41 apiserver-log: 2026-11-11 18:30:11,445 INFO [NotificationSubsystemInitializer] Stopping outbox relay
+19:37:41 apiserver-log: 2026-11-11 18:30:11,457 INFO [TaskSchedulerInitializer] Stopping task scheduler
+19:37:41 apiserver-log: 2026-11-11 18:30:11,463 INFO [DexEngineInitializer] Stopping durable execution engine
+19:37:41 apiserver-log: 2026-11-11 18:30:11,464 INFO [DexEngineImpl] Transitioning from status RUNNING to STOPPING
+19:37:41 apiserver-log: 2026-11-11 18:30:11,499 INFO [DexEngineImpl] Transitioning from status STOPPING to STOPPED
+19:37:42 apiserver-log: 2026-11-11 18:30:11,501 INFO [PluginInitializer] Closing plugin manager
+19:37:42 apiserver-log: 2026-11-11 18:30:11,512 INFO [PersistenceManagerFactory] Shutting down persistence framework
+19:37:42 apiserver-log: 2026-11-11 18:30:11,519 INFO [SecretManagerInitializer] Closing secret manager
+19:37:42 apiserver-log: 2026-11-11 18:30:11,539 INFO [FileStorageInitializer] Closing file storage
+19:37:42 apiserver-log: 2026-11-11 18:30:11,539 INFO [CacheManagerInitializer] Closing cache manager
+19:37:42 apiserver-log: 2026-11-11 18:30:11,584 INFO [ServletContextHandler] Stopped oeje11s.ServletContextHandler@2eb60c71{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@87d9a01{STOPPED}}
+19:37:42 apiserver-log: 2026-11-11 18:36:56,760 INFO [Application] Starting Dependency-Track 5.2.1 (built 2026-10-25T11:10:36Z)
+19:37:42 apiserver-log: 2026-11-11 18:36:57,127 INFO [DataSourceRegistry] Creating data source default
+19:37:42 apiserver-log: 2026-11-11 18:36:58,749 INFO [InitTaskExecutor] Executing init task database-migration
+19:37:42 apiserver-log: 2026-11-11 18:37:00,702 INFO [InitTaskExecutor] Completed init task database-migration in 1953ms
+19:37:42 apiserver-log: 2026-11-11 18:37:00,703 INFO [InitTaskExecutor] Executing init task dex-engine-database-migration
+19:37:43 apiserver-log: 2026-11-11 18:37:00,977 INFO [InitTaskExecutor] Completed init task dex-engine-database-migration in 273ms
+19:37:43 apiserver-log: 2026-11-11 18:37:00,977 INFO [InitTaskExecutor] Executing init task database-partition-maintenance
+19:37:43 apiserver-log: 2026-11-11 18:37:04,918 INFO [InitTaskExecutor] Completed init task database-partition-maintenance in 3941ms
+19:37:43 apiserver-log: 2026-11-11 18:37:04,919 INFO [InitTaskExecutor] Executing init task database-seeding
+19:37:43 apiserver-log: 2026-11-11 18:37:05,183 INFO [DatabaseSeedingInitTask] Default objects already populated for build 5d411518-ecbd-4f73-855c-26329158b8b9 (timestamp: 2026-10-25T11:10:36Z); Skipping
+19:37:43 apiserver-log: 2026-11-11 18:37:05,184 INFO [InitTaskExecutor] Completed init task database-seeding in 265ms
+19:37:43 apiserver-log: 2026-11-11 18:37:05,185 INFO [InitTaskExecutor] All init tasks completed in 6526ms
+19:37:43 apiserver-log: 2026-11-11 18:37:06,156 INFO [Server] jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 25.0.4.1+1-LTS
+19:37:43 apiserver-log: 2026-11-11 18:37:06,212 INFO [ContextHandler] Started oeje11s.ServletContextHandler@1c30cb85{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@577bf0aa{STARTED}}
+19:37:43 apiserver-log: 2026-11-11 18:37:06,216 INFO [CacheManagerInitializer] Initializing cache manager for provider 'database'
+19:37:43 apiserver-log: 2026-11-11 18:37:06,226 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+19:37:43 apiserver-log: 2026-11-11 18:37:06,659 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+19:37:44 apiserver-log: 2026-11-11 18:37:06,953 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+19:37:44 apiserver-log: 2026-11-11 18:37:07,039 INFO [PersistenceManagerFactory] Initializing persistence framework
+19:37:44 apiserver-log: 2026-11-11 18:37:09,889 INFO [PluginInitializer] Initializing plugin system
+19:37:44 apiserver-log: 2026-11-11 18:37:12,743 INFO [PluginInitializer] Discovering plugins
+19:37:44 apiserver-log: 2026-11-11 18:37:12,779 INFO [PluginInitializer] Loading plugins
+19:37:44 apiserver-log: 2026-11-11 18:37:15,862 INFO [DexEngineInitializer] Registering workflow worker 'default'
+19:37:44 apiserver-log: 2026-11-11 18:37:15,888 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+19:37:44 apiserver-log: 2026-11-11 18:37:15,906 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+19:37:44 apiserver-log: 2026-11-11 18:37:15,910 INFO [DexEngineInitializer] Registering activity worker 'notification'
+19:37:44 apiserver-log: 2026-11-11 18:37:15,920 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+19:37:45 apiserver-log: 2026-11-11 18:37:15,926 INFO [DexEngineInitializer] Registering activity worker 'default'
+19:37:45 apiserver-log: 2026-11-11 18:37:15,935 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+19:37:45 apiserver-log: 2026-11-11 18:37:15,942 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+19:37:45 apiserver-log: 2026-11-11 18:37:15,946 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+19:37:45 apiserver-log: 2026-11-11 18:37:15,964 INFO [DexEngineInitializer] Starting durable execution engine
+19:37:45 apiserver-log: 2026-11-11 18:37:15,966 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+19:37:45 apiserver-log: 2026-11-11 18:37:16,041 INFO [DexEngineLeaderElection] Leadership lease acquired
+19:37:45 apiserver-log: 2026-11-11 18:37:16,263 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+19:37:45 apiserver-log: 2026-11-11 18:37:16,700 INFO [TaskSchedulerInitializer] Starting task scheduler
+19:37:45 apiserver-log: 2026-11-11 18:37:16,949 INFO [NotificationSubsystemInitializer] Starting outbox relay
+19:37:45 apiserver-log: 2026-11-11 18:37:25,087 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@1c30cb85{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@577bf0aa{STARTED}}
+19:37:45 apiserver-log: 2026-11-11 18:37:25,119 INFO [AbstractConnector] Started oejs.ServerConnector@22e94018{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:37:45 apiserver-log: 2026-11-11 18:37:25,120 INFO [Server] Started oejs.Server@368a26dd{STARTING}[12.1.14,sto=0] @18977ms
+19:37:45 apiserver-log: 2026-11-11 18:37:29,008 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=2e4d6697-0a1b-4c77-98eb-31efdd1a1f70, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+19:37:46 apiserver-log: 2026-11-11 18:37:33,248 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=5d6a0a0f-9166-4fb0-a8dd-42a33f1a95ab, requestMethod=POST, requestUri=/v1/user/login]
+19:37:46 apiserver-log: 2026-11-11 18:37:33,447 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0 [requestId=488f58d6-7de5-42f6-bda7-89e0348a2425, requestMethod=POST, requestUri=/v1/user/login]
+19:37:46 apiserver-log: 2026-11-11 18:37:36,794 INFO [TeamResource] API key created: Oa644Mx7 (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=21c598a8-6ba5-405f-a377-22039f4903b1, requestMethod=PUT]
+19:37:46 apiserver-log: 2026-11-11 18:37:38,876 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0 [requestId=7d87843d-3714-4dcc-8a06-393e072c0ef6, requestMethod=POST, requestUri=/v1/user/login]
+19:37:46 kev-data-source extensions: cisa, enisa, vulncheck
+19:37:47 vuln-analyzer extensions: checkmarx, internal, oss-index, snyk, trivy, vuln-db
+19:37:47 vuln-data-source extensions: github, jvn, nvd, osv
+19:37:47 saved /api/v2/secrets -> dt5-api-v2-secrets (47 chars)
+19:37:48 saved /api/v2/openapi.yaml -> dt5-api-v2-openapi.yaml (153546 chars)
+19:37:49 GET /api/v2/openapi.json : The remote server returned an error: (404) Not Found. | {"type":"about:blank","title":"Not Found","detail":"The requested resource could not be found.","status":404}
+19:37:50 saved /api/openapi.json -> dt5-api-openapi.json (557231 chars)
+19:37:52 osv config now: {"config":{"dataUrl":"https://storage.googleapis.com/osv-vulnerabilities","enabled":true,"ecosystems":["PyPI","npm","NuGet","Maven"],"aliasSyncEnabled":false,"incrementalMirroringEnabled":true}}
+19:37:53 osv mirror triggered
+19:38:08 osv mirror: {"status":"RUNNING","started_at":1794422273353}
+19:44:09 osv mirror: {"status":"COMPLETED","started_at":1794422273353,"completed_at":1794422638903}
+19:44:11 apiserver-log: 2026-11-11 18:37:55,542 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:37:55,544 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:37:57,405 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:37:57,406 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem npm from upstream [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:39:18,831 INFO [OsvVulnDataSource] Processing ecosystem npm [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:43:22,385 INFO [OsvVulnDataSource] Finished ecosystem npm: processed 231690 advisories [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:43:22,420 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem NuGet from upstream [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:43:23,782 INFO [OsvVulnDataSource] Processing ecosystem NuGet [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:43:30,864 INFO [OsvVulnDataSource] Finished ecosystem NuGet: processed 2010 advisories [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:43:30,866 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem Maven from upstream [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:43:35,130 INFO [OsvVulnDataSource] Processing ecosystem Maven [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:43:53,404 INFO [OsvVulnDataSource] Finished ecosystem Maven: processed 7257 advisories [vulnDataSourceName=osv]
+19:44:11 apiserver-log: 2026-11-11 18:43:53,473 INFO [MirrorVulnDataSourceActivity] Completed mirror; processed 240958 vulnerabilities in PT5M59.75567456S [vulnDataSourceName=osv]
+19:44:14 DIAG (401 on PUT /api/v1/bom): apiserver state 0 restarts, started 2026-11-11T18:36:53.232562151Z, status running, OOMKilled false
+19:44:15 apiserver-log: 2026-11-11 18:37:06,226 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+19:44:15 apiserver-log: 2026-11-11 18:37:06,659 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+19:44:15 apiserver-log: 2026-11-11 18:37:06,953 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+19:44:16 apiserver-log: 2026-11-11 18:37:07,039 INFO [PersistenceManagerFactory] Initializing persistence framework
+19:44:16 apiserver-log: 2026-11-11 18:37:09,889 INFO [PluginInitializer] Initializing plugin system
+19:44:16 apiserver-log: 2026-11-11 18:37:12,743 INFO [PluginInitializer] Discovering plugins
+19:44:16 apiserver-log: 2026-11-11 18:37:12,779 INFO [PluginInitializer] Loading plugins
+19:44:16 apiserver-log: 2026-11-11 18:37:15,862 INFO [DexEngineInitializer] Registering workflow worker 'default'
+19:44:16 apiserver-log: 2026-11-11 18:37:15,888 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+19:44:16 apiserver-log: 2026-11-11 18:37:15,906 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+19:44:16 apiserver-log: 2026-11-11 18:37:15,910 INFO [DexEngineInitializer] Registering activity worker 'notification'
+19:44:16 apiserver-log: 2026-11-11 18:37:15,920 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+19:44:16 apiserver-log: 2026-11-11 18:37:15,926 INFO [DexEngineInitializer] Registering activity worker 'default'
+19:44:16 apiserver-log: 2026-11-11 18:37:15,935 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+19:44:16 apiserver-log: 2026-11-11 18:37:15,942 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+19:44:16 apiserver-log: 2026-11-11 18:37:15,946 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+19:44:17 apiserver-log: 2026-11-11 18:37:15,964 INFO [DexEngineInitializer] Starting durable execution engine
+19:44:17 apiserver-log: 2026-11-11 18:37:15,966 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+19:44:17 apiserver-log: 2026-11-11 18:37:16,041 INFO [DexEngineLeaderElection] Leadership lease acquired
+19:44:17 apiserver-log: 2026-11-11 18:37:16,263 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+19:44:17 apiserver-log: 2026-11-11 18:37:16,700 INFO [TaskSchedulerInitializer] Starting task scheduler
+19:44:17 apiserver-log: 2026-11-11 18:37:16,949 INFO [NotificationSubsystemInitializer] Starting outbox relay
+19:44:17 apiserver-log: 2026-11-11 18:37:25,087 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@1c30cb85{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@577bf0aa{STARTED}}
+19:44:17 apiserver-log: 2026-11-11 18:37:25,119 INFO [AbstractConnector] Started oejs.ServerConnector@22e94018{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:44:17 apiserver-log: 2026-11-11 18:37:25,120 INFO [Server] Started oejs.Server@368a26dd{STARTING}[12.1.14,sto=0] @18977ms
+19:44:17 apiserver-log: 2026-11-11 18:37:29,008 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=2e4d6697-0a1b-4c77-98eb-31efdd1a1f70, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+19:44:17 apiserver-log: 2026-11-11 18:37:33,248 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=5d6a0a0f-9166-4fb0-a8dd-42a33f1a95ab, requestMethod=POST, requestUri=/v1/user/login]
+19:44:17 apiserver-log: 2026-11-11 18:37:33,447 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0 [requestId=488f58d6-7de5-42f6-bda7-89e0348a2425, requestMethod=POST, requestUri=/v1/user/login]
+19:44:17 apiserver-log: 2026-11-11 18:37:36,794 INFO [TeamResource] API key created: Oa644Mx7 (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=21c598a8-6ba5-405f-a377-22039f4903b1, requestMethod=PUT]
+19:44:17 apiserver-log: 2026-11-11 18:37:38,876 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0 [requestId=7d87843d-3714-4dcc-8a06-393e072c0ef6, requestMethod=POST, requestUri=/v1/user/login]
+19:44:17 apiserver-log: 2026-11-11 18:37:51,951 INFO [ExtensionsResource] Updated config of extension vuln-data-source/osv [principal=odt_Oa644Mx7********************************, requestUri=/extension-points/{extension_point_name}/extensions/{extension_name}/config, requestId=e9ad0245-317e-4616-9eec-618f794c7214, requestMethod=PUT]
+19:44:18 apiserver-log: 2026-11-11 18:37:53,174 INFO [VulnDataSourcesResource] Triggered vulnerability data source mirror for osv [principal=odt_Oa644Mx7********************************, requestUri=/vuln-data-sources/{name}/mirror-runs, requestId=fa2bc74c-e9f4-48a5-8d38-ac570c0e88cc, requestMethod=POST]
+19:44:18 apiserver-log: 2026-11-11 18:37:53,716 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:37:55,542 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:37:55,544 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:37:57,405 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:37:57,406 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem npm from upstream [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:39:08,752 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0 [requestId=a4aa47b9-b099-49a6-beca-5046578c1e86, requestMethod=POST, requestUri=/v1/user/login]
+19:44:18 apiserver-log: 2026-11-11 18:39:18,831 INFO [OsvVulnDataSource] Processing ecosystem npm [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:39:21,425 INFO [MirrorVulnDataSourceActivity] Processed 100 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:39:51,564 INFO [MirrorVulnDataSourceActivity] Processed 13000 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:40:21,665 INFO [MirrorVulnDataSourceActivity] Processed 46200 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:40:51,695 INFO [MirrorVulnDataSourceActivity] Processed 87900 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:41:21,746 INFO [MirrorVulnDataSourceActivity] Processed 128700 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:41:29,139 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/157.0.0.0 Safari/537.36 Edg/157.0.0.0 [requestId=f6ce8452-4a30-4f32-b073-c6cfa5c4f821, requestMethod=POST, requestUri=/v1/user/login]
+19:44:18 apiserver-log: 2026-11-11 18:41:51,797 INFO [MirrorVulnDataSourceActivity] Processed 159000 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:42:21,896 INFO [MirrorVulnDataSourceActivity] Processed 175900 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:42:31,232 INFO [SecretsResource] Created secret: OSSINDEX_API_TOKEN [principal=admin, requestUri=/secrets, requestId=82fd292f-9484-453d-bb72-36e4fa436b37, requestMethod=POST]
+19:44:18 apiserver-log: 2026-11-11 18:42:52,024 INFO [MirrorVulnDataSourceActivity] Processed 209200 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:42:56,269 INFO [SecretsResource] Created secret: VULNCHECK_API_TOKEN [principal=admin, requestUri=/secrets, requestId=40c213c0-8740-46db-afa2-00223ceeb099, requestMethod=POST]
+19:44:18 apiserver-log: 2026-11-11 18:43:22,061 INFO [MirrorVulnDataSourceActivity] Processed 231300 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:43:22,385 INFO [OsvVulnDataSource] Finished ecosystem npm: processed 231690 advisories [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:43:22,420 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem NuGet from upstream [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:43:23,782 INFO [OsvVulnDataSource] Processing ecosystem NuGet [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:43:30,864 INFO [OsvVulnDataSource] Finished ecosystem NuGet: processed 2010 advisories [vulnDataSourceName=osv]
+19:44:18 apiserver-log: 2026-11-11 18:43:30,866 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem Maven from upstream [vulnDataSourceName=osv]
+19:44:19 apiserver-log: 2026-11-11 18:43:35,130 INFO [OsvVulnDataSource] Processing ecosystem Maven [vulnDataSourceName=osv]
+19:44:19 apiserver-log: 2026-11-11 18:43:52,380 INFO [MirrorVulnDataSourceActivity] Processed 240300 vulnerabilities so far [vulnDataSourceName=osv]
+19:44:19 apiserver-log: 2026-11-11 18:43:53,404 INFO [OsvVulnDataSource] Finished ecosystem Maven: processed 7257 advisories [vulnDataSourceName=osv]
+19:44:19 apiserver-log: 2026-11-11 18:43:53,473 INFO [MirrorVulnDataSourceActivity] Completed mirror; processed 240958 vulnerabilities in PT5M59.75567456S [vulnDataSourceName=osv]
+19:44:21 re-login ok
+19:44:22 uploaded npm-control : {"token":"<DT upload job id removed>","projectUuid":"c11d12a7-793c-4afe-8c3f-0bfe11a14be0"}
+19:44:22 uploaded nuget-control : {"token":"<DT upload job id removed>","projectUuid":"acc08b61-4500-4767-b90d-f9b7f5ec3f87"}
+19:44:22 uploaded maven-control : {"token":"<DT upload job id removed>","projectUuid":"b40c0854-faaf-40c3-a138-3e5785c4636c"}
+19:44:22 waiting 90 s for BOM processing
+19:46:02 waiting 120 s for re-analysis
+19:48:07 conan-native: components=3 findings=52 sources=NVD
+19:48:07 conan-normalised: components=3 findings=79 sources=NVD
+19:48:07 maven-control: components=4 findings=100 sources=GITHUB,NVD
+19:48:07 npm-control: components=4 findings=68 sources=GITHUB,NVD
+19:48:08 nuget-control: components=3 findings=5 sources=GITHUB,NVD
+19:48:08 python-control: components=12 findings=100 sources=GITHUB,NVD,OSV
+19:48:08 vcpkg-native: components=42 findings=0 sources=
+19:48:08 vcpkg-normalised: components=2 findings=0 sources=
+19:48:08 vcpkg-spdx-zlib-direct: components=0 findings=0 sources=
+19:48:08 vendored-declared: components=3 findings=5 sources=NVD
+19:48:08 vendored-syft: components=5 findings=0 sources=
+19:48:11 compose:  Container dt5-test-frontend-1 Stopping 
+19:48:11 compose:  Container dt5-test-apiserver-1 Stopping 
+19:48:11 compose:  Container dt5-test-frontend-1 Stopped 
+19:48:12 compose:  Container dt5-test-apiserver-1 Stopped 
+19:48:12 compose:  Container dt5-test-postgres-1 Stopping 
+19:48:13 compose:  Container dt5-test-postgres-1 Stopped 
+19:48:13 DONE - containers stopped; images and data volumes kept.

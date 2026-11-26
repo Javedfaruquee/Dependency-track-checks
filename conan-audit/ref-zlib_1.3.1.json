@@ -1,0 +1,228 @@
+{
+    "data": {
+        "zlib/1.3.1": {
+            "vulnerabilities": {
+                "totalCount": 4,
+                "edges": [
+                    {
+                        "node": {
+                            "name": "CVE-2026-22184",
+                            "description": "zlib versions up to and including 1.3.1.2 include a global buffer overflow in the untgz utility located under contrib/untgz. The vulnerability is limited to the standalone demonstration utility and does not affect the core zlib compression library. The flaw occurs when a user executes the untgz command with an excessively long archive name supplied via the command line, leading to an out-of-bounds write in a fixed-size global buffer.",
+                            "severity": "High",
+                            "cvss": {
+                                "preferredBaseScore": 7.8,
+                                "v3": {
+                                    "baseScore": 7.8
+                                },
+                                "v4": {
+                                    "baseScore": 4.6
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2026-22184",
+                                "ECHO-0c2a-94bf-ba6a",
+                                "GHSA-7687-3v4j-49fr",
+                                "JFSA-2026-001653750",
+                                "MINI-w4p6-33x2-v3jq",
+                                "XRAY-930503",
+                                "XRAY-930550",
+                                "XRAY-930574",
+                                "XRAY-932446",
+                                "XRAY-932447",
+                                "XRAY-932448"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "CVE-2026-22184"
+                                }
+                            ],
+                            "references": [
+                                "https://packages.mini.dev/advisories/osv/MINI-w4p6-33x2-v3jq.json",
+                                "https://access.redhat.com/security/cve/CVE-2026-22184",
+                                "https://bugzilla.redhat.com/show_bug.cgi?id=2427688",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-470355.html",
+                                "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-22184.json",
+                                "https://github.com/madler/zlib",
+                                "https://seclists.org/fulldisclosure/2026/Jan/3",
+                                "https://www.vulncheck.com/advisories/zlib-untgz-global-buffer-overflow-in-tgzfname",
+                                "https://zlib.net/",
+                                "https://github.com/madler/zlib/issues/1142",
+                                "https://advisory.echohq.com/cve/CVE-2026-22184",
+                                "https://nvd.nist.gov/vuln/detail/CVE-2026-22184",
+                                "https://advisory.echohq.com/osv/ECHO-0c2a-94bf-ba6a.json"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2026-01-07T21:16:01.563Z"
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "CVE-2026-27171",
+                            "description": "zlib before 1.3.2 allows CPU consumption via crc32_combine64 and crc32_combine_gen64 because x2nmodp can do right shifts within a loop that has no termination condition.",
+                            "severity": "Medium",
+                            "cvss": {
+                                "preferredBaseScore": 5.5,
+                                "v3": {
+                                    "baseScore": 5.5
+                                },
+                                "v4": {
+                                    "baseScore": 0
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2026-27171",
+                                "ECHO-e10b-f259-a98b",
+                                "GHSA-h858-mf2m-8jf4",
+                                "MINI-hwjj-mj9h-qh5g",
+                                "XRAY-944145",
+                                "XRAY-944242",
+                                "XRAY-944748",
+                                "XRAY-944749",
+                                "XRAY-945094",
+                                "XRAY-945095",
+                                "XRAY-945144",
+                                "XRAY-945326",
+                                "XRAY-946523",
+                                "XRAY-974000"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "CVE-2026-27171"
+                                }
+                            ],
+                            "references": [
+                                "https://advisory.echohq.com/cve/CVE-2026-27171",
+                                "https://advisory.echohq.com/osv/ECHO-e10b-f259-a98b.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-hwjj-mj9h-qh5g.json",
+                                "https://7asecurity.com/blog/2026/02/zlib-7asecurity-audit/",
+                                "https://7asecurity.com/reports/pentest-report-zlib-RC1.1.pdf",
+                                "https://github.com/madler/zlib/issues/904",
+                                "https://github.com/madler/zlib/releases/tag/v1.3.2",
+                                "https://ostif.org/zlib-audit-complete/"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2026-02-18T04:16:01.263Z"
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "CVE-2026-76844",
+                            "description": "> [!IMPORTANT]\n> CVE-2026-76844 was assigned and published for this issue by VulnCheck on 2026-08-24 without prior coordination with the webpack maintainers or the OpenJS Foundation, which holds the CVE Numbering Authority scope for webpack projects. Neither the maintainers nor the OpenJS CNA were notified before publication, and no fix was available at that time. This advisory is the coordinated record produced by the webpack maintainers and the OpenJS Foundation CNA.\n\n### Impact\n\n`webpack-dev-middleware` resolves a request to a local file in `getFilenameFromUrl`. When the configured `publicPath` has no trailing slash (for example `/assets`), a request that shares that prefix without being under it (for example `/assets../secret`) still passes the containment check, and the `..` guard does not catch it because it runs on the path before the `publicPath` prefix is stripped. The stripped remainder then escapes the configured output directory once joined, so an unauthenticated request can read files outside the output root. Applications serving `webpack-dev-middleware` (directly or via `webpack-dev-server`) with a `publicPath` that does not end in a slash are affected. A development server reachable on the network can be attacked with a single request and no victim interaction.\n\n### Patches\n\nPatched in `webpack-dev-middleware` 8.3.0. There is no backport to the 5.x, 6.x, or 7.x lines; users on those lines should upgrade to 8.3.0 or later.\n\n### Workarounds\n\nConfigure `publicPath` with a trailing slash (for example `/assets/` instead of `/assets`), or upgrade to a patched version.\n\n### References\n\n- [CVE-2024-29180](https://www.cve.org/CVERecord?id=CVE-2024-29180) ([GHSA-wr3j-pwj9-hqq6](https://github.com/webpack/webpack-dev-middleware/security/advisories/GHSA-wr3j-pwj9-hqq6)), the earlier path traversal in the same component that this issue bypasses.",
+                            "severity": "High",
+                            "cvss": {
+                                "preferredBaseScore": 7.4,
+                                "v3": {
+                                    "baseScore": 7.4
+                                },
+                                "v4": {
+                                    "baseScore": 8.3
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2026-76844",
+                                "ECHO-355f-9f1c-25e5",
+                                "GHSA-g84c-rxfj-3j2c",
+                                "MINI-4f5p-q8w6-j6xj",
+                                "MINI-9xv9-9gj3-hfmr",
+                                "MINI-f3w6-59c6-v6x5",
+                                "MINI-gr24-6xrg-7m8w",
+                                "MINI-q2x7-4r8x-676x",
+                                "MINI-wpc4-jqx9-vx25",
+                                "XRAY-1060559",
+                                "XRAY-1063214",
+                                "XRAY-1071905",
+                                "XRAY-1097179",
+                                "XRAY-1098478",
+                                "XRAY-1098479",
+                                "XRAY-1105513",
+                                "XRAY-1111052",
+                                "XRAY-1157182"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "GHSA-g84c-rxfj-3j2c"
+                                },
+                                {
+                                    "name": "CVE-2026-76844"
+                                }
+                            ],
+                            "references": [
+                                "https://github.com/webpack/webpack-dev-middleware/security/advisories/GHSA-g84c-rxfj-3j2c",
+                                "https://advisory.echohq.com/cve/CVE-2026-76844",
+                                "https://github.com/madler/zlib",
+                                "https://nvd.nist.gov/vuln/detail/CVE-2026-76844",
+                                "https://gist.github.com/thesmartshadow/e0b9481792afb7c31e86fee1ff084490",
+                                "https://github.com/madler/zlib/blob/v1.3.2/gzwrite.c#L393",
+                                "https://github.com/madler/zlib/commit/df84af25dc1942490e1d1c899a07619152a46148",
+                                "https://www.vulncheck.com/advisories/zlib-1.3.1.2-through-1.3.2-heap-buffer-overflow-via-gz-vacate",
+                                "https://advisory.echohq.com/osv/ECHO-355f-9f1c-25e5.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-4f5p-q8w6-j6xj.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-wpc4-jqx9-vx25.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-q2x7-4r8x-676x.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-gr24-6xrg-7m8w.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-9xv9-9gj3-hfmr.json",
+                                "https://github.com/webpack/webpack-dev-middleware/pull/2404",
+                                "https://github.com/webpack/webpack-dev-middleware/commit/13344e78b26d88fe9b7c8381a3860e248a52359b",
+                                "https://github.com/webpack/webpack-dev-middleware/commit/cefccbac330c29052fc6dffe85fd292ea2ac782b",
+                                "https://github.com/advisories/GHSA-wr3j-pwj9-hqq6",
+                                "https://github.com/webpack/webpack-dev-middleware/blob/v8.1.1/src/middleware.js",
+                                "https://github.com/webpack/webpack-dev-middleware/releases/tag/v7.4.6",
+                                "https://github.com/webpack/webpack-dev-middleware/releases/tag/v8.3.0",
+                                "https://www.vulncheck.com/advisories/webpack-dev-middleware-path-traversal-via-offset-slice-on-a-non-slash-terminated-publicpath",
+                                "https://github.com/advisories/GHSA-g84c-rxfj-3j2c",
+                                "https://packages.mini.dev/advisories/osv/MINI-f3w6-59c6-v6x5.json"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2026-08-24T14:17:02.250Z"
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "CVE-2026-85091",
+                            "description": "zlib versions 1.3.1.2 through 1.3.2 contain a heap buffer overflow vulnerability in the gz_vacate() function when processing non-blocking gzwrite() operations with stale external buffer pointers. Attackers can trigger the overflow by calling gzprintf() or gzvprintf() after a write stall, causing an unchecked memmove() to write beyond the internal input buffer boundary.",
+                            "severity": "High",
+                            "cvss": {
+                                "preferredBaseScore": 7.4,
+                                "v3": {
+                                    "baseScore": 7.4
+                                },
+                                "v4": {
+                                    "baseScore": 8.3
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2026-85091",
+                                "ECHO-2e36-531c-37dd",
+                                "XRAY-1068923",
+                                "XRAY-1068924",
+                                "XRAY-1069685",
+                                "XRAY-1070149",
+                                "XRAY-1070390",
+                                "XRAY-1076681",
+                                "XRAY-1102248"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "CVE-2026-85091"
+                                }
+                            ],
+                            "references": [
+                                "https://gist.github.com/thesmartshadow/e0b9481792afb7c31e86fee1ff084490",
+                                "https://github.com/madler/zlib",
+                                "https://github.com/madler/zlib/blob/v1.3.2/gzwrite.c#L393",
+                                "https://www.vulncheck.com/advisories/zlib-1.3.1.2-through-1.3.2-heap-buffer-overflow-via-gz-vacate",
+                                "https://advisory.echohq.com/cve/CVE-2026-85091",
+                                "https://www.cve.org/CVERecord?id=CVE-2026-85091",
+                                "https://advisory.echohq.com/osv/ECHO-2e36-531c-37dd.json"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2026-09-02T00:00:00.000Z"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "error": null,
+    "provider_url": null
+}

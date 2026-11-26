@@ -1,0 +1,775 @@
+﻿{
+    "extensionPoints":  {
+                            "items":  [
+                                          {
+                                              "name":  "kev-data-source"
+                                          },
+                                          {
+                                              "name":  "notification-publisher"
+                                          },
+                                          {
+                                              "name":  "package-metadata-resolver"
+                                          },
+                                          {
+                                              "name":  "vuln-analyzer"
+                                          },
+                                          {
+                                              "name":  "vuln-data-source"
+                                          }
+                                      ],
+                            "total":  {
+                                          "count":  5,
+                                          "type":  "EXACT"
+                                      }
+                        },
+    "kev-data-source":  {
+                            "list":  {
+                                         "items":  [
+                                                       {
+                                                           "name":  "cisa",
+                                                           "display_name":  "CISA KEV",
+                                                           "configurable":  true,
+                                                           "testable":  false
+                                                       },
+                                                       {
+                                                           "name":  "enisa",
+                                                           "display_name":  "ENISA EU KEV",
+                                                           "configurable":  true,
+                                                           "testable":  false
+                                                       },
+                                                       {
+                                                           "name":  "vulncheck",
+                                                           "display_name":  "VulnCheck KEV",
+                                                           "configurable":  true,
+                                                           "testable":  false
+                                                       }
+                                                   ],
+                                         "total":  {
+                                                       "count":  3,
+                                                       "type":  "EXACT"
+                                                   }
+                                     },
+                            "configs":  {
+                                            "cisa":  {
+                                                         "schema":  {
+                                                                        "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                        "$id":  "https://dependencytrack.org/schemas/cisa-kev-data-source-config-v1.schema.json",
+                                                                        "type":  "object",
+                                                                        "javaInterfaces":  [
+                                                                                               "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                           ],
+                                                                        "properties":  {
+                                                                                           "enabled":  {
+                                                                                                           "type":  "boolean",
+                                                                                                           "title":  "Enabled",
+                                                                                                           "description":  "Whether the CISA KEV data source should be enabled.",
+                                                                                                           "existingJavaType":  "boolean"
+                                                                                                       },
+                                                                                           "feedUrl":  {
+                                                                                                           "type":  "string",
+                                                                                                           "title":  "Feed URL",
+                                                                                                           "description":  "URL of the CISA Known Exploited Vulnerabilities JSON feed.",
+                                                                                                           "minLength":  1,
+                                                                                                           "format":  "uri"
+                                                                                                       }
+                                                                                       },
+                                                                        "required":  [
+                                                                                         "enabled"
+                                                                                     ]
+                                                                    },
+                                                         "config":  {
+                                                                        "config":  {
+                                                                                       "enabled":  true,
+                                                                                       "feedUrl":  "https://www.cisa.gov/sites/default/files/feeds/known_exploited_vulnerabilities.json"
+                                                                                   }
+                                                                    }
+                                                     },
+                                            "enisa":  {
+                                                          "schema":  {
+                                                                         "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                         "$id":  "https://dependencytrack.org/schemas/enisa-kev-data-source-config-v1.schema.json",
+                                                                         "type":  "object",
+                                                                         "javaInterfaces":  [
+                                                                                                "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                            ],
+                                                                         "properties":  {
+                                                                                            "enabled":  {
+                                                                                                            "type":  "boolean",
+                                                                                                            "title":  "Enabled",
+                                                                                                            "description":  "Whether the ENISA EU KEV data source should be enabled.",
+                                                                                                            "existingJavaType":  "boolean"
+                                                                                                        },
+                                                                                            "feedUrl":  {
+                                                                                                            "type":  "string",
+                                                                                                            "title":  "Feed URL",
+                                                                                                            "description":  "URL of the ENISA EU KEV JSON feed.",
+                                                                                                            "minLength":  1,
+                                                                                                            "format":  "uri"
+                                                                                                        }
+                                                                                        },
+                                                                         "required":  [
+                                                                                          "enabled"
+                                                                                      ]
+                                                                     },
+                                                          "config":  {
+                                                                         "config":  {
+                                                                                        "enabled":  true,
+                                                                                        "feedUrl":  "https://raw.githubusercontent.com/enisaeu/CNW/main/advisories/eukev/eukev.json"
+                                                                                    }
+                                                                     }
+                                                      },
+                                            "vulncheck":  {
+                                                              "schema":  {
+                                                                             "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                             "$id":  "https://dependencytrack.org/schemas/vulncheck-kev-data-source-config-v1.schema.json",
+                                                                             "type":  "object",
+                                                                             "description":  "[VulnCheck KEV](https://docs.vulncheck.com/community/vulncheck-kev/introduction) is a community catalog of vulnerabilities known to be exploited in the wild. It covers substantially more vulnerabilities than the CISA KEV catalog, and often records exploitation earlier.  \n\nUsing it requires a VulnCheck API token. A free community token is sufficient.",
+                                                                             "javaInterfaces":  [
+                                                                                                    "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                                ],
+                                                                             "properties":  {
+                                                                                                "enabled":  {
+                                                                                                                "type":  "boolean",
+                                                                                                                "title":  "Enabled",
+                                                                                                                "description":  "Whether the VulnCheck KEV data source should be enabled.",
+                                                                                                                "existingJavaType":  "boolean"
+                                                                                                            },
+                                                                                                "apiUrl":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "API URL",
+                                                                                                               "description":  "Base URL of the VulnCheck API.",
+                                                                                                               "minLength":  1,
+                                                                                                               "format":  "uri"
+                                                                                                           },
+                                                                                                "apiToken":  {
+                                                                                                                 "type":  "string",
+                                                                                                                 "title":  "API Token",
+                                                                                                                 "description":  "Token to authenticate with the VulnCheck API.  \nCreate one at [vulncheck.com](https://console.vulncheck.com/settings/tokens).",
+                                                                                                                 "minLength":  1,
+                                                                                                                 "x-secret-ref":  true
+                                                                                                             }
+                                                                                            },
+                                                                             "required":  [
+                                                                                              "enabled"
+                                                                                          ]
+                                                                         },
+                                                              "config":  {
+                                                                             "config":  {
+                                                                                            "apiUrl":  "https://api.vulncheck.com",
+                                                                                            "enabled":  false
+                                                                                        }
+                                                                         }
+                                                          }
+                                        }
+                        },
+    "vuln-analyzer":  {
+                          "list":  {
+                                       "items":  [
+                                                     {
+                                                         "name":  "checkmarx",
+                                                         "display_name":  "Checkmarx SCA",
+                                                         "configurable":  true,
+                                                         "testable":  false
+                                                     },
+                                                     {
+                                                         "name":  "internal",
+                                                         "display_name":  "Internal",
+                                                         "configurable":  true,
+                                                         "testable":  false
+                                                     },
+                                                     {
+                                                         "name":  "oss-index",
+                                                         "display_name":  "Sonatype OSS Index",
+                                                         "configurable":  true,
+                                                         "testable":  true
+                                                     },
+                                                     {
+                                                         "name":  "snyk",
+                                                         "display_name":  "Snyk",
+                                                         "configurable":  true,
+                                                         "testable":  false
+                                                     },
+                                                     {
+                                                         "name":  "trivy",
+                                                         "display_name":  "Trivy",
+                                                         "configurable":  true,
+                                                         "testable":  false
+                                                     },
+                                                     {
+                                                         "name":  "vuln-db",
+                                                         "display_name":  "VulnDB",
+                                                         "configurable":  true,
+                                                         "testable":  false
+                                                     }
+                                                 ],
+                                       "total":  {
+                                                     "count":  6,
+                                                     "type":  "EXACT"
+                                                 }
+                                   },
+                          "configs":  {
+                                          "checkmarx":  {
+                                                            "schema":  {
+                                                                           "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                           "$id":  "https://dependencytrack.org/schemas/checkmarx-vuln-analyzer-config-v1.schema.json",
+                                                                           "type":  "object",
+                                                                           "javaInterfaces":  [
+                                                                                                  "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                              ],
+                                                                           "properties":  {
+                                                                                              "enabled":  {
+                                                                                                              "type":  "boolean",
+                                                                                                              "title":  "Enabled",
+                                                                                                              "description":  "Whether the Checkmarx vulnerability analyzer should be enabled.",
+                                                                                                              "existingJavaType":  "boolean"
+                                                                                                          },
+                                                                                              "aliasSyncEnabled":  {
+                                                                                                                       "type":  "boolean",
+                                                                                                                       "title":  "Alias Synchronization Enabled",
+                                                                                                                       "description":  "Whether to include alias information in vulnerability data.",
+                                                                                                                       "existingJavaType":  "boolean"
+                                                                                                                   },
+                                                                                              "authApiBaseUrl":  {
+                                                                                                                     "type":  "string",
+                                                                                                                     "title":  "Authentication API Base URL",
+                                                                                                                     "description":  "Base URL of Checkmarx\u0027s authentication API.",
+                                                                                                                     "format":  "uri",
+                                                                                                                     "minLength":  1
+                                                                                                                 },
+                                                                                              "apiBaseUrl":  {
+                                                                                                                 "type":  "string",
+                                                                                                                 "title":  "API Base URL",
+                                                                                                                 "description":  "Base URL of Checkmarx\u0027s REST API.",
+                                                                                                                 "format":  "uri",
+                                                                                                                 "minLength":  1
+                                                                                                             },
+                                                                                              "orgId":  {
+                                                                                                            "type":  "string",
+                                                                                                            "title":  "Organization ID",
+                                                                                                            "description":  "Organization ID to authenticate with the Checkmarx REST API.",
+                                                                                                            "minLength":  1
+                                                                                                        },
+                                                                                              "apiKey":  {
+                                                                                                             "type":  "string",
+                                                                                                             "title":  "API Key",
+                                                                                                             "description":  "API key to authenticate with the Checkmarx REST API.",
+                                                                                                             "minLength":  1,
+                                                                                                             "x-secret-ref":  true
+                                                                                                         }
+                                                                                          },
+                                                                           "required":  [
+                                                                                            "enabled"
+                                                                                        ]
+                                                                       },
+                                                            "config":  {
+                                                                           "config":  {
+                                                                                          "enabled":  false,
+                                                                                          "aliasSyncEnabled":  false
+                                                                                      }
+                                                                       }
+                                                        },
+                                          "internal":  {
+                                                           "schema":  {
+                                                                          "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                          "$id":  "https://dependencytrack.org/schemas/internal-vuln-analyzer-config-v1.schema.json",
+                                                                          "type":  "object",
+                                                                          "javaInterfaces":  [
+                                                                                                 "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                             ],
+                                                                          "properties":  {
+                                                                                             "enabled":  {
+                                                                                                             "type":  "boolean",
+                                                                                                             "title":  "Enabled",
+                                                                                                             "description":  "Whether the internal vulnerability analyzer should be enabled.",
+                                                                                                             "existingJavaType":  "boolean"
+                                                                                                         }
+                                                                                         },
+                                                                          "required":  [
+                                                                                           "enabled"
+                                                                                       ]
+                                                                      },
+                                                           "config":  {
+                                                                          "config":  {
+                                                                                         "enabled":  true
+                                                                                     }
+                                                                      }
+                                                       },
+                                          "oss-index":  {
+                                                            "schema":  {
+                                                                           "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                           "$id":  "https://dependencytrack.org/schemas/oss-index-vuln-analyzer-config-v1.schema.json",
+                                                                           "type":  "object",
+                                                                           "javaInterfaces":  [
+                                                                                                  "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                              ],
+                                                                           "properties":  {
+                                                                                              "enabled":  {
+                                                                                                              "type":  "boolean",
+                                                                                                              "title":  "Enabled",
+                                                                                                              "description":  "Whether the OSS Index vulnerability analyzer should be enabled.",
+                                                                                                              "existingJavaType":  "boolean"
+                                                                                                          },
+                                                                                              "aliasSyncEnabled":  {
+                                                                                                                       "type":  "boolean",
+                                                                                                                       "title":  "Alias Synchronization Enabled",
+                                                                                                                       "description":  "Whether to include alias information in vulnerability data.",
+                                                                                                                       "existingJavaType":  "boolean"
+                                                                                                                   },
+                                                                                              "apiUrl":  {
+                                                                                                             "type":  "string",
+                                                                                                             "title":  "API URL",
+                                                                                                             "description":  "URL of OSS Index\u0027 REST API.",
+                                                                                                             "format":  "uri",
+                                                                                                             "minLength":  1
+                                                                                                         },
+                                                                                              "username":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "Username",
+                                                                                                               "description":  "Username to authenticate with the OSS Index REST API. Optional when using Sonatype PATs.",
+                                                                                                               "minLength":  1
+                                                                                                           },
+                                                                                              "apiToken":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "API Token",
+                                                                                                               "description":  "API token to authenticate with the OSS Index REST API.",
+                                                                                                               "minLength":  1,
+                                                                                                               "x-secret-ref":  true
+                                                                                                           }
+                                                                                          },
+                                                                           "required":  [
+                                                                                            "enabled"
+                                                                                        ]
+                                                                       },
+                                                            "config":  {
+                                                                           "config":  {
+                                                                                          "apiUrl":  "https://ossindex.sonatype.org",
+                                                                                          "enabled":  false,
+                                                                                          "aliasSyncEnabled":  false
+                                                                                      }
+                                                                       }
+                                                        },
+                                          "snyk":  {
+                                                       "schema":  {
+                                                                      "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                      "$id":  "https://dependencytrack.org/schemas/snyk-vuln-analyzer-config-v1.schema.json",
+                                                                      "type":  "object",
+                                                                      "javaInterfaces":  [
+                                                                                             "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                         ],
+                                                                      "properties":  {
+                                                                                         "enabled":  {
+                                                                                                         "type":  "boolean",
+                                                                                                         "title":  "Enabled",
+                                                                                                         "description":  "Whether the Snyk vulnerability analyzer should be enabled.",
+                                                                                                         "existingJavaType":  "boolean"
+                                                                                                     },
+                                                                                         "aliasSyncEnabled":  {
+                                                                                                                  "type":  "boolean",
+                                                                                                                  "title":  "Alias Synchronization Enabled",
+                                                                                                                  "description":  "Whether to include alias information in vulnerability data.",
+                                                                                                                  "existingJavaType":  "boolean"
+                                                                                                              },
+                                                                                         "checksumMatchingEnabled":  {
+                                                                                                                         "type":  "boolean",
+                                                                                                                         "title":  "Checksum Matching Enabled",
+                                                                                                                         "description":  "Whether to send the `checksum` PURL qualifier to Snyk, so Snyk matches on the artifact checksum in addition to name and version. Only affects Maven components. Only the Snyk CLI populates this qualifier, via `snyk sbom --include-provenance`, so this has no effect for BOMs generated by other tools.",
+                                                                                                                         "existingJavaType":  "boolean"
+                                                                                                                     },
+                                                                                         "batchRequestsEnabled":  {
+                                                                                                                      "type":  "boolean",
+                                                                                                                      "title":  "Batch Requests Enabled",
+                                                                                                                      "description":  "Whether to request issues for multiple packages at once. The batch endpoint is not available to all Snyk organizations; disable this to request issues one package at a time instead.",
+                                                                                                                      "default":  true,
+                                                                                                                      "existingJavaType":  "boolean"
+                                                                                                                  },
+                                                                                         "apiBaseUrl":  {
+                                                                                                            "type":  "string",
+                                                                                                            "title":  "API Base URL",
+                                                                                                            "description":  "Base URL of Snyk\u0027s REST API.",
+                                                                                                            "format":  "uri",
+                                                                                                            "minLength":  1
+                                                                                                        },
+                                                                                         "orgId":  {
+                                                                                                       "type":  "string",
+                                                                                                       "title":  "Organization ID",
+                                                                                                       "description":  "Organization ID to authenticate with the Snyk REST API.",
+                                                                                                       "minLength":  1
+                                                                                                   },
+                                                                                         "apiToken":  {
+                                                                                                          "type":  "string",
+                                                                                                          "title":  "API Token",
+                                                                                                          "description":  "API token to authenticate with the Snyk REST API.",
+                                                                                                          "minLength":  1,
+                                                                                                          "x-secret-ref":  true
+                                                                                                      }
+                                                                                     },
+                                                                      "required":  [
+                                                                                       "enabled"
+                                                                                   ]
+                                                                  },
+                                                       "config":  {
+                                                                      "config":  {
+                                                                                     "enabled":  false,
+                                                                                     "apiBaseUrl":  "https://api.snyk.io",
+                                                                                     "aliasSyncEnabled":  false,
+                                                                                     "batchRequestsEnabled":  true,
+                                                                                     "checksumMatchingEnabled":  false
+                                                                                 }
+                                                                  }
+                                                   },
+                                          "trivy":  {
+                                                        "schema":  {
+                                                                       "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                       "$id":  "https://dependencytrack.org/schemas/trivy-vuln-analyzer-config-v1.schema.json",
+                                                                       "type":  "object",
+                                                                       "javaInterfaces":  [
+                                                                                              "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                          ],
+                                                                       "properties":  {
+                                                                                          "enabled":  {
+                                                                                                          "type":  "boolean",
+                                                                                                          "title":  "Enabled",
+                                                                                                          "description":  "Whether the Trivy vulnerability analyzer should be enabled.",
+                                                                                                          "existingJavaType":  "boolean"
+                                                                                                      },
+                                                                                          "apiUrl":  {
+                                                                                                         "type":  "string",
+                                                                                                         "title":  "API URL",
+                                                                                                         "description":  "URL of the Trivy server.",
+                                                                                                         "format":  "uri",
+                                                                                                         "minLength":  1
+                                                                                                     },
+                                                                                          "apiToken":  {
+                                                                                                           "type":  "string",
+                                                                                                           "title":  "API Token",
+                                                                                                           "description":  "Token for authenticating with the Trivy server.",
+                                                                                                           "minLength":  1,
+                                                                                                           "x-secret-ref":  true
+                                                                                                       },
+                                                                                          "ignoreUnfixed":  {
+                                                                                                                "type":  "boolean",
+                                                                                                                "title":  "Ignore Unfixed",
+                                                                                                                "description":  "Whether to ignore vulnerabilities without a fix.",
+                                                                                                                "existingJavaType":  "boolean"
+                                                                                                            },
+                                                                                          "scanLibrary":  {
+                                                                                                              "type":  "boolean",
+                                                                                                              "title":  "Scan Library",
+                                                                                                              "description":  "Whether to scan library packages.",
+                                                                                                              "existingJavaType":  "boolean"
+                                                                                                          },
+                                                                                          "scanOs":  {
+                                                                                                         "type":  "boolean",
+                                                                                                         "title":  "Scan OS",
+                                                                                                         "description":  "Whether to scan OS packages.",
+                                                                                                         "existingJavaType":  "boolean"
+                                                                                                     }
+                                                                                      },
+                                                                       "required":  [
+                                                                                        "enabled"
+                                                                                    ]
+                                                                   },
+                                                        "config":  {
+                                                                       "config":  {
+                                                                                      "scanOs":  false,
+                                                                                      "enabled":  false,
+                                                                                      "scanLibrary":  true,
+                                                                                      "ignoreUnfixed":  false
+                                                                                  }
+                                                                   }
+                                                    },
+                                          "vuln-db":  {
+                                                          "schema":  {
+                                                                         "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                         "$id":  "https://dependencytrack.org/schemas/vuln-db-vuln-analyzer-config-v1.schema.json",
+                                                                         "type":  "object",
+                                                                         "javaInterfaces":  [
+                                                                                                "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                            ],
+                                                                         "properties":  {
+                                                                                            "enabled":  {
+                                                                                                            "type":  "boolean",
+                                                                                                            "title":  "Enabled",
+                                                                                                            "description":  "Whether the VulnDB vulnerability analyzer should be enabled.",
+                                                                                                            "existingJavaType":  "boolean"
+                                                                                                        },
+                                                                                            "aliasSyncEnabled":  {
+                                                                                                                     "type":  "boolean",
+                                                                                                                     "title":  "Alias Synchronization Enabled",
+                                                                                                                     "description":  "Whether to include alias information in vulnerability data.",
+                                                                                                                     "existingJavaType":  "boolean"
+                                                                                                                 },
+                                                                                            "apiUrl":  {
+                                                                                                           "type":  "string",
+                                                                                                           "title":  "API URL",
+                                                                                                           "description":  "URL of VulnDB\u0027s REST API.",
+                                                                                                           "format":  "uri",
+                                                                                                           "minLength":  1
+                                                                                                       },
+                                                                                            "oauth2ClientId":  {
+                                                                                                                   "type":  "string",
+                                                                                                                   "title":  "OAuth2 Client ID",
+                                                                                                                   "description":  "OAuth 2.0 client ID for authentication with the VulnDB REST API.",
+                                                                                                                   "minLength":  1
+                                                                                                               },
+                                                                                            "oauth2ClientSecret":  {
+                                                                                                                       "type":  "string",
+                                                                                                                       "title":  "OAuth2 Client Secret",
+                                                                                                                       "description":  "OAuth 2.0 client secret for authentication with the VulnDB REST API.",
+                                                                                                                       "minLength":  1,
+                                                                                                                       "x-secret-ref":  true
+                                                                                                                   }
+                                                                                        },
+                                                                         "required":  [
+                                                                                          "enabled"
+                                                                                      ]
+                                                                     },
+                                                          "config":  {
+                                                                         "config":  {
+                                                                                        "apiUrl":  "https://vulndb.flashpoint.io",
+                                                                                        "enabled":  false,
+                                                                                        "aliasSyncEnabled":  false
+                                                                                    }
+                                                                     }
+                                                      }
+                                      }
+                      },
+    "vuln-data-source":  {
+                             "list":  {
+                                          "items":  [
+                                                        {
+                                                            "name":  "github",
+                                                            "display_name":  "GitHub Advisories",
+                                                            "configurable":  true,
+                                                            "testable":  false
+                                                        },
+                                                        {
+                                                            "name":  "jvn",
+                                                            "display_name":  "JVN iPedia",
+                                                            "configurable":  true,
+                                                            "testable":  true
+                                                        },
+                                                        {
+                                                            "name":  "nvd",
+                                                            "display_name":  "NVD",
+                                                            "configurable":  true,
+                                                            "testable":  true
+                                                        },
+                                                        {
+                                                            "name":  "osv",
+                                                            "display_name":  "OSV",
+                                                            "configurable":  true,
+                                                            "testable":  false
+                                                        }
+                                                    ],
+                                          "total":  {
+                                                        "count":  4,
+                                                        "type":  "EXACT"
+                                                    }
+                                      },
+                             "configs":  {
+                                             "github":  {
+                                                            "schema":  {
+                                                                           "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                           "$id":  "https://dependencytrack.org/schemas/github-vuln-data-source-config-v1.schema.json",
+                                                                           "type":  "object",
+                                                                           "javaInterfaces":  [
+                                                                                                  "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                              ],
+                                                                           "properties":  {
+                                                                                              "enabled":  {
+                                                                                                              "type":  "boolean",
+                                                                                                              "title":  "Enabled",
+                                                                                                              "description":  "Whether the GitHub Advisories data source should be enabled.",
+                                                                                                              "existingJavaType":  "boolean"
+                                                                                                          },
+                                                                                              "aliasSyncEnabled":  {
+                                                                                                                       "type":  "boolean",
+                                                                                                                       "title":  "Alias Synchronization Enabled",
+                                                                                                                       "description":  "Whether to include alias information in vulnerability data."
+                                                                                                                   },
+                                                                                              "apiUrl":  {
+                                                                                                             "type":  "string",
+                                                                                                             "title":  "GraphQL API URL",
+                                                                                                             "description":  "URL of GitHub\u0027s GraphQL API.",
+                                                                                                             "format":  "uri",
+                                                                                                             "minLength":  1
+                                                                                                         },
+                                                                                              "apiToken":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "API Token",
+                                                                                                               "description":  "Personal Access Token to authenticate with the GitHub API.  \n**The token is only required for authentication and does not require any permissions**.  \nBoth [fine-grained](https://github.com/settings/personal-access-tokens/new) and [classic](https://github.com/settings/tokens/new) access tokens work.  \nMutually exclusive with the GitHub App credentials.",
+                                                                                                               "minLength":  1,
+                                                                                                               "x-secret-ref":  true
+                                                                                                           },
+                                                                                              "appId":  {
+                                                                                                            "type":  "string",
+                                                                                                            "title":  "GitHub App ID",
+                                                                                                            "description":  "ID of the GitHub App to authenticate as. Configure together with the Installation ID and App Private Key as an alternative to the API Token.",
+                                                                                                            "minLength":  1
+                                                                                                        },
+                                                                                              "installationId":  {
+                                                                                                                     "type":  "string",
+                                                                                                                     "title":  "GitHub App Installation ID",
+                                                                                                                     "description":  "ID of the GitHub App installation to mint access tokens for.",
+                                                                                                                     "minLength":  1
+                                                                                                                 },
+                                                                                              "appPrivateKey":  {
+                                                                                                                    "type":  "string",
+                                                                                                                    "title":  "GitHub App Private Key",
+                                                                                                                    "description":  "PEM-encoded RSA private key of the GitHub App in PKCS#8 format (`-----BEGIN PRIVATE KEY-----`). GitHub delivers keys in PKCS#1 (`-----BEGIN RSA PRIVATE KEY-----`); convert once with `openssl pkcs8 -topk8 -nocrypt -in github-app.pem -out github-app.pk8.pem`.",
+                                                                                                                    "minLength":  1,
+                                                                                                                    "x-secret-ref":  true
+                                                                                                                }
+                                                                                          },
+                                                                           "required":  [
+                                                                                            "enabled"
+                                                                                        ]
+                                                                       },
+                                                            "config":  {
+                                                                           "config":  {
+                                                                                          "apiUrl":  "https://api.github.com/graphql",
+                                                                                          "enabled":  false,
+                                                                                          "aliasSyncEnabled":  true
+                                                                                      }
+                                                                       }
+                                                        },
+                                             "jvn":  {
+                                                         "schema":  {
+                                                                        "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                        "$id":  "https://dependencytrack.org/schemas/jvn-vuln-data-source-config-v1.schema.json",
+                                                                        "type":  "object",
+                                                                        "javaInterfaces":  [
+                                                                                               "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                           ],
+                                                                        "properties":  {
+                                                                                           "enabled":  {
+                                                                                                           "type":  "boolean",
+                                                                                                           "title":  "Enabled",
+                                                                                                           "description":  "Whether the JVN (Japan Vulnerability Notes) data source should be enabled.",
+                                                                                                           "existingJavaType":  "boolean"
+                                                                                                       },
+                                                                                           "feedBaseUrl":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "JVN data feed base URL",
+                                                                                                               "description":  "Base URL of the JVN data feeds (the `.../ja/feed` directory). The yearly detail feeds (`detail/jvndb_detail_YYYY.rdf`) and `checksum.txt` are read from here. Defaults to `https://jvndb.jvn.jp/ja/feed`.",
+                                                                                                               "format":  "uri",
+                                                                                                               "minLength":  1
+                                                                                                           },
+                                                                                           "startYear":  {
+                                                                                                             "type":  "integer",
+                                                                                                             "title":  "Backfill start year",
+                                                                                                             "description":  "First publication year to mirror from the yearly detail feeds (JVN iPedia data reaches back to 1998). Defaults to 1998."
+                                                                                                         }
+                                                                                       },
+                                                                        "required":  [
+                                                                                         "enabled"
+                                                                                     ]
+                                                                    },
+                                                         "config":  {
+                                                                        "config":  {
+                                                                                       "enabled":  false,
+                                                                                       "startYear":  1998,
+                                                                                       "feedBaseUrl":  "https://jvndb.jvn.jp/ja/feed"
+                                                                                   }
+                                                                    }
+                                                     },
+                                             "nvd":  {
+                                                         "schema":  {
+                                                                        "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                        "$id":  "https://dependencytrack.org/schemas/nvd-vuln-data-source-config-v1.schema.json",
+                                                                        "type":  "object",
+                                                                        "javaInterfaces":  [
+                                                                                               "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                           ],
+                                                                        "properties":  {
+                                                                                           "enabled":  {
+                                                                                                           "type":  "boolean",
+                                                                                                           "title":  "Enabled",
+                                                                                                           "description":  "Whether the NVD data source should be enabled.",
+                                                                                                           "existingJavaType":  "boolean"
+                                                                                                       },
+                                                                                           "cveFeedsUrl":  {
+                                                                                                               "type":  "string",
+                                                                                                               "title":  "CVE Feeds URL",
+                                                                                                               "description":  "The URL to download CVE feeds from.  \n**Must** serve [JSON 2.0 feed files](https://nvd.nist.gov/vuln/data-feeds#divJson20Feeds).",
+                                                                                                               "format":  "uri",
+                                                                                                               "minLength":  1
+                                                                                                           }
+                                                                                       },
+                                                                        "required":  [
+                                                                                         "enabled"
+                                                                                     ]
+                                                                    },
+                                                         "config":  {
+                                                                        "config":  {
+                                                                                       "enabled":  true,
+                                                                                       "cveFeedsUrl":  "https://nvd.nist.gov/feeds"
+                                                                                   }
+                                                                    }
+                                                     },
+                                             "osv":  {
+                                                         "schema":  {
+                                                                        "$schema":  "https://json-schema.org/draft/2020-12/schema",
+                                                                        "$id":  "https://dependencytrack.org/schemas/osv-vuln-data-source-config-v1.schema.json",
+                                                                        "type":  "object",
+                                                                        "javaInterfaces":  [
+                                                                                               "org.dependencytrack.plugin.api.config.RuntimeConfig"
+                                                                                           ],
+                                                                        "properties":  {
+                                                                                           "enabled":  {
+                                                                                                           "type":  "boolean",
+                                                                                                           "title":  "Enabled",
+                                                                                                           "description":  "Whether the OSV data source should be enabled.",
+                                                                                                           "existingJavaType":  "boolean"
+                                                                                                       },
+                                                                                           "aliasSyncEnabled":  {
+                                                                                                                    "type":  "boolean",
+                                                                                                                    "title":  "Alias Synchronization Enabled",
+                                                                                                                    "description":  "Whether to include alias information in vulnerability data."
+                                                                                                                },
+                                                                                           "incrementalMirroringEnabled":  {
+                                                                                                                               "type":  "boolean",
+                                                                                                                               "title":  "Incremental Mirroring Enabled",
+                                                                                                                               "description":  "Whether incremental mirroring is enabled. When enabled (default), watermark logic will be used to only mirror new or updated vulnerabilities. When disabled, full mirroring will be performed on each run.",
+                                                                                                                               "default":  true,
+                                                                                                                               "existingJavaType":  "boolean"
+                                                                                                                           },
+                                                                                           "dataUrl":  {
+                                                                                                           "type":  "string",
+                                                                                                           "title":  "Data URL",
+                                                                                                           "description":  "The URL to download OSV data from.  \n**Must** be compatible with [OSV\u0027s data dumps](https://google.github.io/osv.dev/data/#data-dumps).",
+                                                                                                           "minLength":  1,
+                                                                                                           "format":  "uri"
+                                                                                                       },
+                                                                                           "ecosystems":  {
+                                                                                                              "type":  "array",
+                                                                                                              "title":  "Ecosystems",
+                                                                                                              "description":  "The ecosystems to mirror vulnerability data for.  \nA list of available ecosystems can be found in the [OSV documentation](https://ossf.github.io/osv-schema/#defined-ecosystems).",
+                                                                                                              "uniqueItems":  true,
+                                                                                                              "items":  {
+                                                                                                                            "type":  "string",
+                                                                                                                            "title":  "Ecosystem",
+                                                                                                                            "minLength":  1
+                                                                                                                        }
+                                                                                                          }
+                                                                                       },
+                                                                        "required":  [
+                                                                                         "enabled"
+                                                                                     ]
+                                                                    },
+                                                         "config":  {
+                                                                        "config":  {
+                                                                                       "dataUrl":  "https://storage.googleapis.com/osv-vulnerabilities",
+                                                                                       "enabled":  true,
+                                                                                       "ecosystems":  [
+                                                                                                          "PyPI"
+                                                                                                      ],
+                                                                                       "aliasSyncEnabled":  false,
+                                                                                       "incrementalMirroringEnabled":  true
+                                                                                   }
+                                                                    }
+                                                     }
+                                         }
+                         }
+}

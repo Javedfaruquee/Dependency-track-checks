@@ -1,0 +1,208 @@
+﻿{
+    "dtVersion":  {
+                      "framework":  {
+                                        "uuid":  "4056ecb2-bc54-4dee-93a5-f0bfb530cd8b",
+                                        "timestamp":  "2026-10-25T11:09:51Z",
+                                        "version":  "5.2.1",
+                                        "name":  "Alpine"
+                                    },
+                      "uuid":  "5d411518-ecbd-4f73-855c-26329158b8b9",
+                      "application":  "Dependency-Track",
+                      "timestamp":  "2026-10-25T11:10:36Z",
+                      "version":  "5.2.1"
+                  },
+    "osvEcosystems":  null,
+    "projects":  {
+                     "conan-native":  {
+                                          "components":  3,
+                                          "componentList":  [
+                                                                "libpng@1.6.34 purl=pkg:conan/libpng@1.6.34 cpe=",
+                                                                "openssl@1.1.1k purl=pkg:conan/openssl@1.1.1k cpe=",
+                                                                "zlib@1.2.11 purl=pkg:conan/zlib@1.2.11 cpe="
+                                                            ],
+                                          "findings":  0,
+                                          "byComponent":  {
+
+                                                          },
+                                          "sources":  [
+
+                                                      ]
+                                      },
+                     "conan-normalised":  {
+                                              "components":  3,
+                                              "componentList":  [
+                                                                    "libpng@1.6.34 purl=pkg:conan/libpng@1.6.34 cpe=cpe:2.3:a:libpng:libpng:1.6.34:*:*:*:*:*:*:*",
+                                                                    "openssl@1.1.1k purl=pkg:conan/openssl@1.1.1k cpe=cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*",
+                                                                    "zlib@1.2.11 purl=pkg:conan/zlib@1.2.11 cpe=cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*"
+                                                                ],
+                                              "findings":  65,
+                                              "byComponent":  {
+                                                                  "libpng@1.6.34":  [
+                                                                                        "NVD:CVE-2026-22801",
+                                                                                        "NVD:CVE-2026-25646",
+                                                                                        "NVD:CVE-2026-33416",
+                                                                                        "NVD:CVE-2026-34757",
+                                                                                        "NVD:CVE-2025-64505",
+                                                                                        "NVD:CVE-2025-64506",
+                                                                                        "NVD:CVE-2025-64720",
+                                                                                        "NVD:CVE-2025-65018",
+                                                                                        "NVD:CVE-2025-66293",
+                                                                                        "NVD:CVE-2019-7317",
+                                                                                        "NVD:CVE-2018-13785",
+                                                                                        "NVD:CVE-2018-14048"
+                                                                                    ],
+                                                                  "openssl@1.1.1k":  [
+                                                                                         "NVD:CVE-2026-22795",
+                                                                                         "NVD:CVE-2026-22796",
+                                                                                         "NVD:CVE-2026-28387",
+                                                                                         "NVD:CVE-2026-28388",
+                                                                                         "NVD:CVE-2026-28389",
+                                                                                         "NVD:CVE-2026-28390",
+                                                                                         "NVD:CVE-2026-34180",
+                                                                                         "NVD:CVE-2026-42766",
+                                                                                         "NVD:CVE-2026-45447",
+                                                                                         "NVD:CVE-2026-7383",
+                                                                                         "NVD:CVE-2026-9076",
+                                                                                         "NVD:CVE-2026-54874",
+                                                                                         "NVD:CVE-2026-35189",
+                                                                                         "NVD:CVE-2026-54872",
+                                                                                         "NVD:CVE-2026-75806",
+                                                                                         "NVD:CVE-2026-77696",
+                                                                                         "NVD:CVE-2026-84782",
+                                                                                         "NVD:CVE-2025-9230",
+                                                                                         "NVD:CVE-2025-9231",
+                                                                                         "NVD:CVE-2025-9232",
+                                                                                         "NVD:CVE-2025-68160",
+                                                                                         "NVD:CVE-2025-69418",
+                                                                                         "NVD:CVE-2025-69419",
+                                                                                         "NVD:CVE-2025-69420",
+                                                                                         "NVD:CVE-2025-69421",
+                                                                                         "NVD:CVE-2024-0727",
+                                                                                         "NVD:CVE-2024-2511",
+                                                                                         "NVD:CVE-2024-5535",
+                                                                                         "NVD:CVE-2024-9143",
+                                                                                         "NVD:CVE-2024-4741",
+                                                                                         "NVD:CVE-2024-13176",
+                                                                                         "NVD:CVE-2023-0215",
+                                                                                         "NVD:CVE-2023-0286",
+                                                                                         "NVD:CVE-2023-0464",
+                                                                                         "NVD:CVE-2023-0465",
+                                                                                         "NVD:CVE-2023-0466",
+                                                                                         "NVD:CVE-2023-2650",
+                                                                                         "NVD:CVE-2023-3817",
+                                                                                         "NVD:CVE-2023-4807",
+                                                                                         "NVD:CVE-2023-5678",
+                                                                                         "NVD:CVE-2022-0778",
+                                                                                         "NVD:CVE-2022-1292",
+                                                                                         "NVD:CVE-2022-2068",
+                                                                                         "NVD:CVE-2022-2097",
+                                                                                         "NVD:CVE-2022-4304",
+                                                                                         "NVD:CVE-2022-4450",
+                                                                                         "NVD:CVE-2021-3711",
+                                                                                         "NVD:CVE-2021-3712",
+                                                                                         "NVD:CVE-2021-4160"
+                                                                                     ],
+                                                                  "zlib@1.2.11":  [
+                                                                                      "NVD:CVE-2026-22184",
+                                                                                      "NVD:CVE-2023-45853",
+                                                                                      "NVD:CVE-2022-37434",
+                                                                                      "NVD:CVE-2018-25032"
+                                                                                  ]
+                                                              },
+                                              "sources":  [
+                                                              "NVD"
+                                                          ]
+                                          },
+                     "vcpkg-native":  {
+                                          "components":  42,
+                                          "componentList":  [
+                                                                "./0001-no-version-script-on-ohos.patch@ purl= cpe=",
+                                                                "./BUILD_INFO@ purl= cpe=",
+                                                                "./CVE-2026-76844.patch@ purl= cpe=",
+                                                                "./include/cjson/cJSON.h@ purl= cpe=",
+                                                                "./include/zconf.h@ purl= cpe=",
+                                                                "./include/zlib.h@ purl= cpe=",
+                                                                "./lib/libcjson.a@ purl= cpe=",
+                                                                "./lib/libz.a@ purl= cpe=",
+                                                                "./lib/pkgconfig/libcjson.pc@ purl= cpe=",
+                                                                "./lib/pkgconfig/zlib.pc@ purl= cpe=",
+                                                                "./portfile.cmake@ purl= cpe=",
+                                                                "./share/cjson/cJSONConfig.cmake@ purl= cpe="
+                                                            ],
+                                          "findings":  0,
+                                          "byComponent":  {
+
+                                                          },
+                                          "sources":  [
+
+                                                      ]
+                                      },
+                     "vcpkg-normalised":  {
+                                              "components":  2,
+                                              "componentList":  [
+                                                                    "cjson@1.7.19 purl=pkg:vcpkg/cjson@1.7.19?triplet=x64-linux-release\u0026vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2FMicrosoft%2Fvcpkg%23ports%2Fcjson cpe=cpe:2.3:a:cjson_project:cjson:1.7.19:*:*:*:*:*:*:*",
+                                                                    "zlib@1.3.2 purl=pkg:vcpkg/zlib@1.3.2?port_version=3\u0026triplet=x64-linux-release\u0026vcs_url=git%2Bhttps%3A%2F%2Fgithub.com%2FMicrosoft%2Fvcpkg%23ports%2Fzlib cpe=cpe:2.3:a:zlib:zlib:1.3.2:*:*:*:*:*:*:*"
+                                                                ],
+                                              "findings":  0,
+                                              "byComponent":  {
+
+                                                              },
+                                              "sources":  [
+
+                                                          ]
+                                          },
+                     "vcpkg-spdx-zlib-direct":  {
+                                                    "components":  0,
+                                                    "componentList":  [
+
+                                                                      ],
+                                                    "findings":  0,
+                                                    "byComponent":  {
+
+                                                                    },
+                                                    "sources":  [
+
+                                                                ]
+                                                },
+                     "vendored-declared":  {
+                                               "components":  3,
+                                               "componentList":  [
+                                                                     "cjson@1.7.10 purl=pkg:github/davegamble/cjson@v1.7.10 cpe=cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+                                                                     "fmt@8.0.0 purl=pkg:github/fmtlib/fmt@8.0.0 cpe=cpe:2.3:a:fmt:fmt:8.0.0:*:*:*:*:*:*:*",
+                                                                     "zlib@1.2.11 purl=pkg:github/madler/zlib@v1.2.11 cpe=cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*"
+                                                                 ],
+                                               "findings":  5,
+                                               "byComponent":  {
+                                                                   "zlib@1.2.11":  [
+                                                                                       "NVD:CVE-2026-22184",
+                                                                                       "NVD:CVE-2023-45853",
+                                                                                       "NVD:CVE-2022-37434",
+                                                                                       "NVD:CVE-2018-25032"
+                                                                                   ],
+                                                                   "cjson@1.7.10":  [
+                                                                                        "NVD:CVE-2023-53154"
+                                                                                    ]
+                                                               },
+                                               "sources":  [
+                                                               "NVD"
+                                                           ]
+                                           },
+                     "vendored-syft":  {
+                                           "components":  5,
+                                           "componentList":  [
+                                                                 "/build/_deps/fmt-src/.github/workflows/doc.yml@ purl= cpe=",
+                                                                 "/build/_deps/fmt-src/.github/workflows/linux.yml@ purl= cpe=",
+                                                                 "/build/_deps/fmt-src/.github/workflows/macos.yml@ purl= cpe=",
+                                                                 "/build/_deps/fmt-src/.github/workflows/windows.yml@ purl= cpe=",
+                                                                 "actions/checkout@v2 purl=pkg:github/actions/checkout@v2 cpe=cpe:2.3:a:actions\\/checkout:actions\\/checkout:v2:*:*:*:*:*:*:*"
+                                                             ],
+                                           "findings":  0,
+                                           "byComponent":  {
+
+                                                           },
+                                           "sources":  [
+
+                                                       ]
+                                       }
+                 }
+}

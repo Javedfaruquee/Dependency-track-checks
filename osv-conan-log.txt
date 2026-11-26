@@ -1,0 +1,197 @@
+﻿dt5 OSV Conan test started 2026-11-11T19:15:32
+19:15:36 compose:  Container dt5-test-frontend-1 Starting 
+19:15:36 compose:  Container dt5-test-postgres-1 Starting 
+19:15:36 compose:  Container dt5-test-frontend-1 Started 
+19:15:36 compose:  Container dt5-test-postgres-1 Started 
+19:15:36 compose:  Container dt5-test-postgres-1 Waiting 
+19:15:42 compose:  Container dt5-test-postgres-1 Healthy 
+19:15:42 compose:  Container dt5-test-apiserver-1 Starting 
+19:15:42 compose:  Container dt5-test-apiserver-1 Started 
+19:16:11 forceChangePassword (fine on re-runs): The remote server returned an error: (401) Unauthorized. | INVALID_CREDENTIALS
+19:16:12 login ok
+19:16:13 using Administrators team API key (odt_YCtA...)
+19:16:15 DIAG (after login): apiserver state 0 restarts, started 2026-11-11T18:15:42.239501531Z, status running, OOMKilled false
+19:16:16 apiserver-log: 2026-11-11 17:51:03,134 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:650759a7-6d5f-4539-ac72-c264252d3945, workflowRunId=01a1cbbc-0961-7e5b-81e2-2c5861030081, projectUuid=650759a7-6d5f-4539-ac72-c264252d3945]
+19:16:16 apiserver-log: 2026-11-11 17:52:30,666 INFO [Server] Stopped oejs.Server@768cfd06{STOPPING}[12.1.14,sto=0]
+19:16:16 apiserver-log: 2026-11-11 17:52:30,673 INFO [AbstractConnector] Stopped oejs.ServerConnector@1c541176{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:16:16 apiserver-log: 2026-11-11 17:52:30,695 INFO [NotificationSubsystemInitializer] Stopping outbox relay
+19:16:16 apiserver-log: 2026-11-11 17:52:31,670 INFO [TaskSchedulerInitializer] Stopping task scheduler
+19:16:16 apiserver-log: 2026-11-11 17:52:31,672 INFO [DexEngineInitializer] Stopping durable execution engine
+19:16:16 apiserver-log: 2026-11-11 17:52:31,672 INFO [DexEngineImpl] Transitioning from status RUNNING to STOPPING
+19:16:16 apiserver-log: 2026-11-11 17:52:31,678 INFO [DexEngineImpl] Transitioning from status STOPPING to STOPPED
+19:16:16 apiserver-log: 2026-11-11 17:52:31,678 INFO [PluginInitializer] Closing plugin manager
+19:16:16 apiserver-log: 2026-11-11 17:52:31,679 INFO [PersistenceManagerFactory] Shutting down persistence framework
+19:16:17 apiserver-log: 2026-11-11 17:52:31,679 INFO [SecretManagerInitializer] Closing secret manager
+19:16:17 apiserver-log: 2026-11-11 17:52:31,705 INFO [FileStorageInitializer] Closing file storage
+19:16:17 apiserver-log: 2026-11-11 17:52:31,705 INFO [CacheManagerInitializer] Closing cache manager
+19:16:17 apiserver-log: 2026-11-11 17:52:31,705 INFO [ServletContextHandler] Stopped oeje11s.ServletContextHandler@1cd2143b{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@1118d539{STOPPED}}
+19:16:17 apiserver-log: 2026-11-11 18:15:44,188 INFO [Application] Starting Dependency-Track 5.2.1 (built 2026-10-25T11:10:36Z)
+19:16:17 apiserver-log: 2026-11-11 18:15:44,427 INFO [DataSourceRegistry] Creating data source default
+19:16:17 apiserver-log: 2026-11-11 18:15:45,121 INFO [InitTaskExecutor] Executing init task database-migration
+19:16:17 apiserver-log: 2026-11-11 18:15:45,961 INFO [InitTaskExecutor] Completed init task database-migration in 839ms
+19:16:17 apiserver-log: 2026-11-11 18:15:45,961 INFO [InitTaskExecutor] Executing init task dex-engine-database-migration
+19:16:17 apiserver-log: 2026-11-11 18:15:46,037 INFO [InitTaskExecutor] Completed init task dex-engine-database-migration in 75ms
+19:16:17 apiserver-log: 2026-11-11 18:15:46,037 INFO [InitTaskExecutor] Executing init task database-partition-maintenance
+19:16:17 apiserver-log: 2026-11-11 18:15:47,744 INFO [InitTaskExecutor] Completed init task database-partition-maintenance in 1706ms
+19:16:17 apiserver-log: 2026-11-11 18:15:47,744 INFO [InitTaskExecutor] Executing init task database-seeding
+19:16:17 apiserver-log: 2026-11-11 18:15:47,913 INFO [DatabaseSeedingInitTask] Default objects already populated for build 5d411518-ecbd-4f73-855c-26329158b8b9 (timestamp: 2026-10-25T11:10:36Z); Skipping
+19:16:17 apiserver-log: 2026-11-11 18:15:47,915 INFO [InitTaskExecutor] Completed init task database-seeding in 170ms
+19:16:17 apiserver-log: 2026-11-11 18:15:47,916 INFO [InitTaskExecutor] All init tasks completed in 2814ms
+19:16:17 apiserver-log: 2026-11-11 18:15:48,498 INFO [Server] jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 25.0.4.1+1-LTS
+19:16:17 apiserver-log: 2026-11-11 18:15:48,527 INFO [ContextHandler] Started oeje11s.ServletContextHandler@7aded903{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@2db86a7c{STARTED}}
+19:16:17 apiserver-log: 2026-11-11 18:15:48,528 INFO [CacheManagerInitializer] Initializing cache manager for provider 'database'
+19:16:17 apiserver-log: 2026-11-11 18:15:48,535 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+19:16:17 apiserver-log: 2026-11-11 18:15:48,777 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+19:16:17 apiserver-log: 2026-11-11 18:15:48,963 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+19:16:18 apiserver-log: 2026-11-11 18:15:49,019 INFO [PersistenceManagerFactory] Initializing persistence framework
+19:16:18 apiserver-log: 2026-11-11 18:15:50,686 INFO [PluginInitializer] Initializing plugin system
+19:16:18 apiserver-log: 2026-11-11 18:15:51,112 INFO [PluginInitializer] Discovering plugins
+19:16:18 apiserver-log: 2026-11-11 18:15:51,131 INFO [PluginInitializer] Loading plugins
+19:16:18 apiserver-log: 2026-11-11 18:15:53,036 INFO [DexEngineInitializer] Registering workflow worker 'default'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,081 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,099 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,107 INFO [DexEngineInitializer] Registering activity worker 'notification'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,113 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,119 INFO [DexEngineInitializer] Registering activity worker 'default'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,124 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,128 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,133 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+19:16:18 apiserver-log: 2026-11-11 18:15:53,145 INFO [DexEngineInitializer] Starting durable execution engine
+19:16:18 apiserver-log: 2026-11-11 18:15:53,148 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+19:16:18 apiserver-log: 2026-11-11 18:15:53,201 INFO [DexEngineLeaderElection] Leadership lease acquired
+19:16:18 apiserver-log: 2026-11-11 18:15:53,429 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+19:16:18 apiserver-log: 2026-11-11 18:15:53,787 INFO [TaskSchedulerInitializer] Starting task scheduler
+19:16:18 apiserver-log: 2026-11-11 18:15:54,030 INFO [NotificationSubsystemInitializer] Starting outbox relay
+19:16:18 apiserver-log: 2026-11-11 18:15:54,165 INFO [VulnerabilityMetricsUpdateTask] Refreshing vulnerability metrics
+19:16:18 apiserver-log: 2026-11-11 18:15:56,481 INFO [UpdatePortfolioMetricsWorkflow] No more projects due for metrics update; Refreshing portfolio metrics [workflowInstanceId=update-portfolio-metrics, workflowRunId=01a1cbd2-d64d-7292-a2b5-2ef95b854c4d, workflowName=update-portfolio-metrics]
+19:16:18 apiserver-log: 2026-11-11 18:16:01,750 INFO [VulnerabilityMetricsUpdateTask] Refreshed vulnerability metrics in PT7.585001364S
+19:16:18 apiserver-log: 2026-11-11 18:16:07,077 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@7aded903{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@2db86a7c{STARTED}}
+19:16:18 apiserver-log: 2026-11-11 18:16:07,095 INFO [AbstractConnector] Started oejs.ServerConnector@196f7dfd{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:16:18 apiserver-log: 2026-11-11 18:16:07,096 INFO [Server] Started oejs.Server@5aede1ef{STARTING}[12.1.14,sto=0] @18603ms
+19:16:18 apiserver-log: 2026-11-11 18:16:11,177 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=5cb8ca90-9e84-4d03-85cb-d8f85e98b842, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+19:16:18 apiserver-log: 2026-11-11 18:16:12,476 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=03da8612-14a0-4d86-89db-18dc46ee07ce, requestMethod=POST, requestUri=/v1/user/login]
+19:16:19 apiserver-log: 2026-11-11 18:16:13,052 INFO [TeamResource] API key created: YCtAmZkG (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=029bb4e8-688e-442a-a340-38faf314c066, requestMethod=PUT]
+19:16:19 osv current config: {"config":{"dataUrl":"https://storage.googleapis.com/osv-vulnerabilities","enabled":true,"ecosystems":["PyPI"],"aliasSyncEnabled":false,"incrementalMirroringEnabled":true}}
+19:16:20 DIAG (401 on PUT /api/v2/extension-points/vuln-data-source/extensions/osv/config): apiserver state 0 restarts, started 2026-11-11T18:15:42.239501531Z, status running, OOMKilled false
+19:16:20 apiserver-log: 2026-11-11 17:51:03,134 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:650759a7-6d5f-4539-ac72-c264252d3945, workflowRunId=01a1cbbc-0961-7e5b-81e2-2c5861030081, projectUuid=650759a7-6d5f-4539-ac72-c264252d3945]
+19:16:20 apiserver-log: 2026-11-11 17:52:30,666 INFO [Server] Stopped oejs.Server@768cfd06{STOPPING}[12.1.14,sto=0]
+19:16:20 apiserver-log: 2026-11-11 17:52:30,673 INFO [AbstractConnector] Stopped oejs.ServerConnector@1c541176{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:16:20 apiserver-log: 2026-11-11 17:52:30,695 INFO [NotificationSubsystemInitializer] Stopping outbox relay
+19:16:20 apiserver-log: 2026-11-11 17:52:31,670 INFO [TaskSchedulerInitializer] Stopping task scheduler
+19:16:20 apiserver-log: 2026-11-11 17:52:31,672 INFO [DexEngineInitializer] Stopping durable execution engine
+19:16:20 apiserver-log: 2026-11-11 17:52:31,672 INFO [DexEngineImpl] Transitioning from status RUNNING to STOPPING
+19:16:20 apiserver-log: 2026-11-11 17:52:31,678 INFO [DexEngineImpl] Transitioning from status STOPPING to STOPPED
+19:16:20 apiserver-log: 2026-11-11 17:52:31,678 INFO [PluginInitializer] Closing plugin manager
+19:16:21 apiserver-log: 2026-11-11 17:52:31,679 INFO [PersistenceManagerFactory] Shutting down persistence framework
+19:16:21 apiserver-log: 2026-11-11 17:52:31,679 INFO [SecretManagerInitializer] Closing secret manager
+19:16:21 apiserver-log: 2026-11-11 17:52:31,705 INFO [FileStorageInitializer] Closing file storage
+19:16:21 apiserver-log: 2026-11-11 17:52:31,705 INFO [CacheManagerInitializer] Closing cache manager
+19:16:21 apiserver-log: 2026-11-11 17:52:31,705 INFO [ServletContextHandler] Stopped oeje11s.ServletContextHandler@1cd2143b{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@1118d539{STOPPED}}
+19:16:21 apiserver-log: 2026-11-11 18:15:44,188 INFO [Application] Starting Dependency-Track 5.2.1 (built 2026-10-25T11:10:36Z)
+19:16:21 apiserver-log: 2026-11-11 18:15:44,427 INFO [DataSourceRegistry] Creating data source default
+19:16:21 apiserver-log: 2026-11-11 18:15:45,121 INFO [InitTaskExecutor] Executing init task database-migration
+19:16:21 apiserver-log: 2026-11-11 18:15:45,961 INFO [InitTaskExecutor] Completed init task database-migration in 839ms
+19:16:21 apiserver-log: 2026-11-11 18:15:45,961 INFO [InitTaskExecutor] Executing init task dex-engine-database-migration
+19:16:21 apiserver-log: 2026-11-11 18:15:46,037 INFO [InitTaskExecutor] Completed init task dex-engine-database-migration in 75ms
+19:16:21 apiserver-log: 2026-11-11 18:15:46,037 INFO [InitTaskExecutor] Executing init task database-partition-maintenance
+19:16:21 apiserver-log: 2026-11-11 18:15:47,744 INFO [InitTaskExecutor] Completed init task database-partition-maintenance in 1706ms
+19:16:21 apiserver-log: 2026-11-11 18:15:47,744 INFO [InitTaskExecutor] Executing init task database-seeding
+19:16:21 apiserver-log: 2026-11-11 18:15:47,913 INFO [DatabaseSeedingInitTask] Default objects already populated for build 5d411518-ecbd-4f73-855c-26329158b8b9 (timestamp: 2026-10-25T11:10:36Z); Skipping
+19:16:21 apiserver-log: 2026-11-11 18:15:47,915 INFO [InitTaskExecutor] Completed init task database-seeding in 170ms
+19:16:21 apiserver-log: 2026-11-11 18:15:47,916 INFO [InitTaskExecutor] All init tasks completed in 2814ms
+19:16:21 apiserver-log: 2026-11-11 18:15:48,498 INFO [Server] jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 25.0.4.1+1-LTS
+19:16:21 apiserver-log: 2026-11-11 18:15:48,527 INFO [ContextHandler] Started oeje11s.ServletContextHandler@7aded903{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@2db86a7c{STARTED}}
+19:16:21 apiserver-log: 2026-11-11 18:15:48,528 INFO [CacheManagerInitializer] Initializing cache manager for provider 'database'
+19:16:21 apiserver-log: 2026-11-11 18:15:48,535 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+19:16:21 apiserver-log: 2026-11-11 18:15:48,777 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+19:16:21 apiserver-log: 2026-11-11 18:15:48,963 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+19:16:21 apiserver-log: 2026-11-11 18:15:49,019 INFO [PersistenceManagerFactory] Initializing persistence framework
+19:16:22 apiserver-log: 2026-11-11 18:15:50,686 INFO [PluginInitializer] Initializing plugin system
+19:16:22 apiserver-log: 2026-11-11 18:15:51,112 INFO [PluginInitializer] Discovering plugins
+19:16:22 apiserver-log: 2026-11-11 18:15:51,131 INFO [PluginInitializer] Loading plugins
+19:16:22 apiserver-log: 2026-11-11 18:15:53,036 INFO [DexEngineInitializer] Registering workflow worker 'default'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,081 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,099 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,107 INFO [DexEngineInitializer] Registering activity worker 'notification'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,113 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,119 INFO [DexEngineInitializer] Registering activity worker 'default'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,124 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,128 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,133 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+19:16:22 apiserver-log: 2026-11-11 18:15:53,145 INFO [DexEngineInitializer] Starting durable execution engine
+19:16:22 apiserver-log: 2026-11-11 18:15:53,148 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+19:16:22 apiserver-log: 2026-11-11 18:15:53,201 INFO [DexEngineLeaderElection] Leadership lease acquired
+19:16:22 apiserver-log: 2026-11-11 18:15:53,429 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+19:16:22 apiserver-log: 2026-11-11 18:15:53,787 INFO [TaskSchedulerInitializer] Starting task scheduler
+19:16:22 apiserver-log: 2026-11-11 18:15:54,030 INFO [NotificationSubsystemInitializer] Starting outbox relay
+19:16:22 apiserver-log: 2026-11-11 18:15:54,165 INFO [VulnerabilityMetricsUpdateTask] Refreshing vulnerability metrics
+19:16:22 apiserver-log: 2026-11-11 18:15:56,481 INFO [UpdatePortfolioMetricsWorkflow] No more projects due for metrics update; Refreshing portfolio metrics [workflowInstanceId=update-portfolio-metrics, workflowRunId=01a1cbd2-d64d-7292-a2b5-2ef95b854c4d, workflowName=update-portfolio-metrics]
+19:16:22 apiserver-log: 2026-11-11 18:16:01,750 INFO [VulnerabilityMetricsUpdateTask] Refreshed vulnerability metrics in PT7.585001364S
+19:16:22 apiserver-log: 2026-11-11 18:16:07,077 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@7aded903{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@2db86a7c{STARTED}}
+19:16:22 apiserver-log: 2026-11-11 18:16:07,095 INFO [AbstractConnector] Started oejs.ServerConnector@196f7dfd{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:16:22 apiserver-log: 2026-11-11 18:16:07,096 INFO [Server] Started oejs.Server@5aede1ef{STARTING}[12.1.14,sto=0] @18603ms
+19:16:22 apiserver-log: 2026-11-11 18:16:11,177 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=5cb8ca90-9e84-4d03-85cb-d8f85e98b842, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+19:16:22 apiserver-log: 2026-11-11 18:16:12,476 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=03da8612-14a0-4d86-89db-18dc46ee07ce, requestMethod=POST, requestUri=/v1/user/login]
+19:16:22 apiserver-log: 2026-11-11 18:16:13,052 INFO [TeamResource] API key created: YCtAmZkG (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=029bb4e8-688e-442a-a340-38faf314c066, requestMethod=PUT]
+19:16:24 re-login ok
+19:16:24 osv config set: ""
+19:16:24 osv config now: {"config":{"dataUrl":"https://storage.googleapis.com/osv-vulnerabilities","enabled":true,"ecosystems":["PyPI","ConanCenter","vcpkg"],"aliasSyncEnabled":false,"incrementalMirroringEnabled":true}}
+19:16:24 previous osv run started_at=1794419277282
+19:16:24 osv mirror triggered: ""
+19:16:45 osv mirror: {"status":"RUNNING","started_at":1794420985036}
+19:18:45 osv mirror: {"status":"FAILED","started_at":1794420985036,"completed_at":1794421113150,"failure_reason":"Failed to download advisory archive for ecosystem ConanCenter: GET https://storage.googleapis.com/osv-vulnerabilities/ConanCenter/all.zip responded with status code 404"}
+19:18:46 apiserver-log: 2026-11-11 18:16:50,566 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:18:46 apiserver-log: 2026-11-11 18:16:50,610 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:18:46 apiserver-log: 2026-11-11 18:16:50,611 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:18:46 apiserver-log: 2026-11-11 18:16:51,600 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:18:46 apiserver-log: 2026-11-11 18:16:51,600 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem ConanCenter from upstream [vulnDataSourceName=osv]
+19:18:46 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem ConanCenter: GET https://storage.googleapis.com/osv-vulnerabilities/ConanCenter/all.zip responded with status code 404
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:18:47 apiserver-log: 2026-11-11 18:17:06,795 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:18:47 apiserver-log: 2026-11-11 18:17:06,836 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:18:47 apiserver-log: 2026-11-11 18:17:06,836 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:18:47 apiserver-log: 2026-11-11 18:17:07,280 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:18:47 apiserver-log: 2026-11-11 18:17:07,281 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem ConanCenter from upstream [vulnDataSourceName=osv]
+19:18:47 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem ConanCenter: GET https://storage.googleapis.com/osv-vulnerabilities/ConanCenter/all.zip responded with status code 404
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:18:47 apiserver-log: 2026-11-11 18:17:40,341 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:18:47 apiserver-log: 2026-11-11 18:17:40,494 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:18:47 apiserver-log: 2026-11-11 18:17:40,495 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:18:47 apiserver-log: 2026-11-11 18:17:40,804 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:18:47 apiserver-log: 2026-11-11 18:17:40,805 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem ConanCenter from upstream [vulnDataSourceName=osv]
+19:18:47 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem ConanCenter: GET https://storage.googleapis.com/osv-vulnerabilities/ConanCenter/all.zip responded with status code 404
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:18:47 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:18:48 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:18:48 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:18:48 apiserver-log: 2026-11-11 18:18:32,605 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:18:48 apiserver-log: 2026-11-11 18:18:32,691 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:18:48 apiserver-log: 2026-11-11 18:18:32,692 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:18:48 apiserver-log: 2026-11-11 18:18:32,882 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:18:48 apiserver-log: 2026-11-11 18:18:32,882 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem ConanCenter from upstream [vulnDataSourceName=osv]
+19:18:48 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem ConanCenter: GET https://storage.googleapis.com/osv-vulnerabilities/ConanCenter/all.zip responded with status code 404
+19:18:48 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:18:48 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:18:48 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:18:48 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:18:50 waiting 120 s for re-analysis
+19:20:59 conan-native: components=3 findings=0 sources=
+19:21:02 conan-normalised: components=3 findings=65 sources=NVD
+19:21:03 vcpkg-native: components=42 findings=0 sources=
+19:21:03 vcpkg-normalised: components=2 findings=0 sources=
+19:21:03 vcpkg-spdx-zlib-direct: components=0 findings=0 sources=
+19:21:03 vendored-declared: components=3 findings=5 sources=NVD
+19:21:04 vendored-syft: components=5 findings=0 sources=
+19:21:12 compose:  Container dt5-test-frontend-1 Stopping 
+19:21:12 compose:  Container dt5-test-apiserver-1 Stopping 
+19:21:13 compose:  Container dt5-test-frontend-1 Stopped 
+19:21:14 compose:  Container dt5-test-apiserver-1 Stopped 
+19:21:14 compose:  Container dt5-test-postgres-1 Stopping 
+19:21:14 compose:  Container dt5-test-postgres-1 Stopped 
+19:21:14 DONE - containers stopped; images and data volumes kept.

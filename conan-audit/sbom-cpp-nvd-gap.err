@@ -1,0 +1,18 @@
+ERROR: Traceback (most recent call last):
+  File "/usr/local/lib/python3.13/site-packages/conan/cli/cli.py", line 335, in main
+    cli.run(args)
+    ~~~~~~~^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/conan/cli/cli.py", line 247, in run
+    command.run(self._conan_api, remainder_args)
+    ~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/conan/cli/command.py", line 213, in run
+    sub.run(conan_api, parser, *args)
+    ~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/usr/local/lib/python3.13/site-packages/conan/cli/command.py", line 231, in run
+    info = self._method(conan_api, parent_parser, self._parser, *args)
+  File "/usr/local/lib/python3.13/site-packages/conan/cli/commands/audit.py", line 140, in audit_list
+    purls = [component["purl"] for component in sbom["components"]]
+             ~~~~~~~~~^^^^^^^^
+KeyError: 'purl'
+
+ERROR: 'purl'

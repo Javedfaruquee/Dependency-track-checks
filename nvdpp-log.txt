@@ -1,0 +1,176 @@
+﻿dt5 NVD feed adapter setup started 2026-11-12T07:41:09
+07:41:09 using the Trivy token from .env
+07:41:21 keeping the VulnCheck token from .env
+07:41:27 compose:  Container dt5-test-trivy-1 Starting 
+07:41:27 compose:  Container dt5-test-postgres-1 Starting 
+07:41:27 compose:  Container dt5-test-frontend-1 Starting 
+07:41:27 compose:  Container dt5-test-nvdpp-1 Starting 
+07:41:28 compose:  Container dt5-test-trivy-1 Started 
+07:41:28 compose:  Container dt5-test-postgres-1 Started 
+07:41:29 compose:  Container dt5-test-postgres-1 Waiting 
+07:41:29 compose:  Container dt5-test-frontend-1 Started 
+07:41:33 compose:  Container dt5-test-nvdpp-1 Started 
+07:41:36 compose:  Container dt5-test-postgres-1 Healthy 
+07:41:36 compose:  Container dt5-test-apiserver-1 Starting 
+07:41:38 compose:  Container dt5-test-apiserver-1 Started 
+07:42:28 forceChangePassword (fine on re-runs): The remote server returned an error: (401) Unauthorized. | INVALID_CREDENTIALS
+07:42:30 login ok
+07:42:30 using Administrators team API key (odt_u7Q7...)
+07:42:32 DIAG (after login): apiserver state 0 restarts, started 2026-11-12T06:41:37.012087004Z, status running, OOMKilled false
+07:42:33 apiserver-log: 2026-11-12 06:21:49,695 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:d8cffad6-43fc-46de-856c-4b1ca9de3ebe, workflowRunId=01a1ce6b-5760-7fa9-9708-fdb52065f665, projectUuid=d8cffad6-43fc-46de-856c-4b1ca9de3ebe]
+07:42:33 apiserver-log: 2026-11-12 06:21:49,896 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:743cd75f-5bbc-4841-b777-36ab7f116473, workflowRunId=01a1ce6b-52d6-78b3-8190-bf647b269396, projectUuid=743cd75f-5bbc-4841-b777-36ab7f116473]
+07:42:33 apiserver-log: 2026-11-12 06:21:49,896 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:479ec71f-d031-4296-ac16-6dcd0030e55a, workflowRunId=01a1ce6b-59bb-7c19-ae68-f6e99202390a, projectUuid=479ec71f-d031-4296-ac16-6dcd0030e55a]
+07:42:34 apiserver-log: 2026-11-12 06:21:49,896 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:650759a7-6d5f-4539-ac72-c264252d3945, workflowRunId=01a1ce6b-5671-7f5e-99bd-74cbc4e3b728, projectUuid=650759a7-6d5f-4539-ac72-c264252d3945]
+07:42:34 apiserver-log: 2026-11-12 06:25:50,824 INFO [Server] Stopped oejs.Server@648374fa{STOPPING}[12.1.14,sto=0]
+07:42:34 apiserver-log: 2026-11-12 06:25:50,895 INFO [AbstractConnector] Stopped oejs.ServerConnector@3ad7a94{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+07:42:34 apiserver-log: 2026-11-12 06:25:51,065 INFO [NotificationSubsystemInitializer] Stopping outbox relay
+07:42:34 apiserver-log: 2026-11-12 06:25:52,050 INFO [TaskSchedulerInitializer] Stopping task scheduler
+07:42:34 apiserver-log: 2026-11-12 06:25:52,067 INFO [DexEngineInitializer] Stopping durable execution engine
+07:42:34 apiserver-log: 2026-11-12 06:25:52,068 INFO [DexEngineImpl] Transitioning from status RUNNING to STOPPING
+07:42:34 apiserver-log: 2026-11-12 06:25:52,111 INFO [DexEngineImpl] Transitioning from status STOPPING to STOPPED
+07:42:34 apiserver-log: 2026-11-12 06:25:52,113 INFO [PluginInitializer] Closing plugin manager
+07:42:34 apiserver-log: 2026-11-12 06:25:52,126 INFO [PersistenceManagerFactory] Shutting down persistence framework
+07:42:34 apiserver-log: 2026-11-12 06:25:52,140 INFO [SecretManagerInitializer] Closing secret manager
+07:42:34 apiserver-log: 2026-11-12 06:25:52,238 INFO [FileStorageInitializer] Closing file storage
+07:42:34 apiserver-log: 2026-11-12 06:25:52,238 INFO [CacheManagerInitializer] Closing cache manager
+07:42:34 apiserver-log: 2026-11-12 06:25:52,240 INFO [ServletContextHandler] Stopped oeje11s.ServletContextHandler@15639d09{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@4fba8eec{STOPPED}}
+07:42:34 apiserver-log: 2026-11-12 06:41:54,550 INFO [Application] Starting Dependency-Track 5.2.1 (built 2026-10-25T11:10:36Z)
+07:42:34 apiserver-log: 2026-11-12 06:41:55,633 INFO [DataSourceRegistry] Creating data source default
+07:42:34 apiserver-log: 2026-11-12 06:41:59,440 INFO [InitTaskExecutor] Executing init task database-migration
+07:42:34 apiserver-log: 2026-11-12 06:42:02,667 INFO [InitTaskExecutor] Completed init task database-migration in 3227ms
+07:42:34 apiserver-log: 2026-11-12 06:42:02,668 INFO [InitTaskExecutor] Executing init task dex-engine-database-migration
+07:42:34 apiserver-log: 2026-11-12 06:42:03,076 INFO [InitTaskExecutor] Completed init task dex-engine-database-migration in 408ms
+07:42:34 apiserver-log: 2026-11-12 06:42:03,077 INFO [InitTaskExecutor] Executing init task database-partition-maintenance
+07:42:34 apiserver-log: 2026-11-12 06:42:06,771 INFO [InitTaskExecutor] Completed init task database-partition-maintenance in 3694ms
+07:42:34 apiserver-log: 2026-11-12 06:42:06,777 INFO [InitTaskExecutor] Executing init task database-seeding
+07:42:35 apiserver-log: 2026-11-12 06:42:07,181 INFO [DatabaseSeedingInitTask] Default objects already populated for build 5d411518-ecbd-4f73-855c-26329158b8b9 (timestamp: 2026-10-25T11:10:36Z); Skipping
+07:42:35 apiserver-log: 2026-11-12 06:42:07,184 INFO [InitTaskExecutor] Completed init task database-seeding in 406ms
+07:42:35 apiserver-log: 2026-11-12 06:42:07,191 INFO [InitTaskExecutor] All init tasks completed in 7872ms
+07:42:35 apiserver-log: 2026-11-12 06:42:08,494 INFO [Server] jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 25.0.4.1+1-LTS
+07:42:35 apiserver-log: 2026-11-12 06:42:08,603 INFO [ContextHandler] Started oeje11s.ServletContextHandler@6acffb2d{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@61149fa5{STARTED}}
+07:42:35 apiserver-log: 2026-11-12 06:42:08,616 INFO [CacheManagerInitializer] Initializing cache manager for provider 'database'
+07:42:35 apiserver-log: 2026-11-12 06:42:08,632 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+07:42:35 apiserver-log: 2026-11-12 06:42:09,547 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+07:42:35 apiserver-log: 2026-11-12 06:42:10,134 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+07:42:35 apiserver-log: 2026-11-12 06:42:10,320 INFO [PersistenceManagerFactory] Initializing persistence framework
+07:42:35 apiserver-log: 2026-11-12 06:42:13,514 INFO [PluginInitializer] Initializing plugin system
+07:42:35 apiserver-log: 2026-11-12 06:42:14,347 INFO [PluginInitializer] Discovering plugins
+07:42:35 apiserver-log: 2026-11-12 06:42:14,369 INFO [PluginInitializer] Loading plugins
+07:42:35 apiserver-log: 2026-11-12 06:42:16,411 INFO [DexEngineInitializer] Registering workflow worker 'default'
+07:42:35 apiserver-log: 2026-11-12 06:42:16,443 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+07:42:35 apiserver-log: 2026-11-12 06:42:16,457 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+07:42:35 apiserver-log: 2026-11-12 06:42:16,460 INFO [DexEngineInitializer] Registering activity worker 'notification'
+07:42:35 apiserver-log: 2026-11-12 06:42:16,467 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+07:42:35 apiserver-log: 2026-11-12 06:42:16,473 INFO [DexEngineInitializer] Registering activity worker 'default'
+07:42:35 apiserver-log: 2026-11-12 06:42:16,477 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+07:42:35 apiserver-log: 2026-11-12 06:42:16,482 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+07:42:35 apiserver-log: 2026-11-12 06:42:16,490 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+07:42:36 apiserver-log: 2026-11-12 06:42:16,505 INFO [DexEngineInitializer] Starting durable execution engine
+07:42:36 apiserver-log: 2026-11-12 06:42:16,509 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+07:42:36 apiserver-log: 2026-11-12 06:42:16,579 INFO [DexEngineLeaderElection] Leadership lease acquired
+07:42:36 apiserver-log: 2026-11-12 06:42:16,743 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+07:42:36 apiserver-log: 2026-11-12 06:42:17,374 INFO [TaskSchedulerInitializer] Starting task scheduler
+07:42:36 apiserver-log: 2026-11-12 06:42:17,576 INFO [NotificationSubsystemInitializer] Starting outbox relay
+07:42:36 apiserver-log: 2026-11-12 06:42:25,075 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@6acffb2d{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@61149fa5{STARTED}}
+07:42:36 apiserver-log: 2026-11-12 06:42:25,110 INFO [AbstractConnector] Started oejs.ServerConnector@6b133599{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+07:42:36 apiserver-log: 2026-11-12 06:42:25,112 INFO [Server] Started oejs.Server@3829bb5{STARTING}[12.1.14,sto=0] @16637ms
+07:42:36 apiserver-log: 2026-11-12 06:42:28,212 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=0382a6ca-615c-4e60-bdd0-d99f468ce7b6, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+07:42:36 apiserver-log: 2026-11-12 06:42:30,301 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=9261c5ae-9b73-41f8-8aa9-5c6028056ea5, requestMethod=POST, requestUri=/v1/user/login]
+07:42:36 apiserver-log: 2026-11-12 06:42:30,839 INFO [TeamResource] API key created: u7Q79oxh (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=8b58c786-4839-4832-82d0-9fdc866a245a, requestMethod=PUT]
+07:42:36 adapter: building modified feed | {}
+07:43:06 adapter: ready | {}
+07:43:08 nvdpp-log: 2026-11-12T06:21:26Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2017.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:26Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2016.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:27Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2015.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:27Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2014.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:27Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2013.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:28Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2012.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:28Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2011.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:29Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2010.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:29Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2009.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:29Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2008.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:30Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2007.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:30Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2006.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:31Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2005.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:31Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2004.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:31Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2003.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:32Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2002.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:32Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-modified.meta HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:21:32Z VulnCheck candidates are fresh; reusing cache
+07:43:08 nvdpp-log: 2026-11-12T06:22:36Z modified feed built: {'built_at': '2026-11-12T06:22:36.285', 'error': None, 'nist_cves': 17736, 'enriched_in_nist_feed': 6293, 'appended_from_vulncheck': 49813, 'total_cves': 67549, 'nist_feed_max_last_modified': '2026-11-12T00:17:14.823', 'meta_last_modified': '2026-11-12T01:00:08+00:00', 'seconds': 64.0}
+07:43:08 nvdpp-log: 2026-11-12T06:41:40Z NVD feed adapter starting; VulnCheck token set: True; index nist-nvd2
+07:43:08 nvdpp-log: 2026-11-12T06:41:40Z VulnCheck candidates are fresh; reusing cache
+07:43:08 nvdpp-log: 2026-11-12T06:42:36Z http "GET /stats HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:42:51Z http "GET /stats HTTP/1.1" 200 -
+07:43:08 nvdpp-log: 2026-11-12T06:42:52Z modified feed built: {'built_at': '2026-11-12T06:42:52.763', 'build_id': '1794465738112321095', 'error': None, 'pending_for_dt': 56106, 'already_delivered': 0, 'pending_last_modified': '2026-11-12T05:17:46.623', 'nist_cves': 16236, 'enriched_in_nist_feed': 5872, 'appended_from_vulncheck': 50234, 'total_cves': 66470, 'nist_feed_max_last_modified': '2026-11-12T05:17:45.623', 'meta_last_modified': '2026-11-12T06:00:10+00:00', 'seconds': 72.5}
+07:43:08 nvdpp-log: 2026-11-12T06:43:06Z http "GET /stats HTTP/1.1" 200 -
+07:43:09 VulnCheck: {"status":"loaded","error":null,"backup":"nist-nvd2-1794413123104236943.zip","backup_date":"2026-11-11T16:05:23.104Z","loaded_at":"2026-11-11T20:55:29.218","records":424298,"rejected":19157,"nist_has_cpes":325152,"vc_has_cpes":379216,"candidates":56106,"candidates_published_since_gap":34557,"gap_since":"2026-04-15","nist_no_cpes_published_since_gap":48137,"candidates_by_year":{"2024":5160,"2025":12356,"2026":38577,"2022":1,"2004":2,"2020":7,"2001":1,"1999":1,"2019":1},"cpp_examples":[{"cve":"CVE-2026-42327","cpe":"cpe:2.3:a:sfackler:openssl:0.10.0:*:*:*:*:*:*:*","vendor":"sfackler","product":"openssl","version":"0.10.0"},{"cve":"CVE-2026-5260","cpe":"cpe:2.3:a:gnu:gnutls:0:*:*:*:*:*:*:*","vendor":"gnu","product":"gnutls","version":"0"},{"cve":"CVE-2026-33630","cpe":"cpe:2.3:a:c-ares:c-ares:1.32.3:*:*:*:*:*:*:*","vendor":"c-ares","product":"c-ares","version":"1.32.3"},{"cve":"CVE-2026-48068","cpe":"cpe:2.3:a:grpc:grpc:0.1.2:*:*:*:*:kotlin:*:*","vendor":"grpc","product":"grpc","version":"0.1.2"},{"cve":"CVE-2026-72522","cpe":"cpe:2.3:a:libexpat_project:libexpat:1.95.0:*:*:*:*:*:*:*","vendor":"libexpat_project","product":"libexpat","version":"1.95.0"},{"cve":"CVE-2026-63384","cpe":"cpe:2.3:a:libevent_project:libevent:0.1:*:*:*:*:*:*:*","vendor":"libevent_project","product":"libevent","version":"0.1"},{"cve":"CVE-2026-85091","cpe":"cpe:2.3:a:zlib:zlib:1.3.1.2:*:*:*:*:*:*:*","vendor":"zlib","product":"zlib","version":"1.3.1.2"},{"cve":"CVE-2026-86145","cpe":"cpe:2.3:a:pcre:pcre2:10.32:*:*:*:*:*:*:*","vendor":"pcre","product":"pcre2","version":"10.32"},{"cve":"CVE-2026-6409","cpe":"cpe:2.3:a:google:protobuf:0.0.0:*:*:*:*:*:*:*","vendor":"google","product":"protobuf","version":"0.0.0"},{"cve":"CVE-2026-19499","cpe":"cpe:2.3:a:gnu:glibc:2.38.19:*:*:*:*:*:*:*","vendor":"gnu","product":"glibc","version":"2.38.19"},{"cve":"CVE-2026-78253","cpe":"cpe:2.3:a:qt:qt:5.0.0:*:*:*:*:*:*:*","vendor":"qt","product":"qt","version":"5.0.0"},{"cve":"CVE-2026-8461","cpe":"cpe:2.3:a:ffmpeg:ffmpeg:0.10.0:*:*:*:*:*:*:*","vendor":"ffmpeg","product":"ffmpeg","version":"0.10.0"}]}
+07:43:09 modified feed: {"built_at":"2026-11-12T06:42:52.763","build_id":"1794465738112321095","error":null,"pending_for_dt":56106,"already_delivered":0,"pending_last_modified":"2026-11-12T05:17:46.623","nist_cves":16236,"enriched_in_nist_feed":5872,"appended_from_vulncheck":50234,"total_cves":66470,"nist_feed_max_last_modified":"2026-11-12T05:17:45.623","meta_last_modified":"2026-11-12T06:00:10+00:00","seconds":72.5}
+07:43:09 C/C++ examples from VulnCheck: {"value":[{"cve":"CVE-2026-42327","cpe":"cpe:2.3:a:sfackler:openssl:0.10.0:*:*:*:*:*:*:*","vendor":"sfackler","product":"openssl","version":"0.10.0"},{"cve":"CVE-2026-5260","cpe":"cpe:2.3:a:gnu:gnutls:0:*:*:*:*:*:*:*","vendor":"gnu","product":"gnutls","version":"0"},{"cve":"CVE-2026-33630","cpe":"cpe:2.3:a:c-ares:c-ares:1.32.3:*:*:*:*:*:*:*","vendor":"c-ares","product":"c-ares","version":"1.32.3"},{"cve":"CVE-2026-48068","cpe":"cpe:2.3:a:grpc:grpc:0.1.2:*:*:*:*:kotlin:*:*","vendor":"grpc","product":"grpc","version":"0.1.2"},{"cve":"CVE-2026-72522","cpe":"cpe:2.3:a:libexpat_project:libexpat:1.95.0:*:*:*:*:*:*:*","vendor":"libexpat_project","product":"libexpat","version":"1.95.0"},{"cve":"CVE-2026-63384","cpe":"cpe:2.3:a:libevent_project:libevent:0.1:*:*:*:*:*:*:*","vendor":"libevent_project","product":"libevent","version":"0.1"},{"cve":"CVE-2026-85091","cpe":"cpe:2.3:a:zlib:zlib:1.3.1.2:*:*:*:*:*:*:*","vendor":"zlib","product":"zlib","version":"1.3.1.2"},{"cve":"CVE-2026-86145","cpe":"cpe:2.3:a:pcre:pcre2:10.32:*:*:*:*:*:*:*","vendor":"pcre","product":"pcre2","version":"10.32"},{"cve":"CVE-2026-6409","cpe":"cpe:2.3:a:google:protobuf:0.0.0:*:*:*:*:*:*:*","vendor":"google","product":"protobuf","version":"0.0.0"},{"cve":"CVE-2026-19499","cpe":"cpe:2.3:a:gnu:glibc:2.38.19:*:*:*:*:*:*:*","vendor":"gnu","product":"glibc","version":"2.38.19"},{"cve":"CVE-2026-78253","cpe":"cpe:2.3:a:qt:qt:5.0.0:*:*:*:*:*:*:*","vendor":"qt","product":"qt","version":"5.0.0"},{"cve":"CVE-2026-8461","cpe":"cpe:2.3:a:ffmpeg:ffmpeg:0.10.0:*:*:*:*:*:*:*","vendor":"ffmpeg","product":"ffmpeg","version":"0.10.0"}],"Count":12}
+07:43:10 upload cpp-nvd-gap FAILED: The remote server returned an error: (400) Bad Request. | {"status":400,"title":"The uploaded BOM is invalid","detail":"Schema validation failed","errors":["/components/0/group: array found, string expected","/components/0/name: array found, string expected","/components/0/version: array found, string expected","/components/0/cpe: array found, string expected"]}
+07:45:13 BEFORE (NIST data only): cpp-nvd-gap findings=0 
+07:45:13 vuln-data-source/nvd set config: The remote server returned an error: (304) Not Modified.
+07:45:13 vuln-data-source/nvd config now: {"config":{"enabled":true,"cveFeedsUrl":"http://nvdpp:8080/feeds"}}
+07:45:13 nvd mirror triggered
+07:45:28 nvd mirror: {"status":"RUNNING","started_at":1794465913656}
+07:49:14 nvd mirror: {"status":"COMPLETED","started_at":1794465913656,"completed_at":1794466152113}
+07:49:24 apiserver-log: 2026-11-12 06:48:58,477 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.2(1l):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,477 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.2(2c):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,477 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.0(2e):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,477 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.0(4c):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,477 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.2(3j):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,477 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.2(2d):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,477 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.3(5e):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,477 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.3(5a):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.0(2a):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.1(3a):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.0(4f):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.3(4d):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.1(3f):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.0(4g):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.2(1c):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.1(3e):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.2(3i):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:48:58,478 WARN [BovModelConverter] Failed to encode CPE 'cpe:2.3:a:cisco:unified_computing_system:4.1(3h):*:*:*:*:*:*:*' of CVE-2026-20091; Skipping [vulnDataSourceName=nvd, vulnSource=NVD, vulnId=CVE-2026-20091]
+07:49:24 apiserver-log: 2026-11-12 06:49:05,633 INFO [NvdVulnDataSource] Finished ModifiedDataFeed[]: consumed 56175 CVE(s), skipped 10295 below watermark [vulnDataSourceName=nvd]
+07:49:24 apiserver-log: 2026-11-12 06:49:05,740 INFO [MirrorVulnDataSourceActivity] Completed mirror; processed 56175 vulnerabilities in PT3M51.98899455S [vulnDataSourceName=nvd]
+07:49:25 nvdpp-log: 2026-11-12T06:45:18Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2013.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:19Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2012.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:19Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2011.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:19Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2010.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:20Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2009.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:20Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2008.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:20Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2007.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:21Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2006.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:21Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2005.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:21Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2004.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:22Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2003.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:22Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-2002.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:22Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-modified.meta HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:22Z http "GET /feeds/json/cve/2.0/nvdcve-2.0-modified.json.gz HTTP/1.1" 200 -
+07:49:25 nvdpp-log: 2026-11-12T06:45:22Z DT fetched build 1794465738112321095: 56106 VulnCheck-enriched CVEs marked as delivered
+07:49:26 waiting 240 s for re-analysis
+07:53:28 conan-native: findings=52 byAnalyzer={"oss-index":52}
+07:53:29 conan-normalised: findings=82 byAnalyzer={"internal":68,"oss-index":14}
+07:53:29 cpp-nvd-gap: findings=0 byAnalyzer={}
+07:53:29 maven-control: findings=155 byAnalyzer={"trivy":49,"oss-index":30,"internal":76}
+07:53:29 npm-control: findings=74 byAnalyzer={"oss-index":33,"internal":35,"trivy":6}
+07:53:29 nuget-control: findings=6 byAnalyzer={"oss-index":2,"internal":3,"trivy":1}
+07:53:29 python-control: findings=236 byAnalyzer={"oss-index":91,"trivy":10,"internal":135}
+07:53:29 vcpkg-native: findings=0 byAnalyzer={}
+07:53:29 vcpkg-normalised: findings=2 byAnalyzer={"internal":2}
+07:53:30 vcpkg-spdx-zlib-direct: findings=0 byAnalyzer={}
+07:53:30 vendored-declared: findings=6 byAnalyzer={"internal":6}
+07:53:30 vendored-syft: findings=0 byAnalyzer={}
+07:53:30 AFTER (NIST + VulnCheck CPEs): cpp-nvd-gap 
+07:53:32 compose:  Container dt5-test-frontend-1 Stopping 
+07:53:32 compose:  Container dt5-test-apiserver-1 Stopping 
+07:53:32 compose:  Container dt5-test-trivy-1 Stopping 
+07:53:32 compose:  Container dt5-test-nvdpp-1 Stopping 
+07:53:32 compose:  Container dt5-test-trivy-1 Stopped 
+07:53:32 compose:  Container dt5-test-frontend-1 Stopped 
+07:53:33 compose:  Container dt5-test-apiserver-1 Stopped 
+07:53:33 compose:  Container dt5-test-postgres-1 Stopping 
+07:53:33 compose:  Container dt5-test-postgres-1 Stopped 
+07:53:35 compose:  Container dt5-test-nvdpp-1 Stopped 
+07:53:35 DONE - containers stopped; images and data volumes kept. DT now reads NVD through the adapter (http://nvdpp:8080/feeds).

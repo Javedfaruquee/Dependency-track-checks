@@ -1,0 +1,38 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:b2565ed9-9695-4bf0-bf7f-feb97e57867d",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-11T18:40:00Z",
+  "component": {
+   "type": "application",
+   "name": "nuget-control",
+   "version": "1",
+   "bom-ref": "nuget-control"
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "bom-ref": "pkg:nuget/Newtonsoft.Json@12.0.1",
+   "name": "Newtonsoft.Json",
+   "version": "12.0.1",
+   "purl": "pkg:nuget/Newtonsoft.Json@12.0.1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:nuget/System.Text.Encodings.Web@4.5.0",
+   "name": "System.Text.Encodings.Web",
+   "version": "4.5.0",
+   "purl": "pkg:nuget/System.Text.Encodings.Web@4.5.0"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:nuget/System.Net.Http@4.3.0",
+   "name": "System.Net.Http",
+   "version": "4.3.0",
+   "purl": "pkg:nuget/System.Net.Http@4.3.0"
+  }
+ ]
+}

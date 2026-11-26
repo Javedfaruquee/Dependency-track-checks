@@ -1,0 +1,11 @@
+{
+    "data": {
+        "libpng/1.6.34": {
+            "error": {
+                "details": "Package 'libpng/1.6.34' not scanned: Not found."
+            }
+        }
+    },
+    "error": null,
+    "provider_url": null
+}

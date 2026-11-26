@@ -1,0 +1,1149 @@
+﻿{
+    "dtVersion":  {
+                      "framework":  {
+                                        "uuid":  "4056ecb2-bc54-4dee-93a5-f0bfb530cd8b",
+                                        "timestamp":  "2026-10-25T11:09:51Z",
+                                        "version":  "5.2.1",
+                                        "name":  "Alpine"
+                                    },
+                      "uuid":  "5d411518-ecbd-4f73-855c-26329158b8b9",
+                      "application":  "Dependency-Track",
+                      "timestamp":  "2026-10-25T11:10:36Z",
+                      "version":  "5.2.1"
+                  },
+    "trivyImage":  "ghcr.io/aquasecurity/trivy@sha256:8f6bb947dbc528902e11f2f5be52f7b519f6a39d5d148f41166f2040499768fb",
+    "projects":  {
+                     "conan-native":  {
+                                          "findings":  52,
+                                          "byAnalyzer":  {
+                                                             "oss-index":  52
+                                                         },
+                                          "byComponent":  {
+                                                              "openssl@1.1.1k":  [
+                                                                                     "NVD:CVE-2026-28387 [oss-index]",
+                                                                                     "NVD:CVE-2026-28388 [oss-index]",
+                                                                                     "NVD:CVE-2026-28390 [oss-index]",
+                                                                                     "NVD:CVE-2026-34181 [oss-index]",
+                                                                                     "NVD:CVE-2026-42764 [oss-index]",
+                                                                                     "NVD:CVE-2026-42766 [oss-index]",
+                                                                                     "NVD:CVE-2026-42770 [oss-index]",
+                                                                                     "NVD:CVE-2026-42771 [oss-index]",
+                                                                                     "NVD:CVE-2026-45447 [oss-index]",
+                                                                                     "NVD:CVE-2026-7383 [oss-index]",
+                                                                                     "NVD:CVE-2026-18798 [oss-index]",
+                                                                                     "NVD:CVE-2026-54874 [oss-index]",
+                                                                                     "NVD:CVE-2026-35189 [oss-index]",
+                                                                                     "NVD:CVE-2026-54872 [oss-index]",
+                                                                                     "NVD:CVE-2026-75806 [oss-index]",
+                                                                                     "NVD:CVE-2026-84782 [oss-index]",
+                                                                                     "NVD:CVE-2025-9230 [oss-index]",
+                                                                                     "NVD:CVE-2025-69419 [oss-index]",
+                                                                                     "NVD:CVE-2025-69420 [oss-index]",
+                                                                                     "NVD:CVE-2025-69421 [oss-index]",
+                                                                                     "NVD:CVE-2024-2511 [oss-index]",
+                                                                                     "NVD:CVE-2024-5535 [oss-index]",
+                                                                                     "NVD:CVE-2024-9143 [oss-index]",
+                                                                                     "NVD:CVE-2024-4741 [oss-index]",
+                                                                                     "NVD:CVE-2023-0215 [oss-index]",
+                                                                                     "NVD:CVE-2023-0286 [oss-index]",
+                                                                                     "NVD:CVE-2023-0464 [oss-index]",
+                                                                                     "NVD:CVE-2023-0465 [oss-index]",
+                                                                                     "NVD:CVE-2023-0466 [oss-index]",
+                                                                                     "NVD:CVE-2023-1255 [oss-index]",
+                                                                                     "NVD:CVE-2023-2650 [oss-index]",
+                                                                                     "NVD:CVE-2023-3446 [oss-index]",
+                                                                                     "NVD:CVE-2023-3817 [oss-index]",
+                                                                                     "NVD:CVE-2023-4807 [oss-index]",
+                                                                                     "NVD:CVE-2023-5363 [oss-index]",
+                                                                                     "NVD:CVE-2023-6129 [oss-index]",
+                                                                                     "NVD:CVE-2022-0778 [oss-index]",
+                                                                                     "NVD:CVE-2022-1292 [oss-index]",
+                                                                                     "NVD:CVE-2022-29242 [oss-index]",
+                                                                                     "NVD:CVE-2022-4304 [oss-index]",
+                                                                                     "NVD:CVE-2022-4450 [oss-index]",
+                                                                                     "NVD:CVE-2021-3711 [oss-index]",
+                                                                                     "NVD:CVE-2021-3712 [oss-index]",
+                                                                                     "NVD:CVE-2021-4160 [oss-index]",
+                                                                                     "NVD:CVE-2011-1473 [oss-index]"
+                                                                                 ],
+                                                              "zlib@1.2.11":  [
+                                                                                  "NVD:CVE-2026-22184 [oss-index]",
+                                                                                  "NVD:CVE-2026-27171 [oss-index]",
+                                                                                  "NVD:CVE-2026-85091 [oss-index]",
+                                                                                  "NVD:CVE-2023-45853 [oss-index]",
+                                                                                  "NVD:CVE-2022-37434 [oss-index]",
+                                                                                  "NVD:CVE-2018-25032 [oss-index]",
+                                                                                  "NVD:CVE-2003-0107 [oss-index]"
+                                                                              ]
+                                                          },
+                                          "sources":  [
+                                                          "NVD"
+                                                      ],
+                                          "sampleFinding":  {
+                                                                "component":  {
+                                                                                  "uuid":  "59349139-4642-411c-a5f4-381ac808b8d8",
+                                                                                  "name":  "openssl",
+                                                                                  "version":  "1.1.1k",
+                                                                                  "purl":  "pkg:conan/openssl@1.1.1k",
+                                                                                  "project":  "c83f98b5-7c26-45d7-b76e-f250a67279d0",
+                                                                                  "hasOccurrences":  false,
+                                                                                  "projectName":  "conan-native",
+                                                                                  "projectVersion":  "1"
+                                                                              },
+                                                                "vulnerability":  {
+                                                                                      "uuid":  "6af6df08-53c8-436a-8d30-081a9e7e75d5",
+                                                                                      "source":  "NVD",
+                                                                                      "vulnId":  "CVE-2026-28387",
+                                                                                      "description":  "Issue summary: An uncommon configuration of clients performing DANE TLSA-based\nserver authentication, when paired with uncommon server DANE TLSA records, may\nresult in a use-after-free and/or double-free on the client side.\n\nImpact summary: A use after free can have a range of potential consequences\nsuch as the corruption of valid data, crashes or execution of arbitrary code.\n\nHowever, the issue only affects clients that make use of TLSA records with both\nthe PKIX-TA(0/PKIX-EE(1) certificate usages and the DANE-TA(2) certificate\nusage.\n\nBy far the most common deployment of DANE is in SMTP MTAs for which RFC7672\nrecommends that clients treat as \u0027unusable\u0027 any TLSA records that have the PKIX\ncertificate usages.  These SMTP (or other similar) clients are not vulnerable\nto this issue.  Conversely, any clients that support only the PKIX usages, and\nignore the DANE-TA(2) usage are also not vulnerable.\n\nThe client would also need to be communicating with a server that publishes a\nTLSA RRset with both types of TLSA records.\n\nNo FIPS modules are affected by this issue, the problem code is outside the\nFIPS module boundary.",
+                                                                                      "references":  "* [https://github.com/openssl/openssl/commit/07e727d304746edb49a98ee8f6ab00256e1f012b](https://github.com/openssl/openssl/commit/07e727d304746edb49a98ee8f6ab00256e1f012b)\n* [https://github.com/openssl/openssl/commit/258a8f63b26995ba357f4326da00e19e29c6acbe](https://github.com/openssl/openssl/commit/258a8f63b26995ba357f4326da00e19e29c6acbe)\n* [https://github.com/openssl/openssl/commit/444958deaf450aea819171f97ae69eaedede42c3](https://github.com/openssl/openssl/commit/444958deaf450aea819171f97ae69eaedede42c3)\n* [https://github.com/openssl/openssl/commit/7a4e08cee62a728d32e60b0de89e6764339df0a7](https://github.com/openssl/openssl/commit/7a4e08cee62a728d32e60b0de89e6764339df0a7)\n* [https://github.com/openssl/openssl/commit/ec03fa050b3346997ed9c5fef3d0e16ad7db8177](https://github.com/openssl/openssl/commit/ec03fa050b3346997ed9c5fef3d0e16ad7db8177)\n* [https://openssl-library.org/news/secadv/20260407.txt](https://openssl-library.org/news/secadv/20260407.txt)\n* [https://cert-portal.siemens.com/productcert/html/ssa-032379.html](https://cert-portal.siemens.com/productcert/html/ssa-032379.html)\n* [https://cert-portal.siemens.com/productcert/html/ssa-265688.html](https://cert-portal.siemens.com/productcert/html/ssa-265688.html)\n",
+                                                                                      "severity":  "HIGH",
+                                                                                      "severityRank":  1,
+                                                                                      "cvssV3BaseScore":  8.1,
+                                                                                      "cvssV3Vector":  "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:H/I:H/A:H",
+                                                                                      "epssScore":  0.00697,
+                                                                                      "epssPercentile":  0.53498,
+                                                                                      "isKev":  false,
+                                                                                      "cwes":  [
+                                                                                                   {
+                                                                                                       "cweId":  416,
+                                                                                                       "name":  "Use After Free"
+                                                                                                   }
+                                                                                               ],
+                                                                                      "aliases":  [
+
+                                                                                                  ],
+                                                                                      "published":  1775600180000
+                                                                                  },
+                                                                "analysis":  {
+                                                                                 "isSuppressed":  false
+                                                                             },
+                                                                "attribution":  {
+                                                                                    "analyzerIdentity":  "oss-index",
+                                                                                    "attributedOn":  1794422770116,
+                                                                                    "referenceUrl":  "https://guide.sonatype.com/vulnerability/CVE-2026-28387?component-type=conan\u0026component-name=openssl\u0026utm_source=dependency-track\u0026utm_medium=integration\u0026utm_content=v5.2.1"
+                                                                                },
+                                                                "matrix":  "c83f98b5-7c26-45d7-b76e-f250a67279d0:59349139-4642-411c-a5f4-381ac808b8d8:6af6df08-53c8-436a-8d30-081a9e7e75d5"
+                                                            }
+                                      },
+                     "conan-normalised":  {
+                                              "findings":  79,
+                                              "byAnalyzer":  {
+                                                                 "internal":  65,
+                                                                 "oss-index":  14
+                                                             },
+                                              "byComponent":  {
+                                                                  "libpng@1.6.34":  [
+                                                                                        "NVD:CVE-2026-22801 [internal]",
+                                                                                        "NVD:CVE-2026-25646 [internal]",
+                                                                                        "NVD:CVE-2026-33416 [internal]",
+                                                                                        "NVD:CVE-2026-34757 [internal]",
+                                                                                        "NVD:CVE-2025-64505 [internal]",
+                                                                                        "NVD:CVE-2025-64506 [internal]",
+                                                                                        "NVD:CVE-2025-64720 [internal]",
+                                                                                        "NVD:CVE-2025-65018 [internal]",
+                                                                                        "NVD:CVE-2025-66293 [internal]",
+                                                                                        "NVD:CVE-2019-7317 [internal]",
+                                                                                        "NVD:CVE-2018-13785 [internal]",
+                                                                                        "NVD:CVE-2018-14048 [internal]"
+                                                                                    ],
+                                                                  "openssl@1.1.1k":  [
+                                                                                         "NVD:CVE-2026-22795 [internal]",
+                                                                                         "NVD:CVE-2026-22796 [internal]",
+                                                                                         "NVD:CVE-2026-28387 [internal]",
+                                                                                         "NVD:CVE-2026-28388 [internal]",
+                                                                                         "NVD:CVE-2026-28389 [internal]",
+                                                                                         "NVD:CVE-2026-28390 [internal]",
+                                                                                         "NVD:CVE-2026-34180 [internal]",
+                                                                                         "NVD:CVE-2026-34181 [oss-index]",
+                                                                                         "NVD:CVE-2026-42764 [oss-index]",
+                                                                                         "NVD:CVE-2026-42766 [internal]",
+                                                                                         "NVD:CVE-2026-42770 [oss-index]",
+                                                                                         "NVD:CVE-2026-42771 [oss-index]",
+                                                                                         "NVD:CVE-2026-45447 [internal]",
+                                                                                         "NVD:CVE-2026-7383 [internal]",
+                                                                                         "NVD:CVE-2026-9076 [internal]",
+                                                                                         "NVD:CVE-2026-18798 [oss-index]",
+                                                                                         "NVD:CVE-2026-54874 [internal]",
+                                                                                         "NVD:CVE-2026-35189 [internal]",
+                                                                                         "NVD:CVE-2026-54872 [internal]",
+                                                                                         "NVD:CVE-2026-75806 [internal]",
+                                                                                         "NVD:CVE-2026-77696 [internal]",
+                                                                                         "NVD:CVE-2026-84782 [internal]",
+                                                                                         "NVD:CVE-2025-9230 [internal]",
+                                                                                         "NVD:CVE-2025-9231 [internal]",
+                                                                                         "NVD:CVE-2025-9232 [internal]",
+                                                                                         "NVD:CVE-2025-68160 [internal]",
+                                                                                         "NVD:CVE-2025-69418 [internal]",
+                                                                                         "NVD:CVE-2025-69419 [internal]",
+                                                                                         "NVD:CVE-2025-69420 [internal]",
+                                                                                         "NVD:CVE-2025-69421 [internal]",
+                                                                                         "NVD:CVE-2024-0727 [internal]",
+                                                                                         "NVD:CVE-2024-2511 [internal]",
+                                                                                         "NVD:CVE-2024-5535 [internal]",
+                                                                                         "NVD:CVE-2024-9143 [internal]",
+                                                                                         "NVD:CVE-2024-4741 [internal]",
+                                                                                         "NVD:CVE-2024-13176 [internal]",
+                                                                                         "NVD:CVE-2023-0215 [internal]",
+                                                                                         "NVD:CVE-2023-0286 [internal]",
+                                                                                         "NVD:CVE-2023-0464 [internal]",
+                                                                                         "NVD:CVE-2023-0465 [internal]",
+                                                                                         "NVD:CVE-2023-0466 [internal]",
+                                                                                         "NVD:CVE-2023-1255 [oss-index]",
+                                                                                         "NVD:CVE-2023-2650 [internal]",
+                                                                                         "NVD:CVE-2023-3446 [oss-index]",
+                                                                                         "NVD:CVE-2023-3817 [internal]",
+                                                                                         "NVD:CVE-2023-4807 [internal]",
+                                                                                         "NVD:CVE-2023-5363 [oss-index]",
+                                                                                         "NVD:CVE-2023-5678 [internal]",
+                                                                                         "NVD:CVE-2023-6129 [oss-index]",
+                                                                                         "NVD:CVE-2022-0778 [internal]",
+                                                                                         "NVD:CVE-2022-1292 [internal]",
+                                                                                         "NVD:CVE-2022-29242 [oss-index]",
+                                                                                         "NVD:CVE-2022-2068 [internal]",
+                                                                                         "NVD:CVE-2022-2097 [internal]",
+                                                                                         "NVD:CVE-2022-4304 [internal]",
+                                                                                         "NVD:CVE-2022-4450 [internal]",
+                                                                                         "NVD:CVE-2021-3711 [internal]",
+                                                                                         "NVD:CVE-2021-3712 [internal]",
+                                                                                         "NVD:CVE-2021-4160 [internal]",
+                                                                                         "NVD:CVE-2011-1473 [oss-index]"
+                                                                                     ],
+                                                                  "zlib@1.2.11":  [
+                                                                                      "NVD:CVE-2026-22184 [internal]",
+                                                                                      "NVD:CVE-2026-27171 [oss-index]",
+                                                                                      "NVD:CVE-2026-85091 [oss-index]",
+                                                                                      "NVD:CVE-2023-45853 [internal]",
+                                                                                      "NVD:CVE-2022-37434 [internal]",
+                                                                                      "NVD:CVE-2018-25032 [internal]",
+                                                                                      "NVD:CVE-2003-0107 [oss-index]"
+                                                                                  ]
+                                                              },
+                                              "sources":  [
+                                                              "NVD"
+                                                          ],
+                                              "sampleFinding":  {
+                                                                    "component":  {
+                                                                                      "uuid":  "dd70e4b9-e415-42f7-ba0d-67a64a6b2515",
+                                                                                      "name":  "libpng",
+                                                                                      "version":  "1.6.34",
+                                                                                      "purl":  "pkg:conan/libpng@1.6.34",
+                                                                                      "cpe":  "cpe:2.3:a:libpng:libpng:1.6.34:*:*:*:*:*:*:*",
+                                                                                      "project":  "743cd75f-5bbc-4841-b777-36ab7f116473",
+                                                                                      "hasOccurrences":  false,
+                                                                                      "projectName":  "conan-normalised",
+                                                                                      "projectVersion":  "1"
+                                                                                  },
+                                                                    "vulnerability":  {
+                                                                                          "uuid":  "71c1a92d-a612-4ee8-bd69-a8f5ccd47cd3",
+                                                                                          "source":  "NVD",
+                                                                                          "vulnId":  "CVE-2026-22801",
+                                                                                          "description":  "LIBPNG is a reference library for use in applications that read, create, and manipulate PNG (Portable Network Graphics) raster image files. From 1.6.26 to 1.6.53, there is an integer truncation in the libpng simplified write API functions png_write_image_16bit and png_write_image_8bit causes heap buffer over-read when the caller provides a negative row stride (for bottom-up image layouts) or a stride exceeding 65535 bytes. The bug was introduced in libpng 1.6.26 (October 2016) by casts added to silence compiler warnings on 16-bit systems. This vulnerability is fixed in 1.6.54.",
+                                                                                          "references":  "* [https://github.com/pnggroup/libpng/security/advisories/GHSA-vgjq-8cw5-ggw8](https://github.com/pnggroup/libpng/security/advisories/GHSA-vgjq-8cw5-ggw8)\n",
+                                                                                          "severity":  "HIGH",
+                                                                                          "severityRank":  1,
+                                                                                          "cvssV3BaseScore":  7.8,
+                                                                                          "cvssV3Vector":  "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                                                                                          "epssScore":  0.00134,
+                                                                                          "epssPercentile":  0.02938,
+                                                                                          "isKev":  false,
+                                                                                          "cwes":  [
+                                                                                                       {
+                                                                                                           "cweId":  125,
+                                                                                                           "name":  "Out-of-bounds Read"
+                                                                                                       },
+                                                                                                       {
+                                                                                                           "cweId":  190,
+                                                                                                           "name":  "Integer Overflow or Wraparound"
+                                                                                                       }
+                                                                                                   ],
+                                                                                          "aliases":  [
+
+                                                                                                      ],
+                                                                                          "published":  1768259752000
+                                                                                      },
+                                                                    "analysis":  {
+                                                                                     "isSuppressed":  false
+                                                                                 },
+                                                                    "attribution":  {
+                                                                                        "analyzerIdentity":  "internal",
+                                                                                        "attributedOn":  1794411128598
+                                                                                    },
+                                                                    "matrix":  "743cd75f-5bbc-4841-b777-36ab7f116473:dd70e4b9-e415-42f7-ba0d-67a64a6b2515:71c1a92d-a612-4ee8-bd69-a8f5ccd47cd3"
+                                                                }
+                                          },
+                     "maven-control":  {
+                                           "findings":  155,
+                                           "byAnalyzer":  {
+                                                              "trivy":  49,
+                                                              "oss-index":  30,
+                                                              "internal":  76
+                                                          },
+                                           "byComponent":  {
+                                                               "log4j-core@2.14.1":  [
+                                                                                         "NVD:CVE-2026-34477 [trivy]",
+                                                                                         "NVD:CVE-2026-34479 [oss-index]",
+                                                                                         "NVD:CVE-2026-34480 [oss-index]",
+                                                                                         "NVD:CVE-2025-68161 [oss-index]",
+                                                                                         "NVD:CVE-2021-44228 [oss-index]",
+                                                                                         "NVD:CVE-2021-45046 [oss-index]",
+                                                                                         "NVD:CVE-2021-45105 [oss-index]",
+                                                                                         "NVD:CVE-2021-44832 [oss-index]",
+                                                                                         "GITHUB:GHSA-3pxv-7cmr-fjr4 [internal]",
+                                                                                         "GITHUB:GHSA-6hg6-v5c8-fphq [internal]",
+                                                                                         "GITHUB:GHSA-7rjr-3q55-vv33 [internal]",
+                                                                                         "GITHUB:GHSA-8489-44mv-ggj8 [internal]",
+                                                                                         "GITHUB:GHSA-h383-gmxw-35v2 [internal]",
+                                                                                         "GITHUB:GHSA-jfh8-c2jp-5v3q [internal]",
+                                                                                         "GITHUB:GHSA-p6xc-xr62-6r2g [internal]",
+                                                                                         "GITHUB:GHSA-vc5p-v9hr-52mj [internal]"
+                                                                                     ],
+                                                               "jackson-databind@2.9.8":  [
+                                                                                              "NVD:CVE-2026-54514 [oss-index]",
+                                                                                              "NVD:CVE-2026-54515 [oss-index]",
+                                                                                              "NVD:CVE-2026-54518 [oss-index]",
+                                                                                              "NVD:CVE-2026-59888 [oss-index]",
+                                                                                              "NVD:CVE-2026-59889 [oss-index]",
+                                                                                              "NVD:CVE-2026-77310 [oss-index]",
+                                                                                              "NVD:CVE-2026-19032 [oss-index]",
+                                                                                              "NVD:CVE-2026-68497 [oss-index]",
+                                                                                              "NVD:CVE-2026-91776 [oss-index]",
+                                                                                              "NVD:CVE-2026-91777 [oss-index]",
+                                                                                              "NVD:CVE-2022-42003 [oss-index]",
+                                                                                              "NVD:CVE-2022-42004 [oss-index]",
+                                                                                              "NVD:CVE-2021-20190 [trivy]",
+                                                                                              "NVD:CVE-2020-8840 [trivy]",
+                                                                                              "NVD:CVE-2020-9546 [trivy]",
+                                                                                              "NVD:CVE-2020-9547 [trivy]",
+                                                                                              "NVD:CVE-2020-9548 [trivy]",
+                                                                                              "NVD:CVE-2020-10672 [trivy]",
+                                                                                              "NVD:CVE-2020-10673 [trivy]",
+                                                                                              "NVD:CVE-2020-10968 [trivy]",
+                                                                                              "NVD:CVE-2020-10969 [trivy]",
+                                                                                              "NVD:CVE-2020-11111 [trivy]",
+                                                                                              "NVD:CVE-2020-11112 [trivy]",
+                                                                                              "NVD:CVE-2020-11113 [trivy]",
+                                                                                              "NVD:CVE-2020-11619 [trivy]",
+                                                                                              "NVD:CVE-2020-11620 [trivy]",
+                                                                                              "NVD:CVE-2020-14060 [trivy]",
+                                                                                              "NVD:CVE-2020-14061 [trivy]",
+                                                                                              "NVD:CVE-2020-14062 [trivy]",
+                                                                                              "NVD:CVE-2020-14195 [trivy]",
+                                                                                              "NVD:CVE-2020-24616 [trivy]",
+                                                                                              "NVD:CVE-2020-24750 [trivy]",
+                                                                                              "NVD:CVE-2020-25649 [oss-index]",
+                                                                                              "NVD:CVE-2020-35490 [trivy]",
+                                                                                              "NVD:CVE-2020-35491 [trivy]",
+                                                                                              "NVD:CVE-2020-35728 [trivy]",
+                                                                                              "NVD:CVE-2020-36179 [trivy]",
+                                                                                              "NVD:CVE-2020-36180 [trivy]",
+                                                                                              "NVD:CVE-2020-36181 [trivy]",
+                                                                                              "NVD:CVE-2020-36182 [trivy]",
+                                                                                              "NVD:CVE-2020-36183 [trivy]",
+                                                                                              "NVD:CVE-2020-36184 [trivy]",
+                                                                                              "NVD:CVE-2020-36185 [trivy]",
+                                                                                              "NVD:CVE-2020-36186 [trivy]",
+                                                                                              "NVD:CVE-2020-36187 [trivy]",
+                                                                                              "NVD:CVE-2020-36188 [trivy]",
+                                                                                              "NVD:CVE-2020-36189 [trivy]",
+                                                                                              "NVD:CVE-2020-36518 [oss-index]",
+                                                                                              "NVD:CVE-2020-10650 [trivy]",
+                                                                                              "NVD:CVE-2019-12086 [oss-index]",
+                                                                                              "NVD:CVE-2019-12814 [trivy]",
+                                                                                              "NVD:CVE-2019-12384 [trivy]",
+                                                                                              "NVD:CVE-2019-14379 [trivy]",
+                                                                                              "NVD:CVE-2019-14439 [trivy]",
+                                                                                              "NVD:CVE-2019-14540 [trivy]",
+                                                                                              "NVD:CVE-2019-16335 [trivy]",
+                                                                                              "NVD:CVE-2019-16942 [trivy]",
+                                                                                              "NVD:CVE-2019-16943 [trivy]",
+                                                                                              "NVD:CVE-2019-17267 [trivy]",
+                                                                                              "NVD:CVE-2019-17531 [trivy]",
+                                                                                              "NVD:CVE-2019-20330 [trivy]",
+                                                                                              "NVD:CVE-2019-14892 [trivy]",
+                                                                                              "NVD:CVE-2019-14893 [trivy]",
+                                                                                              "GITHUB:GHSA-27xj-rqx5-2255 [internal]",
+                                                                                              "GITHUB:GHSA-288c-cq4h-88gq [internal]",
+                                                                                              "GITHUB:GHSA-4w82-r329-3q67 [internal]",
+                                                                                              "GITHUB:GHSA-57j2-w4cx-62h2 [internal]",
+                                                                                              "GITHUB:GHSA-58pp-9c76-5625 [internal]",
+                                                                                              "GITHUB:GHSA-5949-rw7g-wx7w [internal]",
+                                                                                              "GITHUB:GHSA-5gvw-p9qm-jgwh [internal]",
+                                                                                              "GITHUB:GHSA-5jmj-h7xm-6q6v [internal]",
+                                                                                              "GITHUB:GHSA-5p34-5m6p-p58g [internal]",
+                                                                                              "GITHUB:GHSA-5r5r-6hpj-8gg9 [internal]",
+                                                                                              "GITHUB:GHSA-5ww9-j83m-q7qx [internal]",
+                                                                                              "GITHUB:GHSA-6fpp-rgj9-8rwc [internal]",
+                                                                                              "GITHUB:GHSA-758m-v56v-grj4 [internal]",
+                                                                                              "GITHUB:GHSA-85cw-hj65-qqv9 [internal]",
+                                                                                              "GITHUB:GHSA-89qr-369f-5m5x [internal]",
+                                                                                              "GITHUB:GHSA-8c4j-34r4-xr8g [internal]",
+                                                                                              "GITHUB:GHSA-8w26-6f25-cm9x [internal]",
+                                                                                              "GITHUB:GHSA-95cm-88f5-f2c7 [internal]",
+                                                                                              "GITHUB:GHSA-9gph-22xh-8x98 [internal]",
+                                                                                              "GITHUB:GHSA-9m6f-7xcq-8vf8 [internal]",
+                                                                                              "GITHUB:GHSA-9vvp-fxw6-jcxr [internal]",
+                                                                                              "GITHUB:GHSA-c265-37vj-cwcc [internal]",
+                                                                                              "GITHUB:GHSA-c2q3-4qrh-fm48 [internal]",
+                                                                                              "GITHUB:GHSA-cf6r-3wgc-h863 [internal]",
+                                                                                              "GITHUB:GHSA-cmfg-87vq-g5g4 [internal]",
+                                                                                              "GITHUB:GHSA-cvm9-fjm9-3572 [internal]",
+                                                                                              "GITHUB:GHSA-cxp5-3px4-pw24 [internal]",
+                                                                                              "GITHUB:GHSA-f3j5-rmmp-3fc5 [internal]",
+                                                                                              "GITHUB:GHSA-f9xh-2qgp-cq57 [internal]",
+                                                                                              "GITHUB:GHSA-fmmc-742q-jg75 [internal]",
+                                                                                              "GITHUB:GHSA-fqwf-pjwf-7vqv [internal]",
+                                                                                              "GITHUB:GHSA-gjmw-vf9h-g25v [internal]",
+                                                                                              "GITHUB:GHSA-gwp4-hfv6-p7hw [internal]",
+                                                                                              "GITHUB:GHSA-gww7-p5w4-wrfv [internal]",
+                                                                                              "GITHUB:GHSA-h3cw-g4mq-c5x2 [internal]",
+                                                                                              "GITHUB:GHSA-h4rc-386g-6m85 [internal]",
+                                                                                              "GITHUB:GHSA-h822-r4r5-v8jg [internal]",
+                                                                                              "GITHUB:GHSA-hgj6-7826-r7m5 [internal]",
+                                                                                              "GITHUB:GHSA-j823-4qch-3rgm [internal]",
+                                                                                              "GITHUB:GHSA-jjjh-jjxp-wpff [internal]",
+                                                                                              "GITHUB:GHSA-m6x4-97wx-4q27 [internal]",
+                                                                                              "GITHUB:GHSA-mc6h-4qgp-37qh [internal]",
+                                                                                              "GITHUB:GHSA-mph4-vhrx-mv67 [internal]",
+                                                                                              "GITHUB:GHSA-mx7p-6679-8g3q [internal]",
+                                                                                              "GITHUB:GHSA-p43x-xfjf-5jhr [internal]",
+                                                                                              "GITHUB:GHSA-q93h-jc49-78gg [internal]",
+                                                                                              "GITHUB:GHSA-qjw2-hr98-qgfh [internal]",
+                                                                                              "GITHUB:GHSA-qmqc-x3r4-6v39 [internal]",
+                                                                                              "GITHUB:GHSA-r3gr-cxrf-hg25 [internal]",
+                                                                                              "GITHUB:GHSA-r695-7vr9-jgc2 [internal]",
+                                                                                              "GITHUB:GHSA-rf6r-2c4q-2vwg [internal]",
+                                                                                              "GITHUB:GHSA-rgv9-q543-rqg4 [internal]",
+                                                                                              "GITHUB:GHSA-rpr3-cw39-3pxh [internal]",
+                                                                                              "GITHUB:GHSA-v3xw-c963-f5hc [internal]",
+                                                                                              "GITHUB:GHSA-v585-23hc-c647 [internal]",
+                                                                                              "GITHUB:GHSA-vfqx-33qm-g869 [internal]",
+                                                                                              "GITHUB:GHSA-vvgp-rfg2-7rr6 [internal]",
+                                                                                              "GITHUB:GHSA-wh8g-3j2c-rqj5 [internal]",
+                                                                                              "GITHUB:GHSA-wjgm-6hv5-3cvf [internal]",
+                                                                                              "GITHUB:GHSA-wv8q-qhhj-9h54 [internal]"
+                                                                                          ],
+                                                               "commons-text@1.9":  [
+                                                                                        "NVD:CVE-2022-42889 [oss-index]",
+                                                                                        "GITHUB:GHSA-599f-7c49-w659 [internal]"
+                                                                                    ],
+                                                               "snakeyaml@1.30":  [
+                                                                                      "NVD:CVE-2022-25857 [oss-index]",
+                                                                                      "NVD:CVE-2022-38749 [oss-index]",
+                                                                                      "NVD:CVE-2022-38750 [oss-index]",
+                                                                                      "NVD:CVE-2022-38751 [oss-index]",
+                                                                                      "NVD:CVE-2022-38752 [oss-index]",
+                                                                                      "NVD:CVE-2022-41854 [oss-index]",
+                                                                                      "NVD:CVE-2022-1471 [oss-index]",
+                                                                                      "GITHUB:GHSA-3mc7-4q67-w48m [internal]",
+                                                                                      "GITHUB:GHSA-98wm-3w3q-mw94 [internal]",
+                                                                                      "GITHUB:GHSA-9w3m-gqgf-c4p9 [internal]",
+                                                                                      "GITHUB:GHSA-c4r9-r8fh-9vj2 [internal]",
+                                                                                      "GITHUB:GHSA-hhhw-99gj-p3c3 [internal]",
+                                                                                      "GITHUB:GHSA-mjmj-j48q-9wg2 [internal]",
+                                                                                      "GITHUB:GHSA-w37g-rhq8-7m4j [internal]"
+                                                                                  ]
+                                                           },
+                                           "sources":  [
+                                                           "GITHUB",
+                                                           "NVD"
+                                                       ],
+                                           "sampleFinding":  {
+                                                                 "component":  {
+                                                                                   "uuid":  "18ffda80-3311-4339-96d4-05852f1004ed",
+                                                                                   "name":  "log4j-core",
+                                                                                   "group":  "org.apache.logging.log4j",
+                                                                                   "version":  "2.14.1",
+                                                                                   "purl":  "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+                                                                                   "project":  "b40c0854-faaf-40c3-a138-3e5785c4636c",
+                                                                                   "hasOccurrences":  false,
+                                                                                   "projectName":  "maven-control",
+                                                                                   "projectVersion":  "1",
+                                                                                   "latestVersion":  "2.26.1"
+                                                                               },
+                                                                 "vulnerability":  {
+                                                                                       "uuid":  "964be93c-ab22-4f5c-805a-b361e752c560",
+                                                                                       "source":  "NVD",
+                                                                                       "vulnId":  "CVE-2026-34477",
+                                                                                       "description":  "The fix for  CVE-2025-68161 https://logging.apache.org/security.html#CVE-2025-68161  was incomplete: it addressed hostname verification only when enabled via the  log4j2.sslVerifyHostName https://logging.apache.org/log4j/2.x/manual/systemproperties.html#log4j2.sslVerifyHostName  system property, but not when configured through the  verifyHostName https://logging.apache.org/log4j/2.x/manual/appenders/network.html#SslConfiguration-attr-verifyHostName  attribute of the \u003cSsl\u003e element.\n\nAlthough the verifyHostName configuration attribute was introduced in Log4j Core 2.12.0, it was silently ignored in all versions through 2.25.3, leaving TLS connections vulnerable to interception regardless of the configured value.\n\nA network-based attacker may be able to perform a man-in-the-middle attack when all of the following conditions are met:\n\n  *  An SMTP, Socket, or Syslog appender is in use.\n  *  TLS is configured via a nested \u003cSsl\u003e element.\n  *  The attacker can present a certificate issued by a CA trusted by the appender\u0027s configured trust store, or by the default Java trust store if none is configured.\nThis issue does not affect users of the HTTP appender, which uses a separate  verifyHostname https://logging.apache.org/log4j/2.x/manual/appenders/network.html#HttpAppender-attr-verifyHostName  attribute that was not subject to this bug and verifies host names by default.\n\nUsers are advised to upgrade to Apache Log4j Core 2.25.4, which corrects this issue.",
+                                                                                       "references":  "* [https://github.com/apache/logging-log4j2/pull/4075](https://github.com/apache/logging-log4j2/pull/4075)\n* [https://lists.apache.org/thread/lkx8cl46t2bvkcwfcb2pd43ygc097lq4](https://lists.apache.org/thread/lkx8cl46t2bvkcwfcb2pd43ygc097lq4)\n* [https://logging.apache.org/cyclonedx/vdr.xml](https://logging.apache.org/cyclonedx/vdr.xml)\n* [https://logging.apache.org/log4j/2.x/manual/appenders/network.html#SslConfiguration-attr-verifyHostName](https://logging.apache.org/log4j/2.x/manual/appenders/network.html#SslConfiguration-attr-verifyHostName)\n* [https://logging.apache.org/security.html#CVE-2026-34477](https://logging.apache.org/security.html#CVE-2026-34477)\n",
+                                                                                       "severity":  "MEDIUM",
+                                                                                       "severityRank":  2,
+                                                                                       "cvssV3BaseScore":  5.9,
+                                                                                       "cvssV4Score":  6.3,
+                                                                                       "cvssV3Vector":  "CVSS:3.1/AV:N/AC:H/PR:N/UI:N/S:U/C:N/I:H/A:N",
+                                                                                       "cvssV4Vector":  "CVSS:4.0/AV:N/AC:H/AT:N/PR:N/UI:N/VC:L/VI:N/VA:N/SC:N/SI:L/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+                                                                                       "epssScore":  0.00569,
+                                                                                       "epssPercentile":  0.47596,
+                                                                                       "isKev":  false,
+                                                                                       "cwes":  [
+                                                                                                    {
+                                                                                                        "cweId":  297,
+                                                                                                        "name":  "Improper Validation of Certificate with Host Mismatch"
+                                                                                                    },
+                                                                                                    {
+                                                                                                        "cweId":  295,
+                                                                                                        "name":  "Improper Certificate Validation"
+                                                                                                    }
+                                                                                                ],
+                                                                                       "aliases":  [
+
+                                                                                                   ],
+                                                                                       "published":  1775837790000
+                                                                                   },
+                                                                 "analysis":  {
+                                                                                  "isSuppressed":  false
+                                                                              },
+                                                                 "attribution":  {
+                                                                                     "analyzerIdentity":  "trivy",
+                                                                                     "attributedOn":  1794423332149
+                                                                                 },
+                                                                 "matrix":  "b40c0854-faaf-40c3-a138-3e5785c4636c:18ffda80-3311-4339-96d4-05852f1004ed:964be93c-ab22-4f5c-805a-b361e752c560"
+                                                             }
+                                       },
+                     "npm-control":  {
+                                         "findings":  74,
+                                         "byAnalyzer":  {
+                                                            "oss-index":  33,
+                                                            "internal":  35,
+                                                            "trivy":  6
+                                                        },
+                                         "byComponent":  {
+                                                             "lodash@4.17.15":  [
+                                                                                    "NVD:CVE-2026-2950 [oss-index]",
+                                                                                    "NVD:CVE-2026-4800 [oss-index]",
+                                                                                    "NVD:CVE-2025-13465 [oss-index]",
+                                                                                    "NVD:CVE-2021-23337 [oss-index]",
+                                                                                    "NVD:CVE-2020-8203 [oss-index]",
+                                                                                    "NVD:CVE-2020-28500 [oss-index]",
+                                                                                    "GITHUB:GHSA-29mw-wpgm-hmr9 [internal]",
+                                                                                    "GITHUB:GHSA-35jh-r3h4-6jhm [internal]",
+                                                                                    "GITHUB:GHSA-p6mc-m468-83gw [internal]",
+                                                                                    "GITHUB:GHSA-r5fr-rjxr-66jc [internal]",
+                                                                                    "GITHUB:GHSA-xxjr-mmjv-4gpg [internal]",
+                                                                                    "UNKNOWN:NSWG-ECO-516 [trivy]"
+                                                                                ],
+                                                             "minimist@1.2.0":  [
+                                                                                    "NVD:CVE-2021-44906 [trivy]",
+                                                                                    "NVD:CVE-2020-7598 [oss-index]",
+                                                                                    "GITHUB:GHSA-vh95-rmgr-6w4m [internal]",
+                                                                                    "GITHUB:GHSA-xvch-5gv4-984h [internal]"
+                                                                                ],
+                                                             "axios@0.21.0":  [
+                                                                                  "NVD:CVE-2026-25639 [oss-index]",
+                                                                                  "NVD:CVE-2026-40175 [oss-index]",
+                                                                                  "NVD:CVE-2026-42033 [oss-index]",
+                                                                                  "NVD:CVE-2026-42034 [oss-index]",
+                                                                                  "NVD:CVE-2026-42035 [oss-index]",
+                                                                                  "NVD:CVE-2026-42036 [oss-index]",
+                                                                                  "NVD:CVE-2026-42038 [oss-index]",
+                                                                                  "NVD:CVE-2026-42039 [trivy]",
+                                                                                  "NVD:CVE-2026-42040 [oss-index]",
+                                                                                  "NVD:CVE-2026-42041 [oss-index]",
+                                                                                  "NVD:CVE-2026-42042 [oss-index]",
+                                                                                  "NVD:CVE-2026-42043 [oss-index]",
+                                                                                  "NVD:CVE-2026-44486 [oss-index]",
+                                                                                  "NVD:CVE-2026-44487 [oss-index]",
+                                                                                  "NVD:CVE-2026-44490 [oss-index]",
+                                                                                  "NVD:CVE-2026-44492 [oss-index]",
+                                                                                  "NVD:CVE-2026-44495 [oss-index]",
+                                                                                  "NVD:CVE-2026-44496 [oss-index]",
+                                                                                  "NVD:CVE-2026-67316 [trivy]",
+                                                                                  "NVD:CVE-2026-67319 [trivy]",
+                                                                                  "NVD:CVE-2026-69123 [oss-index]",
+                                                                                  "NVD:CVE-2025-27152 [trivy]",
+                                                                                  "NVD:CVE-2025-58754 [oss-index]",
+                                                                                  "NVD:CVE-2025-62718 [oss-index]",
+                                                                                  "NVD:CVE-2023-45857 [oss-index]",
+                                                                                  "NVD:CVE-2021-3749 [oss-index]",
+                                                                                  "NVD:CVE-2020-28168 [oss-index]",
+                                                                                  "GITHUB:GHSA-3g43-6gmg-66jw [internal]",
+                                                                                  "GITHUB:GHSA-3p68-rc4w-qgx5 [internal]",
+                                                                                  "GITHUB:GHSA-43fc-jf86-j433 [internal]",
+                                                                                  "GITHUB:GHSA-4w2v-q235-vp99 [internal]",
+                                                                                  "GITHUB:GHSA-5c9x-8gcm-mpgx [internal]",
+                                                                                  "GITHUB:GHSA-62hf-57xw-28j9 [internal]",
+                                                                                  "GITHUB:GHSA-6chq-wfr3-2hj9 [internal]",
+                                                                                  "GITHUB:GHSA-7q8q-rj6j-mhjq [internal]",
+                                                                                  "GITHUB:GHSA-898c-q2cr-xwhg [internal]",
+                                                                                  "GITHUB:GHSA-cph5-m8f7-6c5x [internal]",
+                                                                                  "GITHUB:GHSA-fvcv-3m26-pcqx [internal]",
+                                                                                  "GITHUB:GHSA-hfxv-24rg-xrqf [internal]",
+                                                                                  "GITHUB:GHSA-j5f8-grm9-p9fc [internal]",
+                                                                                  "GITHUB:GHSA-jr5f-v2jv-69x6 [internal]",
+                                                                                  "GITHUB:GHSA-m7pr-hjqh-92cm [internal]",
+                                                                                  "GITHUB:GHSA-mmx7-hfxf-jppx [internal]",
+                                                                                  "GITHUB:GHSA-p92q-9vqr-4j8v [internal]",
+                                                                                  "GITHUB:GHSA-pf86-5x62-jrwf [internal]",
+                                                                                  "GITHUB:GHSA-pjwm-pj3p-43mv [internal]",
+                                                                                  "GITHUB:GHSA-pmwg-cvhr-8vh7 [internal]",
+                                                                                  "GITHUB:GHSA-vf2m-468p-8v99 [internal]",
+                                                                                  "GITHUB:GHSA-w9j2-pvgh-6h63 [internal]",
+                                                                                  "GITHUB:GHSA-wf5p-g6vw-rhxx [internal]",
+                                                                                  "GITHUB:GHSA-xhjh-pmcv-23jw [internal]",
+                                                                                  "GITHUB:GHSA-xx6v-rp6x-q39c [internal]"
+                                                                              ],
+                                                             "jsonwebtoken@8.5.1":  [
+                                                                                        "NVD:CVE-2022-23540 [oss-index]",
+                                                                                        "NVD:CVE-2022-23541 [oss-index]",
+                                                                                        "NVD:CVE-2022-23539 [oss-index]",
+                                                                                        "GITHUB:GHSA-8cf7-32gw-wr33 [internal]",
+                                                                                        "GITHUB:GHSA-hjrf-2m68-5959 [internal]",
+                                                                                        "GITHUB:GHSA-qwph-4952-7xr6 [internal]"
+                                                                                    ]
+                                                         },
+                                         "sources":  [
+                                                         "GITHUB",
+                                                         "NVD",
+                                                         "UNKNOWN"
+                                                     ],
+                                         "sampleFinding":  {
+                                                               "component":  {
+                                                                                 "uuid":  "1e1bae1c-ea24-4276-b111-e54240eba1dd",
+                                                                                 "name":  "lodash",
+                                                                                 "version":  "4.17.15",
+                                                                                 "purl":  "pkg:npm/lodash@4.17.15",
+                                                                                 "project":  "c11d12a7-793c-4afe-8c3f-0bfe11a14be0",
+                                                                                 "hasOccurrences":  false,
+                                                                                 "projectName":  "npm-control",
+                                                                                 "projectVersion":  "1",
+                                                                                 "latestVersion":  "4.18.1"
+                                                                             },
+                                                               "vulnerability":  {
+                                                                                     "uuid":  "315f3063-ce4c-439e-8fca-70ea7c456b51",
+                                                                                     "source":  "NVD",
+                                                                                     "vulnId":  "CVE-2026-2950",
+                                                                                     "description":  "The _.unset and _.omit functions in Lodash are vulnerable to prototype pollution. The fix for CVE-2025-13465 only guards against string key members, so an attacker can bypass the check by passing array-wrapped path segments. This allows deletion of properties from built-in prototypes such as Object.prototype, Number.prototype, and String.prototype. The issue permits deletion of prototype properties but does not allow overwriting their original behavior. The issue is patched from 4.18.0 to 4.18.1 depending on the package: lodash, lodash-es, and lodash-amd in 4.18.1, and the standalone lodash.unset and lodash.omit packages in 4.18.0.",
+                                                                                     "references":  "* [https://cna.openjsf.org/security-advisories.html](https://cna.openjsf.org/security-advisories.html)\n* [https://github.com/lodash/lodash/security/advisories/GHSA-f23m-r3pf-42rh](https://github.com/lodash/lodash/security/advisories/GHSA-f23m-r3pf-42rh)\n",
+                                                                                     "severity":  "MEDIUM",
+                                                                                     "severityRank":  2,
+                                                                                     "cvssV3BaseScore":  6.5,
+                                                                                     "cvssV3Vector":  "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:L/A:L",
+                                                                                     "epssScore":  0.00337,
+                                                                                     "epssPercentile":  0.27462,
+                                                                                     "isKev":  false,
+                                                                                     "cwes":  [
+                                                                                                  {
+                                                                                                      "cweId":  1321,
+                                                                                                      "name":  "Improperly Controlled Modification of Object Prototype Attributes (\u0027Prototype Pollution\u0027)"
+                                                                                                  }
+                                                                                              ],
+                                                                                     "aliases":  [
+
+                                                                                                 ],
+                                                                                     "published":  1774988186000
+                                                                                 },
+                                                               "analysis":  {
+                                                                                "isSuppressed":  false
+                                                                            },
+                                                               "attribution":  {
+                                                                                   "analyzerIdentity":  "oss-index",
+                                                                                   "attributedOn":  1794422769832,
+                                                                                   "referenceUrl":  "https://guide.sonatype.com/vulnerability/CVE-2026-2950?component-type=npm\u0026component-name=lodash\u0026utm_source=dependency-track\u0026utm_medium=integration\u0026utm_content=v5.2.1"
+                                                                               },
+                                                               "matrix":  "c11d12a7-793c-4afe-8c3f-0bfe11a14be0:1e1bae1c-ea24-4276-b111-e54240eba1dd:315f3063-ce4c-439e-8fca-70ea7c456b51"
+                                                           }
+                                     },
+                     "nuget-control":  {
+                                           "findings":  6,
+                                           "byAnalyzer":  {
+                                                              "oss-index":  2,
+                                                              "internal":  3,
+                                                              "trivy":  1
+                                                          },
+                                           "byComponent":  {
+                                                               "Newtonsoft.Json@12.0.1":  [
+                                                                                              "NVD:CVE-2024-21907 [oss-index]",
+                                                                                              "GITHUB:GHSA-5crp-9r3c-p9vr [internal]"
+                                                                                          ],
+                                                               "System.Text.Encodings.Web@4.5.0":  [
+                                                                                                       "NVD:CVE-2021-26701 [oss-index]",
+                                                                                                       "GITHUB:GHSA-ghhp-997w-qr28 [internal]"
+                                                                                                   ],
+                                                               "System.Net.Http@4.3.0":  [
+                                                                                             "NVD:CVE-2018-8292 [trivy]",
+                                                                                             "GITHUB:GHSA-7jgj-8wvc-jh57 [internal]"
+                                                                                         ]
+                                                           },
+                                           "sources":  [
+                                                           "GITHUB",
+                                                           "NVD"
+                                                       ],
+                                           "sampleFinding":  {
+                                                                 "component":  {
+                                                                                   "uuid":  "2af52538-c9df-4e8f-8177-2963bbb9dae8",
+                                                                                   "name":  "Newtonsoft.Json",
+                                                                                   "version":  "12.0.1",
+                                                                                   "purl":  "pkg:nuget/Newtonsoft.Json@12.0.1",
+                                                                                   "project":  "acc08b61-4500-4767-b90d-f9b7f5ec3f87",
+                                                                                   "hasOccurrences":  false,
+                                                                                   "projectName":  "nuget-control",
+                                                                                   "projectVersion":  "1",
+                                                                                   "latestVersion":  "13.0.4"
+                                                                               },
+                                                                 "vulnerability":  {
+                                                                                       "uuid":  "68f562a9-edf6-450a-aa16-fdf7a3543ddd",
+                                                                                       "source":  "NVD",
+                                                                                       "vulnId":  "CVE-2024-21907",
+                                                                                       "description":  "Newtonsoft.Json before version 13.0.1 is affected by a mishandling of exceptional conditions vulnerability. Crafted data that is passed to the JsonConvert.DeserializeObject method may trigger a StackOverflow exception resulting in denial of service. Depending on the usage of the library, an unauthenticated and remote attacker may be able to cause the denial of service condition.",
+                                                                                       "references":  "* [https://alephsecurity.com/2018/10/22/StackOverflowException/](https://alephsecurity.com/2018/10/22/StackOverflowException/)\n* [https://alephsecurity.com/vulns/aleph-2018004](https://alephsecurity.com/vulns/aleph-2018004)\n* [https://github.com/JamesNK/Newtonsoft.Json/commit/7e77bbe1beccceac4fc7b174b53abfefac278b66](https://github.com/JamesNK/Newtonsoft.Json/commit/7e77bbe1beccceac4fc7b174b53abfefac278b66)\n* [https://github.com/JamesNK/Newtonsoft.Json/issues/2457](https://github.com/JamesNK/Newtonsoft.Json/issues/2457)\n* [https://github.com/JamesNK/Newtonsoft.Json/pull/2462](https://github.com/JamesNK/Newtonsoft.Json/pull/2462)\n* [https://github.com/advisories/GHSA-5crp-9r3c-p9vr](https://github.com/advisories/GHSA-5crp-9r3c-p9vr)\n* [https://security.snyk.io/vuln/SNYK-DOTNET-NEWTONSOFTJSON-2774678](https://security.snyk.io/vuln/SNYK-DOTNET-NEWTONSOFTJSON-2774678)\n* [https://vulncheck.com/advisories/vc-advisory-GHSA-5crp-9r3c-p9vr](https://vulncheck.com/advisories/vc-advisory-GHSA-5crp-9r3c-p9vr)\n* [https://alephsecurity.com/2018/10/22/StackOverflowException/](https://alephsecurity.com/2018/10/22/StackOverflowException/)\n* [https://alephsecurity.com/vulns/aleph-2018004](https://alephsecurity.com/vulns/aleph-2018004)\n* [https://github.com/JamesNK/Newtonsoft.Json/commit/7e77bbe1beccceac4fc7b174b53abfefac278b66](https://github.com/JamesNK/Newtonsoft.Json/commit/7e77bbe1beccceac4fc7b174b53abfefac278b66)\n* [https://github.com/JamesNK/Newtonsoft.Json/issues/2457](https://github.com/JamesNK/Newtonsoft.Json/issues/2457)\n* [https://github.com/JamesNK/Newtonsoft.Json/pull/2462](https://github.com/JamesNK/Newtonsoft.Json/pull/2462)\n* [https://github.com/advisories/GHSA-5crp-9r3c-p9vr](https://github.com/advisories/GHSA-5crp-9r3c-p9vr)\n* [https://security.snyk.io/vuln/SNYK-DOTNET-NEWTONSOFTJSON-2774678](https://security.snyk.io/vuln/SNYK-DOTNET-NEWTONSOFTJSON-2774678)\n* [https://vulncheck.com/advisories/vc-advisory-GHSA-5crp-9r3c-p9vr](https://vulncheck.com/advisories/vc-advisory-GHSA-5crp-9r3c-p9vr)\n",
+                                                                                       "severity":  "HIGH",
+                                                                                       "severityRank":  1,
+                                                                                       "cvssV3BaseScore":  7.5,
+                                                                                       "cvssV3Vector":  "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H",
+                                                                                       "epssScore":  0.32908,
+                                                                                       "epssPercentile":  0.98377,
+                                                                                       "isKev":  false,
+                                                                                       "cwes":  [
+                                                                                                    {
+                                                                                                        "cweId":  755,
+                                                                                                        "name":  "Improper Handling of Exceptional Conditions"
+                                                                                                    }
+                                                                                                ],
+                                                                                       "aliases":  [
+
+                                                                                                   ],
+                                                                                       "published":  1704298508000
+                                                                                   },
+                                                                 "analysis":  {
+                                                                                  "isSuppressed":  false
+                                                                              },
+                                                                 "attribution":  {
+                                                                                     "analyzerIdentity":  "oss-index",
+                                                                                     "attributedOn":  1794422769349,
+                                                                                     "referenceUrl":  "https://guide.sonatype.com/vulnerability/CVE-2024-21907?component-type=nuget\u0026component-name=Newtonsoft.Json\u0026utm_source=dependency-track\u0026utm_medium=integration\u0026utm_content=v5.2.1"
+                                                                                 },
+                                                                 "matrix":  "acc08b61-4500-4767-b90d-f9b7f5ec3f87:2af52538-c9df-4e8f-8177-2963bbb9dae8:68f562a9-edf6-450a-aa16-fdf7a3543ddd"
+                                                             }
+                                       },
+                     "python-control":  {
+                                            "findings":  236,
+                                            "byAnalyzer":  {
+                                                               "oss-index":  91,
+                                                               "trivy":  10,
+                                                               "internal":  135
+                                                           },
+                                            "byComponent":  {
+                                                                "Django@3.2":  [
+                                                                                   "NVD:CVE-2026-1207 [oss-index]",
+                                                                                   "NVD:CVE-2026-1287 [oss-index]",
+                                                                                   "NVD:CVE-2026-1312 [oss-index]",
+                                                                                   "NVD:CVE-2026-35193 [oss-index]",
+                                                                                   "NVD:CVE-2026-48587 [trivy]",
+                                                                                   "NVD:CVE-2026-6873 [trivy]",
+                                                                                   "NVD:CVE-2026-7666 [oss-index]",
+                                                                                   "NVD:CVE-2026-8404 [trivy]",
+                                                                                   "NVD:CVE-2026-48588 [trivy]",
+                                                                                   "NVD:CVE-2026-53877 [oss-index]",
+                                                                                   "NVD:CVE-2026-53878 [trivy]",
+                                                                                   "NVD:CVE-2026-15307 [oss-index]",
+                                                                                   "NVD:CVE-2026-15830 [trivy]",
+                                                                                   "NVD:CVE-2026-77050 [oss-index]",
+                                                                                   "NVD:CVE-2026-84429 [oss-index]",
+                                                                                   "NVD:CVE-2026-87890 [oss-index]",
+                                                                                   "NVD:CVE-2026-87975 [oss-index]",
+                                                                                   "NVD:CVE-2025-26699 [oss-index]",
+                                                                                   "NVD:CVE-2025-27556 [oss-index]",
+                                                                                   "NVD:CVE-2025-32873 [oss-index]",
+                                                                                   "NVD:CVE-2025-48432 [oss-index]",
+                                                                                   "NVD:CVE-2025-57833 [oss-index]",
+                                                                                   "NVD:CVE-2025-59682 [oss-index]",
+                                                                                   "NVD:CVE-2025-64458 [oss-index]",
+                                                                                   "NVD:CVE-2025-64459 [oss-index]",
+                                                                                   "GITHUB:GHSA-2gwj-7jmv-h26r [internal]",
+                                                                                   "GITHUB:GHSA-2hrw-hx67-34x6 [internal]",
+                                                                                   "GITHUB:GHSA-3h9f-r86x-qvjx [internal]",
+                                                                                   "GITHUB:GHSA-53qw-q765-4fww [internal]",
+                                                                                   "NVD:CVE-2025-64460 [oss-index]",
+                                                                                   "GITHUB:GHSA-68w8-qjq3-2gfm [internal]",
+                                                                                   "GITHUB:GHSA-6cw3-g6wv-c2xv [internal]",
+                                                                                   "GITHUB:GHSA-6w2r-r2m5-xq5w [internal]",
+                                                                                   "GITHUB:GHSA-7h4p-27mh-hmrw [internal]",
+                                                                                   "GITHUB:GHSA-7xr5-9hcq-chf9 [internal]",
+                                                                                   "GITHUB:GHSA-8c5j-9r9f-c6w8 [internal]",
+                                                                                   "GITHUB:GHSA-8cjm-8mp7-r2xf [internal]",
+                                                                                   "GITHUB:GHSA-8qcx-xf44-272x [internal]",
+                                                                                   "GITHUB:GHSA-8x94-hmjh-97hq [internal]",
+                                                                                   "GITHUB:GHSA-923m-gv2p-w5qp [internal]",
+                                                                                   "GITHUB:GHSA-95rw-fx8r-36v6 [internal]",
+                                                                                   "GITHUB:GHSA-crhf-3pfg-w68w [internal]",
+                                                                                   "GITHUB:GHSA-frmv-pr5f-9mcr [internal]",
+                                                                                   "GITHUB:GHSA-h7pc-vwp9-298g [internal]",
+                                                                                   "GITHUB:GHSA-h8gc-pgj2-vjm3 [internal]",
+                                                                                   "GITHUB:GHSA-jh3w-4vvf-mjgr [internal]",
+                                                                                   "GITHUB:GHSA-jrh2-hc4r-7jwx [internal]",
+                                                                                   "GITHUB:GHSA-p64x-8rxx-wf6q [internal]",
+                                                                                   "GITHUB:GHSA-p99v-5w3c-jqq9 [internal]",
+                                                                                   "GITHUB:GHSA-q238-5cxm-5c9h [internal]",
+                                                                                   "GITHUB:GHSA-q2jf-h9jm-m7p4 [internal]",
+                                                                                   "GITHUB:GHSA-qm57-vhq3-3fwf [internal]",
+                                                                                   "GITHUB:GHSA-qmf9-6jqf-j8fq [internal]",
+                                                                                   "GITHUB:GHSA-qrw5-5h28-6cmg [internal]",
+                                                                                   "GITHUB:GHSA-qw25-v68c-qjf3 [internal]",
+                                                                                   "GITHUB:GHSA-r3xc-prgr-mg9p [internal]",
+                                                                                   "GITHUB:GHSA-rrqc-c2jx-6jgv [internal]",
+                                                                                   "GITHUB:GHSA-rxjp-mfm9-w4wr [internal]",
+                                                                                   "GITHUB:GHSA-v6rh-hp5x-86rv [internal]",
+                                                                                   "GITHUB:GHSA-vm8q-m57g-pff3 [internal]",
+                                                                                   "GITHUB:GHSA-w24h-v9qh-8gxj [internal]",
+                                                                                   "GITHUB:GHSA-wvqv-fj8w-qmhm [internal]",
+                                                                                   "GITHUB:GHSA-xpfp-f569-q3p2 [internal]",
+                                                                                   "GITHUB:GHSA-xxj9-f6rv-m3x4 [internal]",
+                                                                                   "NVD:CVE-2025-13473 [oss-index]",
+                                                                                   "NVD:CVE-2025-14550 [oss-index]",
+                                                                                   "OSV:PYSEC-2021-109 [internal]",
+                                                                                   "OSV:PYSEC-2021-439 [internal]",
+                                                                                   "OSV:PYSEC-2021-7 [internal]",
+                                                                                   "OSV:PYSEC-2021-8 [internal]",
+                                                                                   "NVD:CVE-2024-24680 [oss-index]",
+                                                                                   "OSV:PYSEC-2021-98 [internal]",
+                                                                                   "OSV:PYSEC-2021-99 [internal]",
+                                                                                   "OSV:PYSEC-2022-1 [internal]",
+                                                                                   "OSV:PYSEC-2022-19 [internal]",
+                                                                                   "OSV:PYSEC-2022-190 [internal]",
+                                                                                   "OSV:PYSEC-2022-191 [internal]",
+                                                                                   "OSV:PYSEC-2022-2 [internal]",
+                                                                                   "OSV:PYSEC-2022-20 [internal]",
+                                                                                   "OSV:PYSEC-2022-213 [internal]",
+                                                                                   "OSV:PYSEC-2022-245 [internal]",
+                                                                                   "OSV:PYSEC-2022-3 [internal]",
+                                                                                   "OSV:PYSEC-2022-304 [internal]",
+                                                                                   "OSV:PYSEC-2023-100 [internal]",
+                                                                                   "OSV:PYSEC-2023-12 [internal]",
+                                                                                   "OSV:PYSEC-2023-13 [internal]",
+                                                                                   "OSV:PYSEC-2023-222 [internal]",
+                                                                                   "OSV:PYSEC-2023-225 [internal]",
+                                                                                   "OSV:PYSEC-2023-226 [internal]",
+                                                                                   "OSV:PYSEC-2023-61 [internal]",
+                                                                                   "OSV:PYSEC-2024-28 [internal]",
+                                                                                   "OSV:PYSEC-2024-47 [internal]",
+                                                                                   "OSV:PYSEC-2026-1297 [internal]",
+                                                                                   "OSV:PYSEC-2026-3717 [internal]",
+                                                                                   "OSV:PYSEC-2026-4035 [internal]",
+                                                                                   "NVD:CVE-2024-27351 [oss-index]",
+                                                                                   "NVD:CVE-2024-38875 [oss-index]",
+                                                                                   "NVD:CVE-2024-39329 [oss-index]",
+                                                                                   "NVD:CVE-2024-39330 [oss-index]",
+                                                                                   "NVD:CVE-2024-39614 [oss-index]",
+                                                                                   "NVD:CVE-2024-41989 [oss-index]",
+                                                                                   "NVD:CVE-2024-41991 [oss-index]",
+                                                                                   "NVD:CVE-2024-42005 [oss-index]",
+                                                                                   "NVD:CVE-2024-45231 [oss-index]",
+                                                                                   "NVD:CVE-2024-53907 [oss-index]",
+                                                                                   "NVD:CVE-2024-53908 [oss-index]",
+                                                                                   "NVD:CVE-2024-56374 [oss-index]",
+                                                                                   "NVD:CVE-2023-23969 [oss-index]",
+                                                                                   "NVD:CVE-2023-24580 [oss-index]",
+                                                                                   "NVD:CVE-2023-31047 [oss-index]",
+                                                                                   "NVD:CVE-2023-36053 [oss-index]",
+                                                                                   "NVD:CVE-2023-46695 [oss-index]",
+                                                                                   "NVD:CVE-2023-41164 [oss-index]",
+                                                                                   "NVD:CVE-2023-43665 [oss-index]",
+                                                                                   "NVD:CVE-2022-22818 [oss-index]",
+                                                                                   "NVD:CVE-2022-23833 [oss-index]",
+                                                                                   "NVD:CVE-2022-28346 [oss-index]",
+                                                                                   "NVD:CVE-2022-28347 [oss-index]",
+                                                                                   "NVD:CVE-2022-34265 [oss-index]",
+                                                                                   "NVD:CVE-2022-36359 [oss-index]",
+                                                                                   "NVD:CVE-2022-41323 [oss-index]",
+                                                                                   "NVD:CVE-2021-31542 [oss-index]",
+                                                                                   "NVD:CVE-2021-32052 [oss-index]",
+                                                                                   "NVD:CVE-2021-33203 [oss-index]",
+                                                                                   "NVD:CVE-2021-33571 [oss-index]",
+                                                                                   "NVD:CVE-2021-35042 [oss-index]",
+                                                                                   "NVD:CVE-2021-44420 [oss-index]",
+                                                                                   "NVD:CVE-2021-45115 [oss-index]",
+                                                                                   "NVD:CVE-2021-45116 [oss-index]",
+                                                                                   "NVD:CVE-2021-45452 [oss-index]"
+                                                                               ],
+                                                                "Jinja2@2.11.2":  [
+                                                                                      "NVD:CVE-2025-27516 [oss-index]",
+                                                                                      "GITHUB:GHSA-cpwx-vrp4-4pq7 [internal]",
+                                                                                      "GITHUB:GHSA-g3rq-g295-4j3m [internal]",
+                                                                                      "GITHUB:GHSA-h5c8-rqwp-cp95 [internal]",
+                                                                                      "GITHUB:GHSA-h75v-3vvj-5mfj [internal]",
+                                                                                      "GITHUB:GHSA-q2x7-8rv6-6q7h [internal]",
+                                                                                      "NVD:CVE-2024-22195 [oss-index]",
+                                                                                      "OSV:PYSEC-2021-66 [internal]",
+                                                                                      "OSV:PYSEC-2026-1471 [internal]",
+                                                                                      "OSV:PYSEC-2026-1473 [internal]",
+                                                                                      "OSV:PYSEC-2026-1474 [internal]",
+                                                                                      "OSV:PYSEC-2026-1475 [internal]",
+                                                                                      "NVD:CVE-2024-34064 [trivy]",
+                                                                                      "NVD:CVE-2024-56326 [oss-index]",
+                                                                                      "NVD:CVE-2020-28493 [oss-index]"
+                                                                                  ],
+                                                                "certifi@2018.4.16":  [
+                                                                                          "GITHUB:GHSA-43fp-rhv2-5gv8 [internal]",
+                                                                                          "GITHUB:GHSA-xqr8-7jwr-rhp7 [internal]",
+                                                                                          "OSV:PYSEC-2022-42986 [internal]",
+                                                                                          "OSV:PYSEC-2023-135 [internal]",
+                                                                                          "NVD:CVE-2023-37920 [oss-index]",
+                                                                                          "NVD:CVE-2022-23491 [oss-index]"
+                                                                                      ],
+                                                                "idna@2.7":  [
+                                                                                 "NVD:CVE-2026-45409 [trivy]",
+                                                                                 "GITHUB:GHSA-65pc-fj4g-8rjx [internal]",
+                                                                                 "GITHUB:GHSA-jjg7-2v4v-x38h [internal]",
+                                                                                 "OSV:PYSEC-2024-60 [internal]",
+                                                                                 "OSV:PYSEC-2026-215 [internal]",
+                                                                                 "NVD:CVE-2024-3651 [oss-index]"
+                                                                             ],
+                                                                "requests@2.19.1":  [
+                                                                                        "NVD:CVE-2026-25645 [oss-index]",
+                                                                                        "GITHUB:GHSA-9hjg-9r4m-mvj7 [internal]",
+                                                                                        "GITHUB:GHSA-9wx4-h78v-vm56 [internal]",
+                                                                                        "GITHUB:GHSA-gc5v-m9x4-r6x2 [internal]",
+                                                                                        "GITHUB:GHSA-j8r2-6x86-q33q [internal]",
+                                                                                        "GITHUB:GHSA-x84v-xcm2-53pg [internal]",
+                                                                                        "OSV:PYSEC-2018-28 [internal]",
+                                                                                        "OSV:PYSEC-2023-74 [internal]",
+                                                                                        "OSV:PYSEC-2026-1872 [internal]",
+                                                                                        "OSV:PYSEC-2026-1873 [internal]",
+                                                                                        "OSV:PYSEC-2026-2275 [internal]",
+                                                                                        "NVD:CVE-2024-35195 [oss-index]",
+                                                                                        "NVD:CVE-2024-47081 [oss-index]",
+                                                                                        "NVD:CVE-2023-32681 [oss-index]",
+                                                                                        "NVD:CVE-2018-18074 [oss-index]"
+                                                                                    ],
+                                                                "sqlparse@0.4.1":  [
+                                                                                       "NVD:CVE-2026-54284 [trivy]",
+                                                                                       "NVD:CVE-2026-59893 [oss-index]",
+                                                                                       "NVD:CVE-2026-59894 [oss-index]",
+                                                                                       "NVD:CVE-2026-71491 [oss-index]",
+                                                                                       "NVD:CVE-2026-84305 [oss-index]",
+                                                                                       "NVD:CVE-2026-112307 [oss-index]",
+                                                                                       "GITHUB:GHSA-27jp-wm6q-gp25 [internal]",
+                                                                                       "GITHUB:GHSA-2m57-hf25-phgg [internal]",
+                                                                                       "GITHUB:GHSA-3496-9g83-7v6x [internal]",
+                                                                                       "GITHUB:GHSA-cfqr-cjx5-5jcm [internal]",
+                                                                                       "GITHUB:GHSA-f2ff-p2ww-7p4p [internal]",
+                                                                                       "GITHUB:GHSA-p5w8-wqhj-9hhf [internal]",
+                                                                                       "GITHUB:GHSA-prg7-hcfm-mfcr [internal]",
+                                                                                       "GITHUB:GHSA-pwgv-4x5q-6m9f [internal]",
+                                                                                       "GITHUB:GHSA-rrm6-wvj7-cwh2 [internal]",
+                                                                                       "OSV:PYSEC-2021-333 [internal]",
+                                                                                       "OSV:PYSEC-2023-87 [internal]",
+                                                                                       "OSV:PYSEC-2026-1940 [internal]",
+                                                                                       "OSV:PYSEC-2026-3696 [internal]",
+                                                                                       "OSV:PYSEC-2026-3697 [internal]",
+                                                                                       "OSV:PYSEC-2026-3698 [internal]",
+                                                                                       "OSV:PYSEC-2026-3699 [internal]",
+                                                                                       "OSV:PYSEC-2026-3923 [internal]",
+                                                                                       "NVD:CVE-2024-4340 [oss-index]",
+                                                                                       "NVD:CVE-2023-30608 [oss-index]",
+                                                                                       "NVD:CVE-2022-3294 [oss-index]",
+                                                                                       "NVD:CVE-2021-32839 [oss-index]"
+                                                                                   ],
+                                                                "urllib3@1.23":  [
+                                                                                     "NVD:CVE-2026-21441 [oss-index]",
+                                                                                     "NVD:CVE-2026-44431 [oss-index]",
+                                                                                     "NVD:CVE-2026-97689 [oss-index]",
+                                                                                     "NVD:CVE-2025-50181 [oss-index]",
+                                                                                     "GITHUB:GHSA-2xpw-w6gg-jr37 [internal]",
+                                                                                     "GITHUB:GHSA-34jh-p97f-mpxf [internal]",
+                                                                                     "GITHUB:GHSA-38jv-5279-wg99 [internal]",
+                                                                                     "NVD:CVE-2025-66471 [oss-index]",
+                                                                                     "GITHUB:GHSA-g4mx-q9vg-27p4 [internal]",
+                                                                                     "GITHUB:GHSA-gwvm-45gx-3cf8 [internal]",
+                                                                                     "GITHUB:GHSA-mh33-7rrq-662w [internal]",
+                                                                                     "GITHUB:GHSA-pq67-6m6q-mj2v [internal]",
+                                                                                     "GITHUB:GHSA-qccp-gfcp-xxvc [internal]",
+                                                                                     "GITHUB:GHSA-r64q-w8jr-g9qp [internal]",
+                                                                                     "GITHUB:GHSA-v845-jxx5-vc9f [internal]",
+                                                                                     "GITHUB:GHSA-vxq7-64xx-v4gw [internal]",
+                                                                                     "GITHUB:GHSA-wqvq-5m8c-6g24 [internal]",
+                                                                                     "OSV:PYSEC-2019-132 [internal]",
+                                                                                     "OSV:PYSEC-2019-133 [internal]",
+                                                                                     "OSV:PYSEC-2020-148 [internal]",
+                                                                                     "OSV:PYSEC-2023-192 [internal]",
+                                                                                     "OSV:PYSEC-2023-207 [internal]",
+                                                                                     "OSV:PYSEC-2023-212 [internal]",
+                                                                                     "OSV:PYSEC-2026-141 [internal]",
+                                                                                     "OSV:PYSEC-2026-1994 [internal]",
+                                                                                     "OSV:PYSEC-2026-1995 [internal]",
+                                                                                     "OSV:PYSEC-2026-1996 [internal]",
+                                                                                     "OSV:PYSEC-2026-1999 [internal]",
+                                                                                     "OSV:PYSEC-2026-4177 [internal]",
+                                                                                     "NVD:CVE-2024-37891 [trivy]",
+                                                                                     "NVD:CVE-2023-43804 [oss-index]",
+                                                                                     "NVD:CVE-2023-45803 [oss-index]",
+                                                                                     "NVD:CVE-2020-26137 [oss-index]",
+                                                                                     "NVD:CVE-2019-9740 [oss-index]",
+                                                                                     "NVD:CVE-2019-11236 [oss-index]",
+                                                                                     "NVD:CVE-2019-11324 [oss-index]",
+                                                                                     "NVD:CVE-2018-25091 [oss-index]"
+                                                                                 ]
+                                                            },
+                                            "sources":  [
+                                                            "GITHUB",
+                                                            "NVD",
+                                                            "OSV"
+                                                        ],
+                                            "sampleFinding":  {
+                                                                  "component":  {
+                                                                                    "uuid":  "6e134317-18de-4742-acfa-fd03f212f161",
+                                                                                    "name":  "Django",
+                                                                                    "version":  "3.2",
+                                                                                    "purl":  "pkg:pypi/django@3.2",
+                                                                                    "project":  "650759a7-6d5f-4539-ac72-c264252d3945",
+                                                                                    "hasOccurrences":  false,
+                                                                                    "projectName":  "python-control",
+                                                                                    "projectVersion":  "1",
+                                                                                    "latestVersion":  "6.1.3"
+                                                                                },
+                                                                  "vulnerability":  {
+                                                                                        "uuid":  "c44feb01-4847-4942-96a9-955d1a19f64a",
+                                                                                        "source":  "NVD",
+                                                                                        "vulnId":  "CVE-2026-1207",
+                                                                                        "description":  "An issue was discovered in 6.0 before 6.0.2, 5.2 before 5.2.11, and 4.2 before 4.2.28.\nRaster lookups on ``RasterField`` (only implemented on PostGIS) allows remote attackers to inject SQL via the band index parameter.\nEarlier, unsupported Django series (such as 5.0.x, 4.1.x, and 3.2.x) were not evaluated and may also be affected.\nDjango would like to thank Tarek Nakkouch for reporting this issue.",
+                                                                                        "references":  "* [https://docs.djangoproject.com/en/dev/releases/security/](https://docs.djangoproject.com/en/dev/releases/security/)\n* [https://groups.google.com/g/django-announce](https://groups.google.com/g/django-announce)\n* [https://www.djangoproject.com/weblog/2026/feb/03/security-releases/](https://www.djangoproject.com/weblog/2026/feb/03/security-releases/)\n* [https://access.redhat.com/errata/RHSA-2026:14835](https://access.redhat.com/errata/RHSA-2026:14835)\n* [https://access.redhat.com/errata/RHSA-2026:2694](https://access.redhat.com/errata/RHSA-2026:2694)\n* [https://access.redhat.com/errata/RHSA-2026:3958](https://access.redhat.com/errata/RHSA-2026:3958)\n* [https://access.redhat.com/errata/RHSA-2026:3959](https://access.redhat.com/errata/RHSA-2026:3959)\n* [https://access.redhat.com/errata/RHSA-2026:3960](https://access.redhat.com/errata/RHSA-2026:3960)\n* [https://access.redhat.com/errata/RHSA-2026:3962](https://access.redhat.com/errata/RHSA-2026:3962)\n* [https://access.redhat.com/errata/RHSA-2026:5970](https://access.redhat.com/errata/RHSA-2026:5970)\n* [https://access.redhat.com/errata/RHSA-2026:5971](https://access.redhat.com/errata/RHSA-2026:5971)\n* [https://access.redhat.com/errata/RHSA-2026:6291](https://access.redhat.com/errata/RHSA-2026:6291)\n* [https://access.redhat.com/security/cve/CVE-2026-1207](https://access.redhat.com/security/cve/CVE-2026-1207)\n* [https://bugzilla.redhat.com/show_bug.cgi?id=2436338](https://bugzilla.redhat.com/show_bug.cgi?id=2436338)\n* [https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-1207.json](https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-1207.json)\n",
+                                                                                        "severity":  "MEDIUM",
+                                                                                        "severityRank":  2,
+                                                                                        "cvssV3BaseScore":  5.4,
+                                                                                        "cvssV3Vector":  "CVSS:3.1/AV:N/AC:L/PR:L/UI:N/S:U/C:L/I:L/A:N",
+                                                                                        "epssScore":  0.12819,
+                                                                                        "epssPercentile":  0.9634,
+                                                                                        "isKev":  false,
+                                                                                        "cwes":  [
+                                                                                                     {
+                                                                                                         "cweId":  89,
+                                                                                                         "name":  "Improper Neutralization of Special Elements used in an SQL Command (\u0027SQL Injection\u0027)"
+                                                                                                     }
+                                                                                                 ],
+                                                                                        "aliases":  [
+
+                                                                                                    ],
+                                                                                        "published":  1770131773000
+                                                                                    },
+                                                                  "analysis":  {
+                                                                                   "isSuppressed":  false
+                                                                               },
+                                                                  "attribution":  {
+                                                                                      "analyzerIdentity":  "oss-index",
+                                                                                      "attributedOn":  1794422771408,
+                                                                                      "referenceUrl":  "https://guide.sonatype.com/vulnerability/CVE-2026-1207?component-type=pypi\u0026component-name=django\u0026utm_source=dependency-track\u0026utm_medium=integration\u0026utm_content=v5.2.1"
+                                                                                  },
+                                                                  "matrix":  "650759a7-6d5f-4539-ac72-c264252d3945:6e134317-18de-4742-acfa-fd03f212f161:c44feb01-4847-4942-96a9-955d1a19f64a"
+                                                              }
+                                        },
+                     "vcpkg-native":  {
+                                          "findings":  0,
+                                          "byAnalyzer":  {
+
+                                                         },
+                                          "byComponent":  {
+
+                                                          },
+                                          "sources":  [
+
+                                                      ]
+                                      },
+                     "vcpkg-normalised":  {
+                                              "findings":  0,
+                                              "byAnalyzer":  {
+
+                                                             },
+                                              "byComponent":  {
+
+                                                              },
+                                              "sources":  [
+
+                                                          ]
+                                          },
+                     "vcpkg-spdx-zlib-direct":  {
+                                                    "findings":  0,
+                                                    "byAnalyzer":  {
+
+                                                                   },
+                                                    "byComponent":  {
+
+                                                                    },
+                                                    "sources":  [
+
+                                                                ]
+                                                },
+                     "vendored-declared":  {
+                                               "findings":  5,
+                                               "byAnalyzer":  {
+                                                                  "internal":  5
+                                                              },
+                                               "byComponent":  {
+                                                                   "zlib@1.2.11":  [
+                                                                                       "NVD:CVE-2026-22184 [internal]",
+                                                                                       "NVD:CVE-2023-45853 [internal]",
+                                                                                       "NVD:CVE-2022-37434 [internal]",
+                                                                                       "NVD:CVE-2018-25032 [internal]"
+                                                                                   ],
+                                                                   "cjson@1.7.10":  [
+                                                                                        "NVD:CVE-2023-53154 [internal]"
+                                                                                    ]
+                                                               },
+                                               "sources":  [
+                                                               "NVD"
+                                                           ],
+                                               "sampleFinding":  {
+                                                                     "component":  {
+                                                                                       "uuid":  "f1a22c15-64f7-4e43-83fe-d67a1780c999",
+                                                                                       "name":  "zlib",
+                                                                                       "version":  "1.2.11",
+                                                                                       "purl":  "pkg:github/madler/zlib@v1.2.11",
+                                                                                       "cpe":  "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+                                                                                       "project":  "88683381-56ef-46d3-894e-3234b0a4b948",
+                                                                                       "hasOccurrences":  true,
+                                                                                       "projectName":  "vendored-declared",
+                                                                                       "projectVersion":  "1"
+                                                                                   },
+                                                                     "vulnerability":  {
+                                                                                           "uuid":  "7cdb0d99-8d52-4ef4-9402-688d4effcc8f",
+                                                                                           "source":  "NVD",
+                                                                                           "vulnId":  "CVE-2026-22184",
+                                                                                           "description":  "zlib versions up to and including 1.3.1.2 include a global buffer overflow in the untgz utility located under contrib/untgz. The vulnerability is limited to the standalone demonstration utility and does not affect the core zlib compression library. The flaw occurs when a user executes the untgz command with an excessively long archive name supplied via the command line, leading to an out-of-bounds write in a fixed-size global buffer.",
+                                                                                           "references":  "* [https://github.com/madler/zlib](https://github.com/madler/zlib)\n* [https://seclists.org/fulldisclosure/2026/Jan/3](https://seclists.org/fulldisclosure/2026/Jan/3)\n* [https://www.vulncheck.com/advisories/zlib-untgz-global-buffer-overflow-in-tgzfname](https://www.vulncheck.com/advisories/zlib-untgz-global-buffer-overflow-in-tgzfname)\n* [https://zlib.net/](https://zlib.net/)\n* [https://github.com/madler/zlib/issues/1142](https://github.com/madler/zlib/issues/1142)\n* [https://access.redhat.com/security/cve/CVE-2026-22184](https://access.redhat.com/security/cve/CVE-2026-22184)\n* [https://bugzilla.redhat.com/show_bug.cgi?id=2427688](https://bugzilla.redhat.com/show_bug.cgi?id=2427688)\n* [https://cert-portal.siemens.com/productcert/html/ssa-470355.html](https://cert-portal.siemens.com/productcert/html/ssa-470355.html)\n* [https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-22184.json](https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-22184.json)\n",
+                                                                                           "severity":  "MEDIUM",
+                                                                                           "severityRank":  2,
+                                                                                           "cvssV3BaseScore":  7.8,
+                                                                                           "cvssV4Score":  4.6,
+                                                                                           "cvssV3Vector":  "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H",
+                                                                                           "cvssV4Vector":  "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:A/VC:L/VI:N/VA:L/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X",
+                                                                                           "epssScore":  0.00413,
+                                                                                           "epssPercentile":  0.36005,
+                                                                                           "isKev":  false,
+                                                                                           "cwes":  [
+                                                                                                        {
+                                                                                                            "cweId":  787,
+                                                                                                            "name":  "Out-of-bounds Write"
+                                                                                                        },
+                                                                                                        {
+                                                                                                            "cweId":  120,
+                                                                                                            "name":  "Buffer Copy without Checking Size of Input (\u0027Classic Buffer Overflow\u0027)"
+                                                                                                        }
+                                                                                                    ],
+                                                                                           "aliases":  [
+
+                                                                                                       ],
+                                                                                           "published":  1767820561000
+                                                                                       },
+                                                                     "analysis":  {
+                                                                                      "isSuppressed":  false
+                                                                                  },
+                                                                     "attribution":  {
+                                                                                         "analyzerIdentity":  "internal",
+                                                                                         "attributedOn":  1794411128275
+                                                                                     },
+                                                                     "matrix":  "88683381-56ef-46d3-894e-3234b0a4b948:f1a22c15-64f7-4e43-83fe-d67a1780c999:7cdb0d99-8d52-4ef4-9402-688d4effcc8f"
+                                                                 }
+                                           },
+                     "vendored-syft":  {
+                                           "findings":  0,
+                                           "byAnalyzer":  {
+
+                                                          },
+                                           "byComponent":  {
+
+                                                           },
+                                           "sources":  [
+
+                                                       ]
+                                       }
+                 }
+}

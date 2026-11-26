@@ -1,0 +1,303 @@
+﻿dt5 Trivy setup started 2026-11-11T19:53:57
+19:53:58 generated a Trivy server token in .env
+19:54:09 compose:  Image ghcr.io/aquasecurity/trivy:0.76.2 Pulling 
+19:54:11 compose:  ac09fd37397a Pulling fs layer 0B
+19:54:11 compose:  9f087194f4fe Pulling fs layer 0B
+19:54:11 compose:  d7953b8bb0ca Pulling fs layer 0B
+19:54:11 compose:  7b229517ed22 Pulling fs layer 0B
+19:54:11 compose:  7b229517ed22 Already exists 0B
+19:54:11 compose:  44136fa355b3 Already exists 0B
+19:54:11 compose:  ac09fd37397a Download complete 0B
+19:54:12 compose:  9f087194f4fe Downloading 1.049MB
+19:54:12 compose:  9f087194f4fe Downloading 1.049MB
+19:54:12 compose:  9f087194f4fe Downloading 1.049MB
+19:54:12 compose:  d7953b8bb0ca Downloading 1.049MB
+19:54:12 compose:  dea6bfcf7d25 Download complete 0B
+19:54:12 compose:  9f087194f4fe Downloading 1.049MB
+19:54:12 compose:  d7953b8bb0ca Downloading 1.049MB
+19:54:12 compose:  d7953b8bb0ca Downloading 1.049MB
+19:54:12 compose:  9f087194f4fe Downloading 2.097MB
+19:54:12 compose:  9f087194f4fe Downloading 2.097MB
+19:54:12 compose:  d7953b8bb0ca Downloading 2.097MB
+19:54:13 compose:  6c05e03aa58d Downloading 12.75kB
+19:54:13 compose:  d7953b8bb0ca Downloading 2.097MB
+19:54:13 compose:  6c05e03aa58d Download complete 0B
+19:54:13 compose:  9f087194f4fe Downloading 3.146MB
+19:54:13 compose:  9f087194f4fe Downloading 3.146MB
+19:54:13 compose:  d7953b8bb0ca Downloading 2.097MB
+19:54:13 compose:  d7953b8bb0ca Downloading 2.097MB
+19:54:13 compose:  9f087194f4fe Downloading 3.146MB
+19:54:13 compose:  d7953b8bb0ca Downloading 2.097MB
+19:54:13 compose:  9f087194f4fe Downloading 3.146MB
+19:54:13 compose:  9f087194f4fe Downloading 4.194MB
+19:54:13 compose:  d7953b8bb0ca Downloading 3.146MB
+19:54:13 compose:  9f087194f4fe Downloading 4.194MB
+19:54:13 compose:  d7953b8bb0ca Downloading 3.146MB
+19:54:13 compose:  9f087194f4fe Downloading 5.243MB
+19:54:14 compose:  d7953b8bb0ca Downloading 4.194MB
+19:54:14 compose:  d7953b8bb0ca Downloading 4.194MB
+19:54:14 compose:  9f087194f4fe Downloading 5.243MB
+19:54:14 compose:  9f087194f4fe Downloading 5.243MB
+19:54:14 compose:  d7953b8bb0ca Downloading 4.194MB
+19:54:14 compose:  9f087194f4fe Downloading 6.643MB
+19:54:14 compose:  d7953b8bb0ca Downloading 5.243MB
+19:54:14 compose:  9f087194f4fe Download complete 0B
+19:54:14 compose:  d7953b8bb0ca Downloading 6.291MB
+19:54:14 compose:  9f087194f4fe Extracting 1B
+19:54:14 compose:  d7953b8bb0ca Downloading 6.291MB
+19:54:14 compose:  9f087194f4fe Extracting 1B
+19:54:14 compose:  d7953b8bb0ca Downloading 7.34MB
+19:54:14 compose:  9f087194f4fe Extracting 1B
+19:54:14 compose:  d7953b8bb0ca Downloading 7.34MB
+19:54:14 compose:  9f087194f4fe Extracting 1B
+19:54:15 compose:  d7953b8bb0ca Downloading 7.34MB
+19:54:15 compose:  9f087194f4fe Extracting 1B
+19:54:15 compose:  d7953b8bb0ca Downloading 7.34MB
+19:54:15 compose:  9f087194f4fe Extracting 1B
+19:54:15 compose:  d7953b8bb0ca Downloading 8.389MB
+19:54:15 compose:  9f087194f4fe Extracting 1B
+19:54:15 compose:  d7953b8bb0ca Downloading 8.389MB
+19:54:15 compose:  9f087194f4fe Extracting 1B
+19:54:15 compose:  d7953b8bb0ca Downloading 9.437MB
+19:54:15 compose:  9f087194f4fe Extracting 1B
+19:54:15 compose:  d7953b8bb0ca Downloading 9.437MB
+19:54:15 compose:  9f087194f4fe Extracting 1B
+19:54:15 compose:  d7953b8bb0ca Downloading 10.49MB
+19:54:15 compose:  9f087194f4fe Pull complete 0B
+19:54:15 compose:  d7953b8bb0ca Downloading 10.49MB
+19:54:16 compose:  d7953b8bb0ca Downloading 10.49MB
+19:54:16 compose:  d7953b8bb0ca Downloading 11.53MB
+19:54:16 compose:  d7953b8bb0ca Downloading 12.58MB
+19:54:16 compose:  d7953b8bb0ca Downloading 13.63MB
+19:54:16 compose:  d7953b8bb0ca Downloading 13.63MB
+19:54:16 compose:  d7953b8bb0ca Downloading 14.68MB
+19:54:16 compose:  d7953b8bb0ca Downloading 15.73MB
+19:54:16 compose:  d7953b8bb0ca Downloading 15.73MB
+19:54:16 compose:  d7953b8bb0ca Downloading 16.78MB
+19:54:16 compose:  d7953b8bb0ca Downloading 17.83MB
+19:54:16 compose:  d7953b8bb0ca Downloading 17.83MB
+19:54:16 compose:  d7953b8bb0ca Downloading 18.87MB
+19:54:16 compose:  d7953b8bb0ca Downloading 18.87MB
+19:54:17 compose:  d7953b8bb0ca Downloading 19.92MB
+19:54:17 compose:  d7953b8bb0ca Downloading 19.92MB
+19:54:17 compose:  d7953b8bb0ca Downloading 20.97MB
+19:54:17 compose:  d7953b8bb0ca Downloading 22.02MB
+19:54:17 compose:  d7953b8bb0ca Downloading 22.02MB
+19:54:17 compose:  d7953b8bb0ca Downloading 23.07MB
+19:54:17 compose:  d7953b8bb0ca Downloading 23.07MB
+19:54:17 compose:  d7953b8bb0ca Downloading 24.12MB
+19:54:17 compose:  d7953b8bb0ca Downloading 24.12MB
+19:54:18 compose:  d7953b8bb0ca Downloading 24.12MB
+19:54:18 compose:  d7953b8bb0ca Downloading 25.17MB
+19:54:18 compose:  d7953b8bb0ca Downloading 25.17MB
+19:54:18 compose:  d7953b8bb0ca Downloading 26.21MB
+19:54:18 compose:  d7953b8bb0ca Downloading 27.26MB
+19:54:18 compose:  d7953b8bb0ca Downloading 27.26MB
+19:54:18 compose:  d7953b8bb0ca Downloading 28.31MB
+19:54:19 compose:  d7953b8bb0ca Downloading 28.31MB
+19:54:19 compose:  d7953b8bb0ca Downloading 29.36MB
+19:54:19 compose:  d7953b8bb0ca Downloading 30.41MB
+19:54:19 compose:  d7953b8bb0ca Downloading 30.41MB
+19:54:19 compose:  d7953b8bb0ca Downloading 30.41MB
+19:54:19 compose:  d7953b8bb0ca Downloading 30.41MB
+19:54:19 compose:  d7953b8bb0ca Downloading 30.41MB
+19:54:19 compose:  d7953b8bb0ca Downloading 31.46MB
+19:54:19 compose:  d7953b8bb0ca Downloading 31.46MB
+19:54:19 compose:  d7953b8bb0ca Downloading 32.51MB
+19:54:20 compose:  d7953b8bb0ca Downloading 32.51MB
+19:54:20 compose:  d7953b8bb0ca Downloading 33.55MB
+19:54:20 compose:  d7953b8bb0ca Downloading 33.55MB
+19:54:20 compose:  d7953b8bb0ca Downloading 34.6MB
+19:54:20 compose:  d7953b8bb0ca Downloading 35.65MB
+19:54:20 compose:  d7953b8bb0ca Downloading 35.65MB
+19:54:20 compose:  d7953b8bb0ca Downloading 35.65MB
+19:54:20 compose:  d7953b8bb0ca Downloading 36.7MB
+19:54:20 compose:  d7953b8bb0ca Downloading 37.75MB
+19:54:20 compose:  d7953b8bb0ca Downloading 37.75MB
+19:54:20 compose:  d7953b8bb0ca Downloading 38.8MB
+19:54:20 compose:  d7953b8bb0ca Downloading 39.85MB
+19:54:20 compose:  d7953b8bb0ca Downloading 39.85MB
+19:54:20 compose:  d7953b8bb0ca Downloading 40.89MB
+19:54:21 compose:  d7953b8bb0ca Downloading 40.89MB
+19:54:21 compose:  d7953b8bb0ca Downloading 41.94MB
+19:54:21 compose:  d7953b8bb0ca Downloading 42.99MB
+19:54:21 compose:  d7953b8bb0ca Downloading 42.99MB
+19:54:21 compose:  d7953b8bb0ca Downloading 44.04MB
+19:54:21 compose:  d7953b8bb0ca Downloading 44.04MB
+19:54:21 compose:  d7953b8bb0ca Downloading 45.09MB
+19:54:21 compose:  d7953b8bb0ca Downloading 45.09MB
+19:54:21 compose:  d7953b8bb0ca Downloading 46.14MB
+19:54:21 compose:  d7953b8bb0ca Downloading 47.19MB
+19:54:21 compose:  d7953b8bb0ca Downloading 47.19MB
+19:54:21 compose:  d7953b8bb0ca Downloading 48.23MB
+19:54:21 compose:  d7953b8bb0ca Downloading 48.23MB
+19:54:21 compose:  d7953b8bb0ca Downloading 49.28MB
+19:54:21 compose:  d7953b8bb0ca Downloading 50.33MB
+19:54:22 compose:  d7953b8bb0ca Downloading 50.33MB
+19:54:22 compose:  d7953b8bb0ca Downloading 51.38MB
+19:54:22 compose:  d7953b8bb0ca Downloading 51.38MB
+19:54:22 compose:  d7953b8bb0ca Downloading 52.94MB
+19:54:22 compose:  d7953b8bb0ca Download complete 0B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:22 compose:  d7953b8bb0ca Extracting 1B
+19:54:23 compose:  d7953b8bb0ca Extracting 1B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:23 compose:  d7953b8bb0ca Extracting 2B
+19:54:24 compose:  d7953b8bb0ca Extracting 2B
+19:54:24 compose:  d7953b8bb0ca Extracting 3B
+19:54:24 compose:  d7953b8bb0ca Extracting 3B
+19:54:24 compose:  d7953b8bb0ca Extracting 3B
+19:54:24 compose:  d7953b8bb0ca Extracting 3B
+19:54:24 compose:  d7953b8bb0ca Extracting 3B
+19:54:24 compose:  d7953b8bb0ca Extracting 3B
+19:54:24 compose:  ac09fd37397a Pull complete 0B
+19:54:24 compose:  d7953b8bb0ca Pull complete 0B
+19:54:24 compose:  Image ghcr.io/aquasecurity/trivy:0.76.2 Pulled 
+19:54:25 compose:  Volume dt5-test_trivy-cache Creating 
+19:54:25 compose:  Volume dt5-test_trivy-cache Creating 
+19:54:25 compose:  Container dt5-test-postgres-1 Recreate 
+19:54:25 compose:  Volume dt5-test_trivy-cache Created 
+19:54:25 compose:  Volume dt5-test_trivy-cache Created 
+19:54:25 compose:  Container dt5-test-trivy-1 Creating 
+19:54:25 compose:  Container dt5-test-trivy-1 Created 
+19:54:26 compose:  Container dt5-test-postgres-1 Recreated 
+19:54:26 compose:  Container dt5-test-trivy-1 Starting 
+19:54:26 compose:  Container dt5-test-postgres-1 Starting 
+19:54:26 compose:  Container dt5-test-frontend-1 Starting 
+19:54:26 compose:  Container dt5-test-trivy-1 Started 
+19:54:27 compose:  Container dt5-test-postgres-1 Started 
+19:54:27 compose:  Container dt5-test-postgres-1 Waiting 
+19:54:28 compose:  Container dt5-test-frontend-1 Started 
+19:54:33 compose:  Container dt5-test-postgres-1 Healthy 
+19:54:33 compose:  Container dt5-test-apiserver-1 Starting 
+19:54:33 compose:  Container dt5-test-apiserver-1 Started 
+19:55:15 forceChangePassword (fine on re-runs): The remote server returned an error: (401) Unauthorized. | INVALID_CREDENTIALS
+19:55:17 login ok
+19:55:17 using Administrators team API key (odt_XIrU...)
+19:55:19 DIAG (after login): apiserver state 0 restarts, started 2026-11-11T18:54:33.339343933Z, status running, OOMKilled false
+19:55:20 apiserver-log: 2026-11-11 18:46:14,483 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:c11d12a7-793c-4afe-8c3f-0bfe11a14be0, workflowRunId=01a1cbee-57b6-7082-801d-df66c0d9b8e7, projectUuid=c11d12a7-793c-4afe-8c3f-0bfe11a14be0]
+19:55:20 apiserver-log: 2026-11-11 18:46:15,819 INFO [VulnAnalysisWorkflow] Vulnerability analysis completed [workflowName=vuln-analysis, workflowInstanceId=null, workflowRunId=01a1cbee-5273-72dd-8f7f-b35c186eee27, projectUuid=743cd75f-5bbc-4841-b777-36ab7f116473]
+19:55:20 apiserver-log: 2026-11-11 18:46:16,284 INFO [CelPolicyEngine] No applicable policies found [projectUuid=743cd75f-5bbc-4841-b777-36ab7f116473]
+19:55:20 apiserver-log: 2026-11-11 18:46:16,842 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:743cd75f-5bbc-4841-b777-36ab7f116473, workflowRunId=01a1cbee-51ac-7add-b9c9-08cb932b7188, projectUuid=743cd75f-5bbc-4841-b777-36ab7f116473]
+19:55:20 apiserver-log: 2026-11-11 18:48:11,217 INFO [Server] Stopped oejs.Server@368a26dd{STOPPING}[12.1.14,sto=0]
+19:55:20 apiserver-log: 2026-11-11 18:48:11,237 INFO [AbstractConnector] Stopped oejs.ServerConnector@22e94018{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:55:20 apiserver-log: 2026-11-11 18:48:11,302 INFO [NotificationSubsystemInitializer] Stopping outbox relay
+19:55:20 apiserver-log: 2026-11-11 18:48:11,913 INFO [TaskSchedulerInitializer] Stopping task scheduler
+19:55:20 apiserver-log: 2026-11-11 18:48:11,919 INFO [DexEngineInitializer] Stopping durable execution engine
+19:55:20 apiserver-log: 2026-11-11 18:48:11,920 INFO [DexEngineImpl] Transitioning from status RUNNING to STOPPING
+19:55:21 apiserver-log: 2026-11-11 18:48:11,931 INFO [DexEngineImpl] Transitioning from status STOPPING to STOPPED
+19:55:21 apiserver-log: 2026-11-11 18:48:11,932 INFO [PluginInitializer] Closing plugin manager
+19:55:21 apiserver-log: 2026-11-11 18:48:11,935 INFO [PersistenceManagerFactory] Shutting down persistence framework
+19:55:21 apiserver-log: 2026-11-11 18:48:11,937 INFO [SecretManagerInitializer] Closing secret manager
+19:55:21 apiserver-log: 2026-11-11 18:48:11,950 INFO [FileStorageInitializer] Closing file storage
+19:55:21 apiserver-log: 2026-11-11 18:48:11,951 INFO [CacheManagerInitializer] Closing cache manager
+19:55:21 apiserver-log: 2026-11-11 18:48:11,955 INFO [ServletContextHandler] Stopped oeje11s.ServletContextHandler@1c30cb85{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@577bf0aa{STOPPED}}
+19:55:21 apiserver-log: 2026-11-11 18:54:38,270 INFO [Application] Starting Dependency-Track 5.2.1 (built 2026-10-25T11:10:36Z)
+19:55:21 apiserver-log: 2026-11-11 18:54:38,824 INFO [DataSourceRegistry] Creating data source default
+19:55:21 apiserver-log: 2026-11-11 18:54:41,059 INFO [InitTaskExecutor] Executing init task database-migration
+19:55:21 apiserver-log: 2026-11-11 18:54:42,886 INFO [InitTaskExecutor] Completed init task database-migration in 1827ms
+19:55:21 apiserver-log: 2026-11-11 18:54:42,887 INFO [InitTaskExecutor] Executing init task dex-engine-database-migration
+19:55:21 apiserver-log: 2026-11-11 18:54:43,069 INFO [InitTaskExecutor] Completed init task dex-engine-database-migration in 182ms
+19:55:21 apiserver-log: 2026-11-11 18:54:43,069 INFO [InitTaskExecutor] Executing init task database-partition-maintenance
+19:55:21 apiserver-log: 2026-11-11 18:54:45,831 INFO [InitTaskExecutor] Completed init task database-partition-maintenance in 2762ms
+19:55:21 apiserver-log: 2026-11-11 18:54:45,832 INFO [InitTaskExecutor] Executing init task database-seeding
+19:55:21 apiserver-log: 2026-11-11 18:54:46,248 INFO [DatabaseSeedingInitTask] Default objects already populated for build 5d411518-ecbd-4f73-855c-26329158b8b9 (timestamp: 2026-10-25T11:10:36Z); Skipping
+19:55:21 apiserver-log: 2026-11-11 18:54:46,250 INFO [InitTaskExecutor] Completed init task database-seeding in 417ms
+19:55:21 apiserver-log: 2026-11-11 18:54:46,251 INFO [InitTaskExecutor] All init tasks completed in 5325ms
+19:55:21 apiserver-log: 2026-11-11 18:54:47,767 INFO [Server] jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 25.0.4.1+1-LTS
+19:55:22 apiserver-log: 2026-11-11 18:54:47,890 INFO [ContextHandler] Started oeje11s.ServletContextHandler@541bf968{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@739265f1{STARTED}}
+19:55:22 apiserver-log: 2026-11-11 18:54:47,897 INFO [CacheManagerInitializer] Initializing cache manager for provider 'database'
+19:55:22 apiserver-log: 2026-11-11 18:54:47,920 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+19:55:22 apiserver-log: 2026-11-11 18:54:48,766 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+19:55:22 apiserver-log: 2026-11-11 18:54:49,499 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+19:55:22 apiserver-log: 2026-11-11 18:54:49,741 INFO [PersistenceManagerFactory] Initializing persistence framework
+19:55:22 apiserver-log: 2026-11-11 18:54:54,002 INFO [PluginInitializer] Initializing plugin system
+19:55:22 apiserver-log: 2026-11-11 18:54:55,102 INFO [PluginInitializer] Discovering plugins
+19:55:22 apiserver-log: 2026-11-11 18:54:55,199 INFO [PluginInitializer] Loading plugins
+19:55:22 apiserver-log: 2026-11-11 18:54:58,914 INFO [DexEngineInitializer] Registering workflow worker 'default'
+19:55:22 apiserver-log: 2026-11-11 18:54:58,970 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+19:55:22 apiserver-log: 2026-11-11 18:54:58,982 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+19:55:22 apiserver-log: 2026-11-11 18:54:58,993 INFO [DexEngineInitializer] Registering activity worker 'notification'
+19:55:22 apiserver-log: 2026-11-11 18:54:58,997 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+19:55:22 apiserver-log: 2026-11-11 18:54:59,007 INFO [DexEngineInitializer] Registering activity worker 'default'
+19:55:22 apiserver-log: 2026-11-11 18:54:59,014 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+19:55:22 apiserver-log: 2026-11-11 18:54:59,019 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+19:55:22 apiserver-log: 2026-11-11 18:54:59,029 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+19:55:22 apiserver-log: 2026-11-11 18:54:59,047 INFO [DexEngineInitializer] Starting durable execution engine
+19:55:22 apiserver-log: 2026-11-11 18:54:59,050 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+19:55:22 apiserver-log: 2026-11-11 18:54:59,142 INFO [DexEngineLeaderElection] Leadership lease acquired
+19:55:22 apiserver-log: 2026-11-11 18:54:59,511 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+19:55:22 apiserver-log: 2026-11-11 18:55:00,124 INFO [TaskSchedulerInitializer] Starting task scheduler
+19:55:22 apiserver-log: 2026-11-11 18:55:00,572 INFO [NotificationSubsystemInitializer] Starting outbox relay
+19:55:22 apiserver-log: 2026-11-11 18:55:11,248 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@541bf968{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@739265f1{STARTED}}
+19:55:22 apiserver-log: 2026-11-11 18:55:11,271 INFO [AbstractConnector] Started oejs.ServerConnector@66df5adb{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:55:23 apiserver-log: 2026-11-11 18:55:11,273 INFO [Server] Started oejs.Server@6b133599{STARTING}[12.1.14,sto=0] @23537ms
+19:55:23 apiserver-log: 2026-11-11 18:55:15,372 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=80df978f-8ad1-4700-88b5-ca0e3e77a493, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+19:55:23 apiserver-log: 2026-11-11 18:55:17,521 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=f27196ba-9b79-4ddb-b74a-2a06c914f603, requestMethod=POST, requestUri=/v1/user/login]
+19:55:23 apiserver-log: 2026-11-11 18:55:17,919 INFO [TeamResource] API key created: XIrUpBx8 (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=b444c370-58f8-454f-93dc-9d5467406111, requestMethod=PUT]
+19:55:24 trivy image: ghcr.io/aquasecurity/trivy@sha256:8f6bb947dbc528902e11f2f5be52f7b519f6a39d5d148f41166f2040499768fb
+19:55:25 trivy-log: 2026-11-11T18:54:27Z	INFO	[vulndb] Need to update DB
+19:55:25 trivy-log: 2026-11-11T18:54:27Z	INFO	[vulndb] Downloading vulnerability DB...
+19:55:25 trivy-log: 2026-11-11T18:54:27Z	INFO	[vulndb] Downloading artifact...	repo="mirror.gcr.io/aquasec/trivy-db:2"
+19:55:25 trivy-log: 2026-11-11T18:55:18Z	INFO	[vulndb] Artifact successfully downloaded	repo="mirror.gcr.io/aquasec/trivy-db:2"
+19:55:25 trivy-log: 2026-11-11T18:55:18Z	INFO	Listening 0.0.0.0:4954...
+19:55:25 Trivy server healthy
+19:55:25 secret TRIVY_API_TOKEN created
+19:55:26 vuln-analyzer/trivy config set
+19:55:26 vuln-analyzer/trivy config now: {"config":{"apiUrl":"http://trivy:4954","scanOs":true,"enabled":true,"apiToken":"TRIVY_API_TOKEN","scanLibrary":true,"ignoreUnfixed":false}}
+19:55:26 analyzer internal : enabled=True
+19:55:26 analyzer oss-index : enabled=True
+19:55:26 kev vulncheck : enabled=True
+19:55:28 waiting 240 s for re-analysis (OSS Index and Trivy are queried)
+19:59:30 conan-native: findings=52 byAnalyzer={"oss-index":52}
+19:59:30 conan-normalised: findings=79 byAnalyzer={"internal":65,"oss-index":14}
+19:59:31 maven-control: findings=155 byAnalyzer={"trivy":49,"oss-index":30,"internal":76}
+19:59:31 npm-control: findings=74 byAnalyzer={"oss-index":33,"internal":35,"trivy":6}
+19:59:31 nuget-control: findings=6 byAnalyzer={"oss-index":2,"internal":3,"trivy":1}
+19:59:31 python-control: findings=236 byAnalyzer={"oss-index":91,"trivy":10,"internal":135}
+19:59:31 vcpkg-native: findings=0 byAnalyzer={}
+19:59:31 vcpkg-normalised: findings=0 byAnalyzer={}
+19:59:31 vcpkg-spdx-zlib-direct: findings=0 byAnalyzer={}
+19:59:31 vendored-declared: findings=5 byAnalyzer={"internal":5}
+19:59:31 vendored-syft: findings=0 byAnalyzer={}
+19:59:32 apiserver-log: 2026-11-11 18:55:25,946 INFO [SecretsResource] Created secret: TRIVY_API_TOKEN [principal=odt_XIrUpBx8********************************, requestUri=/secrets, requestId=cb470a4c-c6f5-4a89-8b00-dcf62165dece, requestMethod=POST]
+19:59:32 apiserver-log: 2026-11-11 18:55:26,173 INFO [ExtensionsResource] Updated config of extension vuln-analyzer/trivy [principal=odt_XIrUpBx8********************************, requestUri=/extension-points/{extension_point_name}/extensions/{extension_name}/config, requestId=e0161fe1-d1f9-4350-b36c-b8d53a0ed64d, requestMethod=PUT]
+19:59:33 trivy-log: 2026-11-11T18:55:30Z	WARN	Unsupported os	family="none"
+19:59:33 trivy-log: 2026-11-11T18:55:30Z	INFO	Number of language-specific files	num=0
+19:59:33 trivy-log: 2026-11-11T18:55:30Z	INFO	Number of language-specific files	num=1
+19:59:33 trivy-log: 2026-11-11T18:55:30Z	INFO	[nuget] Detecting vulnerabilities...
+19:59:33 trivy-log: 2026-11-11T18:55:30Z	INFO	Number of language-specific files	num=1
+19:59:33 trivy-log: 2026-11-11T18:55:30Z	INFO	[python-pkg] Detecting vulnerabilities...
+19:59:33 trivy-log: 2026-11-11T18:55:30Z	INFO	Number of language-specific files	num=1
+19:59:33 trivy-log: 2026-11-11T18:55:30Z	INFO	[conan] Detecting vulnerabilities...
+19:59:33 trivy-log: 2026-11-11T18:55:31Z	INFO	Detected OS	family="none" version=""
+19:59:33 trivy-log: 2026-11-11T18:55:31Z	WARN	Unsupported os	family="none"
+19:59:33 trivy-log: 2026-11-11T18:55:31Z	INFO	Number of language-specific files	num=0
+19:59:33 trivy-log: 2026-11-11T18:55:31Z	INFO	Number of language-specific files	num=1
+19:59:33 trivy-log: 2026-11-11T18:55:31Z	INFO	[node-pkg] Detecting vulnerabilities...
+19:59:33 trivy-log: 2026-11-11T18:55:31Z	INFO	Number of language-specific files	num=1
+19:59:33 trivy-log: 2026-11-11T18:55:31Z	INFO	[conan] Detecting vulnerabilities...
+19:59:35 compose:  Container dt5-test-apiserver-1 Stopping 
+19:59:35 compose:  Container dt5-test-frontend-1 Stopping 
+19:59:35 compose:  Container dt5-test-trivy-1 Stopping 
+19:59:35 compose:  Container dt5-test-trivy-1 Stopped 
+19:59:35 compose:  Container dt5-test-frontend-1 Stopped 
+19:59:36 compose:  Container dt5-test-apiserver-1 Stopped 
+19:59:36 compose:  Container dt5-test-postgres-1 Stopping 
+19:59:36 compose:  Container dt5-test-postgres-1 Stopped 
+19:59:37 DONE - containers stopped; images and data volumes (incl. Trivy DB cache) kept.

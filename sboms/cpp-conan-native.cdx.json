@@ -1,0 +1,109 @@
+{
+  "components": [
+    {
+      "bom-ref": "pkg:conan/libpng@1.6.34?rrev=91d2f47f9585b3db11287b485ac39b01",
+      "description": "libpng test recipe",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "http://www.libpng.org"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "libpng-2.0"
+          }
+        }
+      ],
+      "name": "libpng",
+      "purl": "pkg:conan/libpng@1.6.34",
+      "type": "library",
+      "version": "1.6.34"
+    },
+    {
+      "bom-ref": "pkg:conan/openssl@1.1.1k?rrev=bd4c649456ce297a205743e23b16136e",
+      "description": "openssl test recipe",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://github.com/openssl/openssl"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "OpenSSL"
+          }
+        }
+      ],
+      "name": "openssl",
+      "purl": "pkg:conan/openssl@1.1.1k",
+      "type": "library",
+      "version": "1.1.1k"
+    },
+    {
+      "bom-ref": "pkg:conan/zlib@1.2.11?rrev=948950fd5bf6ec9cf95de0ad539ef555",
+      "description": "zlib test recipe",
+      "externalReferences": [
+        {
+          "type": "website",
+          "url": "https://zlib.net"
+        }
+      ],
+      "licenses": [
+        {
+          "license": {
+            "id": "Zlib"
+          }
+        }
+      ],
+      "name": "zlib",
+      "purl": "pkg:conan/zlib@1.2.11",
+      "type": "library",
+      "version": "1.2.11"
+    }
+  ],
+  "dependencies": [
+    {
+      "ref": "dd058427-148c-4cea-9c60-a3ab185c2040",
+      "dependsOn": [
+        "pkg:conan/libpng@1.6.34?rrev=91d2f47f9585b3db11287b485ac39b01",
+        "pkg:conan/openssl@1.1.1k?rrev=bd4c649456ce297a205743e23b16136e"
+      ]
+    },
+    {
+      "ref": "pkg:conan/libpng@1.6.34?rrev=91d2f47f9585b3db11287b485ac39b01",
+      "dependsOn": [
+        "pkg:conan/zlib@1.2.11?rrev=948950fd5bf6ec9cf95de0ad539ef555"
+      ]
+    },
+    {
+      "ref": "pkg:conan/openssl@1.1.1k?rrev=bd4c649456ce297a205743e23b16136e"
+    },
+    {
+      "ref": "pkg:conan/zlib@1.2.11?rrev=948950fd5bf6ec9cf95de0ad539ef555"
+    }
+  ],
+  "metadata": {
+    "component": {
+      "bom-ref": "dd058427-148c-4cea-9c60-a3ab185c2040",
+      "name": "conan-sbom",
+      "type": "library"
+    },
+    "timestamp": "2026-11-11T14:39:43Z",
+    "tools": {
+      "components": [
+        {
+          "type": "application",
+          "name": "Conan-io",
+          "version": "2.32.0"
+        }
+      ]
+    }
+  },
+  "serialNumber": "urn:uuid:20665c74-5763-4f27-bf6d-d17fd76add89",
+  "bomFormat": "CycloneDX",
+  "specVersion": "1.6",
+  "version": 1
+}

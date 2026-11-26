@@ -1,0 +1,185 @@
+dt5 test started 2026-11-11T18:47:07
+18:47:08 Docker engine 29.9.3
+18:47:09 net ok   200 https://nvd.nist.gov/feeds/json/cve/2.0/nvdcve-2.0-modified.meta
+18:47:09 net ok   200 https://osv-vulnerabilities.storage.googleapis.com/PyPI/modified_id.csv
+18:47:09 net FAIL https://ghcr.io/v2/ :: The remote server returned an error: (405) Method Not Allowed.
+18:47:20 compose:  Container dt5-test-postgres-1 Recreate 
+18:47:20 compose:  Container dt5-test-postgres-1 Recreated 
+18:47:20 compose:  Container dt5-test-frontend-1 Starting 
+18:47:20 compose:  Container dt5-test-postgres-1 Starting 
+18:47:21 compose:  Container dt5-test-frontend-1 Started 
+18:47:21 compose:  Container dt5-test-postgres-1 Started 
+18:47:21 compose:  Container dt5-test-postgres-1 Waiting 
+18:47:26 compose:  Container dt5-test-postgres-1 Healthy 
+18:47:26 compose:  Container dt5-test-apiserver-1 Starting 
+18:47:27 compose:  Container dt5-test-apiserver-1 Started 
+18:47:28 ps: NAME                   IMAGE                                     COMMAND                  SERVICE     CREATED         STATUS                           PORTS
+18:47:28 ps: dt5-test-apiserver-1   ghcr.io/dependencytrack/apiserver:5.2.1   "/sbin/tini -- /bin/ÔÇª"   apiserver   3 hours ago     Up 1 second (health: starting)   127.0.0.1:8081->8080/tcp
+18:47:28 ps: dt5-test-frontend-1    ghcr.io/dependencytrack/frontend:5.2.1    "/docker-entrypoint.ÔÇª"   frontend    3 hours ago     Up 7 seconds                     127.0.0.1:8080->8080/tcp
+18:47:28 ps: dt5-test-postgres-1    postgres:18-alpine                        "docker-entrypoint.sÔÇª"   postgres    8 seconds ago   Up 7 seconds (healthy)           5432/tcp
+18:47:45 API up: {"framework":{"uuid":"4056ecb2-bc54-4dee-93a5-f0bfb530cd8b","timestamp":"2026-10-25T11:09:51Z","version":"5.2.1","name":"Alpine"},"uuid":"5d411518-ecbd-4f73-855c-26329158b8b9","application":"Dependency-Track","timestamp":"2026-10-25T11:10:36Z","version":"5.2.1"}
+18:47:47 forceChangePassword (fine on re-runs): The remote server returned an error: (401) Unauthorized. | INVALID_CREDENTIALS
+18:47:48 login ok
+18:47:48 using Administrators team API key (odt_Zd38...)
+18:47:49 DIAG (after login): apiserver state 0 restarts, started 2026-11-11T17:47:26.8747316Z, status running, OOMKilled false
+18:47:49 apiserver-log: 2026-11-11 15:33:10,575 INFO [VulnAnalysisWorkflow] No applicable analyzers; Skipping analysis [workflowName=vuln-analysis, workflowInstanceId=null, workflowRunId=01a1cb3d-d7a6-728b-94f3-49abd7ca44d4, projectUuid=7f23b703-e217-42d6-86cc-f0ef63c03268]
+18:47:49 apiserver-log: 2026-11-11 15:33:10,847 INFO [CelPolicyEngine] No applicable policies found [projectUuid=7f23b703-e217-42d6-86cc-f0ef63c03268]
+18:47:49 apiserver-log: 2026-11-11 15:33:11,174 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-scheduled:7f23b703-e217-42d6-86cc-f0ef63c03268, workflowRunId=01a1cb3d-d789-742d-9e12-1ec3f9c31603, projectUuid=7f23b703-e217-42d6-86cc-f0ef63c03268]
+18:47:49 apiserver-log: 2026-11-11 15:36:16,048 INFO [Server] Stopped oejs.Server@7cf9dc4c{STOPPING}[12.1.14,sto=0]
+18:47:49 apiserver-log: 2026-11-11 15:36:16,064 INFO [AbstractConnector] Stopped oejs.ServerConnector@5c79284b{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+18:47:49 apiserver-log: 2026-11-11 15:36:16,201 INFO [NotificationSubsystemInitializer] Stopping outbox relay
+18:47:49 apiserver-log: 2026-11-11 15:36:16,890 INFO [TaskSchedulerInitializer] Stopping task scheduler
+18:47:49 apiserver-log: 2026-11-11 15:36:16,895 INFO [DexEngineInitializer] Stopping durable execution engine
+18:47:49 apiserver-log: 2026-11-11 15:36:16,895 INFO [DexEngineImpl] Transitioning from status RUNNING to STOPPING
+18:47:49 apiserver-log: 2026-11-11 15:36:16,908 INFO [DexEngineImpl] Transitioning from status STOPPING to STOPPED
+18:47:49 apiserver-log: 2026-11-11 15:36:16,908 INFO [PluginInitializer] Closing plugin manager
+18:47:49 apiserver-log: 2026-11-11 15:36:16,915 INFO [PersistenceManagerFactory] Shutting down persistence framework
+18:47:49 apiserver-log: 2026-11-11 15:36:16,917 INFO [SecretManagerInitializer] Closing secret manager
+18:47:49 apiserver-log: 2026-11-11 15:36:16,928 INFO [FileStorageInitializer] Closing file storage
+18:47:50 apiserver-log: 2026-11-11 15:36:16,929 INFO [CacheManagerInitializer] Closing cache manager
+18:47:50 apiserver-log: 2026-11-11 15:36:16,931 INFO [ServletContextHandler] Stopped oeje11s.ServletContextHandler@fcf9525{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@300bb303{STOPPED}}
+18:47:50 apiserver-log: 2026-11-11 17:47:28,254 INFO [Application] Starting Dependency-Track 5.2.1 (built 2026-10-25T11:10:36Z)
+18:47:50 apiserver-log: 2026-11-11 17:47:28,378 INFO [DataSourceRegistry] Creating data source default
+18:47:50 apiserver-log: 2026-11-11 17:47:28,931 INFO [InitTaskExecutor] Executing init task database-migration
+18:47:50 apiserver-log: 2026-11-11 17:47:29,524 INFO [InitTaskExecutor] Completed init task database-migration in 593ms
+18:47:50 apiserver-log: 2026-11-11 17:47:29,525 INFO [InitTaskExecutor] Executing init task dex-engine-database-migration
+18:47:50 apiserver-log: 2026-11-11 17:47:29,577 INFO [InitTaskExecutor] Completed init task dex-engine-database-migration in 51ms
+18:47:50 apiserver-log: 2026-11-11 17:47:29,577 INFO [InitTaskExecutor] Executing init task database-partition-maintenance
+18:47:50 apiserver-log: 2026-11-11 17:47:32,470 INFO [InitTaskExecutor] Completed init task database-partition-maintenance in 2893ms
+18:47:50 apiserver-log: 2026-11-11 17:47:32,471 INFO [InitTaskExecutor] Executing init task database-seeding
+18:47:50 apiserver-log: 2026-11-11 17:47:33,133 INFO [DatabaseSeedingInitTask] Default objects already populated for build 5d411518-ecbd-4f73-855c-26329158b8b9 (timestamp: 2026-10-25T11:10:36Z); Skipping
+18:47:50 apiserver-log: 2026-11-11 17:47:33,134 INFO [InitTaskExecutor] Completed init task database-seeding in 663ms
+18:47:50 apiserver-log: 2026-11-11 17:47:33,136 INFO [InitTaskExecutor] All init tasks completed in 4227ms
+18:47:50 apiserver-log: 2026-11-11 17:47:34,393 INFO [Server] jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 25.0.4.1+1-LTS
+18:47:50 apiserver-log: 2026-11-11 17:47:34,463 INFO [ContextHandler] Started oeje11s.ServletContextHandler@1cd2143b{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@1118d539{STARTED}}
+18:47:50 apiserver-log: 2026-11-11 17:47:34,471 INFO [CacheManagerInitializer] Initializing cache manager for provider 'database'
+18:47:50 apiserver-log: 2026-11-11 17:47:34,481 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+18:47:50 apiserver-log: 2026-11-11 17:47:34,797 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+18:47:50 apiserver-log: 2026-11-11 17:47:35,048 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+18:47:50 apiserver-log: 2026-11-11 17:47:35,127 INFO [PersistenceManagerFactory] Initializing persistence framework
+18:47:50 apiserver-log: 2026-11-11 17:47:36,799 INFO [PluginInitializer] Initializing plugin system
+18:47:50 apiserver-log: 2026-11-11 17:47:37,039 INFO [PluginInitializer] Discovering plugins
+18:47:50 apiserver-log: 2026-11-11 17:47:37,049 INFO [PluginInitializer] Loading plugins
+18:47:50 apiserver-log: 2026-11-11 17:47:37,936 INFO [DexEngineInitializer] Registering workflow worker 'default'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,951 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,958 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,962 INFO [DexEngineInitializer] Registering activity worker 'notification'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,967 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,975 INFO [DexEngineInitializer] Registering activity worker 'default'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,979 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,983 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,986 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+18:47:50 apiserver-log: 2026-11-11 17:47:37,994 INFO [DexEngineInitializer] Starting durable execution engine
+18:47:50 apiserver-log: 2026-11-11 17:47:37,995 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+18:47:50 apiserver-log: 2026-11-11 17:47:38,036 INFO [DexEngineLeaderElection] Leadership lease acquired
+18:47:50 apiserver-log: 2026-11-11 17:47:38,115 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+18:47:50 apiserver-log: 2026-11-11 17:47:38,346 INFO [TaskSchedulerInitializer] Starting task scheduler
+18:47:51 apiserver-log: 2026-11-11 17:47:38,504 INFO [NotificationSubsystemInitializer] Starting outbox relay
+18:47:51 apiserver-log: 2026-11-11 17:47:39,425 INFO [UpdatePortfolioMetricsWorkflow] No more projects due for metrics update; Refreshing portfolio metrics [workflowInstanceId=update-portfolio-metrics, workflowRunId=01a1cbb8-f579-7d00-bb14-17a5e0ed34e1, workflowName=update-portfolio-metrics]
+18:47:51 apiserver-log: 2026-11-11 17:47:43,373 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@1cd2143b{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@1118d539{STARTED}}
+18:47:51 apiserver-log: 2026-11-11 17:47:43,383 INFO [AbstractConnector] Started oejs.ServerConnector@1c541176{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+18:47:51 apiserver-log: 2026-11-11 17:47:43,384 INFO [Server] Started oejs.Server@768cfd06{STARTING}[12.1.14,sto=0] @9000ms
+18:47:51 apiserver-log: 2026-11-11 17:47:47,104 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=f90b1ade-8a40-459f-abe6-b1ffe2df79eb, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+18:47:51 apiserver-log: 2026-11-11 17:47:48,131 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=9d73fbe7-e6c8-4a0a-84e5-5661fef186f8, requestMethod=POST, requestUri=/v1/user/login]
+18:47:51 apiserver-log: 2026-11-11 17:47:48,374 INFO [TeamResource] API key created: Zd38Dq2m (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=093fb633-6138-4a6c-a126-5c7390afb2e1, requestMethod=PUT]
+18:47:51 extension points: {"items":[{"name":"kev-data-source"},{"name":"notification-publisher"},{"name":"package-metadata-resolver"},{"name":"vuln-analyzer"},{"name":"vuln-data-source"}],"total":{"count":5,"type":"EXACT"}}
+18:47:51 vuln data source extension point: vuln-data-source
+18:47:51 extensions: {"items":[{"name":"github","display_name":"GitHub Advisories","configurable":true,"testable":false},{"name":"jvn","display_name":"JVN iPedia","configurable":true,"testable":true},{"name":"nvd","display_name":"NVD","configurable":true,"testable":true},{"name":"osv","display_name":"OSV","configurable":true,"testable":false}],"total":{"count":4,"type":"EXACT"}}
+18:47:51 nvd schema: {"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://dependencytrack.org/schemas/nvd-vuln-data-source-config-v1.schema.json","type":"object","javaInterfaces":["org.dependencytrack.plugin.api.config.RuntimeConfig"],"properties":{"enabled":{"type":"boolean","title":"Enabled","description":"Whether the NVD data source should be enabled.","existingJavaType":"boolean"},"cveFeedsUrl":{"type":"string","title":"CVE Feeds URL","description":"The URL to download CVE feeds from.  \n**Must** serve [JSON 2.0 feed files](https://nvd.nist.gov/vuln/data-feeds#divJson20Feeds).","format":"uri","minLength":1}},"required":["enabled"]}
+18:47:51 nvd current config: {"config":{"enabled":true,"cveFeedsUrl":"https://nvd.nist.gov/feeds"}}
+18:47:51 nvd already configured
+18:47:52 DIAG (401 on GET /api/v2/extension-points/vuln-data-source/extensions/osv/config-schema): apiserver state 0 restarts, started 2026-11-11T17:47:26.8747316Z, status running, OOMKilled false
+18:47:53 apiserver-log: 2026-11-11 15:33:10,575 INFO [VulnAnalysisWorkflow] No applicable analyzers; Skipping analysis [workflowName=vuln-analysis, workflowInstanceId=null, workflowRunId=01a1cb3d-d7a6-728b-94f3-49abd7ca44d4, projectUuid=7f23b703-e217-42d6-86cc-f0ef63c03268]
+18:47:53 apiserver-log: 2026-11-11 15:33:10,847 INFO [CelPolicyEngine] No applicable policies found [projectUuid=7f23b703-e217-42d6-86cc-f0ef63c03268]
+18:47:53 apiserver-log: 2026-11-11 15:33:11,174 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-scheduled:7f23b703-e217-42d6-86cc-f0ef63c03268, workflowRunId=01a1cb3d-d789-742d-9e12-1ec3f9c31603, projectUuid=7f23b703-e217-42d6-86cc-f0ef63c03268]
+18:47:53 apiserver-log: 2026-11-11 15:36:16,048 INFO [Server] Stopped oejs.Server@7cf9dc4c{STOPPING}[12.1.14,sto=0]
+18:47:53 apiserver-log: 2026-11-11 15:36:16,064 INFO [AbstractConnector] Stopped oejs.ServerConnector@5c79284b{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+18:47:53 apiserver-log: 2026-11-11 15:36:16,201 INFO [NotificationSubsystemInitializer] Stopping outbox relay
+18:47:53 apiserver-log: 2026-11-11 15:36:16,890 INFO [TaskSchedulerInitializer] Stopping task scheduler
+18:47:53 apiserver-log: 2026-11-11 15:36:16,895 INFO [DexEngineInitializer] Stopping durable execution engine
+18:47:53 apiserver-log: 2026-11-11 15:36:16,895 INFO [DexEngineImpl] Transitioning from status RUNNING to STOPPING
+18:47:53 apiserver-log: 2026-11-11 15:36:16,908 INFO [DexEngineImpl] Transitioning from status STOPPING to STOPPED
+18:47:53 apiserver-log: 2026-11-11 15:36:16,908 INFO [PluginInitializer] Closing plugin manager
+18:47:53 apiserver-log: 2026-11-11 15:36:16,915 INFO [PersistenceManagerFactory] Shutting down persistence framework
+18:47:53 apiserver-log: 2026-11-11 15:36:16,917 INFO [SecretManagerInitializer] Closing secret manager
+18:47:53 apiserver-log: 2026-11-11 15:36:16,928 INFO [FileStorageInitializer] Closing file storage
+18:47:53 apiserver-log: 2026-11-11 15:36:16,929 INFO [CacheManagerInitializer] Closing cache manager
+18:47:53 apiserver-log: 2026-11-11 15:36:16,931 INFO [ServletContextHandler] Stopped oeje11s.ServletContextHandler@fcf9525{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@300bb303{STOPPED}}
+18:47:53 apiserver-log: 2026-11-11 17:47:28,254 INFO [Application] Starting Dependency-Track 5.2.1 (built 2026-10-25T11:10:36Z)
+18:47:53 apiserver-log: 2026-11-11 17:47:28,378 INFO [DataSourceRegistry] Creating data source default
+18:47:53 apiserver-log: 2026-11-11 17:47:28,931 INFO [InitTaskExecutor] Executing init task database-migration
+18:47:53 apiserver-log: 2026-11-11 17:47:29,524 INFO [InitTaskExecutor] Completed init task database-migration in 593ms
+18:47:53 apiserver-log: 2026-11-11 17:47:29,525 INFO [InitTaskExecutor] Executing init task dex-engine-database-migration
+18:47:53 apiserver-log: 2026-11-11 17:47:29,577 INFO [InitTaskExecutor] Completed init task dex-engine-database-migration in 51ms
+18:47:53 apiserver-log: 2026-11-11 17:47:29,577 INFO [InitTaskExecutor] Executing init task database-partition-maintenance
+18:47:53 apiserver-log: 2026-11-11 17:47:32,470 INFO [InitTaskExecutor] Completed init task database-partition-maintenance in 2893ms
+18:47:53 apiserver-log: 2026-11-11 17:47:32,471 INFO [InitTaskExecutor] Executing init task database-seeding
+18:47:54 apiserver-log: 2026-11-11 17:47:33,133 INFO [DatabaseSeedingInitTask] Default objects already populated for build 5d411518-ecbd-4f73-855c-26329158b8b9 (timestamp: 2026-10-25T11:10:36Z); Skipping
+18:47:54 apiserver-log: 2026-11-11 17:47:33,134 INFO [InitTaskExecutor] Completed init task database-seeding in 663ms
+18:47:54 apiserver-log: 2026-11-11 17:47:33,136 INFO [InitTaskExecutor] All init tasks completed in 4227ms
+18:47:54 apiserver-log: 2026-11-11 17:47:34,393 INFO [Server] jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 25.0.4.1+1-LTS
+18:47:54 apiserver-log: 2026-11-11 17:47:34,463 INFO [ContextHandler] Started oeje11s.ServletContextHandler@1cd2143b{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@1118d539{STARTED}}
+18:47:54 apiserver-log: 2026-11-11 17:47:34,471 INFO [CacheManagerInitializer] Initializing cache manager for provider 'database'
+18:47:54 apiserver-log: 2026-11-11 17:47:34,481 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+18:47:54 apiserver-log: 2026-11-11 17:47:34,797 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+18:47:54 apiserver-log: 2026-11-11 17:47:35,048 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+18:47:54 apiserver-log: 2026-11-11 17:47:35,127 INFO [PersistenceManagerFactory] Initializing persistence framework
+18:47:54 apiserver-log: 2026-11-11 17:47:36,799 INFO [PluginInitializer] Initializing plugin system
+18:47:54 apiserver-log: 2026-11-11 17:47:37,039 INFO [PluginInitializer] Discovering plugins
+18:47:54 apiserver-log: 2026-11-11 17:47:37,049 INFO [PluginInitializer] Loading plugins
+18:47:54 apiserver-log: 2026-11-11 17:47:37,936 INFO [DexEngineInitializer] Registering workflow worker 'default'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,951 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,958 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,962 INFO [DexEngineInitializer] Registering activity worker 'notification'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,967 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,975 INFO [DexEngineInitializer] Registering activity worker 'default'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,979 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,983 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,986 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+18:47:54 apiserver-log: 2026-11-11 17:47:37,994 INFO [DexEngineInitializer] Starting durable execution engine
+18:47:54 apiserver-log: 2026-11-11 17:47:37,995 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+18:47:54 apiserver-log: 2026-11-11 17:47:38,036 INFO [DexEngineLeaderElection] Leadership lease acquired
+18:47:54 apiserver-log: 2026-11-11 17:47:38,115 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+18:47:54 apiserver-log: 2026-11-11 17:47:38,346 INFO [TaskSchedulerInitializer] Starting task scheduler
+18:47:54 apiserver-log: 2026-11-11 17:47:38,504 INFO [NotificationSubsystemInitializer] Starting outbox relay
+18:47:54 apiserver-log: 2026-11-11 17:47:39,425 INFO [UpdatePortfolioMetricsWorkflow] No more projects due for metrics update; Refreshing portfolio metrics [workflowInstanceId=update-portfolio-metrics, workflowRunId=01a1cbb8-f579-7d00-bb14-17a5e0ed34e1, workflowName=update-portfolio-metrics]
+18:47:54 apiserver-log: 2026-11-11 17:47:43,373 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@1cd2143b{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@1118d539{STARTED}}
+18:47:54 apiserver-log: 2026-11-11 17:47:43,383 INFO [AbstractConnector] Started oejs.ServerConnector@1c541176{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+18:47:54 apiserver-log: 2026-11-11 17:47:43,384 INFO [Server] Started oejs.Server@768cfd06{STARTING}[12.1.14,sto=0] @9000ms
+18:47:54 apiserver-log: 2026-11-11 17:47:47,104 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=f90b1ade-8a40-459f-abe6-b1ffe2df79eb, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+18:47:54 apiserver-log: 2026-11-11 17:47:48,131 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=9d73fbe7-e6c8-4a0a-84e5-5661fef186f8, requestMethod=POST, requestUri=/v1/user/login]
+18:47:54 apiserver-log: 2026-11-11 17:47:48,374 INFO [TeamResource] API key created: Zd38Dq2m (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=093fb633-6138-4a6c-a126-5c7390afb2e1, requestMethod=PUT]
+18:47:56 re-login ok
+18:47:56 osv schema: {"$schema":"https://json-schema.org/draft/2020-12/schema","$id":"https://dependencytrack.org/schemas/osv-vuln-data-source-config-v1.schema.json","type":"object","javaInterfaces":["org.dependencytrack.plugin.api.config.RuntimeConfig"],"properties":{"enabled":{"type":"boolean","title":"Enabled","description":"Whether the OSV data source should be enabled.","existingJavaType":"boolean"},"aliasSyncEnabled":{"type":"boolean","title":"Alias Synchronization Enabled","description":"Whether to include alias information in vulnerability data."},"incrementalMirroringEnabled":{"type":"boolean","title":"Incremental Mirroring Enabled","description":"Whether incremental mirroring is enabled. When enabled (default), watermark logic will be used to only mirror new or updated vulnerabilities. When disabled, full mirroring will be performed on each run.","default":true,"existingJavaType":"boolean"},"dataUrl":{"type":"string","title":"Data URL","description":"The URL to download OSV data from.  \n**Must** be compatible with [OSV\u0027s data dumps](https://google.github.io/osv.dev/data/#data-dumps).","minLength":1,"format":"uri"},"ecosystems":{"type":"array","title":"Ecosystems","description":"The ecosystems to mirror vulnerability data for.  \nA list of available ecosystems can be found in the [OSV documentation](https://ossf.github.io/osv-schema/#defined-ecosystems).","uniqueItems":true,"items":{"type":"string","title":"Ecosystem","minLength":1}}},"required":["enabled"]}
+18:47:56 osv current config: {"config":{"dataUrl":"https://storage.googleapis.com/osv-vulnerabilities","enabled":true,"ecosystems":["PyPI"],"aliasSyncEnabled":false,"incrementalMirroringEnabled":true}}
+18:47:56 osv already configured
+18:47:57 re-login ok
+18:47:57 osv mirror triggered: ""
+18:48:27 osv mirror: {"status":"COMPLETED","started_at":1794419277282,"completed_at":1794419280334}
+18:48:27 nvd mirror triggered: ""
+18:48:57 nvd mirror: {"status":"COMPLETED","started_at":1794419307391,"completed_at":1794419315621}
+18:48:57 uploaded python-control : {"token":"<DT upload job id removed>","projectUuid":"650759a7-6d5f-4539-ac72-c264252d3945"}
+18:48:57 uploaded conan-native : {"token":"<DT upload job id removed>","projectUuid":"c83f98b5-7c26-45d7-b76e-f250a67279d0"}
+18:48:57 uploaded conan-normalised : {"token":"<DT upload job id removed>","projectUuid":"743cd75f-5bbc-4841-b777-36ab7f116473"}
+18:48:57 upload vcpkg-spdx-zlib-direct FAILED: The remote server returned an error: (400) Bad Request. | {"status":400,"title":"The uploaded BOM is invalid","detail":"Unable to determine schema version from JSON"}
+18:48:58 uploaded vcpkg-native : {"token":"<DT upload job id removed>","projectUuid":"6a04836f-cf84-4b41-ac9c-d3e52cb2944a"}
+18:48:58 uploaded vcpkg-normalised : {"token":"<DT upload job id removed>","projectUuid":"d8cffad6-43fc-46de-856c-4b1ca9de3ebe"}
+18:48:58 uploaded vendored-syft : {"token":"<DT upload job id removed>","projectUuid":"479ec71f-d031-4296-ac16-6dcd0030e55a"}
+18:48:58 uploaded vendored-declared : {"token":"<DT upload job id removed>","projectUuid":"88683381-56ef-46d3-894e-3234b0a4b948"}
+18:48:58 waiting 120 s for BOM processing and analysis
+18:51:00 waiting 120 s for re-analysis
+18:53:12 conan-native: components= findings=
+18:53:25 conan-normalised: components= findings=
+18:53:37 python-control: components= findings=
+18:53:49 vcpkg-native: components= findings=
+18:54:01 vcpkg-normalised: components= findings=
+18:54:14 vcpkg-spdx-zlib-direct: components= findings=
+18:54:26 vendored-declared: components= findings=
+18:54:38 vendored-syft: components= findings=
+18:54:40 compose:  Container dt5-test-apiserver-1 Stopping 
+18:54:40 compose:  Container dt5-test-frontend-1 Stopping 
+18:54:40 compose:  Container dt5-test-frontend-1 Stopped 
+18:54:40 compose:  Container dt5-test-apiserver-1 Stopped 
+18:54:40 compose:  Container dt5-test-postgres-1 Stopping 
+18:54:40 compose:  Container dt5-test-postgres-1 Stopped 
+18:54:40 DONE - containers stopped; images and data volumes kept. Restart later with: docker compose up -d (in this folder)

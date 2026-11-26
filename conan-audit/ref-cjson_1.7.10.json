@@ -1,0 +1,11 @@
+{
+    "data": {
+        "cjson/1.7.10": {
+            "error": {
+                "details": "Package 'cjson/1.7.10' not scanned: Not found."
+            }
+        }
+    },
+    "error": null,
+    "provider_url": null
+}

@@ -1,0 +1,399 @@
+{
+    "data": {
+        "zlib/1.2.11": {
+            "vulnerabilities": {
+                "totalCount": 5,
+                "edges": [
+                    {
+                        "node": {
+                            "name": "CVE-2018-25032",
+                            "description": "GHSA-v6gp-9mmm-c6p5:\n## Summary\n\nNokogiri v1.13.4 updates the vendored zlib from 1.2.11 to 1.2.12, which addresses [CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032). That CVE is scored as CVSS 7.4 \"High\" on the NVD record as of 2022-04-05.\n\nPlease note that this advisory only applies to the CRuby implementation of Nokogiri `< 1.13.4`, and only if the packaged version of `zlib` is being used. Please see [this document](https://nokogiri.org/LICENSE-DEPENDENCIES.html#default-platform-release-ruby) for a complete description of which platform gems vendor `zlib`. If you've overridden defaults at installation time to use system libraries instead of packaged libraries, you should instead pay attention to your distro's `zlib` release announcements. \n\n## Mitigation\n\nUpgrade to Nokogiri `>= v1.13.4`.\n\n## Impact\n\n### [CVE-2018-25032](https://nvd.nist.gov/vuln/detail/CVE-2018-25032) in zlib\n\n- **Severity**: High\n- **Type**: [CWE-787](https://cwe.mitre.org/data/definitions/787.html) Out of bounds write\n- **Description**: zlib before 1.2.12 allows memory corruption when deflating (i.e., when compressing) if the input has many distant matches.\n\n\nGHSA-jc36-42cf-vqwj:\nzlib 1.2.11 allows memory corruption when deflating (i.e., when compressing) if the input has many distant matches.\n",
+                            "severity": "High",
+                            "cvss": {
+                                "preferredBaseScore": 7.5,
+                                "v3": {
+                                    "baseScore": 7.5
+                                },
+                                "v4": {
+                                    "baseScore": 0
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2018-25032",
+                                "ECHO-07bd-01d6-b9fc",
+                                "GHSA-8xx7-27hw-w44g",
+                                "GHSA-jc36-42cf-vqwj",
+                                "GHSA-v6gp-9mmm-c6p5",
+                                "JFSA-2023-000254966",
+                                "XRAY-1135071",
+                                "XRAY-200770",
+                                "XRAY-200791",
+                                "XRAY-200920",
+                                "XRAY-201302",
+                                "XRAY-208175",
+                                "XRAY-217616",
+                                "XRAY-248740",
+                                "XRAY-522364",
+                                "XRAY-607947",
+                                "XRAY-927270"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "GHSA-v6gp-9mmm-c6p5"
+                                },
+                                {
+                                    "name": "GHSA-jc36-42cf-vqwj"
+                                },
+                                {
+                                    "name": "CVE-2018-25032"
+                                },
+                                {
+                                    "name": "JFSA-2023-000254966"
+                                }
+                            ],
+                            "references": [
+                                "https://github.com/sparklemotion/nokogiri/security/advisories/GHSA-v6gp-9mmm-c6p5",
+                                "https://nvd.nist.gov/vuln/detail/CVE-2018-25032",
+                                "https://github.com/advisories/GHSA-jc36-42cf-vqwj",
+                                "https://github.com/sparklemotion/nokogiri",
+                                "https://github.com/sparklemotion/nokogiri/releases/tag/v1.13.4",
+                                "https://groups.google.com/g/ruby-security-ann/c/vX7qSjsvWis/m/TJWN4oOKBwAJ?utm_medium=email&utm_source=footer",
+                                "http://seclists.org/fulldisclosure/2022/May/33",
+                                "http://seclists.org/fulldisclosure/2022/May/35",
+                                "https://www.oracle.com/security-alerts/cpujul2022.html",
+                                "http://seclists.org/fulldisclosure/2022/May/38",
+                                "http://www.openwall.com/lists/oss-security/2022/03/25/2",
+                                "http://www.openwall.com/lists/oss-security/2022/03/26/1",
+                                "https://cert-portal.siemens.com/productcert/pdf/ssa-333517.pdf",
+                                "https://github.com/madler/zlib/commit/5c44459c3b28a9bd3283aaceab7c615f8020c531",
+                                "https://github.com/madler/zlib/compare/v1.2.11...v1.2.12",
+                                "https://github.com/madler/zlib/issues/605",
+                                "https://lists.debian.org/debian-lts-announce/2022/04/msg00000.html",
+                                "https://lists.debian.org/debian-lts-announce/2022/05/msg00008.html",
+                                "https://lists.debian.org/debian-lts-announce/2022/09/msg00023.html",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/DCZFIJBJTZ7CL5QXBFKTQ22Q26VINRUF/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/DF62MVMH3QUGMBDCB3DY2ERQ6EBHTADB/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/JZZPTWRYQULAOL3AW7RZJNVZ2UONXCV4/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/NS2D2GFPFGOJUL4WQ3DUAY7HF4VWQ77F/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/VOKNP2L734AEL47NRYGVZIKEFOUBQY5Y/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/XOKFMSNQ5D5WGMALBNBXU3GE442V74WU/",
+                                "https://security.gentoo.org/glsa/202210-42",
+                                "https://security.netapp.com/advisory/ntap-20220526-0009/",
+                                "https://security.netapp.com/advisory/ntap-20220729-0004/",
+                                "https://support.apple.com/kb/HT213255",
+                                "https://support.apple.com/kb/HT213256",
+                                "https://support.apple.com/kb/HT213257",
+                                "https://www.debian.org/security/2022/dsa-5111",
+                                "https://www.openwall.com/lists/oss-security/2022/03/24/1",
+                                "https://www.openwall.com/lists/oss-security/2022/03/28/1",
+                                "https://www.openwall.com/lists/oss-security/2022/03/28/3",
+                                "https://github.com/rubysec/ruby-advisory-db/blob/master/gems/nokogiri/CVE-2018-25032.yml",
+                                "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DCZFIJBJTZ7CL5QXBFKTQ22Q26VINRUF",
+                                "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/DF62MVMH3QUGMBDCB3DY2ERQ6EBHTADB",
+                                "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/JZZPTWRYQULAOL3AW7RZJNVZ2UONXCV4",
+                                "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/NS2D2GFPFGOJUL4WQ3DUAY7HF4VWQ77F",
+                                "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/VOKNP2L734AEL47NRYGVZIKEFOUBQY5Y",
+                                "https://lists.fedoraproject.org/archives/list/package-announce@lists.fedoraproject.org/message/XOKFMSNQ5D5WGMALBNBXU3GE442V74WU",
+                                "https://security.netapp.com/advisory/ntap-20220526-0009",
+                                "https://security.netapp.com/advisory/ntap-20220729-0004",
+                                "https://github.com/discourse/discourse/security/advisories/GHSA-8xx7-27hw-w44g",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-333517.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-398330.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-419740.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-470355.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-565386.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-942865.html",
+                                "https://advisory.echohq.com/osv/ECHO-07bd-01d6-b9fc.json",
+                                "https://advisory.echohq.com/cve/CVE-2018-25032"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2022-03-25T09:15:08.187Z"
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "CVE-2022-37434",
+                            "description": "zlib through 1.2.12 has a heap-based buffer over-read or buffer overflow in inflate in inflate.c via a large gzip header extra field. NOTE: only applications that call inflateGetHeader are affected. Some common applications bundle the affected zlib source code but may be unable to call inflateGetHeader (e.g., see the nodejs/node reference).",
+                            "severity": "Critical",
+                            "cvss": {
+                                "preferredBaseScore": 9.8,
+                                "v3": {
+                                    "baseScore": 9.8
+                                },
+                                "v4": {
+                                    "baseScore": 0
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2022-37434",
+                                "ECHO-d8ba-d6c6-385c",
+                                "JFSA-2023-000254641",
+                                "XRAY-1138076",
+                                "XRAY-248452",
+                                "XRAY-248459",
+                                "XRAY-248461",
+                                "XRAY-248482",
+                                "XRAY-248499",
+                                "XRAY-248592",
+                                "XRAY-256869",
+                                "XRAY-608139",
+                                "XRAY-678683",
+                                "XRAY-928911"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "CVE-2022-37434"
+                                },
+                                {
+                                    "name": "JFSA-2023-000254641"
+                                }
+                            ],
+                            "references": [
+                                "http://seclists.org/fulldisclosure/2022/Oct/37",
+                                "http://seclists.org/fulldisclosure/2022/Oct/38",
+                                "http://seclists.org/fulldisclosure/2022/Oct/41",
+                                "http://seclists.org/fulldisclosure/2022/Oct/42",
+                                "http://www.openwall.com/lists/oss-security/2022/08/05/2",
+                                "http://www.openwall.com/lists/oss-security/2022/08/09/1",
+                                "https://github.com/curl/curl/issues/9271",
+                                "https://github.com/ivd38/zlib_overflow",
+                                "https://github.com/madler/zlib/blob/21767c654d31d2dccdde4330529775c6c5fd5389/zlib.h#L1062-L1063",
+                                "https://github.com/madler/zlib/commit/1eb7682f845ac9e9bf9ae35bbfb3bad5dacbd91d",
+                                "https://github.com/madler/zlib/commit/eff308af425b67093bab25f80f1ae950166bece1",
+                                "https://github.com/nodejs/node/blob/75b68c6e4db515f76df73af476eccf382bbcb00a/deps/zlib/inflate.c#L762-L764",
+                                "https://lists.debian.org/debian-lts-announce/2022/09/msg00012.html",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/JWN4VE3JQR4O2SOUS5TXNLANRPMHWV4I/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/NMBOJ77A7T7PQCARMDUK75TE6LLESZ3O/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/PAVPQNCG3XRLCLNSQRM3KAN5ZFMVXVTY/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/X5U7OTKZSHY2I3ZFJSR2SHFHW72RKGDK/",
+                                "https://lists.fedoraproject.org/archives/list/package-announce%40lists.fedoraproject.org/message/YRQAI7H4M4RQZ2IWZUEEXECBE5D56BH2/",
+                                "https://security.netapp.com/advisory/ntap-20220901-0005/",
+                                "https://security.netapp.com/advisory/ntap-20230427-0007/",
+                                "https://support.apple.com/kb/HT213488",
+                                "https://support.apple.com/kb/HT213489",
+                                "https://support.apple.com/kb/HT213490",
+                                "https://support.apple.com/kb/HT213491",
+                                "https://support.apple.com/kb/HT213493",
+                                "https://support.apple.com/kb/HT213494",
+                                "https://www.debian.org/security/2022/dsa-5218",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-150063.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-202008.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-398330.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-470355.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-561322.html",
+                                "https://advisory.echohq.com/osv/ECHO-d8ba-d6c6-385c.json",
+                                "https://advisory.echohq.com/cve/CVE-2022-37434",
+                                "https://nvd.nist.gov/vuln/detail/CVE-2022-37434"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2022-08-05T07:15:07.240Z"
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "CVE-2023-45853",
+                            "description": "GHSA-q5fm-55c2-v6j9:\n### Summary\nVulnerability scan of fiona shows [CVE-2023-45853](https://nvd.nist.gov/vuln/detail/CVE-2023-45853). The vulnerability is in GDAL, a dependency of fiona.\n\n### Details\nFiona depends on GDAL and GDAL has a port of minizip. MiniZip in zlib through 1.3 has an integer overflow and resultant heap-based buffer overflow in zipOpenNewFileInZip4_64 via a long filename, comment, or extra field. The GDAL project has addressed the CVE in version 3.8.0. See https://lists.osgeo.org/pipermail/gdal-dev/2023-November/057881.html.\n\nThe Fiona version 1.9.6 wheels on PyPI include GDAL version 3.6.4 and thus could be vulnerable. All of the Fiona 1.10 pre-release wheels in PyPI include GDAL version 3.8.4 and are not vulnerable.\n\n### Impact\nSystems which use GDAL versions prior to 3.8.0 to open unchecked zip files, whether in combination with fiona or not, could be susceptible to buffer overflows.\nGHSA-mq29-j5xf-cjwr:\nMiniZip in zlib through 1.3 has an integer overflow and resultant heap-based buffer overflow in zipOpenNewFileInZip4_64 via a long filename, comment, or extra field. NOTE: MiniZip is not a supported part of the zlib product.\n\npyminizip uses version 1.2.11 of zlib's code.\n",
+                            "severity": "Critical",
+                            "cvss": {
+                                "preferredBaseScore": 9.8,
+                                "v3": {
+                                    "baseScore": 9.8
+                                },
+                                "v4": {
+                                    "baseScore": 9.3
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2023-45853",
+                                "ECHO-8ed3-9419-847f",
+                                "GHSA-mq29-j5xf-cjwr",
+                                "GHSA-q5fm-55c2-v6j9",
+                                "JFSA-2023-000272529",
+                                "PYSEC-2026-501",
+                                "XRAY-533489",
+                                "XRAY-533513",
+                                "XRAY-533585",
+                                "XRAY-533715",
+                                "XRAY-533734",
+                                "XRAY-533916",
+                                "XRAY-534817",
+                                "XRAY-540833",
+                                "XRAY-608027",
+                                "XRAY-909143"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "GHSA-mq29-j5xf-cjwr"
+                                },
+                                {
+                                    "name": "GHSA-q5fm-55c2-v6j9"
+                                },
+                                {
+                                    "name": "CVE-2023-45853"
+                                },
+                                {
+                                    "name": "JFSA-2023-000272529"
+                                }
+                            ],
+                            "references": [
+                                "https://pypi.org/project/pyminizip/#history",
+                                "https://security.gentoo.org/glsa/202401-18",
+                                "https://security.netapp.com/advisory/ntap-20231130-0009",
+                                "https://www.winimage.com/zLibDll/minizip.html",
+                                "http://www.openwall.com/lists/oss-security/2023/10/20/9",
+                                "http://www.openwall.com/lists/oss-security/2024/01/24/10",
+                                "https://pypi.org/project/pyminizip",
+                                "https://github.com/advisories/GHSA-mq29-j5xf-cjwr",
+                                "https://nvd.nist.gov/vuln/detail/CVE-2023-45853",
+                                "https://github.com/madler/zlib/pull/843",
+                                "https://github.com/madler/zlib/commit/73331a6a0481067628f065ffe87bb1d8f787d10c",
+                                "https://chromium.googlesource.com/chromium/src/+/d709fb23806858847131027da95ef4c548813356",
+                                "https://chromium.googlesource.com/chromium/src/+/de29dd6c7151d3cd37cb4cf0036800ddfb1d8b61",
+                                "https://github.com/madler/zlib/blob/ac8f12c97d1afd9bafa9c710f827d40a407d3266/contrib/README.contrib#L1-L4",
+                                "https://github.com/smihica/pyminizip",
+                                "https://github.com/smihica/pyminizip/blob/master/zlib-1.2.11/contrib/minizip/zip.c",
+                                "https://lists.debian.org/debian-lts-announce/2023/11/msg00026.html",
+                                "https://security.netapp.com/advisory/ntap-20231130-0009/",
+                                "https://github.com/advisories/GHSA-q5fm-55c2-v6j9",
+                                "https://github.com/Toblerity/Fiona/security/advisories/GHSA-q5fm-55c2-v6j9",
+                                "https://github.com/OSGeo/gdal/commit/4aa7ca61c1d2191baf1eea2a97d0dec33a41691f",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-398330.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-470355.html",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-769027.html",
+                                "https://advisory.echohq.com/cve/CVE-2023-45853",
+                                "https://advisory.echohq.com/osv/ECHO-8ed3-9419-847f.json"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2023-10-14T02:15:09.323Z"
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "CVE-2026-22184",
+                            "description": "zlib versions up to and including 1.3.1.2 include a global buffer overflow in the untgz utility located under contrib/untgz. The vulnerability is limited to the standalone demonstration utility and does not affect the core zlib compression library. The flaw occurs when a user executes the untgz command with an excessively long archive name supplied via the command line, leading to an out-of-bounds write in a fixed-size global buffer.",
+                            "severity": "High",
+                            "cvss": {
+                                "preferredBaseScore": 7.8,
+                                "v3": {
+                                    "baseScore": 7.8
+                                },
+                                "v4": {
+                                    "baseScore": 4.6
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2026-22184",
+                                "ECHO-0c2a-94bf-ba6a",
+                                "GHSA-7687-3v4j-49fr",
+                                "JFSA-2026-001653750",
+                                "MINI-w4p6-33x2-v3jq",
+                                "XRAY-930503",
+                                "XRAY-930550",
+                                "XRAY-930574",
+                                "XRAY-932446",
+                                "XRAY-932447",
+                                "XRAY-932448"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "CVE-2026-22184"
+                                }
+                            ],
+                            "references": [
+                                "https://packages.mini.dev/advisories/osv/MINI-w4p6-33x2-v3jq.json",
+                                "https://access.redhat.com/security/cve/CVE-2026-22184",
+                                "https://bugzilla.redhat.com/show_bug.cgi?id=2427688",
+                                "https://cert-portal.siemens.com/productcert/html/ssa-470355.html",
+                                "https://security.access.redhat.com/data/csaf/v2/vex/2026/cve-2026-22184.json",
+                                "https://github.com/madler/zlib",
+                                "https://seclists.org/fulldisclosure/2026/Jan/3",
+                                "https://www.vulncheck.com/advisories/zlib-untgz-global-buffer-overflow-in-tgzfname",
+                                "https://zlib.net/",
+                                "https://github.com/madler/zlib/issues/1142",
+                                "https://advisory.echohq.com/cve/CVE-2026-22184",
+                                "https://nvd.nist.gov/vuln/detail/CVE-2026-22184",
+                                "https://advisory.echohq.com/osv/ECHO-0c2a-94bf-ba6a.json"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2026-01-07T21:16:01.563Z"
+                        }
+                    },
+                    {
+                        "node": {
+                            "name": "CVE-2026-76844",
+                            "description": "> [!IMPORTANT]\n> CVE-2026-76844 was assigned and published for this issue by VulnCheck on 2026-08-24 without prior coordination with the webpack maintainers or the OpenJS Foundation, which holds the CVE Numbering Authority scope for webpack projects. Neither the maintainers nor the OpenJS CNA were notified before publication, and no fix was available at that time. This advisory is the coordinated record produced by the webpack maintainers and the OpenJS Foundation CNA.\n\n### Impact\n\n`webpack-dev-middleware` resolves a request to a local file in `getFilenameFromUrl`. When the configured `publicPath` has no trailing slash (for example `/assets`), a request that shares that prefix without being under it (for example `/assets../secret`) still passes the containment check, and the `..` guard does not catch it because it runs on the path before the `publicPath` prefix is stripped. The stripped remainder then escapes the configured output directory once joined, so an unauthenticated request can read files outside the output root. Applications serving `webpack-dev-middleware` (directly or via `webpack-dev-server`) with a `publicPath` that does not end in a slash are affected. A development server reachable on the network can be attacked with a single request and no victim interaction.\n\n### Patches\n\nPatched in `webpack-dev-middleware` 8.3.0. There is no backport to the 5.x, 6.x, or 7.x lines; users on those lines should upgrade to 8.3.0 or later.\n\n### Workarounds\n\nConfigure `publicPath` with a trailing slash (for example `/assets/` instead of `/assets`), or upgrade to a patched version.\n\n### References\n\n- [CVE-2024-29180](https://www.cve.org/CVERecord?id=CVE-2024-29180) ([GHSA-wr3j-pwj9-hqq6](https://github.com/webpack/webpack-dev-middleware/security/advisories/GHSA-wr3j-pwj9-hqq6)), the earlier path traversal in the same component that this issue bypasses.",
+                            "severity": "High",
+                            "cvss": {
+                                "preferredBaseScore": 7.4,
+                                "v3": {
+                                    "baseScore": 7.4
+                                },
+                                "v4": {
+                                    "baseScore": 8.3
+                                }
+                            },
+                            "aliases": [
+                                "CVE-2026-76844",
+                                "ECHO-355f-9f1c-25e5",
+                                "GHSA-g84c-rxfj-3j2c",
+                                "MINI-4f5p-q8w6-j6xj",
+                                "MINI-9xv9-9gj3-hfmr",
+                                "MINI-f3w6-59c6-v6x5",
+                                "MINI-gr24-6xrg-7m8w",
+                                "MINI-q2x7-4r8x-676x",
+                                "MINI-wpc4-jqx9-vx25",
+                                "XRAY-1060559",
+                                "XRAY-1063214",
+                                "XRAY-1071905",
+                                "XRAY-1097179",
+                                "XRAY-1098478",
+                                "XRAY-1098479",
+                                "XRAY-1105513",
+                                "XRAY-1111052",
+                                "XRAY-1157182"
+                            ],
+                            "advisories": [
+                                {
+                                    "name": "GHSA-g84c-rxfj-3j2c"
+                                },
+                                {
+                                    "name": "CVE-2026-76844"
+                                }
+                            ],
+                            "references": [
+                                "https://github.com/webpack/webpack-dev-middleware/security/advisories/GHSA-g84c-rxfj-3j2c",
+                                "https://advisory.echohq.com/cve/CVE-2026-76844",
+                                "https://github.com/madler/zlib",
+                                "https://nvd.nist.gov/vuln/detail/CVE-2026-76844",
+                                "https://gist.github.com/thesmartshadow/e0b9481792afb7c31e86fee1ff084490",
+                                "https://github.com/madler/zlib/blob/v1.3.2/gzwrite.c#L393",
+                                "https://github.com/madler/zlib/commit/df84af25dc1942490e1d1c899a07619152a46148",
+                                "https://www.vulncheck.com/advisories/zlib-1.3.1.2-through-1.3.2-heap-buffer-overflow-via-gz-vacate",
+                                "https://advisory.echohq.com/osv/ECHO-355f-9f1c-25e5.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-4f5p-q8w6-j6xj.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-wpc4-jqx9-vx25.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-q2x7-4r8x-676x.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-gr24-6xrg-7m8w.json",
+                                "https://packages.mini.dev/advisories/osv/MINI-9xv9-9gj3-hfmr.json",
+                                "https://github.com/webpack/webpack-dev-middleware/pull/2404",
+                                "https://github.com/webpack/webpack-dev-middleware/commit/13344e78b26d88fe9b7c8381a3860e248a52359b",
+                                "https://github.com/webpack/webpack-dev-middleware/commit/cefccbac330c29052fc6dffe85fd292ea2ac782b",
+                                "https://github.com/advisories/GHSA-wr3j-pwj9-hqq6",
+                                "https://github.com/webpack/webpack-dev-middleware/blob/v8.1.1/src/middleware.js",
+                                "https://github.com/webpack/webpack-dev-middleware/releases/tag/v7.4.6",
+                                "https://github.com/webpack/webpack-dev-middleware/releases/tag/v8.3.0",
+                                "https://www.vulncheck.com/advisories/webpack-dev-middleware-path-traversal-via-offset-slice-on-a-non-slash-terminated-publicpath",
+                                "https://github.com/advisories/GHSA-g84c-rxfj-3j2c",
+                                "https://packages.mini.dev/advisories/osv/MINI-f3w6-59c6-v6x5.json"
+                            ],
+                            "withdrawn": false,
+                            "publishedAt": "2026-08-24T14:17:02.250Z"
+                        }
+                    }
+                ]
+            }
+        }
+    },
+    "error": null,
+    "provider_url": null
+}

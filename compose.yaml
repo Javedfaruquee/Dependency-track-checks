@@ -1,0 +1,69 @@
+# Dependency-Track v5 test stack (PostgreSQL + API server + frontend + Trivy server + NVD feed adapter)
+# UI: http://localhost:8080   API: http://localhost:8081   Trivy: http://localhost:4954 (token in .env)
+# NVD feed adapter (NIST + VulnCheck NVD++ CPEs): http://localhost:8090/stats   DT NVD feeds URL: http://nvdpp:8080/feeds
+name: dt5-test
+services:
+  postgres:
+    image: postgres:18-alpine
+    environment:
+      POSTGRES_DB: dtrack
+      POSTGRES_USER: dtrack
+      POSTGRES_PASSWORD: dtrack
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U dtrack -d dtrack"]
+      interval: 5s
+      timeout: 3s
+      retries: 20
+    volumes:
+      - postgres-data:/var/lib/postgresql
+    restart: unless-stopped
+  apiserver:
+    image: ghcr.io/dependencytrack/apiserver:5.2.1
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      DT_DATASOURCE_URL: "jdbc:postgresql://postgres:5432/dtrack"
+      DT_DATASOURCE_USERNAME: "dtrack"
+      DT_DATASOURCE_PASSWORD: "dtrack"
+      DT_TELEMETRY_SUBMISSION_DEFAULT_ENABLED: "false"
+    ports:
+      - "127.0.0.1:8081:8080"
+    volumes:
+      - apiserver-data:/data
+    deploy:
+      resources:
+        limits:
+          memory: 3g
+    restart: unless-stopped
+  frontend:
+    image: ghcr.io/dependencytrack/frontend:5.2.1
+    environment:
+      API_BASE_URL: "http://localhost:8081"
+    ports:
+      - "127.0.0.1:8080:8080"
+    restart: unless-stopped
+  trivy:
+    image: ghcr.io/aquasecurity/trivy:0.76.2
+    command: ["server", "--listen", "0.0.0.0:4954", "--token", "${TRIVY_TOKEN:-change-me}", "--cache-dir", "/root/.cache/trivy"]
+    ports:
+      - "127.0.0.1:4954:4954"
+    volumes:
+      - trivy-cache:/root/.cache/trivy
+    restart: unless-stopped
+  nvdpp:
+    image: python:3.13-slim
+    command: ["sh", "-c", "[ -d /cache/pylib/ijson ] || pip install -q --disable-pip-version-check --target /cache/pylib ijson==3.3.0; PYTHONPATH=/cache/pylib exec python -u /app/adapter.py"]
+    environment:
+      VULNCHECK_TOKEN: "${VULNCHECK_TOKEN:-}"
+    ports:
+      - "127.0.0.1:8090:8080"
+    volumes:
+      - ./nvdpp:/app:ro
+      - nvdpp-cache:/cache
+    restart: unless-stopped
+volumes:
+  postgres-data: {}
+  apiserver-data: {}
+  trivy-cache: {}
+  nvdpp-cache: {}

@@ -1,0 +1,66 @@
+﻿{
+    "dtVersion":  {
+                      "framework":  {
+                                        "uuid":  "4056ecb2-bc54-4dee-93a5-f0bfb530cd8b",
+                                        "timestamp":  "2026-10-25T11:09:51Z",
+                                        "version":  "5.2.1",
+                                        "name":  "Alpine"
+                                    },
+                      "uuid":  "5d411518-ecbd-4f73-855c-26329158b8b9",
+                      "application":  "Dependency-Track",
+                      "timestamp":  "2026-10-25T11:10:36Z",
+                      "version":  "5.2.1"
+                  },
+    "uploads":  {
+                    "python-control":  "accepted",
+                    "conan-native":  "accepted",
+                    "conan-normalised":  "accepted",
+                    "vcpkg-spdx-zlib-direct":  "rejected: The remote server returned an error: (400) Bad Request. | {\"status\":400,\"title\":\"The uploaded BOM is invalid\",\"detail\":\"Unable to determine schema version from JSON\"}",
+                    "vcpkg-native":  "accepted",
+                    "vcpkg-normalised":  "accepted",
+                    "vendored-syft":  "accepted",
+                    "vendored-declared":  "accepted"
+                },
+    "projects":  {
+                     "conan-native":  {
+                                          "componentsError":  "Unable to connect to the remote server",
+                                          "findingsError":  "Unable to connect to the remote server",
+                                          "vexExport":  "Unable to connect to the remote server"
+                                      },
+                     "conan-normalised":  {
+                                              "componentsError":  "Unable to connect to the remote server",
+                                              "findingsError":  "Unable to connect to the remote server",
+                                              "vexExport":  "Unable to connect to the remote server"
+                                          },
+                     "python-control":  {
+                                            "componentsError":  "Unable to connect to the remote server",
+                                            "findingsError":  "Unable to connect to the remote server",
+                                            "vexExport":  "Unable to connect to the remote server"
+                                        },
+                     "vcpkg-native":  {
+                                          "componentsError":  "Unable to connect to the remote server",
+                                          "findingsError":  "Unable to connect to the remote server",
+                                          "vexExport":  "Unable to connect to the remote server"
+                                      },
+                     "vcpkg-normalised":  {
+                                              "componentsError":  "Unable to connect to the remote server",
+                                              "findingsError":  "Unable to connect to the remote server",
+                                              "vexExport":  "Unable to connect to the remote server"
+                                          },
+                     "vcpkg-spdx-zlib-direct":  {
+                                                    "componentsError":  "Unable to connect to the remote server",
+                                                    "findingsError":  "Unable to connect to the remote server",
+                                                    "vexExport":  "Unable to connect to the remote server"
+                                                },
+                     "vendored-declared":  {
+                                               "componentsError":  "Unable to connect to the remote server",
+                                               "findingsError":  "Unable to connect to the remote server",
+                                               "vexExport":  "Unable to connect to the remote server"
+                                           },
+                     "vendored-syft":  {
+                                           "componentsError":  "Unable to connect to the remote server",
+                                           "findingsError":  "Unable to connect to the remote server",
+                                           "vexExport":  "Unable to connect to the remote server"
+                                       }
+                 }
+}

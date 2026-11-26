@@ -1,0 +1,190 @@
+﻿dt5 OSV vcpkg test started 2026-11-11T19:23:17
+19:23:25 compose:  Container dt5-test-frontend-1 Starting 
+19:23:25 compose:  Container dt5-test-postgres-1 Starting 
+19:23:26 compose:  Container dt5-test-frontend-1 Started 
+19:23:27 compose:  Container dt5-test-postgres-1 Started 
+19:23:27 compose:  Container dt5-test-postgres-1 Waiting 
+19:23:32 compose:  Container dt5-test-postgres-1 Healthy 
+19:23:32 compose:  Container dt5-test-apiserver-1 Starting 
+19:23:33 compose:  Container dt5-test-apiserver-1 Started 
+19:24:36 forceChangePassword (fine on re-runs): The remote server returned an error: (401) Unauthorized. | INVALID_CREDENTIALS
+19:24:40 login ok
+19:24:41 using Administrators team API key (odt_YZjM...)
+19:24:45 DIAG (after login): apiserver state 0 restarts, started 2026-11-11T18:23:33.10348083Z, status running, OOMKilled false
+19:24:47 apiserver-log: 2026-11-11 18:18:53,106 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:6a04836f-cf84-4b41-ac9c-d3e52cb2944a, workflowRunId=01a1cbd5-82b8-7143-aad8-396dcf622d56, projectUuid=6a04836f-cf84-4b41-ac9c-d3e52cb2944a]
+19:24:47 apiserver-log: 2026-11-11 18:18:53,205 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:88683381-56ef-46d3-894e-3234b0a4b948, workflowRunId=01a1cbd5-831e-7a23-9c40-cbbae1f97798, projectUuid=88683381-56ef-46d3-894e-3234b0a4b948]
+19:24:47 apiserver-log: 2026-11-11 18:18:53,303 INFO [CelPolicyEngine] No applicable policies found [projectUuid=743cd75f-5bbc-4841-b777-36ab7f116473]
+19:24:47 apiserver-log: 2026-11-11 18:18:53,807 INFO [AnalyzeProjectWorkflow] Project analysis completed [workflowName=analyze-project, workflowInstanceId=analyze-project-manual:743cd75f-5bbc-4841-b777-36ab7f116473, workflowRunId=01a1cbd5-8291-7874-84bc-592d3d99def1, projectUuid=743cd75f-5bbc-4841-b777-36ab7f116473]
+19:24:47 apiserver-log: 2026-11-11 18:21:12,531 INFO [Server] Stopped oejs.Server@5aede1ef{STOPPING}[12.1.14,sto=0]
+19:24:48 apiserver-log: 2026-11-11 18:21:12,557 INFO [AbstractConnector] Stopped oejs.ServerConnector@196f7dfd{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:24:48 apiserver-log: 2026-11-11 18:21:12,661 INFO [NotificationSubsystemInitializer] Stopping outbox relay
+19:24:48 apiserver-log: 2026-11-11 18:21:13,133 INFO [TaskSchedulerInitializer] Stopping task scheduler
+19:24:48 apiserver-log: 2026-11-11 18:21:13,139 INFO [DexEngineInitializer] Stopping durable execution engine
+19:24:48 apiserver-log: 2026-11-11 18:21:13,139 INFO [DexEngineImpl] Transitioning from status RUNNING to STOPPING
+19:24:49 apiserver-log: 2026-11-11 18:21:13,177 INFO [DexEngineImpl] Transitioning from status STOPPING to STOPPED
+19:24:49 apiserver-log: 2026-11-11 18:21:13,177 INFO [PluginInitializer] Closing plugin manager
+19:24:49 apiserver-log: 2026-11-11 18:21:13,185 INFO [PersistenceManagerFactory] Shutting down persistence framework
+19:24:49 apiserver-log: 2026-11-11 18:21:13,195 INFO [SecretManagerInitializer] Closing secret manager
+19:24:49 apiserver-log: 2026-11-11 18:21:13,231 INFO [FileStorageInitializer] Closing file storage
+19:24:49 apiserver-log: 2026-11-11 18:21:13,231 INFO [CacheManagerInitializer] Closing cache manager
+19:24:49 apiserver-log: 2026-11-11 18:21:13,261 INFO [ServletContextHandler] Stopped oeje11s.ServletContextHandler@7aded903{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@2db86a7c{STOPPED}}
+19:24:49 apiserver-log: 2026-11-11 18:23:39,799 INFO [Application] Starting Dependency-Track 5.2.1 (built 2026-10-25T11:10:36Z)
+19:24:49 apiserver-log: 2026-11-11 18:23:40,290 INFO [DataSourceRegistry] Creating data source default
+19:24:50 apiserver-log: 2026-11-11 18:23:42,112 INFO [InitTaskExecutor] Executing init task database-migration
+19:24:50 apiserver-log: 2026-11-11 18:23:43,915 INFO [InitTaskExecutor] Completed init task database-migration in 1803ms
+19:24:50 apiserver-log: 2026-11-11 18:23:43,916 INFO [InitTaskExecutor] Executing init task dex-engine-database-migration
+19:24:50 apiserver-log: 2026-11-11 18:23:44,230 INFO [InitTaskExecutor] Completed init task dex-engine-database-migration in 314ms
+19:24:50 apiserver-log: 2026-11-11 18:23:44,231 INFO [InitTaskExecutor] Executing init task database-partition-maintenance
+19:24:50 apiserver-log: 2026-11-11 18:23:48,499 INFO [InitTaskExecutor] Completed init task database-partition-maintenance in 4268ms
+19:24:50 apiserver-log: 2026-11-11 18:23:48,500 INFO [InitTaskExecutor] Executing init task database-seeding
+19:24:50 apiserver-log: 2026-11-11 18:23:49,030 INFO [DatabaseSeedingInitTask] Default objects already populated for build 5d411518-ecbd-4f73-855c-26329158b8b9 (timestamp: 2026-10-25T11:10:36Z); Skipping
+19:24:50 apiserver-log: 2026-11-11 18:23:49,031 INFO [InitTaskExecutor] Completed init task database-seeding in 531ms
+19:24:50 apiserver-log: 2026-11-11 18:23:49,033 INFO [InitTaskExecutor] All init tasks completed in 6973ms
+19:24:51 apiserver-log: 2026-11-11 18:23:51,324 INFO [Server] jetty-12.1.14; built: 2026-10-02T05:48:05.032Z; git: 15cecbd757a2f6b0fdc6a8944f4c6d0020b17da0; jvm 25.0.4.1+1-LTS
+19:24:51 apiserver-log: 2026-11-11 18:23:51,660 INFO [ContextHandler] Started oeje11s.ServletContextHandler@2eb60c71{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@87d9a01{STARTED}}
+19:24:51 apiserver-log: 2026-11-11 18:23:51,664 INFO [CacheManagerInitializer] Initializing cache manager for provider 'database'
+19:24:51 apiserver-log: 2026-11-11 18:23:51,700 INFO [FileStorageInitializer] Initializing file storage for provider 'local'
+19:24:51 apiserver-log: 2026-11-11 18:23:53,248 INFO [SecretManagerInitializer] Initializing secret manager for provider 'database'
+19:24:51 apiserver-log: 2026-11-11 18:23:56,773 INFO [DatabaseSecretManager] Loading existing KEK keyset from /data/.dependency-track/keys/secret-management-kek.json
+19:24:51 apiserver-log: 2026-11-11 18:23:57,115 INFO [PersistenceManagerFactory] Initializing persistence framework
+19:24:51 apiserver-log: 2026-11-11 18:24:04,329 INFO [PluginInitializer] Initializing plugin system
+19:24:51 apiserver-log: 2026-11-11 18:24:05,924 INFO [PluginInitializer] Discovering plugins
+19:24:51 apiserver-log: 2026-11-11 18:24:05,964 INFO [PluginInitializer] Loading plugins
+19:24:52 apiserver-log: 2026-11-11 18:24:11,515 INFO [DexEngineInitializer] Registering workflow worker 'default'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,616 INFO [DexEngineInitializer] Registering activity worker 'artifact-import'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,662 INFO [DexEngineInitializer] Registering activity worker 'package-metadata-resolution'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,666 INFO [DexEngineInitializer] Registering activity worker 'notification'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,681 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,696 INFO [DexEngineInitializer] Registering activity worker 'default'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,711 INFO [DexEngineInitializer] Registering activity worker 'policy-evaluation'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,716 INFO [DexEngineInitializer] Registering activity worker 'metrics-update'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,720 INFO [DexEngineInitializer] Registering activity worker 'vuln-analysis-reconciliation'
+19:24:52 apiserver-log: 2026-11-11 18:24:11,748 INFO [DexEngineInitializer] Starting durable execution engine
+19:24:52 apiserver-log: 2026-11-11 18:24:11,751 INFO [DexEngineImpl] Transitioning from status CREATED to STARTING
+19:24:53 apiserver-log: 2026-11-11 18:24:11,912 INFO [DexEngineLeaderElection] Leadership lease acquired
+19:24:53 apiserver-log: 2026-11-11 18:24:12,406 INFO [DexEngineImpl] Transitioning from status STARTING to RUNNING
+19:24:53 apiserver-log: 2026-11-11 18:24:13,190 INFO [TaskSchedulerInitializer] Starting task scheduler
+19:24:53 apiserver-log: 2026-11-11 18:24:13,652 INFO [NotificationSubsystemInitializer] Starting outbox relay
+19:24:53 apiserver-log: 2026-11-11 18:24:26,228 INFO [ServletContextHandler] Started oeje11s.ServletContextHandler@2eb60c71{ROOT,/,b=jar:file:///opt/owasp/dependency-track/dependency-track-apiserver.jar!/static/,a=AVAILABLE,h=oeje11s.ServletHandler@87d9a01{STARTED}}
+19:24:53 apiserver-log: 2026-11-11 18:24:26,311 INFO [AbstractConnector] Started oejs.ServerConnector@28a4d87f{HTTP/1.1, (http/1.1)}{0.0.0.0:8080}
+19:24:54 apiserver-log: 2026-11-11 18:24:26,313 INFO [Server] Started oejs.Server@31caf651{STARTING}[12.1.14,sto=0] @35033ms
+19:24:54 apiserver-log: 2026-11-11 18:24:36,165 INFO [UserResource] Unauthorized login attempt / invalid credentials / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=7318bdf2-496e-4bac-9d05-59645410741d, requestMethod=POST, requestUri=/v1/user/forceChangePassword]
+19:24:54 apiserver-log: 2026-11-11 18:24:40,264 INFO [UserResource] Successful user login / username: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [requestId=cb7ae1ae-fc6c-4bfd-8f0b-a5b042c6c9d7, requestMethod=POST, requestUri=/v1/user/login]
+19:24:54 apiserver-log: 2026-11-11 18:24:41,460 INFO [TeamResource] API key created: YZjMGEo5 (team: Administrators) by: admin / IP Address: 172.18.0.1 / User Agent: Mozilla/5.0 (Windows NT; Windows NT 10.0; en-US) WindowsPowerShell/5.1.26100.9711 [principal=admin, requestUri=/v1/team/{uuid}/key, requestId=afa939ff-f402-487f-92ee-83bbc319760e, requestMethod=PUT]
+19:24:55 osv config now: {"config":{"dataUrl":"https://storage.googleapis.com/osv-vulnerabilities","enabled":true,"ecosystems":["PyPI","vcpkg"],"aliasSyncEnabled":false,"incrementalMirroringEnabled":true}}
+19:24:56 osv mirror triggered
+19:25:11 osv mirror: {"status":"RUNNING","started_at":1794421496723}
+19:26:57 osv mirror: {"status":"FAILED","started_at":1794421496723,"completed_at":1794421613203,"failure_reason":"Failed to download advisory archive for ecosystem vcpkg: GET https://storage.googleapis.com/osv-vulnerabilities/vcpkg/all.zip responded with status code 404"}
+19:26:57 vcpkg mirror did not complete (FAILED); reverting OSV to PyPI only
+19:26:57 osv config now: {"config":{"dataUrl":"https://storage.googleapis.com/osv-vulnerabilities","enabled":true,"ecosystems":["PyPI"],"aliasSyncEnabled":false,"incrementalMirroringEnabled":true}}
+19:26:57 osv mirror triggered
+19:27:12 osv mirror: {"status":"RUNNING","started_at":1794421617803}
+19:27:28 osv mirror: {"status":"COMPLETED","started_at":1794421617803,"completed_at":1794421641009}
+19:27:28 PyPI-only mirror: COMPLETED
+19:27:34 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:69)
+19:27:34 apiserver-log: 2026-11-11 18:26:20,186 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:27:35 apiserver-log: 2026-11-11 18:26:20,334 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:27:35 apiserver-log: 2026-11-11 18:26:20,334 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:27:35 apiserver-log: 2026-11-11 18:26:20,638 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:27:35 apiserver-log: 2026-11-11 18:26:20,638 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem vcpkg from upstream [vulnDataSourceName=osv]
+19:27:37 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem vcpkg: GET https://storage.googleapis.com/osv-vulnerabilities/vcpkg/all.zip responded with status code 404
+19:27:37 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:27:38 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:27:39 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:27:40 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:27:40 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:125)
+19:27:40 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:69)
+19:27:41 apiserver-log: 2026-11-11 18:26:50,704 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:27:41 apiserver-log: 2026-11-11 18:26:50,876 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:27:41 apiserver-log: 2026-11-11 18:26:50,876 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:27:42 apiserver-log: 2026-11-11 18:26:52,606 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:27:42 apiserver-log: 2026-11-11 18:26:52,606 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem vcpkg from upstream [vulnDataSourceName=osv]
+19:27:42 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem vcpkg: GET https://storage.googleapis.com/osv-vulnerabilities/vcpkg/all.zip responded with status code 404
+19:27:43 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:27:43 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:27:43 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:27:43 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:27:44 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:125)
+19:27:44 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:69)
+19:27:44 apiserver-log: 2026-11-11 18:26:58,122 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:27:44 apiserver-log: 2026-11-11 18:26:58,197 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:27:44 apiserver-log: 2026-11-11 18:26:58,198 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:27:44 apiserver-log: 2026-11-11 18:26:59,153 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:27:44 apiserver-log: 2026-11-11 18:26:59,959 INFO [MirrorVulnDataSourceActivity] Completed mirror; processed 1 vulnerabilities in PT1.827551723S [vulnDataSourceName=osv]
+19:27:48 DIAG (401 on GET /api/v1/project?pageSize=100): apiserver state 0 restarts, started 2026-11-11T18:23:33.10348083Z, status running, OOMKilled false
+19:27:50 apiserver-log: 	at java.base/java.util.concurrent.ThreadPerTaskExecutor$ThreadBoundFuture.run(Unknown Source)
+19:27:50 apiserver-log: 	at java.base/java.lang.VirtualThread.run(Unknown Source)
+19:27:50 apiserver-log: 2026-11-11 18:25:46,712 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:27:50 apiserver-log: 2026-11-11 18:25:46,805 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:27:50 apiserver-log: 2026-11-11 18:25:46,805 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:27:50 apiserver-log: 2026-11-11 18:25:47,624 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:27:50 apiserver-log: 2026-11-11 18:25:47,624 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem vcpkg from upstream [vulnDataSourceName=osv]
+19:27:50 apiserver-log: 2026-11-11 18:25:47,759 WARN [ActivityTaskWorker] Activity failed; Next retry due at 2026-11-11T18:26:19.355467855Z (attempt 5/6) [activityName=mirror-vuln-data-source, activityTaskAttempt=4, activityTaskExecutionId=26594d77-c026-4658-8624-363eaf74adec, workflowRunId=01a1cbdb-1a6e-7c0b-ab2a-235e5bb752d1]
+19:27:50 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem vcpkg: GET https://storage.googleapis.com/osv-vulnerabilities/vcpkg/all.zip responded with status code 404
+19:27:50 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:27:51 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:27:51 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:27:51 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:27:51 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:125)
+19:27:51 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:69)
+19:27:51 apiserver-log: 	at org.dependencytrack.dex.engine.ActivityTaskWorker.lambda$process$0(ActivityTaskWorker.java:122)
+19:27:51 apiserver-log: 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+19:27:51 apiserver-log: 	at java.base/java.util.concurrent.ThreadPerTaskExecutor$ThreadBoundFuture.run(Unknown Source)
+19:27:51 apiserver-log: 	at java.base/java.lang.VirtualThread.run(Unknown Source)
+19:27:51 apiserver-log: 2026-11-11 18:26:20,186 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:27:51 apiserver-log: 2026-11-11 18:26:20,334 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:27:51 apiserver-log: 2026-11-11 18:26:20,334 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:27:52 apiserver-log: 2026-11-11 18:26:20,638 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:27:52 apiserver-log: 2026-11-11 18:26:20,638 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem vcpkg from upstream [vulnDataSourceName=osv]
+19:27:52 apiserver-log: 2026-11-11 18:26:20,773 WARN [ActivityTaskWorker] Activity failed; Next retry due at 2026-11-11T18:26:49.969287459Z (attempt 6/6) [activityName=mirror-vuln-data-source, activityTaskAttempt=5, activityTaskExecutionId=2b94b86a-7b28-4b3a-b3fa-cc81b00079f5, workflowRunId=01a1cbdb-1a6e-7c0b-ab2a-235e5bb752d1]
+19:27:52 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem vcpkg: GET https://storage.googleapis.com/osv-vulnerabilities/vcpkg/all.zip responded with status code 404
+19:27:52 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:27:52 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:27:52 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:27:52 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:27:52 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:125)
+19:27:53 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:69)
+19:27:53 apiserver-log: 	at org.dependencytrack.dex.engine.ActivityTaskWorker.lambda$process$0(ActivityTaskWorker.java:122)
+19:27:53 apiserver-log: 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+19:27:53 apiserver-log: 	at java.base/java.util.concurrent.ThreadPerTaskExecutor$ThreadBoundFuture.run(Unknown Source)
+19:27:53 apiserver-log: 	at java.base/java.lang.VirtualThread.run(Unknown Source)
+19:27:54 apiserver-log: 2026-11-11 18:26:50,704 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:27:54 apiserver-log: 2026-11-11 18:26:50,876 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:27:54 apiserver-log: 2026-11-11 18:26:50,876 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:27:54 apiserver-log: 2026-11-11 18:26:52,606 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:27:54 apiserver-log: 2026-11-11 18:26:52,606 INFO [OsvVulnDataSource] Downloading all advisories for ecosystem vcpkg from upstream [vulnDataSourceName=osv]
+19:27:54 apiserver-log: 2026-11-11 18:26:52,738 WARN [ActivityTaskWorker] Activity failed; Failing task terminally after 6 attempt(s) [activityName=mirror-vuln-data-source, activityTaskAttempt=6, activityTaskExecutionId=64e2f165-5ef3-4563-9620-ef45ae624412, workflowRunId=01a1cbdb-1a6e-7c0b-ab2a-235e5bb752d1]
+19:27:54 apiserver-log: java.lang.IllegalStateException: Failed to download advisory archive for ecosystem vcpkg: GET https://storage.googleapis.com/osv-vulnerabilities/vcpkg/all.zip responded with status code 404
+19:27:54 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.downloadFullArchive(OsvVulnDataSource.java:292)
+19:27:55 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openAdvisorySource(OsvVulnDataSource.java:239)
+19:27:55 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.openNextEcosystem(OsvVulnDataSource.java:225)
+19:27:55 apiserver-log: 	at org.dependencytrack.vulndatasource.osv.OsvVulnDataSource.hasNext(OsvVulnDataSource.java:126)
+19:27:55 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:125)
+19:27:55 apiserver-log: 	at org.dependencytrack.vulndatasource.MirrorVulnDataSourceActivity.execute(MirrorVulnDataSourceActivity.java:69)
+19:27:55 apiserver-log: 	at org.dependencytrack.dex.engine.ActivityTaskWorker.lambda$process$0(ActivityTaskWorker.java:122)
+19:27:56 apiserver-log: 	at java.base/java.util.concurrent.FutureTask.run(Unknown Source)
+19:27:56 apiserver-log: 	at java.base/java.util.concurrent.ThreadPerTaskExecutor$ThreadBoundFuture.run(Unknown Source)
+19:27:56 apiserver-log: 	at java.base/java.lang.VirtualThread.run(Unknown Source)
+19:27:56 apiserver-log: 2026-11-11 18:26:57,480 INFO [ExtensionsResource] Updated config of extension vuln-data-source/osv [principal=odt_YZjMGEo5********************************, requestUri=/extension-points/{extension_point_name}/extensions/{extension_name}/config, requestId=aaf8be20-ade5-455b-adbe-38bb301af114, requestMethod=PUT]
+19:27:56 apiserver-log: 2026-11-11 18:26:57,750 INFO [VulnDataSourcesResource] Triggered vulnerability data source mirror for osv [principal=odt_YZjMGEo5********************************, requestUri=/vuln-data-sources/{name}/mirror-runs, requestId=c15f261c-5633-45d0-8b95-9f947b9c1337, requestMethod=POST]
+19:27:56 apiserver-log: 2026-11-11 18:26:58,122 INFO [MirrorVulnDataSourceActivity] Starting mirror [vulnDataSourceName=osv]
+19:27:56 apiserver-log: 2026-11-11 18:26:58,197 INFO [OsvVulnDataSource] Incrementally mirroring 1 new or updated advisories for ecosystem PyPI [vulnDataSourceName=osv]
+19:27:56 apiserver-log: 2026-11-11 18:26:58,198 INFO [OsvVulnDataSource] Processing ecosystem PyPI [vulnDataSourceName=osv]
+19:27:56 apiserver-log: 2026-11-11 18:26:59,153 INFO [OsvVulnDataSource] Finished ecosystem PyPI: processed 1 advisories [vulnDataSourceName=osv]
+19:27:56 apiserver-log: 2026-11-11 18:26:59,959 INFO [MirrorVulnDataSourceActivity] Completed mirror; processed 1 vulnerabilities in PT1.827551723S [vulnDataSourceName=osv]
+19:28:00 re-login ok
+19:28:03 waiting 120 s for re-analysis
+19:30:05 conan-native: components=3 findings=0 sources=
+19:30:06 conan-normalised: components=3 findings=65 sources=NVD
+19:30:06 vcpkg-native: components=42 findings=0 sources=
+19:30:06 vcpkg-normalised: components=2 findings=0 sources=
+19:30:06 vcpkg-spdx-zlib-direct: components=0 findings=0 sources=
+19:30:06 vendored-declared: components=3 findings=5 sources=NVD
+19:30:07 vendored-syft: components=5 findings=0 sources=
+19:30:11 compose:  Container dt5-test-frontend-1 Stopping 
+19:30:11 compose:  Container dt5-test-apiserver-1 Stopping 
+19:30:12 compose:  Container dt5-test-frontend-1 Stopped 
+19:30:12 compose:  Container dt5-test-apiserver-1 Stopped 
+19:30:12 compose:  Container dt5-test-postgres-1 Stopping 
+19:30:13 compose:  Container dt5-test-postgres-1 Stopped 
+19:30:13 DONE - containers stopped; images and data volumes kept.

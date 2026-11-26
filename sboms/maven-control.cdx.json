@@ -1,0 +1,49 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:f396d040-0cc6-4205-a04e-d127d20cce26",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-11T18:40:00Z",
+  "component": {
+   "type": "application",
+   "name": "maven-control",
+   "version": "1",
+   "bom-ref": "maven-control"
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "bom-ref": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1",
+   "group": "org.apache.logging.log4j",
+   "name": "log4j-core",
+   "version": "2.14.1",
+   "purl": "pkg:maven/org.apache.logging.log4j/log4j-core@2.14.1"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8",
+   "group": "com.fasterxml.jackson.core",
+   "name": "jackson-databind",
+   "version": "2.9.8",
+   "purl": "pkg:maven/com.fasterxml.jackson.core/jackson-databind@2.9.8"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:maven/org.apache.commons/commons-text@1.9",
+   "group": "org.apache.commons",
+   "name": "commons-text",
+   "version": "1.9",
+   "purl": "pkg:maven/org.apache.commons/commons-text@1.9"
+  },
+  {
+   "type": "library",
+   "bom-ref": "pkg:maven/org.yaml/snakeyaml@1.30",
+   "group": "org.yaml",
+   "name": "snakeyaml",
+   "version": "1.30",
+   "purl": "pkg:maven/org.yaml/snakeyaml@1.30"
+  }
+ ]
+}

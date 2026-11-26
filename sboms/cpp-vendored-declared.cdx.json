@@ -1,0 +1,338 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:00726d06-39c2-46c2-8b87-3980a383b7ea",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-11T15:00:00Z",
+  "authors": [
+   {
+    "name": "Acme Platform Engineering",
+    "email": "sbom@example.com"
+   }
+  ],
+  "manufacturer": {
+   "name": "Acme",
+   "url": [
+    "https://example.com"
+   ],
+   "contact": [
+    {
+     "email": "psirt@example.com"
+    }
+   ]
+  },
+  "component": {
+   "type": "application",
+   "bom-ref": "devapp@1.0.0",
+   "name": "devapp",
+   "version": "1.0.0",
+   "supplier": {
+    "name": "Acme"
+   },
+   "manufacturer": {
+    "name": "Acme",
+    "url": [
+     "https://example.com"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "name": "LicenseRef-Acme-Proprietary",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "name": "LicenseRef-Acme-Proprietary",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "3438835db9a484555afa51ff64647977c7536710b79902a988535f6be619f928a489119ee0d58de41cd15bce39bda8beb7f1b343970d87093da482a295f8e9da"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "devapp"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "unstructured"
+    }
+   ]
+  },
+  "tools": {
+   "components": [
+    {
+     "type": "application",
+     "name": "normalise-step (test)"
+    }
+   ]
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "bom-ref": "zlib@1.2.11",
+   "name": "zlib",
+   "version": "1.2.11",
+   "supplier": {
+    "name": "Jean-loup Gailly and Mark Adler"
+   },
+   "manufacturer": {
+    "name": "Jean-loup Gailly and Mark Adler",
+    "url": [
+     "https://github.com/madler/zlib"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "Zlib",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "Zlib",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "purl": "pkg:github/madler/zlib@v1.2.11",
+   "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "6fb1dc44e6ceba35fd6bd41ba4abf156dcf1f552c6603efd234f1a48b7a9a765079e48b153005cbe215a27a756595f47d10d3b8d351e1d747305a74c34a14f62"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libz.a"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "non-executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "unstructured"
+    }
+   ],
+   "externalReferences": [
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/madler/zlib"
+    },
+    {
+     "type": "distribution",
+     "url": "https://artifactory.example.com/zlib/1.2.11"
+    }
+   ],
+   "evidence": {
+    "occurrences": [
+     {
+      "location": "third_party/zlib"
+     }
+    ]
+   }
+  },
+  {
+   "type": "library",
+   "bom-ref": "cjson@1.7.10",
+   "name": "cjson",
+   "version": "1.7.10",
+   "supplier": {
+    "name": "Dave Gamble"
+   },
+   "manufacturer": {
+    "name": "Dave Gamble",
+    "url": [
+     "https://github.com/DaveGamble/cJSON"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "purl": "pkg:github/davegamble/cjson@v1.7.10",
+   "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "2bdb3f19755f6804e02bc4fbf970fec212c6f7e626ec636c6984df3dc01d394b9cf634b622608847159b78fbb0346b8beb36ddc1003c9523ce15801395de0fb0"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libcjson.a"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "non-executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "unstructured"
+    }
+   ],
+   "externalReferences": [
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/DaveGamble/cJSON"
+    },
+    {
+     "type": "distribution",
+     "url": "https://artifactory.example.com/cjson/1.7.10"
+    }
+   ],
+   "evidence": {
+    "occurrences": [
+     {
+      "location": "third_party/cJSON"
+     }
+    ]
+   }
+  },
+  {
+   "type": "library",
+   "bom-ref": "fmt@8.0.0",
+   "name": "fmt",
+   "version": "8.0.0",
+   "supplier": {
+    "name": "fmtlib"
+   },
+   "manufacturer": {
+    "name": "fmtlib",
+    "url": [
+     "https://github.com/fmtlib/fmt"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "purl": "pkg:github/fmtlib/fmt@8.0.0",
+   "cpe": "cpe:2.3:a:fmt:fmt:8.0.0:*:*:*:*:*:*:*",
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "1a396d2f93a8465df4abde56ea54d688105463e174253b36c5b26a9362ecc9d600a24efa7958920093102b8d879fcdcf8411b1cb1971f7a9b42aa26f14ea7e3f"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libfmt.a"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "non-executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "unstructured"
+    }
+   ],
+   "externalReferences": [
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/fmtlib/fmt"
+    },
+    {
+     "type": "distribution",
+     "url": "https://artifactory.example.com/fmt/8.0.0"
+    }
+   ],
+   "evidence": {
+    "occurrences": [
+     {
+      "location": "build/_deps/fmt-src"
+     }
+    ]
+   }
+  }
+ ],
+ "dependencies": [
+  {
+   "ref": "devapp@1.0.0",
+   "dependsOn": [
+    "zlib@1.2.11",
+    "cjson@1.7.10",
+    "fmt@8.0.0"
+   ]
+  },
+  {
+   "ref": "zlib@1.2.11",
+   "dependsOn": []
+  },
+  {
+   "ref": "cjson@1.7.10",
+   "dependsOn": []
+  },
+  {
+   "ref": "fmt@8.0.0",
+   "dependsOn": []
+  }
+ ],
+ "compositions": [
+  {
+   "aggregate": "complete",
+   "assemblies": [
+    "devapp@1.0.0"
+   ],
+   "dependencies": [
+    "devapp@1.0.0"
+   ]
+  }
+ ]
+}
