@@ -10,23 +10,27 @@
 #   SIGN_SBOM=true      sign with sign-sbom.sh (release builds only; needs the SignPath variables)
 #   DT_URL, DT_API_KEY  upload the SBOM to Dependency-Track (optional)
 #   JF_TARGET           upload SBOM, signature and gate report with the JFrog CLI, e.g. "sbom-local/<product>/<version>/" (optional)
+#   SBOM_CPE_EXCEPTIONS JSON file of third-party components allowed without a CPE, each with a reason (optional)
 set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd)
 gen=${SBOM_GENERATORS:-"$here/../generators"}
 kind=$1; shift
 SBOMQS=${SBOMQS:-$(bash "$here/install-sbomqs.sh" "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/sbomqs")}
+gate_extra=()
+if [ -n "${SBOM_CPE_EXCEPTIONS:-}" ]; then gate_extra+=(--cpe-exceptions "$SBOM_CPE_EXCEPTIONS"); fi
 case "$kind" in
   cmake)
     src=$1 build=$2 bin=$3 out=$4; mkdir -p "$out"
     sbom="$out/$(basename "$bin").cdx.json"
     python3 "$gen/cmake-sbom.py" "$src" "$build" "$bin" "$sbom"
-    python3 "$gen/sbom-gate.py" --sbom "$sbom" --sbomqs "$SBOMQS" \
+    python3 "$gen/sbom-gate.py" --sbom "$sbom" --sbomqs "$SBOMQS" ${gate_extra[@]+"${gate_extra[@]}"} \
       --link-txt "$build/CMakeFiles/${CMAKE_TARGET:-$(basename "$bin")}.dir/link.txt" --report "$out/sbom-gate.json" ;;
   firmware)
     man=$1 fw=$2 srcd=$3 out=$4; mkdir -p "$out"
     sbom="$out/$(python3 -c 'import json,sys; p=json.load(open(sys.argv[1]))["product"]; print(p["name"]+"-"+p["version"])' "$man").cdx.json"
     python3 "$gen/fw-sbom.py" "$man" "$fw" "$srcd" "$sbom"
-    python3 "$gen/sbom-gate.py" --sbom "$sbom" --sbomqs "$SBOMQS" --rootfs "$fw/rootfs" --report "$out/sbom-gate.json" ;;
+    python3 "$gen/sbom-gate.py" --sbom "$sbom" --sbomqs "$SBOMQS" ${gate_extra[@]+"${gate_extra[@]}"} \
+      --rootfs "$fw/rootfs" --report "$out/sbom-gate.json" ;;
   *) echo "unknown kind: $kind (cmake|firmware)" >&2; exit 2 ;;
 esac
 if [ "${SIGN_SBOM:-false}" = "true" ]; then bash "$here/sign-sbom.sh" "$sbom"; fi

@@ -12,3 +12,5 @@ desktop.ini
 # SonarQube staging test: data from an internal server, and the downloaded scanner
 sonar-sca-test/
 .tools/
+sonar-sca-test-log.txt
+sonar-sca-test-status.json

@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""sbom-gate.py 1.0 - CI release gate for a CycloneDX SBOM.
+"""sbom-gate.py 1.1 - CI release gate for a CycloneDX SBOM.
 
 Fails the job (exit 1) unless:
   1. the SBOM is CycloneDX 1.6 and lists at least one component;
@@ -10,13 +10,21 @@ Fails the job (exit 1) unless:
                    from the build tree must be a component (matched on bsi:component:filename)
        --rootfs    unpacked firmware root: every ELF file must be claimed by a component
                    (path-in-image property)
+  4. every third-party component has a usable CPE 2.3: a product, a real version (not * or -),
+     and the component's version (a distro suffix such as 1.33.1-r0 or 2.39-0ubuntu8.9 is fine).
+     Dependency-Track checks C/C++ components against NVD by CPE only, so a component without
+     one is never checked. Third-party = supplier differs from the SBOM's manufacturer/supplier
+     (or from every --own-supplier). A wildcard vendor (cpe:2.3:a:*:name:...) passes with a warning.
+     --cpe-exceptions FILE allows named components without a CPE, each with a reason:
+       {"exceptions": [{"name": "tinyxml-fork", "version": "*", "reason": "internal fork, no NVD entry"}]}
 
 usage: sbom-gate.py --sbom SBOM --sbomqs PATH [--link-txt FILE] [--rootfs DIR]
+                    [--cpe-exceptions FILE] [--own-supplier NAME ...]
                     [--min-bsi 10] [--min-ntia 10] [--report gate-report.json]
 System libraries on the link line (absolute paths outside the build tree, -lname) are
 reported as warnings: they come from the target platform and are outside the SBOM's scope.
 """
-import argparse, json, os, shlex, subprocess, sys
+import argparse, json, os, re, shlex, subprocess, sys
 
 ap = argparse.ArgumentParser()
 ap.add_argument("--sbom", required=True)
@@ -25,6 +33,9 @@ ap.add_argument("--link-txt")
 ap.add_argument("--rootfs")
 ap.add_argument("--min-bsi", type=float, default=10.0)
 ap.add_argument("--min-ntia", type=float, default=10.0)
+ap.add_argument("--cpe-exceptions", help="JSON file of third-party components allowed without a CPE, each with a reason")
+ap.add_argument("--own-supplier", action="append", default=[],
+                help="supplier name of our own components (repeatable; default: the SBOM's manufacturer and supplier)")
 ap.add_argument("--report")
 a = ap.parse_args()
 
@@ -96,6 +107,71 @@ if a.rootfs:
         if e not in claimed: fails.append(f"ELF file in the image is not claimed by any SBOM component: {e}")
     for c in sorted(claimed - set(elves)):
         warns.append(f"SBOM claims {c}, which is not an ELF file in the image")
+
+# ---- 4. identifiers for vulnerability matching ----
+def bare_version(v):
+    v = re.sub(r"^\d+:", "", str(v or ""))          # Debian epoch
+    return v[1:] if re.match(r"^[vV]\d", v) else v  # tag-style v1.2.11
+
+def cpe_problem(c):
+    """Returns (failure or None, warning or None)."""
+    cpe = c.get("cpe")
+    if not cpe:
+        return "no CPE, so Dependency-Track never checks it against NVD", None
+    f = re.split(r"(?<!\\):", cpe)
+    if len(f) != 13 or f[0] != "cpe" or f[1] != "2.3" or f[2] not in ("a", "o", "h"):
+        return f"CPE is not in CPE 2.3 format: {cpe}", None
+    vendor, product, ver = f[3], f[4], f[5].replace("\\", "")
+    if product in ("*", "-", ""):
+        return f"CPE has no product: {cpe}", None
+    if ver in ("*", "-", ""):
+        return f"CPE has no version, so it would match every version's CVEs: {cpe}", None
+    have = bare_version(c.get("version"))
+    if not (have == ver or (have.startswith(ver) and not have[len(ver)].isalnum())):
+        return f"CPE version {ver} differs from the component version {c.get('version')}: {cpe}", None
+    if vendor in ("-", ""):
+        return f"CPE has no vendor: {cpe}", None
+    if vendor == "*":
+        return None, f"CPE has a wildcard vendor and matches every vendor's '{product}'; fine only for distinctive names: {cpe}"
+    return None, None
+
+md = doc.get("metadata", {})
+own = {n.strip().lower() for n in a.own_supplier} or \
+      {((x or {}).get("name") or "").strip().lower()
+       for x in (md.get("manufacturer"), md.get("supplier"), (md.get("component") or {}).get("supplier"))} - {""}
+exc = {}
+if a.cpe_exceptions:
+    for e in json.load(open(a.cpe_exceptions)).get("exceptions", []):
+        name, why = (e.get("name") or "").strip(), (e.get("reason") or "").strip()
+        if not name or not why:
+            fails.append(f"CPE exception without a name or a reason: {json.dumps(e)}"); continue
+        exc[(name.lower(), str(e.get("version", "*")))] = why
+CHECKED = {"library", "framework", "application", "operating-system", "firmware", "device-driver", "platform"}
+third, excepted, used = 0, 0, set()
+for c in comps:
+    if c.get("type") not in CHECKED:
+        continue
+    if ((c.get("supplier") or {}).get("name") or "").strip().lower() in own:
+        continue
+    third += 1
+    label = f'{c.get("name")} {c.get("version")}'
+    fail, warn = cpe_problem(c)
+    if warn:
+        warns.append(f"{label}: {warn}")
+    if not fail:
+        continue
+    key = next((k for k in ((str(c.get("name")).lower(), str(c.get("version"))), (str(c.get("name")).lower(), "*"))
+                if k in exc), None)
+    if key:
+        used.add(key); excepted += 1
+        warns.append(f"{label}: {fail}. Allowed by exception: {exc[key]}")
+    else:
+        fails.append(f"third-party component {label}: {fail}")
+for k in sorted(set(exc) - used):
+    warns.append(f"CPE exception for {k[0]} {k[1]} is not needed: no such component, or it has a usable CPE")
+info["third_party_components"] = third
+if exc:
+    info["cpe_exceptions_used"] = excepted
 
 res = {"sbom": a.sbom, "result": "FAIL" if fails else "PASS", "info": info, "failures": fails, "warnings": warns}
 if a.report: json.dump(res, open(a.report, "w"), indent=2)

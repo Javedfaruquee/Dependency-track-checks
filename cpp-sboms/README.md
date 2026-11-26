@@ -46,7 +46,7 @@ The full sbomqs reports are in `scores/`. All eight files pass CycloneDX JSON sc
 
 ## Using this in CI
 
-`ci/` turns the generators into a release gate that runs the same way in GitHub Actions, GitLab CI and TeamCity. The steps are generate, then gate (sbomqs plus a coverage check), then sign with SignPath on release builds, then publish. See `ci/README.md`.
+`ci/` turns the generators into a release gate that runs the same way in GitHub Actions, GitLab CI and TeamCity. The steps are generate, then gate (sbomqs, a coverage check and a check that every third-party component has a usable CPE), then sign with SignPath on release builds, then publish. See `ci/README.md`.
 
 The coverage check is there because of one result. When OpenSSL was removed from the firmware SBOM, the SBOM still scored 10 out of 10 on BSI and NTIA. Only the check that every ELF file in the image is listed caught it.
 
