@@ -1,0 +1,181 @@
+[
+ {
+  "file": "cmake-build-derived.cdx.json",
+  "components": 5,
+  "--bsi": 10,
+  "bsi_required": 10,
+  "bsi_required_gaps": {},
+  "--ntia": 10
+ },
+ {
+  "file": "cmake-cdxgen.cdx.json",
+  "components": 185,
+  "--bsi": 2.81,
+  "bsi_required": 2.09,
+  "bsi_required_gaps": {
+   "5.2.1 Required SBOM fields": [
+    ""
+   ],
+   "5.2.1 Level of Detail": [
+    "dependency graph complete but completeness indication missin"
+   ],
+   "5.2.2 Required component fields": [
+    "",
+    "not-compliant"
+   ],
+   "5.2.3 Required component fields": [
+    ""
+   ],
+   "5.2.4 Required component fields": [
+    ""
+   ]
+  },
+  "--ntia": 3.01
+ },
+ {
+  "file": "cmake-syft-binary.cdx.json",
+  "components": 0,
+  "--bsi": 4.12,
+  "bsi_required": 3.75,
+  "bsi_required_gaps": {
+   "5.2.1 Required SBOM fields": [
+    ""
+   ],
+   "5.2.1 Level of Detail": [
+    "no relationships declared"
+   ],
+   "5.2.2 Required component fields": [
+    "",
+    "not-compliant"
+   ],
+   "5.2.3 Required component fields": [
+    ""
+   ],
+   "5.2.4 Required component fields": [
+    ""
+   ],
+   "5.2.5 Required component fields": [
+    ""
+   ]
+  },
+  "--ntia": 4.38
+ },
+ {
+  "file": "cmake-syft-source.cdx.json",
+  "components": 0,
+  "--bsi": 4.12,
+  "bsi_required": 3.75,
+  "bsi_required_gaps": {
+   "5.2.1 Required SBOM fields": [
+    ""
+   ],
+   "5.2.1 Level of Detail": [
+    "no relationships declared"
+   ],
+   "5.2.2 Required component fields": [
+    "",
+    "not-compliant"
+   ],
+   "5.2.3 Required component fields": [
+    ""
+   ],
+   "5.2.4 Required component fields": [
+    ""
+   ],
+   "5.2.5 Required component fields": [
+    ""
+   ]
+  },
+  "--ntia": 4.38
+ },
+ {
+  "file": "fw-build-manifest.cdx.json",
+  "components": 8,
+  "--bsi": 10,
+  "bsi_required": 10,
+  "bsi_required_gaps": {},
+  "--ntia": 10
+ },
+ {
+  "file": "fw-cvebintool.cdx.json",
+  "components": 5,
+  "--bsi": 4.73,
+  "bsi_required": 4.32,
+  "bsi_required_gaps": {
+   "5.2.1 Level of Detail": [
+    "dependency graph complete but completeness indication missin"
+   ],
+   "5.2.2 Required component fields": [
+    "",
+    "non-compliant",
+    "not-compliant"
+   ],
+   "5.2.3 Required component fields": [
+    ""
+   ],
+   "5.2.4 Required component fields": [
+    ""
+   ],
+   "5.2.5 Required component fields": [
+    ""
+   ]
+  },
+  "--ntia": 5.29
+ },
+ {
+  "file": "fw-syft-extracted.cdx.json",
+  "components": 6,
+  "--bsi": 3.33,
+  "bsi_required": 2.89,
+  "bsi_required_gaps": {
+   "5.2.1 Required SBOM fields": [
+    ""
+   ],
+   "5.2.1 Level of Detail": [
+    "no relationships declared"
+   ],
+   "5.2.2 Required component fields": [
+    "",
+    "not-compliant"
+   ],
+   "5.2.3 Required component fields": [
+    ""
+   ],
+   "5.2.4 Required component fields": [
+    ""
+   ],
+   "5.2.5 Required component fields": [
+    ""
+   ]
+  },
+  "--ntia": 4.31
+ },
+ {
+  "file": "fw-syft-packed.cdx.json",
+  "components": 0,
+  "--bsi": 4.71,
+  "bsi_required": 4.38,
+  "bsi_required_gaps": {
+   "5.2.1 Required SBOM fields": [
+    ""
+   ],
+   "5.2.1 Level of Detail": [
+    "no relationships declared"
+   ],
+   "5.2.2 Required component fields": [
+    "",
+    "not-compliant"
+   ],
+   "5.2.3 Required component fields": [
+    ""
+   ],
+   "5.2.4 Required component fields": [
+    ""
+   ],
+   "5.2.5 Required component fields": [
+    ""
+   ]
+  },
+  "--ntia": 5
+ }
+]

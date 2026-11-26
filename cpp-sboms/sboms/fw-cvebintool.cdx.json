@@ -1,0 +1,171 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:dd65583f-2c2e-4109-a7f8-601aed80dbfc",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-26T12:44:50Z",
+  "tools": {
+   "components": [
+    {
+     "type": "application",
+     "name": "cve-bin-tool 3.4 VersionScanner (after unblob extraction)"
+    }
+   ]
+  },
+  "authors": [
+   {
+    "name": "Product Security",
+    "email": "psirt@example.com"
+   }
+  ],
+  "manufacturer": {
+   "name": "Example Device Team",
+   "url": [
+    "https://example.com"
+   ]
+  },
+  "component": {
+   "type": "firmware",
+   "bom-ref": "sensorhub-fw@3.1.0",
+   "name": "sensorhub-fw",
+   "version": "3.1.0",
+   "supplier": {
+    "name": "Example Device Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "name": "Proprietary"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "7d47fdc4ecd221de03f5058fc870f847c811ea9fcfd5cb79aba9d3efc54524f0a9377105d8a0cd10c452f7dce3c04b2fba648987293ddd8798e2cedea9f3d246"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "sensorhub-fw-3.1.0.bin"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "non-executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "structured"
+    }
+   ]
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "bom-ref": "busybox:busybox@1.33.1",
+   "name": "busybox",
+   "version": "1.33.1",
+   "cpe": "cpe:2.3:a:busybox:busybox:1.33.1:*:*:*:*:*:*:*",
+   "properties": [
+    {
+     "name": "cve-bin-tool:file",
+     "value": "/bin/busybox"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "gnu:glibc@2.39",
+   "name": "glibc",
+   "version": "2.39",
+   "cpe": "cpe:2.3:a:gnu:glibc:2.39:*:*:*:*:*:*:*",
+   "properties": [
+    {
+     "name": "cve-bin-tool:file",
+     "value": "/lib/libc.so.6"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "gnu:zlib@1.2.11",
+   "name": "zlib",
+   "version": "1.2.11",
+   "cpe": "cpe:2.3:a:gnu:zlib:1.2.11:*:*:*:*:*:*:*",
+   "properties": [
+    {
+     "name": "cve-bin-tool:file",
+     "value": "/lib/libz.so.1.2.11"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "libexpat_project:libexpat@2.4.1",
+   "name": "libexpat",
+   "version": "2.4.1",
+   "cpe": "cpe:2.3:a:libexpat_project:libexpat:2.4.1:*:*:*:*:*:*:*",
+   "properties": [
+    {
+     "name": "cve-bin-tool:file",
+     "value": "/usr/bin/sensord"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "zlib:zlib@1.2.11",
+   "name": "zlib",
+   "version": "1.2.11",
+   "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+   "properties": [
+    {
+     "name": "cve-bin-tool:file",
+     "value": "/lib/libz.so.1.2.11"
+    }
+   ]
+  }
+ ],
+ "dependencies": [
+  {
+   "ref": "sensorhub-fw@3.1.0",
+   "dependsOn": [
+    "busybox:busybox@1.33.1",
+    "gnu:glibc@2.39",
+    "gnu:zlib@1.2.11",
+    "libexpat_project:libexpat@2.4.1",
+    "zlib:zlib@1.2.11"
+   ]
+  },
+  {
+   "ref": "busybox:busybox@1.33.1",
+   "dependsOn": []
+  },
+  {
+   "ref": "gnu:glibc@2.39",
+   "dependsOn": []
+  },
+  {
+   "ref": "gnu:zlib@1.2.11",
+   "dependsOn": []
+  },
+  {
+   "ref": "libexpat_project:libexpat@2.4.1",
+   "dependsOn": []
+  },
+  {
+   "ref": "zlib:zlib@1.2.11",
+   "dependsOn": []
+  }
+ ]
+}

@@ -1,0 +1,37 @@
+{
+  "_comment": "Declared manifest for vendored third-party code (kept in the repo, checked in CI)",
+  "components": [
+    {
+      "name": "zlib",
+      "version": "1.2.11",
+      "path": "third_party/zlib",
+      "supplier": "Jean-loup Gailly and Mark Adler",
+      "supplier_url": "https://zlib.net",
+      "license": "Zlib",
+      "purl": "pkg:github/madler/zlib@v1.2.11",
+      "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+      "artifact": "build/third_party/zlib/libz.a",
+      "version_check": {
+        "file": "third_party/zlib/zlib.h",
+        "regex": "#define ZLIB_VERSION \"([^\"]+)\""
+      },
+      "download_url": "https://github.com/madler/zlib/archive/refs/tags/v1.2.11.tar.gz"
+    },
+    {
+      "name": "cjson",
+      "version": "1.7.10",
+      "path": "third_party/cjson",
+      "supplier": "Dave Gamble",
+      "supplier_url": "https://github.com/DaveGamble/cJSON",
+      "license": "MIT",
+      "purl": "pkg:github/davegamble/cjson@v1.7.10",
+      "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+      "artifact": "build/libcjson.a",
+      "version_check": {
+        "file": "third_party/cjson/cJSON.h",
+        "regex": "#define CJSON_VERSION_MAJOR (\\d+)\\s+#define CJSON_VERSION_MINOR (\\d+)\\s+#define CJSON_VERSION_PATCH (\\d+)"
+      },
+      "download_url": "https://github.com/DaveGamble/cJSON/archive/refs/tags/v1.7.10.tar.gz"
+    }
+  ]
+}

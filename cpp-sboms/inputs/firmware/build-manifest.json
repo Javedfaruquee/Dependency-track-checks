@@ -1,0 +1,141 @@
+{
+  "_comment": "What the firmware build already knows (Yocto/Buildroot package list, recipes, link map). fw-sbom.py turns it into a CycloneDX SBOM and checks each entry against the built rootfs.",
+  "product": {
+    "name": "sensorhub-fw",
+    "version": "3.1.0",
+    "build": "3.1.0+build.2026.11.26",
+    "supplier": "Example Device Team",
+    "supplier_url": "https://example.com/security",
+    "license": "LicenseRef-Proprietary",
+    "image": "sensorhub-fw-3.1.0.bin",
+    "source_url": "https://git.example.com/devices/sensorhub-fw.git",
+    "security_txt": "https://example.com/.well-known/security.txt"
+  },
+  "os": {
+    "name": "sensoros",
+    "version": "3.1",
+    "image": "rootfs.squashfs",
+    "source_url": "https://git.example.com/devices/meta-sensoros.git"
+  },
+  "components": [
+    {
+      "ref": "busybox@1.33.1",
+      "name": "busybox",
+      "version": "1.33.1",
+      "supplier": "BusyBox project",
+      "supplier_url": "https://busybox.net",
+      "license": "GPL-2.0-only",
+      "file": "bin/busybox",
+      "linkage": "statically linked executable",
+      "purl": "pkg:generic/busybox@1.33.1?download_url=https://busybox.net/downloads/busybox-1.33.1.tar.bz2",
+      "cpe": "cpe:2.3:a:busybox:busybox:1.33.1:*:*:*:*:*:*:*",
+      "src": "busybox-1_33_1",
+      "download_url": "https://busybox.net/downloads/busybox-1.33.1.tar.bz2",
+      "version_string": "BusyBox v1.33.1"
+    },
+    {
+      "ref": "zlib@1.2.11",
+      "name": "zlib",
+      "version": "1.2.11",
+      "supplier": "Jean-loup Gailly and Mark Adler",
+      "supplier_url": "https://zlib.net",
+      "license": "Zlib",
+      "file": "lib/libz.so.1.2.11",
+      "linkage": "shared library",
+      "purl": "pkg:github/madler/zlib@v1.2.11",
+      "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+      "src": "zlib-v1.2.11",
+      "download_url": "https://github.com/madler/zlib/archive/refs/tags/v1.2.11.tar.gz",
+      "version_string": "1.2.11"
+    },
+    {
+      "ref": "openssl@1.1.1k",
+      "name": "openssl",
+      "version": "1.1.1k",
+      "supplier": "OpenSSL Software Foundation",
+      "supplier_url": "https://www.openssl.org",
+      "license": "OpenSSL",
+      "file": "usr/lib/libcrypto.so.1.1",
+      "also": [
+        "usr/lib/libssl.so.1.1"
+      ],
+      "linkage": "shared library (libcrypto, libssl)",
+      "purl": "pkg:github/openssl/openssl@OpenSSL_1_1_1k",
+      "cpe": "cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*",
+      "src": "openssl-OpenSSL_1_1_1k",
+      "download_url": "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1k.tar.gz",
+      "version_string": "OpenSSL 1.1.1k"
+    },
+    {
+      "ref": "glibc@2.39",
+      "name": "glibc",
+      "version": "2.39",
+      "supplier": "GNU Project",
+      "supplier_url": "https://www.gnu.org/software/libc/",
+      "license": "LGPL-2.1-or-later",
+      "file": "lib/libc.so.6",
+      "also": [
+        "lib64/ld-linux-x86-64.so.2"
+      ],
+      "linkage": "shared library (toolchain sysroot)",
+      "purl": "pkg:generic/glibc@2.39",
+      "cpe": "cpe:2.3:a:gnu:glibc:2.39:*:*:*:*:*:*:*",
+      "src": null,
+      "source_url": "https://sourceware.org/git/glibc.git",
+      "download_url": "https://ftp.gnu.org/gnu/libc/glibc-2.39.tar.xz",
+      "version_string": "GLIBC 2.39"
+    },
+    {
+      "ref": "cjson@1.7.10",
+      "name": "cjson",
+      "version": "1.7.10",
+      "supplier": "Dave Gamble",
+      "supplier_url": "https://github.com/DaveGamble/cJSON",
+      "license": "MIT",
+      "file": "usr/bin/sensord",
+      "linkage": "statically linked into sensord (vendored cJSON.c)",
+      "purl": "pkg:github/davegamble/cjson@v1.7.10",
+      "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+      "src": "cJSON-v1.7.10",
+      "download_url": "https://github.com/DaveGamble/cJSON/archive/refs/tags/v1.7.10.tar.gz"
+    },
+    {
+      "ref": "libexpat@2.4.1",
+      "name": "libexpat",
+      "version": "2.4.1",
+      "supplier": "libexpat project",
+      "supplier_url": "https://libexpat.github.io",
+      "license": "MIT",
+      "file": "usr/bin/sensord",
+      "build_artifact": "app/expat-build/libexpat.a",
+      "linkage": "statically linked into sensord",
+      "purl": "pkg:github/libexpat/libexpat@R_2_4_1",
+      "cpe": "cpe:2.3:a:libexpat_project:libexpat:2.4.1:*:*:*:*:*:*:*",
+      "src": "libexpat-R_2_4_1",
+      "download_url": "https://github.com/libexpat/libexpat/releases/download/R_2_4_1/expat-2.4.1.tar.xz",
+      "version_string": "expat_2.4.1"
+    },
+    {
+      "ref": "sensord@3.1.0",
+      "name": "sensord",
+      "version": "3.1.0",
+      "supplier": "Example Device Team",
+      "supplier_url": "https://example.com/security",
+      "license": "LicenseRef-Proprietary",
+      "file": "usr/bin/sensord",
+      "linkage": "application",
+      "purl": "pkg:generic/example/sensord@3.1.0",
+      "cpe": "cpe:2.3:a:example:sensord:3.1.0:*:*:*:*:*:*:*",
+      "src": "@app",
+      "source_url": "https://git.example.com/devices/sensord.git",
+      "uses": [
+        "cjson@1.7.10",
+        "libexpat@2.4.1",
+        "zlib@1.2.11",
+        "openssl@1.1.1k",
+        "glibc@2.39"
+      ],
+      "security_txt": "https://example.com/.well-known/security.txt"
+    }
+  ]
+}

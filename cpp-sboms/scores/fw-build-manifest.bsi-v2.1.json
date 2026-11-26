@@ -1,0 +1,1474 @@
+{
+  "report_name": "BSI TR-03183-2 v2.1.0 Compliance Report",
+  "subtitle": "Part 2: Software Bill of Materials (SBOM)",
+  "revision": "TR-03183-2 (2.1.0)",
+  "run": {
+    "id": "fb3960ec-2294-418e-a9e8-6424d544f278",
+    "generated_at": "2026-11-26T12:55:36Z",
+    "file_name": "/tmp/claude-0/-home-claude/9e6d8f18-688c-5798-b3f8-61ba9c865bdd/scratchpad/cppfw/out/fw-build-manifest.cdx.json",
+    "compliance_engine_version": "1"
+  },
+  "tool": {
+    "name": "sbomqs",
+    "version": "v2.1.3",
+    "vendor": "Interlynk (support@interlynk.io)"
+  },
+  "summary": {
+    "total_score": 10,
+    "max_score": 10,
+    "required_elements_score": 10,
+    "additional_elements_score": 10,
+    "optional_elements_score": 3.2142857142857144
+  },
+  "sections": [
+    {
+      "section_title": "Definition of SBOM",
+      "section_id": "3.1",
+      "section_data_field": "vuln",
+      "required": true,
+      "element_id": "SBOM",
+      "element_result": "no-vulnerability",
+      "score": 10
+    },
+    {
+      "section_title": "SBOM formats",
+      "section_id": "4",
+      "section_data_field": "specification version",
+      "required": true,
+      "element_id": "SBOM",
+      "element_result": "1.6",
+      "score": 10
+    },
+    {
+      "section_title": "Required SBOM fields",
+      "section_id": "5.2.1",
+      "section_data_field": "creator of SBOM",
+      "required": true,
+      "element_id": "SBOM",
+      "element_result": "psirt@example.com (author)",
+      "score": 10
+    },
+    {
+      "section_title": "Required SBOM fields",
+      "section_id": "5.2.1",
+      "section_data_field": "timestamp",
+      "required": true,
+      "element_id": "SBOM",
+      "element_result": "2026-11-26T12:54:40Z",
+      "score": 10
+    },
+    {
+      "section_title": "Level of Detail",
+      "section_id": "5.2.1",
+      "section_data_field": "dependency graph completeness",
+      "required": true,
+      "element_id": "SBOM",
+      "element_result": "dependencies recursively declared, structurally complete, and completeness indicated",
+      "score": 10
+    },
+    {
+      "section_title": "Required SBOM fields",
+      "section_id": "5.2.1",
+      "section_data_field": "SBOM-URI",
+      "required": true,
+      "element_id": "SBOM",
+      "element_result": "urn:uuid:affd3a3f-bf77-4c69-84b3-0f5ca2048225/1",
+      "score": 10
+    },
+    {
+      "section_title": "Optional SBOM fields",
+      "section_id": "8.1.12",
+      "section_data_field": "BOM links",
+      "required": false,
+      "element_id": "SBOM",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "components",
+      "required": true,
+      "element_id": "SBOM",
+      "element_result": "present",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "https://www.gnu.org/software/libc/ (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "glibc",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "2.39",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "libc.so.6",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "no-dependencies (leaf element)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "SHA512: ac9dcd8d30f2d5cc01daa376c2f1ff50864911878d3d66bb912f74657d1ed907619a193f0a345210224c6d40f938a3b4bb7b53b52847bc24989a7727d3946230",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "no archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "no structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "https://ftp.gnu.org/gnu/libc/glibc-2.39.tar.xz",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/libc.so.6",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "purl: pkg:generic/glibc@2.39",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "glibc-2.39",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "glibc-2.39",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "glibc-2.39",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "glibc-2.39",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "https://example.com/security (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "sensord",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "3.1.0",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "sensord",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "(all dependencies resolved) cjson, libexpat, zlib, openssl, glibc",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "SHA512: b0ecf7380e909ba35f75ff784f7531af3d78bd5db15f48f040cb8cd30889c4b265faa1da651a1a734b5b1bcc82569e472427d6bedaafa3d03e5427391b11eb25",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "no archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "no structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "https://git.example.com/devices/sensord.git",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/sensord",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "purl: pkg:generic/example/sensord@3.1.0",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "sensord-3.1.0",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "sensord-3.1.0",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "sensord-3.1.0",
+      "element_result": "SHA512: 609a5fcfdb8927763ffeccdc82d85a77c0d496c77d9941a3a869c04b96d9610d22b8c7c128498f8bfdb29339016b5baf98518d81736e9d31c73fa520fe979ef2",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "sensord-3.1.0",
+      "element_result": "https://example.com/.well-known/security.txt",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "https://zlib.net (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "zlib",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "1.2.11",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "libz.so.1.2.11",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "no-dependencies (leaf element)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "SHA512: c14286ba0e5a5163b49c68a2a0bf40e2bcead5f2a2afeb8485ed6089898d564f8ec4381cb7d826c1c9d75e0030697e418de2b6ae2327f6586ac6b2088f228f7e",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "no archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "no structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "https://github.com/madler/zlib/archive/refs/tags/v1.2.11.tar.gz",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/libz.so.1.2.11",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "purl: pkg:github/madler/zlib@v1.2.11",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "zlib-1.2.11",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "zlib-1.2.11",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "zlib-1.2.11",
+      "element_result": "SHA512: ade214a827e4115033f584d0815e9ce4cee4901615eab4704986bb46887bb4559c62822a55e3fc9dd834029f9d01b822cab9ad0bc80fd3c767b150215019483b",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "zlib-1.2.11",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "https://libexpat.github.io (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "libexpat",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "2.4.1",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "libexpat.a",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "no-dependencies (leaf element)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "SHA512: 96fd6c6c24f7b8f6fca7e11d430c7f19ac7d6ff4aa203f4205bfa227afbaf004031952b0199a418c1161a6cbcdf919207470a880d3e73cd86af0ec8b2c5c64ef",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "no archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "no structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "https://github.com/libexpat/libexpat/releases/download/R_2_4_1/expat-2.4.1.tar.xz",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/libexpat.a",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "purl: pkg:github/libexpat/libexpat@R_2_4_1",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "SHA512: dd2d8c6a206cb0e50db1417ba0d339a535008ac1bc2ad09abe2476232cdf291711d38d52f3b40f22eb2853fbed043c6e05152fd6d8df2f4cdd25fcb7cd508b9f",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "libexpat-2.4.1",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "https://example.com/security (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "sensorhub-fw",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "3.1.0",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "sensorhub-fw-3.1.0.bin",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "(all dependencies resolved) sensoros",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "SHA512: 7d47fdc4ecd221de03f5058fc870f847c811ea9fcfd5cb79aba9d3efc54524f0a9377105d8a0cd10c452f7dce3c04b2fba648987293ddd8798e2cedea9f3d246",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "non-executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "https://git.example.com/devices/sensorhub-fw.git",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/sensorhub-fw-3.1.0.bin",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "purl: pkg:generic/example/sensorhub-fw@3.1.0",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "SHA512: 609a5fcfdb8927763ffeccdc82d85a77c0d496c77d9941a3a869c04b96d9610d22b8c7c128498f8bfdb29339016b5baf98518d81736e9d31c73fa520fe979ef2",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "sensorhub-fw-3.1.0",
+      "element_result": "https://example.com/.well-known/security.txt",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "https://busybox.net (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "busybox",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "1.33.1",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "busybox",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "no-dependencies (leaf element)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "SHA512: f27b99d90748927afedaddb9ba166f01daae0270a2d97f12f6cb7160e8aa56fe07f4237733f435b4d6873a8abeb7671cb37233262cd05f05dedf92f55e3e83d6",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "no archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "no structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "https://busybox.net/downloads/busybox-1.33.1.tar.bz2",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/busybox",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "purl: pkg:generic/busybox@1.33.1?download_url=https://busybox.net/downloads/busybox-1.33.1.tar.bz2",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "busybox-1.33.1",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "busybox-1.33.1",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "busybox-1.33.1",
+      "element_result": "SHA512: 03dade10fd8f900124694cd686004db34d728d39e0fecf3e6a772a27af6e0b4be79c3de8560d1713781b23a687b45ef324ec1186b8d1680f750672eb38b56f70",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "busybox-1.33.1",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "https://example.com/security (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "sensoros",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "3.1",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "rootfs.squashfs",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "(all dependencies resolved) busybox, zlib, openssl, glibc, cjson, libexpat, sensord",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "SHA512: f2fe2c9120e787c5b2297b7f59dd1ecdcd4b94d72934031b2c1cd8620852c0692ba214df0ed779041dc0dad797dd9f466f5c55b12df3e4fe3c855dbc44db796e",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "non-executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "https://git.example.com/devices/meta-sensoros.git",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/rootfs.squashfs",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "purl: pkg:generic/example/sensoros@3.1",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "sensoros-3.1",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "sensoros-3.1",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "sensoros-3.1",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "sensoros-3.1",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "https://www.openssl.org (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "openssl",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "1.1.1k",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "libcrypto.so.1.1",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "no-dependencies (leaf element)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "SHA512: 247b0b05f4d33bfaa6d3a19afe490888ea97d502ea86a3749a390abddc5e492c6a822a1470f910b65986a27bd5807c819317c3e1e315e1362f3fba977ac97d29",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "no archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "no structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1k.tar.gz",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/libcrypto.so.1.1",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "purl: pkg:github/openssl/openssl@OpenSSL_1_1_1k",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "SHA512: 762b0749c3971217736f4acfd108b8787c464b2b7224aeacd21ea357e5ab495d3d8a842e51e31a0df9b0c88180b46fc5d616c01c16c09ebce603b87458c5504f",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "openssl-1.1.1k",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component creator",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "https://github.com/DaveGamble/cJSON (manufacturer)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component name",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "cjson",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "component version",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "1.7.10",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "filename",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "sensord",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "dependencies",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "no-dependencies (leaf element)",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "distribution licence (concluded)",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "hash of deployable component",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "SHA512: b0ecf7380e909ba35f75ff784f7531af3d78bd5db15f48f040cb8cd30889c4b265faa1da651a1a734b5b1bcc82569e472427d6bedaafa3d03e5427391b11eb25",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "executable property",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "executable",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "archive property",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "no archive",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "structured property",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "no structured",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "source code URI",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "https://github.com/DaveGamble/cJSON/archive/refs/tags/v1.7.10.tar.gz",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.4",
+      "section_data_field": "URI of deployable form",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/sensord",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.5",
+      "section_data_field": "other unique identifiers",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "purl: pkg:github/davegamble/cjson@v1.7.10",
+      "score": 10
+    },
+    {
+      "section_title": "Required component fields",
+      "section_id": "5.2.2",
+      "section_data_field": "original licence (declared)",
+      "required": true,
+      "element_id": "cjson-1.7.10",
+      "element_result": "compliant",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "effective licence",
+      "required": false,
+      "element_id": "cjson-1.7.10",
+      "element_result": "",
+      "score": 0
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "hash of source code",
+      "required": false,
+      "element_id": "cjson-1.7.10",
+      "element_result": "SHA512: e6c815a49ef52400eaf3a4fd263c3f617359d0f74a2847c9ca51c58b270ba58ca2053762b94c67ea14ee9f0e093ee8275b8036e444fc438b0c9995cb30a73fdd",
+      "score": 10
+    },
+    {
+      "section_title": "Optional component fields",
+      "section_id": "5.2.3",
+      "section_data_field": "security.txt URL",
+      "required": false,
+      "element_id": "cjson-1.7.10",
+      "element_result": "",
+      "score": 0
+    }
+  ]
+}
