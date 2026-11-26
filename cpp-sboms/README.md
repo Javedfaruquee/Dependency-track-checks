@@ -44,6 +44,39 @@ The full sbomqs reports are in `scores/`. All eight files pass CycloneDX JSON sc
    - Effective licence isn't scored, because sbomqs reads it only from SPDX 3.
    - security.txt is filled in only for your own components. It isn't made up for upstream projects.
 
+## Using this in CI
+
+`ci/` turns the generators into a release gate that runs the same way in GitHub Actions, GitLab CI and TeamCity. The steps are generate, then gate (sbomqs plus a coverage check), then sign with SignPath on release builds, then publish. See `ci/README.md`.
+
+The coverage check is there because of one result. When OpenSSL was removed from the firmware SBOM, the SBOM still scored 10 out of 10 on BSI and NTIA. Only the check that every ELF file in the image is listed caught it.
+
+## Comparing SBOM managers
+
+`compare/` has the ground truth for both samples (`expected-components.json`). Its script scores any tool's export against that list, and against the CVEs Dependency-Track finds: Manifest Cyber, Sonar, or Dependency-Track itself. See `compare/README.md`. `cpp-sboms-dt-test.cmd`, in the folder above, loads all eight SBOMs into the local Dependency-Track test stack.
+
+## Dependency-Track results (26 Nov 2026)
+
+`cpp-sboms-dt-test.cmd`, in the folder above, loaded the SBOMs into Dependency-Track 5.2.1. Three analyzers were on: NVD with the VulnCheck NVD++ adapter, OSS Index and Trivy. The results are in `../cpp-sboms-dt-results.json`, and the CycloneDX that Dependency-Track exports again is in `dt-exports/`.
+
+| SBOM | CVEs found | Missed compared with the complete SBOM |
+|---|---|---|
+| `fw-build-manifest` (complete) | 160: OpenSSL 49, expat 56, glibc 31, busybox 19, zlib 4, cJSON 1 | — |
+| `fw-build-manifest` with ConanCenter identifiers (`dt-variants/`) | 180 (OSS Index adds 20: OpenSSL 14, zlib 3, expat 3) | — |
+| `fw-cvebintool` | 110 | 50: all of OpenSSL and cJSON |
+| `fw-syft-extracted` | 23 | 137 |
+| `fw-syft-packed` | 0 | all |
+| `cmake-build-derived` (complete) | 61: expat 56, zlib 4, cJSON 1 | — |
+| `cmake-build-derived` with ConanCenter identifiers | 67 (OSS Index adds 6) | — |
+| `cmake-syft-*`, `cmake-cdxgen` | 0 | all |
+
+What the results show:
+
+- **Matching for C++ runs on CPEs.** Every NVD match came through the CPE in the SBOM. With `pkg:github` and `pkg:generic` identifiers, OSS Index and Trivy found nothing. With `pkg:conan` identifiers, OSS Index added 6 to 20 CVEs.
+- **One CPE per component isn't always enough.** NVD files cJSON under two vendor names: `davegamble:cjson` for CVE-2019-11834 and CVE-2019-11835, and `cjson_project:cjson` for CVE-2023-53154. Dependency-Track matches one CPE per component, so it misses the 2019 CVEs. OSS Index didn't add them either. One fix would be to map vendor aliases in the NVD feed adapter.
+- **glibc is overstated.** The sample uses Ubuntu's patched glibc 2.39, and NVD ranges don't know about distribution patches. Real firmware needs the build's patch status, for example Yocto `cve-check` output or a VEX file, so that fixed CVEs are closed.
+- **Dependency-Track is not a faithful archive.** Its export is CycloneDX 1.5. It drops the SHA-512 on the download links, the declared and concluded licence pair, `compositions`, the lifecycle and the manufacturer. The BSI v2.1 required score falls from 10 to 7.4–7.6. So the original signed SBOM is the record, kept in Artifactory, and Dependency-Track is for analysis.
+- **Results changed between runs.** Four recent CVEs matched in the first run but not in the second, 13 minutes later. In both runs the NVD adapter was still loading its VulnCheck data after a container restart. This fits the open adapter issue in `../README.md`; check Dependency-Track's NVD mirror log before production.
+
 ## Placeholders to replace before real use
 
 - `https://artifacts.example.com/artifactory/releases/...`: set `ARTIFACT_BASE_URL` to your JFrog repository. The URL is built as `<base>/<product>/<version>/<file>`.

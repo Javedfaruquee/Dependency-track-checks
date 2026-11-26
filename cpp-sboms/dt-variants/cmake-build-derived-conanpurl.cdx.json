@@ -1,0 +1,703 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:74acfdfd-4e30-4f0d-b251-2952d2d27dd3",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-26T12:54:39Z",
+  "lifecycles": [
+   {
+    "phase": "build"
+   }
+  ],
+  "tools": {
+   "components": [
+    {
+     "type": "application",
+     "name": "cmake-sbom.py",
+     "version": "0.4"
+    }
+   ]
+  },
+  "authors": [
+   {
+    "name": "Product Security",
+    "email": "psirt@example.com"
+   }
+  ],
+  "manufacturer": {
+   "name": "Example Product Team",
+   "url": [
+    "https://example.com"
+   ]
+  },
+  "supplier": {
+   "name": "Example Product Team",
+   "url": [
+    "https://example.com"
+   ]
+  },
+  "component": {
+   "type": "application",
+   "bom-ref": "sensorhub-gateway@2.4.0",
+   "name": "sensorhub-gateway-conanpurl",
+   "version": "2.4.0",
+   "supplier": {
+    "name": "Example Product Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "manufacturer": {
+    "name": "Example Product Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "name": "LicenseRef-Proprietary",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "name": "LicenseRef-Proprietary",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "3f53c1242831a913b84d80983bdf68ea67c5d5789224c16e98e2ba59e4915fdd4a35f7f3d6a23bd454938f832fb7593ba8a028bc76c15a0e5daa49bec1124a9f"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "0d712ff4cb74aa7a0f3bb998d04015d4da68f921fbe6bfd2547ae9de0a4971af"
+    }
+   ],
+   "purl": "pkg:generic/example/sensorhub-gateway@2.4.0",
+   "cpe": "cpe:2.3:a:example:sensorhub-gateway:2.4.0:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-gateway/2.4.0/sensorhub-gateway",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "3f53c1242831a913b84d80983bdf68ea67c5d5789224c16e98e2ba59e4915fdd4a35f7f3d6a23bd454938f832fb7593ba8a028bc76c15a0e5daa49bec1124a9f"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "0d712ff4cb74aa7a0f3bb998d04015d4da68f921fbe6bfd2547ae9de0a4971af"
+      }
+     ]
+    },
+    {
+     "type": "vcs",
+     "url": "https://git.example.com/sensorhub-gateway",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "7e2915f9ac5d09dc0406d339a09549551d26ee768e78f7992999ff2c3dac2079f9c24917e8f0165fa7bc49e4f2e3142d558d16815880661ec79d45ca61c366cc"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    },
+    {
+     "type": "rfc-9116",
+     "url": "https://example.com/.well-known/security.txt"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "sensorhub-gateway"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "scope-note",
+     "value": "C/C++ runtime (libstdc++, glibc) is provided by the target OS, not shipped"
+    }
+   ]
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "bom-ref": "libexpat@2.4.1",
+   "name": "libexpat",
+   "version": "2.4.1",
+   "supplier": {
+    "name": "The Expat project",
+    "url": [
+     "https://libexpat.github.io"
+    ]
+   },
+   "manufacturer": {
+    "name": "The Expat project",
+    "url": [
+     "https://libexpat.github.io"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "23f5319d8f513de55b43561d6bc31ec6073278b9e131d5a476f02e74cbd1ecff6354d38dc5055d1ed4ccd041810b1dd0ce3c13a22561658ece18d05be0206c61"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "1dcaf286a504c1edb506031e17a7410997c6c6b6b0b8ae6c221ec7d37185ee28"
+    }
+   ],
+   "purl": "pkg:conan/expat@2.4.1",
+   "cpe": "cpe:2.3:a:libexpat_project:libexpat:2.4.1:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-gateway/2.4.0/libexpat.a",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "23f5319d8f513de55b43561d6bc31ec6073278b9e131d5a476f02e74cbd1ecff6354d38dc5055d1ed4ccd041810b1dd0ce3c13a22561658ece18d05be0206c61"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "1dcaf286a504c1edb506031e17a7410997c6c6b6b0b8ae6c221ec7d37185ee28"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/libexpat/libexpat/archive/refs/tags/R_2_4_1.tar.gz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/libexpat/libexpat.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "dd2d8c6a206cb0e50db1417ba0d339a535008ac1bc2ad09abe2476232cdf291711d38d52f3b40f22eb2853fbed043c6e05152fd6d8df2f4cdd25fcb7cd508b9f"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libexpat.a"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "origin",
+     "value": "CMake FetchContent"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/libexpat/libexpat@R_2_4_1"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "fmt@8.0.0",
+   "name": "fmt",
+   "version": "8.0.0",
+   "supplier": {
+    "name": "fmtlib",
+    "url": [
+     "https://fmt.dev"
+    ]
+   },
+   "manufacturer": {
+    "name": "fmtlib",
+    "url": [
+     "https://fmt.dev"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "4510a46c0fee4eb2eb7268885dd470c49591e2b25a3d0385b2fbbde0fb8257bd32b508369733ea8c839cb3bc0f2d855b40b6af3ef5b38d59b0b4a7c9a1057770"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "82625ad483c97f057b840badf8039427273f54399381eaf73436fe88bbfba10a"
+    }
+   ],
+   "purl": "pkg:conan/fmt@8.0.0",
+   "cpe": "cpe:2.3:a:fmt:fmt:8.0.0:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-gateway/2.4.0/libfmt.a",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "4510a46c0fee4eb2eb7268885dd470c49591e2b25a3d0385b2fbbde0fb8257bd32b508369733ea8c839cb3bc0f2d855b40b6af3ef5b38d59b0b4a7c9a1057770"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "82625ad483c97f057b840badf8039427273f54399381eaf73436fe88bbfba10a"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/fmtlib/fmt/archive/refs/tags/8.0.0.tar.gz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/fmtlib/fmt.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "8c1b21d5b2c53817f59400804d4d9f1227a789b3d03b2a988b3e48c23017a94a8b46de8a738e3d380f1afcaca511f7e85f16e95bc4fef6ea750745e72f04218c"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libfmt.a"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "origin",
+     "value": "CMake FetchContent"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/fmtlib/fmt@8.0.0"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "nlohmann-json@3.9.1",
+   "name": "nlohmann-json",
+   "version": "3.9.1",
+   "supplier": {
+    "name": "Niels Lohmann",
+    "url": [
+     "https://json.nlohmann.me"
+    ]
+   },
+   "manufacturer": {
+    "name": "Niels Lohmann",
+    "url": [
+     "https://json.nlohmann.me"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "513922b1df84c6982fbeea3c00b32c7d91f7541d93aaec5e0f0683c6584592908a3f93aa3705db9a418bc3ce94d4dcc72dfc5565cbd5472f8d65e9e722f8c4bc"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "7804b38146921d03374549c9e2a5e3acda097814c43caf2b96a0278e58df26e0"
+    }
+   ],
+   "purl": "pkg:conan/nlohmann_json@3.9.1",
+   "cpe": "cpe:2.3:a:json-for-modern-cpp_project:json-for-modern-cpp:3.9.1:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-gateway/2.4.0/json.hpp",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "513922b1df84c6982fbeea3c00b32c7d91f7541d93aaec5e0f0683c6584592908a3f93aa3705db9a418bc3ce94d4dcc72dfc5565cbd5472f8d65e9e722f8c4bc"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "7804b38146921d03374549c9e2a5e3acda097814c43caf2b96a0278e58df26e0"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/nlohmann/json/archive/refs/tags/v3.9.1.tar.gz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/nlohmann/json.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "88d2bdb676ab085c224e051573b50de9118bcfa01a9f82dcb0d786c9bd3976e07ad6e4ff9312d53fcde5309a42cbfd75a0a812113556ce7e279ce6f0264e46b3"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "json.hpp"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "non-executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "origin",
+     "value": "CMake FetchContent"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/nlohmann/json@v3.9.1"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "zlib@1.2.11",
+   "name": "zlib",
+   "version": "1.2.11",
+   "supplier": {
+    "name": "Jean-loup Gailly and Mark Adler",
+    "url": [
+     "https://zlib.net"
+    ]
+   },
+   "manufacturer": {
+    "name": "Jean-loup Gailly and Mark Adler",
+    "url": [
+     "https://zlib.net"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "Zlib",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "Zlib",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "6a3202d5c46b36977c67e05ca12a312131a84d3f53e7bb2b06c3ba9ccaadc70dd22e517742d198c6801d8a41400043746ab04c14e4667c1a4c6fb63eaa6eb204"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "966c01cb80ec32e3727836a37c2d542117777dd6b939bfba4e4782211b06fb60"
+    }
+   ],
+   "purl": "pkg:conan/zlib@1.2.11",
+   "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-gateway/2.4.0/libz.a",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "6a3202d5c46b36977c67e05ca12a312131a84d3f53e7bb2b06c3ba9ccaadc70dd22e517742d198c6801d8a41400043746ab04c14e4667c1a4c6fb63eaa6eb204"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "966c01cb80ec32e3727836a37c2d542117777dd6b939bfba4e4782211b06fb60"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/madler/zlib/archive/refs/tags/v1.2.11.tar.gz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/madler/zlib",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "f312920f214019a9b2377a22f9db9d5964f150a823151820f4e0795b03c49f60a20304e406e2ca6283d7e923dd97ff7375ceb5028c9390126d26fa402410d0c5"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libz.a"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "origin",
+     "value": "vendored (declared manifest)"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/madler/zlib@v1.2.11"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "cjson@1.7.10",
+   "name": "cjson",
+   "version": "1.7.10",
+   "supplier": {
+    "name": "Dave Gamble",
+    "url": [
+     "https://github.com/DaveGamble/cJSON"
+    ]
+   },
+   "manufacturer": {
+    "name": "Dave Gamble",
+    "url": [
+     "https://github.com/DaveGamble/cJSON"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "f54b182d1c248dbfb47c13922df77383fd2eb9c8726cf8c71a740ae2385fe60609d916a776a547404acbf0758378a27854957e4a6d11c6fc97ba8eb9516ff87c"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "503c336035bbc3e877d840f7f179820c43fb420c180b4bfced29b01a71f576aa"
+    }
+   ],
+   "purl": "pkg:conan/cjson@1.7.10",
+   "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-gateway/2.4.0/libcjson.a",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "f54b182d1c248dbfb47c13922df77383fd2eb9c8726cf8c71a740ae2385fe60609d916a776a547404acbf0758378a27854957e4a6d11c6fc97ba8eb9516ff87c"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "503c336035bbc3e877d840f7f179820c43fb420c180b4bfced29b01a71f576aa"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/DaveGamble/cJSON/archive/refs/tags/v1.7.10.tar.gz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/davegamble/cjson",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "a64109e4690bb50502860b57a9eb5eabddd677a2765449381c0321f9abdfe921ef7bb1d44032df4f9e322ecc797f8a9f5178c440960ad2b1d216d85d983d11a5"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libcjson.a"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "origin",
+     "value": "vendored (declared manifest)"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/davegamble/cjson@v1.7.10"
+    }
+   ]
+  }
+ ],
+ "dependencies": [
+  {
+   "ref": "sensorhub-gateway@2.4.0",
+   "dependsOn": [
+    "libexpat@2.4.1",
+    "fmt@8.0.0",
+    "nlohmann-json@3.9.1",
+    "zlib@1.2.11",
+    "cjson@1.7.10"
+   ]
+  },
+  {
+   "ref": "libexpat@2.4.1",
+   "dependsOn": []
+  },
+  {
+   "ref": "fmt@8.0.0",
+   "dependsOn": []
+  },
+  {
+   "ref": "nlohmann-json@3.9.1",
+   "dependsOn": []
+  },
+  {
+   "ref": "zlib@1.2.11",
+   "dependsOn": []
+  },
+  {
+   "ref": "cjson@1.7.10",
+   "dependsOn": []
+  }
+ ],
+ "compositions": [
+  {
+   "aggregate": "complete",
+   "assemblies": [
+    "sensorhub-gateway@2.4.0",
+    "libexpat@2.4.1",
+    "fmt@8.0.0",
+    "nlohmann-json@3.9.1",
+    "zlib@1.2.11",
+    "cjson@1.7.10"
+   ],
+   "dependencies": [
+    "sensorhub-gateway@2.4.0",
+    "libexpat@2.4.1",
+    "fmt@8.0.0",
+    "nlohmann-json@3.9.1",
+    "zlib@1.2.11",
+    "cjson@1.7.10"
+   ]
+  }
+ ]
+}

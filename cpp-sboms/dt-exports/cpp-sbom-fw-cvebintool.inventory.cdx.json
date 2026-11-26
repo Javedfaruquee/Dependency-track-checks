@@ -1,0 +1,138 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.5",
+  "serialNumber" : "urn:uuid:679fa675-e9a7-422d-bbaa-eae76c9d15bf",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-11-26T14:13:12Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "supplier" : {
+            "name" : "OWASP"
+          },
+          "name" : "Dependency-Track",
+          "version" : "5.2.1"
+        }
+      ]
+    },
+    "authors" : [
+      {
+        "name" : "Product Security",
+        "email" : "psirt@example.com"
+      }
+    ],
+    "component" : {
+      "type" : "firmware",
+      "bom-ref" : "0c48eba1-8137-406a-a1a5-3e1089e57193",
+      "supplier" : {
+        "name" : "Example Device Team",
+        "url" : [
+          "https://example.com/security"
+        ]
+      },
+      "name" : "cpp-sbom-fw-cvebintool",
+      "version" : "1"
+    }
+  },
+  "components" : [
+    {
+      "type" : "library",
+      "bom-ref" : "9bc25ac6-cf1e-4b29-88ae-067131670054",
+      "name" : "busybox",
+      "version" : "1.33.1",
+      "cpe" : "cpe:2.3:a:busybox:busybox:1.33.1:*:*:*:*:*:*:*",
+      "properties" : [
+        {
+          "name" : "cve-bin-tool:file",
+          "value" : "/bin/busybox"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "67ba32c9-3a4c-4d73-a4c0-830936f95ce1",
+      "name" : "glibc",
+      "version" : "2.39",
+      "cpe" : "cpe:2.3:a:gnu:glibc:2.39:*:*:*:*:*:*:*",
+      "properties" : [
+        {
+          "name" : "cve-bin-tool:file",
+          "value" : "/lib/libc.so.6"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "feed2929-7665-4512-90d3-a653cd1685a8",
+      "name" : "libexpat",
+      "version" : "2.4.1",
+      "cpe" : "cpe:2.3:a:libexpat_project:libexpat:2.4.1:*:*:*:*:*:*:*",
+      "properties" : [
+        {
+          "name" : "cve-bin-tool:file",
+          "value" : "/usr/bin/sensord"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "ccca0732-988c-4eaa-87c8-fe755917f253",
+      "name" : "zlib",
+      "version" : "1.2.11",
+      "cpe" : "cpe:2.3:a:gnu:zlib:1.2.11:*:*:*:*:*:*:*",
+      "properties" : [
+        {
+          "name" : "cve-bin-tool:file",
+          "value" : "/lib/libz.so.1.2.11"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "7aa0c685-fa20-4691-8825-b2e527edeb78",
+      "name" : "zlib",
+      "version" : "1.2.11",
+      "cpe" : "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+      "properties" : [
+        {
+          "name" : "cve-bin-tool:file",
+          "value" : "/lib/libz.so.1.2.11"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "0c48eba1-8137-406a-a1a5-3e1089e57193",
+      "dependsOn" : [
+        "9bc25ac6-cf1e-4b29-88ae-067131670054",
+        "67ba32c9-3a4c-4d73-a4c0-830936f95ce1",
+        "ccca0732-988c-4eaa-87c8-fe755917f253",
+        "feed2929-7665-4512-90d3-a653cd1685a8",
+        "7aa0c685-fa20-4691-8825-b2e527edeb78"
+      ]
+    },
+    {
+      "ref" : "9bc25ac6-cf1e-4b29-88ae-067131670054",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "67ba32c9-3a4c-4d73-a4c0-830936f95ce1",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "feed2929-7665-4512-90d3-a653cd1685a8",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "ccca0732-988c-4eaa-87c8-fe755917f253",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "7aa0c685-fa20-4691-8825-b2e527edeb78",
+      "dependsOn" : [ ]
+    }
+  ]
+}

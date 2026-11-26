@@ -1,0 +1,5 @@
+# Shell scripts and CI files must keep LF line endings for Linux CI agents
+*.sh text eol=lf
+*.yml text eol=lf
+*.kt text eol=lf
+*.py text eol=lf

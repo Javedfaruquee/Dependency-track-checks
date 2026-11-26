@@ -27,6 +27,7 @@ Tokens live in `.env` (not committed): `TRIVY_TOKEN`, `VULNCHECK_TOKEN`. The scr
 | `trivy-setup.cmd`, `trivy-conan-check.cmd` | Trivy analyzer in DT, and Trivy alone on the Conan SBOMs | `trivy-results.json`, `trivy-only-*.json` |
 | `nvdpp-setup.cmd`, `nvdpp-verify.cmd` | NVD feed adapter adding VulnCheck NVD++ CPEs for CVEs NIST left without CPEs; C/C++ gap SBOM | `nvdpp-results.json`, `nvdpp-verify-results.json` |
 | `conan-audit-test.cmd` | `conan audit` (ConanCenter provider) on the same SBOMs and references | `conan-audit/`, `conan-audit-log.txt` |
+| `cpp-sboms-dt-test.cmd` | The eight CMake-only C++ and firmware SBOMs from `cpp-sboms/`, plus two variants with ConanCenter identifiers | `cpp-sboms-dt-results.json`, `cpp-sboms/dt-exports/`, `cpp-sboms-dt-log.txt` |
 
 Test SBOMs are in `sboms/`.
 
@@ -38,6 +39,7 @@ Test SBOMs are in `sboms/`.
 - VulnCheck NVD++ (free community token) adds CPEs to 56,106 CVEs that NIST left without them; on a C/C++ gap SBOM, 178 of 293 findings came only through VulnCheck CPEs.
 - Trivy alone found 5 Conan CVEs; `conan audit` found 54, all also found by DT.
 - Totals count GHSA, PYSEC and CVE IDs for one issue separately: turn on alias sync and report distinct issues.
+- CMake-only C++ and firmware (`cpp-sboms/`): the complete build-derived SBOMs matched 61 and 160 CVEs, all through CPEs. The cve-bin-tool SBOM missed all 50 OpenSSL and cJSON CVEs. ConanCenter identifiers added 6 and 20 through OSS Index. Dependency-Track's own export loses BSI TR-03183-2 v2.1 fields (score 10 falls to 7.4–7.6), so keep the original signed SBOM.
 
 ## NVD feed adapter (`nvdpp/adapter.py`)
 

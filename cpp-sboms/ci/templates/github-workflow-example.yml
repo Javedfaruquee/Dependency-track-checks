@@ -1,0 +1,46 @@
+# Example product workflow (.github/workflows/build.yml) using the composite action.
+name: build
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  build:
+    # release builds sign, so they run on the runners that have the SignPath Cryptoki provider
+    runs-on: ${{ startsWith(github.ref, 'refs/tags/') && fromJSON('["self-hosted","signing"]') || 'ubuntu-24.04' }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build
+        run: |
+          cmake -S . -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build && cmake --install build --prefix build/install
+      - name: Signing certificate
+        if: startsWith(github.ref, 'refs/tags/')
+        run: printf '%s' "$CERT" > "$RUNNER_TEMP/signing-cert.pem"
+        env:
+          CERT: ${{ vars.SIGNING_CERT_PEM }}
+      - uses: example-org/sbom-tooling/ci/github@0000000000000000000000000000000000000000   # pin to a commit
+        with:
+          kind: cmake
+          args: ". build build/install/bin/sensorhub-gateway sbom-out"
+          sign: ${{ startsWith(github.ref, 'refs/tags/') }}
+        env:
+          SOURCE_URL: ${{ github.server_url }}/${{ github.repository }}
+          ARTIFACT_BASE_URL: ${{ vars.ARTIFACT_BASE_URL }}
+          SIGNPATH_ORGANIZATION_ID: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+          SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
+          SIGNPATH_PROJECT_SLUG: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+          SIGNPATH_SIGNING_POLICY_SLUG: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+          PKCS11_MODULE_PATH: /opt/signpath/libSignPath.Cryptoki.so
+          SIGNING_CERT_PEM: ${{ runner.temp }}/signing-cert.pem
+          TSA_URL: ${{ vars.TSA_URL }}
+          DT_URL: ${{ vars.DT_URL }}
+          DT_API_KEY: ${{ secrets.DT_API_KEY }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: sbom
+          path: sbom-out/

@@ -1,0 +1,3 @@
+# Only the exports of the cpp-sbom-* projects belong here; run 1 also exported older test projects
+dt-exports/*
+!dt-exports/cpp-sbom-*

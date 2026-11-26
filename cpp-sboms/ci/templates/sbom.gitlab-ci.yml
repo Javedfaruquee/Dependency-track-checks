@@ -1,0 +1,37 @@
+# GitLab CI template. Include it from the product's .gitlab-ci.yml:
+#   include:
+#     - project: security/sbom-tooling
+#       ref: v1.0.0
+#       file: ci/templates/sbom.gitlab-ci.yml
+#   build:
+#     stage: build
+#     script:
+#       - cmake -S . -B build -DCMAKE_BUILD_TYPE=Release && cmake --build build && cmake --install build --prefix build/install
+#       - !reference [.sbom-release, script]      # same job, so the build tree is still there
+#     variables:
+#       SBOM_KIND: cmake
+#       SBOM_ARGS: ". build build/install/bin/sensorhub-gateway sbom-out"
+#     artifacts: !reference [.sbom-release, artifacts]
+#     rules: !reference [.sbom-release, rules]
+# CI/CD variables (masked + protected): SIGNPATH_API_TOKEN, DT_API_KEY; plain: SIGNPATH_ORGANIZATION_ID,
+# SIGNPATH_PROJECT_SLUG, SIGNPATH_SIGNING_POLICY_SLUG, SIGNING_CERT_PEM (file variable), TSA_URL,
+# PKCS11_MODULE_PATH, ARTIFACT_BASE_URL, DT_URL. Tagged builds sign, on runners tagged "signing".
+variables:
+  SBOM_TOOLING_PROJECT: security/sbom-tooling
+  SBOM_TOOLING_REF: v1.0.0
+.sbom-release:
+  script:
+    - rm -rf .sbom-tooling
+    - git clone --depth 1 --branch "$SBOM_TOOLING_REF" "https://gitlab-ci-token:${CI_JOB_TOKEN}@${CI_SERVER_HOST}/${SBOM_TOOLING_PROJECT}.git" .sbom-tooling
+    - export SOURCE_URL="${SOURCE_URL:-$CI_PROJECT_URL}"
+    - read -r -a sbom_args <<< "$SBOM_ARGS"
+    - bash .sbom-tooling/ci/sbom-release.sh "$SBOM_KIND" "${sbom_args[@]}"
+  artifacts:
+    when: always
+    paths:
+      - sbom-out/
+  rules:
+    - if: $CI_COMMIT_TAG
+      variables:
+        SIGN_SBOM: "true"
+    - when: on_success

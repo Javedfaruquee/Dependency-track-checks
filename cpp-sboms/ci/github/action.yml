@@ -1,0 +1,44 @@
+# Composite action: run right after the build step, in the same job, so the build tree is still there.
+#   - uses: <org>/sbom-tooling/ci/github@<commit sha>     # pin to a commit
+#     with:
+#       kind: cmake                                         # or firmware
+#       args: "src build build/install/bin/app sbom-out"   # see ci/sbom-release.sh
+#       sign: ${{ startsWith(github.ref, 'refs/tags/') }}
+#     env:                                                  # composite actions cannot read secrets themselves
+#       SIGNPATH_ORGANIZATION_ID: ${{ vars.SIGNPATH_ORGANIZATION_ID }}
+#       SIGNPATH_API_TOKEN: ${{ secrets.SIGNPATH_API_TOKEN }}
+#       SIGNPATH_PROJECT_SLUG: ${{ vars.SIGNPATH_PROJECT_SLUG }}
+#       SIGNPATH_SIGNING_POLICY_SLUG: ${{ vars.SIGNPATH_SIGNING_POLICY_SLUG }}
+#       PKCS11_MODULE_PATH: /opt/signpath/libSignPath.Cryptoki.so
+#       SIGNING_CERT_PEM: ${{ runner.temp }}/signing-cert.pem
+#       TSA_URL: ${{ vars.TSA_URL }}
+#       ARTIFACT_BASE_URL: ${{ vars.ARTIFACT_BASE_URL }}
+#       DT_URL: ${{ vars.DT_URL }}
+#       DT_API_KEY: ${{ secrets.DT_API_KEY }}
+name: SBOM release gate
+description: Build-derived TR-03183-2 SBOM, gated with sbomqs and a coverage check, signed with SignPath on releases
+inputs:
+  kind:
+    description: cmake or firmware
+    required: true
+  args:
+    description: arguments for sbom-release.sh after the kind
+    required: true
+  sign:
+    description: "true to sign (release builds on a runner with the SignPath Cryptoki provider)"
+    required: false
+    default: "false"
+runs:
+  using: composite
+  steps:
+    - name: Generate, gate, sign and publish the SBOM
+      shell: bash
+      env:
+        SBOM_KIND: ${{ inputs.kind }}
+        SBOM_ARGS: ${{ inputs.args }}
+        SIGN_SBOM: ${{ inputs.sign }}
+        SBOM_TOOLING: ${{ github.action_path }}/..
+      run: |
+        set -euo pipefail
+        read -r -a args <<< "$SBOM_ARGS"
+        bash "$SBOM_TOOLING/sbom-release.sh" "$SBOM_KIND" "${args[@]}"

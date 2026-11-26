@@ -1,0 +1,1085 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.5",
+  "serialNumber" : "urn:uuid:6b8b28be-4284-4482-bb36-fef738dc0571",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-11-26T14:13:13Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "supplier" : {
+            "name" : "OWASP"
+          },
+          "name" : "Dependency-Track",
+          "version" : "5.2.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "file",
+      "bom-ref" : "1c7380c8-81f0-4e3b-a958-92e788711d74",
+      "name" : "cpp-sbom-fw-syft-extracted",
+      "version" : "1"
+    }
+  },
+  "components" : [
+    {
+      "type" : "file",
+      "bom-ref" : "bda679d6-cc4e-4d89-9a50-17a9675c5477",
+      "name" : "/tmp/claude-0/-home-claude/9e6d8f18-688c-5798-b3f8-61ba9c865bdd/scratchpad/cppfw/fw/extract/rootfs/bin/busybox",
+      "hashes" : [
+        {
+          "alg" : "SHA-1",
+          "content" : "513e56cefe0cb0da345ab09f34b556c214329096"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "6489d8bb17e2e79f6b97410e845b88257f23f18cae7c19c492006e49b13b87a6"
+        }
+      ]
+    },
+    {
+      "type" : "file",
+      "bom-ref" : "f52b8e0a-c31f-4ace-8b21-d0302d842ca3",
+      "name" : "/tmp/claude-0/-home-claude/9e6d8f18-688c-5798-b3f8-61ba9c865bdd/scratchpad/cppfw/fw/extract/rootfs/usr/lib/opkg/status",
+      "hashes" : [
+        {
+          "alg" : "SHA-1",
+          "content" : "cab6059ff7171509f9d1e6f4c1494575c7b77619"
+        },
+        {
+          "alg" : "SHA-256",
+          "content" : "c2c2aaf326c7925b3884cb51d33bd424ea66e116b2b5ed26055f7049615094e4"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "51231c75-037e-4d6e-ba6d-2be1f4564fa2",
+      "name" : "busybox",
+      "version" : "1.33.1-r0",
+      "cpe" : "cpe:2.3:a:busybox:busybox:1.33.1-r0:*:*:*:*:*:*:*",
+      "properties" : [
+        {
+          "name" : "syft:location:0:path",
+          "value" : "/usr/lib/opkg/status"
+        },
+        {
+          "name" : "syft:metadata:installedSize",
+          "value" : "0"
+        },
+        {
+          "name" : "syft:package:foundBy",
+          "value" : "dpkg-db-cataloger"
+        },
+        {
+          "name" : "syft:package:metadataType",
+          "value" : "dpkg-db-entry"
+        },
+        {
+          "name" : "syft:package:type",
+          "value" : "deb"
+        }
+      ]
+    },
+    {
+      "type" : "application",
+      "bom-ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f",
+      "name" : "busybox",
+      "version" : "1.33.1",
+      "cpe" : "cpe:2.3:a:busybox:busybox:1.33.1:*:*:*:*:*:*:*",
+      "purl" : "pkg:generic/busybox@1.33.1",
+      "properties" : [
+        {
+          "name" : "syft:location:0:path",
+          "value" : "/bin/busybox"
+        },
+        {
+          "name" : "syft:package:foundBy",
+          "value" : "binary-classifier-cataloger"
+        },
+        {
+          "name" : "syft:package:metadataType",
+          "value" : "binary-signature"
+        },
+        {
+          "name" : "syft:package:type",
+          "value" : "binary"
+        }
+      ]
+    },
+    {
+      "type" : "operating-system",
+      "bom-ref" : "0755de3c-cca0-4df6-accd-564cbbdf212b",
+      "name" : "sensoros",
+      "version" : "3.1",
+      "description" : "SensorOS 3.1 (sample firmware)",
+      "swid" : {
+        "tagId" : "sensoros",
+        "name" : "sensoros",
+        "version" : "3.1"
+      },
+      "properties" : [
+        {
+          "name" : "syft:distro:extendedSupport",
+          "value" : "false"
+        },
+        {
+          "name" : "syft:distro:id",
+          "value" : "sensoros"
+        },
+        {
+          "name" : "syft:distro:prettyName",
+          "value" : "SensorOS 3.1 (sample firmware)"
+        },
+        {
+          "name" : "syft:distro:versionID",
+          "value" : "3.1"
+        }
+      ]
+    },
+    {
+      "type" : "library",
+      "bom-ref" : "48b816ef-ea7f-41a9-8a9d-71cd2d906afc",
+      "name" : "zlib",
+      "version" : "1.2.11-r0",
+      "cpe" : "cpe:2.3:a:zlib:zlib:1.2.11-r0:*:*:*:*:*:*:*",
+      "properties" : [
+        {
+          "name" : "syft:location:0:path",
+          "value" : "/usr/lib/opkg/status"
+        },
+        {
+          "name" : "syft:metadata:installedSize",
+          "value" : "0"
+        },
+        {
+          "name" : "syft:package:foundBy",
+          "value" : "dpkg-db-cataloger"
+        },
+        {
+          "name" : "syft:package:metadataType",
+          "value" : "dpkg-db-entry"
+        },
+        {
+          "name" : "syft:package:type",
+          "value" : "deb"
+        }
+      ]
+    }
+  ],
+  "dependencies" : [
+    {
+      "ref" : "1c7380c8-81f0-4e3b-a958-92e788711d74",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "bda679d6-cc4e-4d89-9a50-17a9675c5477",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "f52b8e0a-c31f-4ace-8b21-d0302d842ca3",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "51231c75-037e-4d6e-ba6d-2be1f4564fa2",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "0755de3c-cca0-4df6-accd-564cbbdf212b",
+      "dependsOn" : [ ]
+    },
+    {
+      "ref" : "48b816ef-ea7f-41a9-8a9d-71cd2d906afc",
+      "dependsOn" : [ ]
+    }
+  ],
+  "vulnerabilities" : [
+    {
+      "id" : "CVE-2025-46394",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 3.2,
+          "severity" : "low",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:L/AC:H/PR:N/UI:N/S:C/C:N/I:L/A:N"
+        }
+      ],
+      "cwes" : [
+        451
+      ],
+      "description" : "In tar in BusyBox through 1.37.0, a TAR archive can have filenames hidden from a listing through the use of terminal escape sequences.",
+      "published" : "2025-04-23T16:15:48Z",
+      "updated" : "2026-06-17T09:26:20Z",
+      "affects" : [
+        {
+          "ref" : "51231c75-037e-4d6e-ba6d-2be1f4564fa2"
+        },
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2025-60876",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:L/I:L/A:N"
+        }
+      ],
+      "cwes" : [
+        284
+      ],
+      "description" : "BusyBox wget thru 1.3.7 accepted raw CR (0x0D)/LF (0x0A) and other C0 control bytes in the HTTP request-target (path/query), allowing the request line to be split and attacker-controlled headers to be injected. To preserve the HTTP/1.1 request-line shape METHOD SP request-target SP HTTP/1.1, a raw space (0x20) in the request-target must also be rejected (clients should use %20).",
+      "published" : "2025-11-10T20:15:48Z",
+      "updated" : "2026-06-17T09:50:10Z",
+      "affects" : [
+        {
+          "ref" : "51231c75-037e-4d6e-ba6d-2be1f4564fa2"
+        },
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2024-58251",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 2.5,
+          "severity" : "low",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:L/AC:H/PR:N/UI:R/S:U/C:N/I:N/A:L"
+        }
+      ],
+      "cwes" : [
+        150
+      ],
+      "description" : "In netstat in BusyBox through 1.37.0, local users can launch of network application with an argv[0] containing an ANSI terminal escape sequence, leading to a denial of service (terminal locked up) when netstat is used by a victim.",
+      "published" : "2025-04-23T18:16:03Z",
+      "updated" : "2026-11-12T05:17:46Z",
+      "affects" : [
+        {
+          "ref" : "51231c75-037e-4d6e-ba6d-2be1f4564fa2"
+        },
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2022-28391",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.8,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 8.8,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:N/UI:R/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        88
+      ],
+      "description" : "BusyBox through 1.35.0 allows remote attackers to execute arbitrary code if netstat is used to print a DNS PTR record's value to a VT compatible terminal. Alternatively, the attacker could choose to change the terminal's colors.",
+      "published" : "2022-04-03T21:15:08Z",
+      "updated" : "2026-06-17T04:38:29Z",
+      "affects" : [
+        {
+          "ref" : "51231c75-037e-4d6e-ba6d-2be1f4564fa2"
+        },
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2022-48174",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 9.8,
+          "severity" : "critical",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        787
+      ],
+      "description" : "There is a stack overflow vulnerability in ash.c:6030 in busybox before 1.35. In the environment of Internet of Vehicles, this vulnerability can be executed from command to arbitrary code execution.",
+      "published" : "2023-08-22T19:16:31Z",
+      "updated" : "2026-07-14T12:16:48Z",
+      "affects" : [
+        {
+          "ref" : "51231c75-037e-4d6e-ba6d-2be1f4564fa2"
+        },
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42373",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 2.1,
+          "severity" : "low",
+          "method" : "CVSSv2",
+          "vector" : "AV:L/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 5.5,
+          "severity" : "medium",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        476
+      ],
+      "description" : "A NULL pointer dereference in Busybox's man applet leads to denial of service when a section name is supplied but no page argument is given",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:42Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42374",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 3.3,
+          "severity" : "low",
+          "method" : "CVSSv2",
+          "vector" : "AV:L/AC:M/Au:N/C:P/I:N/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 5.3,
+          "severity" : "medium",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:L/AC:H/PR:L/UI:N/S:U/C:L/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        125
+      ],
+      "description" : "An out-of-bounds heap read in Busybox's unlzma applet leads to information leak and denial of service when crafted LZMA-compressed input is decompressed. This can be triggered by any applet/format that",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:42Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42375",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 1.9,
+          "severity" : "low",
+          "method" : "CVSSv2",
+          "vector" : "AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 5.5,
+          "severity" : "medium",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        159
+      ],
+      "description" : "An incorrect handling of a special element in Busybox's ash applet leads to denial of service when processing a crafted shell command, due to the shell mistaking specific characters for reserved characters. This may be used for DoS under rare conditions of filtered command input.",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:43Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42376",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 1.9,
+          "severity" : "low",
+          "method" : "CVSSv2",
+          "vector" : "AV:L/AC:M/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 5.5,
+          "severity" : "medium",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        476
+      ],
+      "description" : "A NULL pointer dereference in Busybox's hush applet leads to denial of service when processing a crafted shell command, due to missing validation after a \\x03 delimiter character. This may be used for DoS under very rare conditions of filtered command input.",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:43Z",
+      "affects" : [
+        {
+          "ref" : "51231c75-037e-4d6e-ba6d-2be1f4564fa2"
+        },
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42377",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.8,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:M/Au:N/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 9.8,
+          "severity" : "critical",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        590,
+        763
+      ],
+      "description" : "An attacker-controlled pointer free in Busybox's hush applet leads to denial of service and possible code execution when processing a crafted shell command, due to the shell mishandling the &&& string. This may be used for remote code execution under rare conditions of filtered command input.",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:43Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42378",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the getvar_i function",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:43Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42379",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the next_input_file function",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:43Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42380",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the clrvar function",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:43Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42381",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the hash_init function",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:43Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42382",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the getvar_s function",
+      "published" : "2021-11-15T21:15:07Z",
+      "updated" : "2026-06-17T04:09:44Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42383",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the evaluate function",
+      "published" : "2021-11-15T21:15:08Z",
+      "updated" : "2026-06-17T04:09:44Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42384",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the handle_special function",
+      "published" : "2021-11-15T21:15:08Z",
+      "updated" : "2026-06-17T04:09:44Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42385",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the evaluate function",
+      "published" : "2021-11-15T21:15:08Z",
+      "updated" : "2026-06-17T04:09:44Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2021-42386",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 6.5,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:S/C:P/I:P/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.2,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:H/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        416
+      ],
+      "description" : "A use-after-free in Busybox's awk applet leads to denial of service and possibly code execution when processing a crafted awk pattern in the nvalloc function",
+      "published" : "2021-11-15T21:15:08Z",
+      "updated" : "2026-06-17T04:09:44Z",
+      "affects" : [
+        {
+          "ref" : "90b7b3dc-1321-4bd3-b5fb-62a6fe9ef45f"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2026-22184",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.8,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:L/AC:L/PR:L/UI:N/S:U/C:H/I:H/A:H"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 4.6,
+          "severity" : "medium",
+          "vector" : "CVSS:4.0/AV:L/AC:L/AT:N/PR:N/UI:A/VC:L/VI:N/VA:L/SC:N/SI:N/SA:N/E:X/CR:X/IR:X/AR:X/MAV:X/MAC:X/MAT:X/MPR:X/MUI:X/MVC:X/MVI:X/MVA:X/MSC:X/MSI:X/MSA:X/S:X/AU:X/R:X/V:X/RE:X/U:X"
+        }
+      ],
+      "cwes" : [
+        787,
+        120
+      ],
+      "description" : "zlib versions up to and including 1.3.1.2 include a global buffer overflow in the untgz utility located under contrib/untgz. The vulnerability is limited to the standalone demonstration utility and does not affect the core zlib compression library. The flaw occurs when a user executes the untgz command with an excessively long archive name supplied via the command line, leading to an out-of-bounds write in a fixed-size global buffer.",
+      "published" : "2026-01-07T21:16:01Z",
+      "updated" : "2026-09-01T13:18:19Z",
+      "affects" : [
+        {
+          "ref" : "48b816ef-ea7f-41a9-8a9d-71cd2d906afc"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2023-45853",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 9.8,
+          "severity" : "critical",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        190
+      ],
+      "description" : "MiniZip in zlib through 1.3 has an integer overflow and resultant heap-based buffer overflow in zipOpenNewFileInZip4_64 via a long filename, comment, or extra field. NOTE: MiniZip is not a supported part of the zlib product. NOTE: pyminizip through 0.2.6 is also vulnerable because it bundles an affected zlib version, and exposes the applicable MiniZip code through its compress API.",
+      "published" : "2023-10-14T02:15:09Z",
+      "updated" : "2026-10-15T00:16:39Z",
+      "affects" : [
+        {
+          "ref" : "48b816ef-ea7f-41a9-8a9d-71cd2d906afc"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2022-37434",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 9.8,
+          "severity" : "critical",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:H/I:H/A:H"
+        }
+      ],
+      "cwes" : [
+        787,
+        120
+      ],
+      "description" : "zlib through 1.2.12 has a heap-based buffer over-read or buffer overflow in inflate in inflate.c via a large gzip header extra field. NOTE: only applications that call inflateGetHeader are affected. Some common applications bundle the affected zlib source code but may be unable to call inflateGetHeader (e.g., see the nodejs/node reference).",
+      "published" : "2022-08-05T07:15:07Z",
+      "updated" : "2026-10-14T18:17:03Z",
+      "affects" : [
+        {
+          "ref" : "48b816ef-ea7f-41a9-8a9d-71cd2d906afc"
+        }
+      ]
+    },
+    {
+      "id" : "CVE-2018-25032",
+      "source" : {
+        "name" : "NVD",
+        "url" : "https://nvd.nist.gov/"
+      },
+      "ratings" : [
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 5.0,
+          "severity" : "medium",
+          "method" : "CVSSv2",
+          "vector" : "AV:N/AC:L/Au:N/C:N/I:N/A:P"
+        },
+        {
+          "source" : {
+            "name" : "NVD",
+            "url" : "https://nvd.nist.gov/"
+          },
+          "score" : 7.5,
+          "severity" : "high",
+          "method" : "CVSSv31",
+          "vector" : "CVSS:3.1/AV:N/AC:L/PR:N/UI:N/S:U/C:N/I:N/A:H"
+        }
+      ],
+      "cwes" : [
+        787
+      ],
+      "description" : "zlib before 1.2.12 allows memory corruption when deflating (i.e., when compressing) if the input has many distant matches.",
+      "published" : "2022-03-25T09:15:08Z",
+      "updated" : "2026-10-14T07:16:44Z",
+      "affects" : [
+        {
+          "ref" : "48b816ef-ea7f-41a9-8a9d-71cd2d906afc"
+        }
+      ]
+    }
+  ]
+}

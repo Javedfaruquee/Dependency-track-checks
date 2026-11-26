@@ -1,0 +1,33 @@
+{
+  "bomFormat" : "CycloneDX",
+  "specVersion" : "1.5",
+  "serialNumber" : "urn:uuid:6c0c19bf-55fa-42b1-855b-b88de707bce4",
+  "version" : 1,
+  "metadata" : {
+    "timestamp" : "2026-11-26T14:13:13Z",
+    "tools" : {
+      "components" : [
+        {
+          "type" : "application",
+          "supplier" : {
+            "name" : "OWASP"
+          },
+          "name" : "Dependency-Track",
+          "version" : "5.2.1"
+        }
+      ]
+    },
+    "component" : {
+      "type" : "file",
+      "bom-ref" : "2481c63a-e33a-46ae-ab0d-a08c54c6f09e",
+      "name" : "cpp-sbom-fw-syft-packed",
+      "version" : "1"
+    }
+  },
+  "dependencies" : [
+    {
+      "ref" : "2481c63a-e33a-46ae-ab0d-a08c54c6f09e",
+      "dependsOn" : [ ]
+    }
+  ]
+}

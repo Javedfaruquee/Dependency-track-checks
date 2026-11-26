@@ -1,0 +1,1036 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:84b58e0c-48f2-4d1e-9b56-f3c88da79b99",
+ "version": 1,
+ "metadata": {
+  "timestamp": "2026-11-26T12:54:40Z",
+  "lifecycles": [
+   {
+    "phase": "build"
+   }
+  ],
+  "tools": {
+   "components": [
+    {
+     "type": "application",
+     "name": "fw-sbom.py",
+     "version": "0.4"
+    }
+   ]
+  },
+  "authors": [
+   {
+    "name": "Product Security",
+    "email": "psirt@example.com"
+   }
+  ],
+  "manufacturer": {
+   "name": "Example Device Team",
+   "url": [
+    "https://example.com"
+   ]
+  },
+  "supplier": {
+   "name": "Example Device Team",
+   "url": [
+    "https://example.com"
+   ]
+  },
+  "component": {
+   "type": "firmware",
+   "bom-ref": "sensorhub-fw@3.1.0",
+   "name": "sensorhub-fw-conanpurl",
+   "version": "3.1.0",
+   "supplier": {
+    "name": "Example Device Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "manufacturer": {
+    "name": "Example Device Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "name": "LicenseRef-Proprietary",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "name": "LicenseRef-Proprietary",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "7d47fdc4ecd221de03f5058fc870f847c811ea9fcfd5cb79aba9d3efc54524f0a9377105d8a0cd10c452f7dce3c04b2fba648987293ddd8798e2cedea9f3d246"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "a79b3ab01b846a9f99ced438fa6d2c40caa0aec15e30d30ed13d9893e9b71c35"
+    }
+   ],
+   "purl": "pkg:generic/example/sensorhub-fw@3.1.0",
+   "cpe": "cpe:2.3:o:example:sensorhub-fw:3.1.0:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/sensorhub-fw-3.1.0.bin",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "7d47fdc4ecd221de03f5058fc870f847c811ea9fcfd5cb79aba9d3efc54524f0a9377105d8a0cd10c452f7dce3c04b2fba648987293ddd8798e2cedea9f3d246"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "a79b3ab01b846a9f99ced438fa6d2c40caa0aec15e30d30ed13d9893e9b71c35"
+      }
+     ]
+    },
+    {
+     "type": "vcs",
+     "url": "https://git.example.com/devices/sensorhub-fw.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "609a5fcfdb8927763ffeccdc82d85a77c0d496c77d9941a3a869c04b96d9610d22b8c7c128498f8bfdb29339016b5baf98518d81736e9d31c73fa520fe979ef2"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    },
+    {
+     "type": "rfc-9116",
+     "url": "https://example.com/.well-known/security.txt"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "sensorhub-fw-3.1.0.bin"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "non-executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "structured"
+    },
+    {
+     "name": "build-id",
+     "value": "3.1.0+build.2026.11.26"
+    }
+   ]
+  }
+ },
+ "components": [
+  {
+   "type": "library",
+   "bom-ref": "busybox@1.33.1",
+   "name": "busybox",
+   "version": "1.33.1",
+   "supplier": {
+    "name": "BusyBox project",
+    "url": [
+     "https://busybox.net"
+    ]
+   },
+   "manufacturer": {
+    "name": "BusyBox project",
+    "url": [
+     "https://busybox.net"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "GPL-2.0-only",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "GPL-2.0-only",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "f27b99d90748927afedaddb9ba166f01daae0270a2d97f12f6cb7160e8aa56fe07f4237733f435b4d6873a8abeb7671cb37233262cd05f05dedf92f55e3e83d6"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "6489d8bb17e2e79f6b97410e845b88257f23f18cae7c19c492006e49b13b87a6"
+    }
+   ],
+   "purl": "pkg:generic/busybox@1.33.1?download_url=https://busybox.net/downloads/busybox-1.33.1.tar.bz2",
+   "cpe": "cpe:2.3:a:busybox:busybox:1.33.1:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/busybox",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "f27b99d90748927afedaddb9ba166f01daae0270a2d97f12f6cb7160e8aa56fe07f4237733f435b4d6873a8abeb7671cb37233262cd05f05dedf92f55e3e83d6"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "6489d8bb17e2e79f6b97410e845b88257f23f18cae7c19c492006e49b13b87a6"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://busybox.net/downloads/busybox-1.33.1.tar.bz2",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/mirror/busybox.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "03dade10fd8f900124694cd686004db34d728d39e0fecf3e6a772a27af6e0b4be79c3de8560d1713781b23a687b45ef324ec1186b8d1680f750672eb38b56f70"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "busybox"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/bin/busybox"
+    },
+    {
+     "name": "linkage",
+     "value": "statically linked executable"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "zlib@1.2.11",
+   "name": "zlib",
+   "version": "1.2.11",
+   "supplier": {
+    "name": "Jean-loup Gailly and Mark Adler",
+    "url": [
+     "https://zlib.net"
+    ]
+   },
+   "manufacturer": {
+    "name": "Jean-loup Gailly and Mark Adler",
+    "url": [
+     "https://zlib.net"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "Zlib",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "Zlib",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "c14286ba0e5a5163b49c68a2a0bf40e2bcead5f2a2afeb8485ed6089898d564f8ec4381cb7d826c1c9d75e0030697e418de2b6ae2327f6586ac6b2088f228f7e"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "41ebc223afff67658599001e239b17a162089feaae1fd8498861ece3838eb540"
+    }
+   ],
+   "purl": "pkg:conan/zlib@1.2.11",
+   "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/libz.so.1.2.11",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "c14286ba0e5a5163b49c68a2a0bf40e2bcead5f2a2afeb8485ed6089898d564f8ec4381cb7d826c1c9d75e0030697e418de2b6ae2327f6586ac6b2088f228f7e"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "41ebc223afff67658599001e239b17a162089feaae1fd8498861ece3838eb540"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/madler/zlib/archive/refs/tags/v1.2.11.tar.gz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/madler/zlib.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "ade214a827e4115033f584d0815e9ce4cee4901615eab4704986bb46887bb4559c62822a55e3fc9dd834029f9d01b822cab9ad0bc80fd3c767b150215019483b"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libz.so.1.2.11"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/lib/libz.so.1.2.11"
+    },
+    {
+     "name": "linkage",
+     "value": "shared library"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/madler/zlib@v1.2.11"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "openssl@1.1.1k",
+   "name": "openssl",
+   "version": "1.1.1k",
+   "supplier": {
+    "name": "OpenSSL Software Foundation",
+    "url": [
+     "https://www.openssl.org"
+    ]
+   },
+   "manufacturer": {
+    "name": "OpenSSL Software Foundation",
+    "url": [
+     "https://www.openssl.org"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "OpenSSL",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "OpenSSL",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "247b0b05f4d33bfaa6d3a19afe490888ea97d502ea86a3749a390abddc5e492c6a822a1470f910b65986a27bd5807c819317c3e1e315e1362f3fba977ac97d29"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "83947ca8d5cf2161c3e4378b6db90fe2d17f76cbd35d134fac25d7a895d3c921"
+    }
+   ],
+   "purl": "pkg:conan/openssl@1.1.1k",
+   "cpe": "cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/libcrypto.so.1.1",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "247b0b05f4d33bfaa6d3a19afe490888ea97d502ea86a3749a390abddc5e492c6a822a1470f910b65986a27bd5807c819317c3e1e315e1362f3fba977ac97d29"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "83947ca8d5cf2161c3e4378b6db90fe2d17f76cbd35d134fac25d7a895d3c921"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://www.openssl.org/source/old/1.1.1/openssl-1.1.1k.tar.gz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/openssl/openssl.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "762b0749c3971217736f4acfd108b8787c464b2b7224aeacd21ea357e5ab495d3d8a842e51e31a0df9b0c88180b46fc5d616c01c16c09ebce603b87458c5504f"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libcrypto.so.1.1"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/usr/lib/libcrypto.so.1.1"
+    },
+    {
+     "name": "linkage",
+     "value": "shared library (libcrypto, libssl)"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/usr/lib/libssl.so.1.1"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/openssl/openssl@OpenSSL_1_1_1k"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "glibc@2.39",
+   "name": "glibc",
+   "version": "2.39",
+   "supplier": {
+    "name": "GNU Project",
+    "url": [
+     "https://www.gnu.org/software/libc/"
+    ]
+   },
+   "manufacturer": {
+    "name": "GNU Project",
+    "url": [
+     "https://www.gnu.org/software/libc/"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "LGPL-2.1-or-later",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "LGPL-2.1-or-later",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "ac9dcd8d30f2d5cc01daa376c2f1ff50864911878d3d66bb912f74657d1ed907619a193f0a345210224c6d40f938a3b4bb7b53b52847bc24989a7727d3946230"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+    }
+   ],
+   "purl": "pkg:generic/glibc@2.39",
+   "cpe": "cpe:2.3:a:gnu:glibc:2.39:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/libc.so.6",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "ac9dcd8d30f2d5cc01daa376c2f1ff50864911878d3d66bb912f74657d1ed907619a193f0a345210224c6d40f938a3b4bb7b53b52847bc24989a7727d3946230"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "3a15d66867d83762c7f2f1e37359cb8f6c5743edb369c65285cb0b1c4f7498bf"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://ftp.gnu.org/gnu/libc/glibc-2.39.tar.xz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://sourceware.org/git/glibc.git"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libc.so.6"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/lib/libc.so.6"
+    },
+    {
+     "name": "linkage",
+     "value": "shared library (toolchain sysroot)"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/lib64/ld-linux-x86-64.so.2"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "cjson@1.7.10",
+   "name": "cjson",
+   "version": "1.7.10",
+   "supplier": {
+    "name": "Dave Gamble",
+    "url": [
+     "https://github.com/DaveGamble/cJSON"
+    ]
+   },
+   "manufacturer": {
+    "name": "Dave Gamble",
+    "url": [
+     "https://github.com/DaveGamble/cJSON"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "b0ecf7380e909ba35f75ff784f7531af3d78bd5db15f48f040cb8cd30889c4b265faa1da651a1a734b5b1bcc82569e472427d6bedaafa3d03e5427391b11eb25"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "cfff28199ad53734d25887e9ffa61d1748e39d110162aaad6a57a551b6aa53d5"
+    }
+   ],
+   "purl": "pkg:conan/cjson@1.7.10",
+   "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/sensord",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "b0ecf7380e909ba35f75ff784f7531af3d78bd5db15f48f040cb8cd30889c4b265faa1da651a1a734b5b1bcc82569e472427d6bedaafa3d03e5427391b11eb25"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "cfff28199ad53734d25887e9ffa61d1748e39d110162aaad6a57a551b6aa53d5"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/DaveGamble/cJSON/archive/refs/tags/v1.7.10.tar.gz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/DaveGamble/cJSON.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "e6c815a49ef52400eaf3a4fd263c3f617359d0f74a2847c9ca51c58b270ba58ca2053762b94c67ea14ee9f0e093ee8275b8036e444fc438b0c9995cb30a73fdd"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "sensord"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/usr/bin/sensord"
+    },
+    {
+     "name": "linkage",
+     "value": "statically linked into sensord (vendored cJSON.c)"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/davegamble/cjson@v1.7.10"
+    }
+   ]
+  },
+  {
+   "type": "library",
+   "bom-ref": "libexpat@2.4.1",
+   "name": "libexpat",
+   "version": "2.4.1",
+   "supplier": {
+    "name": "libexpat project",
+    "url": [
+     "https://libexpat.github.io"
+    ]
+   },
+   "manufacturer": {
+    "name": "libexpat project",
+    "url": [
+     "https://libexpat.github.io"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "id": "MIT",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "96fd6c6c24f7b8f6fca7e11d430c7f19ac7d6ff4aa203f4205bfa227afbaf004031952b0199a418c1161a6cbcdf919207470a880d3e73cd86af0ec8b2c5c64ef"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "b3eada1214e3d91ffdf01128baf0788d81c881521d73f153dc06eb5cbe0118b4"
+    }
+   ],
+   "purl": "pkg:conan/expat@2.4.1",
+   "cpe": "cpe:2.3:a:libexpat_project:libexpat:2.4.1:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/libexpat.a",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "96fd6c6c24f7b8f6fca7e11d430c7f19ac7d6ff4aa203f4205bfa227afbaf004031952b0199a418c1161a6cbcdf919207470a880d3e73cd86af0ec8b2c5c64ef"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "b3eada1214e3d91ffdf01128baf0788d81c881521d73f153dc06eb5cbe0118b4"
+      }
+     ]
+    },
+    {
+     "type": "source-distribution",
+     "url": "https://github.com/libexpat/libexpat/releases/download/R_2_4_1/expat-2.4.1.tar.xz",
+     "comment": "upstream source release"
+    },
+    {
+     "type": "vcs",
+     "url": "https://github.com/libexpat/libexpat.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "dd2d8c6a206cb0e50db1417ba0d339a535008ac1bc2ad09abe2476232cdf291711d38d52f3b40f22eb2853fbed043c6e05152fd6d8df2f4cdd25fcb7cd508b9f"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "libexpat.a"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/usr/bin/sensord"
+    },
+    {
+     "name": "linkage",
+     "value": "statically linked into sensord"
+    },
+    {
+     "name": "hash-subject",
+     "value": "build artifact libexpat.a linked into /usr/bin/sensord"
+    },
+    {
+     "name": "original-purl",
+     "value": "pkg:github/libexpat/libexpat@R_2_4_1"
+    }
+   ]
+  },
+  {
+   "type": "application",
+   "bom-ref": "sensord@3.1.0",
+   "name": "sensord",
+   "version": "3.1.0",
+   "supplier": {
+    "name": "Example Device Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "manufacturer": {
+    "name": "Example Device Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "name": "LicenseRef-Proprietary",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "name": "LicenseRef-Proprietary",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "b0ecf7380e909ba35f75ff784f7531af3d78bd5db15f48f040cb8cd30889c4b265faa1da651a1a734b5b1bcc82569e472427d6bedaafa3d03e5427391b11eb25"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "cfff28199ad53734d25887e9ffa61d1748e39d110162aaad6a57a551b6aa53d5"
+    }
+   ],
+   "purl": "pkg:generic/example/sensord@3.1.0",
+   "cpe": "cpe:2.3:a:example:sensord:3.1.0:*:*:*:*:*:*:*",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/sensord",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "b0ecf7380e909ba35f75ff784f7531af3d78bd5db15f48f040cb8cd30889c4b265faa1da651a1a734b5b1bcc82569e472427d6bedaafa3d03e5427391b11eb25"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "cfff28199ad53734d25887e9ffa61d1748e39d110162aaad6a57a551b6aa53d5"
+      }
+     ]
+    },
+    {
+     "type": "vcs",
+     "url": "https://git.example.com/devices/sensord.git",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "609a5fcfdb8927763ffeccdc82d85a77c0d496c77d9941a3a869c04b96d9610d22b8c7c128498f8bfdb29339016b5baf98518d81736e9d31c73fa520fe979ef2"
+      }
+     ],
+     "comment": "hash = SHA-512 over the checked-out source tree (sorted paths + contents, .git excluded)"
+    },
+    {
+     "type": "rfc-9116",
+     "url": "https://example.com/.well-known/security.txt"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "sensord"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "no archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "no structured"
+    },
+    {
+     "name": "path-in-image",
+     "value": "/usr/bin/sensord"
+    },
+    {
+     "name": "linkage",
+     "value": "application"
+    }
+   ]
+  },
+  {
+   "type": "operating-system",
+   "bom-ref": "sensoros@3.1",
+   "name": "sensoros",
+   "version": "3.1",
+   "supplier": {
+    "name": "Example Device Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "manufacturer": {
+    "name": "Example Device Team",
+    "url": [
+     "https://example.com/security"
+    ]
+   },
+   "licenses": [
+    {
+     "license": {
+      "name": "LicenseRef-Proprietary",
+      "acknowledgement": "declared"
+     }
+    },
+    {
+     "license": {
+      "name": "LicenseRef-Proprietary",
+      "acknowledgement": "concluded"
+     }
+    }
+   ],
+   "hashes": [
+    {
+     "alg": "SHA-512",
+     "content": "f2fe2c9120e787c5b2297b7f59dd1ecdcd4b94d72934031b2c1cd8620852c0692ba214df0ed779041dc0dad797dd9f466f5c55b12df3e4fe3c855dbc44db796e"
+    },
+    {
+     "alg": "SHA-256",
+     "content": "141cef5d6677e38c66d4315b95f8f8c770c7b5d8d1260eb51e04f87df411629d"
+    }
+   ],
+   "purl": "pkg:generic/example/sensoros@3.1",
+   "externalReferences": [
+    {
+     "type": "distribution",
+     "url": "https://artifacts.example.com/artifactory/releases/sensorhub-fw/3.1.0/rootfs.squashfs",
+     "hashes": [
+      {
+       "alg": "SHA-512",
+       "content": "f2fe2c9120e787c5b2297b7f59dd1ecdcd4b94d72934031b2c1cd8620852c0692ba214df0ed779041dc0dad797dd9f466f5c55b12df3e4fe3c855dbc44db796e"
+      },
+      {
+       "alg": "SHA-256",
+       "content": "141cef5d6677e38c66d4315b95f8f8c770c7b5d8d1260eb51e04f87df411629d"
+      }
+     ]
+    },
+    {
+     "type": "vcs",
+     "url": "https://git.example.com/devices/meta-sensoros.git"
+    }
+   ],
+   "properties": [
+    {
+     "name": "bsi:component:filename",
+     "value": "rootfs.squashfs"
+    },
+    {
+     "name": "bsi:component:executable",
+     "value": "non-executable"
+    },
+    {
+     "name": "bsi:component:archive",
+     "value": "archive"
+    },
+    {
+     "name": "bsi:component:structured",
+     "value": "structured"
+    }
+   ]
+  }
+ ],
+ "dependencies": [
+  {
+   "ref": "sensorhub-fw@3.1.0",
+   "dependsOn": [
+    "sensoros@3.1"
+   ]
+  },
+  {
+   "ref": "sensoros@3.1",
+   "dependsOn": [
+    "busybox@1.33.1",
+    "zlib@1.2.11",
+    "openssl@1.1.1k",
+    "glibc@2.39",
+    "cjson@1.7.10",
+    "libexpat@2.4.1",
+    "sensord@3.1.0"
+   ]
+  },
+  {
+   "ref": "busybox@1.33.1",
+   "dependsOn": []
+  },
+  {
+   "ref": "zlib@1.2.11",
+   "dependsOn": []
+  },
+  {
+   "ref": "openssl@1.1.1k",
+   "dependsOn": []
+  },
+  {
+   "ref": "glibc@2.39",
+   "dependsOn": []
+  },
+  {
+   "ref": "cjson@1.7.10",
+   "dependsOn": []
+  },
+  {
+   "ref": "libexpat@2.4.1",
+   "dependsOn": []
+  },
+  {
+   "ref": "sensord@3.1.0",
+   "dependsOn": [
+    "cjson@1.7.10",
+    "libexpat@2.4.1",
+    "zlib@1.2.11",
+    "openssl@1.1.1k",
+    "glibc@2.39"
+   ]
+  }
+ ],
+ "compositions": [
+  {
+   "aggregate": "complete",
+   "assemblies": [
+    "sensorhub-fw@3.1.0",
+    "busybox@1.33.1",
+    "zlib@1.2.11",
+    "openssl@1.1.1k",
+    "glibc@2.39",
+    "cjson@1.7.10",
+    "libexpat@2.4.1",
+    "sensord@3.1.0",
+    "sensoros@3.1"
+   ],
+   "dependencies": [
+    "sensorhub-fw@3.1.0",
+    "busybox@1.33.1",
+    "zlib@1.2.11",
+    "openssl@1.1.1k",
+    "glibc@2.39",
+    "cjson@1.7.10",
+    "libexpat@2.4.1",
+    "sensord@3.1.0",
+    "sensoros@3.1"
+   ]
+  }
+ ]
+}

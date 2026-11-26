@@ -1,0 +1,92 @@
+{
+  "_comment": "Ground truth: the third-party components really inside each sample product. Use it to score any tool's results.",
+  "products": {
+    "sensorhub-gateway 2.4.0 (CMake-only)": {
+      "sbom": "cmake-build-derived.cdx.json",
+      "components": [
+        {
+          "name": "libexpat",
+          "version": "2.4.1",
+          "purl": "pkg:github/libexpat/libexpat@R_2_4_1",
+          "cpe": "cpe:2.3:a:libexpat_project:libexpat:2.4.1:*:*:*:*:*:*:*",
+          "linkage": "CMake FetchContent"
+        },
+        {
+          "name": "fmt",
+          "version": "8.0.0",
+          "purl": "pkg:github/fmtlib/fmt@8.0.0",
+          "cpe": "cpe:2.3:a:fmt:fmt:8.0.0:*:*:*:*:*:*:*",
+          "linkage": "CMake FetchContent"
+        },
+        {
+          "name": "nlohmann-json",
+          "version": "3.9.1",
+          "purl": "pkg:github/nlohmann/json@v3.9.1",
+          "cpe": "cpe:2.3:a:json-for-modern-cpp_project:json-for-modern-cpp:3.9.1:*:*:*:*:*:*:*",
+          "linkage": "CMake FetchContent"
+        },
+        {
+          "name": "zlib",
+          "version": "1.2.11",
+          "purl": "pkg:github/madler/zlib@v1.2.11",
+          "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+          "linkage": "vendored (declared manifest)"
+        },
+        {
+          "name": "cjson",
+          "version": "1.7.10",
+          "purl": "pkg:github/davegamble/cjson@v1.7.10",
+          "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+          "linkage": "vendored (declared manifest)"
+        }
+      ]
+    },
+    "sensorhub-fw 3.1.0 (firmware)": {
+      "sbom": "fw-build-manifest.cdx.json",
+      "components": [
+        {
+          "name": "busybox",
+          "version": "1.33.1",
+          "purl": "pkg:generic/busybox@1.33.1?download_url=https://busybox.net/downloads/busybox-1.33.1.tar.bz2",
+          "cpe": "cpe:2.3:a:busybox:busybox:1.33.1:*:*:*:*:*:*:*",
+          "linkage": "statically linked executable"
+        },
+        {
+          "name": "zlib",
+          "version": "1.2.11",
+          "purl": "pkg:github/madler/zlib@v1.2.11",
+          "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+          "linkage": "shared library"
+        },
+        {
+          "name": "openssl",
+          "version": "1.1.1k",
+          "purl": "pkg:github/openssl/openssl@OpenSSL_1_1_1k",
+          "cpe": "cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*",
+          "linkage": "shared library (libcrypto, libssl)"
+        },
+        {
+          "name": "glibc",
+          "version": "2.39",
+          "purl": "pkg:generic/glibc@2.39",
+          "cpe": "cpe:2.3:a:gnu:glibc:2.39:*:*:*:*:*:*:*",
+          "linkage": "shared library (toolchain sysroot)"
+        },
+        {
+          "name": "cjson",
+          "version": "1.7.10",
+          "purl": "pkg:github/davegamble/cjson@v1.7.10",
+          "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+          "linkage": "statically linked into sensord (vendored cJSON.c)"
+        },
+        {
+          "name": "libexpat",
+          "version": "2.4.1",
+          "purl": "pkg:github/libexpat/libexpat@R_2_4_1",
+          "cpe": "cpe:2.3:a:libexpat_project:libexpat:2.4.1:*:*:*:*:*:*:*",
+          "linkage": "statically linked into sensord"
+        }
+      ]
+    }
+  }
+}
