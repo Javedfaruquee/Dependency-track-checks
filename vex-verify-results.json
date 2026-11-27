@@ -1,0 +1,250 @@
+﻿{
+    "run":  "2026-11-27T07:15:05",
+    "dt":  "5.2.1",
+    "projectVersion":  "20261127-071430",
+    "ciPermissions":  [
+                          "BOM_UPLOAD",
+                          "PROJECT_CREATION_UPLOAD",
+                          "VIEW_PORTFOLIO",
+                          "VIEW_VULNERABILITY",
+                          "VULNERABILITY_ANALYSIS_UPDATE"
+                      ],
+    "result":  "PASS",
+    "checks":  [
+                   {
+                       "check":  "tool report: CVE-2022-37434",
+                       "expected":  "APPLIED",
+                       "got":  "APPLIED",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "tool report: CVE-2019-11834",
+                       "expected":  "APPLIED",
+                       "got":  "APPLIED",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "tool report: CVE-2021-3711",
+                       "expected":  "APPLIED",
+                       "got":  "APPLIED",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "tool report: CVE-2021-44228",
+                       "expected":  "STORED",
+                       "got":  "STORED",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "tool report: CVE-2099-99999",
+                       "expected":  "PENDING_UNKNOWN_VULN",
+                       "got":  "PENDING_UNKNOWN_VULN",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "tool exit code",
+                       "expected":  0,
+                       "got":  0,
+                       "ok":  true
+                   },
+                   {
+                       "check":  "DT findings: CVE-2022-37434 on zlib",
+                       "expected":  "RESOLVED, suppressed True",
+                       "got":  "RESOLVED, suppressed True",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "DT findings: CVE-2019-11834 on cjson",
+                       "expected":  "NOT_AFFECTED, suppressed True",
+                       "got":  "NOT_AFFECTED, suppressed True",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "DT findings: CVE-2021-3711 on openssl",
+                       "expected":  "IN_TRIAGE, suppressed False",
+                       "got":  "IN_TRIAGE, suppressed False",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "race (old way) lost statements",
+                       "expected":  "at least 1 of 4",
+                       "got":  4,
+                       "ok":  true
+                   }
+               ],
+    "fixReport":  {
+                      "tool":  "dt-vex-upload.py 1.0",
+                      "vex":  "gap1.vex.cdx.json",
+                      "statements":  5,
+                      "steps":  [
+                                    "BOM upload and analysis finished: COMPLETED",
+                                    "VEX import finished: COMPLETED"
+                                ],
+                      "results":  [
+                                      {
+                                          "vulnId":  "CVE-2022-37434",
+                                          "source":  "NVD",
+                                          "ref":  "zlib@1.2.11",
+                                          "expectedState":  "RESOLVED",
+                                          "vexComponent":  "pkg:github/madler/zlib@v1.2.11",
+                                          "componentUuid":  "53021d09-aaa6-434a-abe8-c0894410b38d",
+                                          "componentName":  "zlib@1.2.11",
+                                          "gotState":  "RESOLVED",
+                                          "suppressed":  true,
+                                          "result":  "APPLIED"
+                                      },
+                                      {
+                                          "vulnId":  "CVE-2019-11834",
+                                          "source":  "NVD",
+                                          "ref":  "cjson@1.7.10",
+                                          "expectedState":  "NOT_AFFECTED",
+                                          "vexComponent":  "pkg:github/davegamble/cjson@v1.7.10",
+                                          "componentUuid":  "79af284d-05cb-4ccb-9296-0fb7a1345153",
+                                          "componentName":  "cjson@1.7.10",
+                                          "gotState":  "NOT_AFFECTED",
+                                          "suppressed":  true,
+                                          "result":  "APPLIED"
+                                      },
+                                      {
+                                          "vulnId":  "CVE-2021-3711",
+                                          "source":  "NVD",
+                                          "ref":  "openssl@1.1.1k",
+                                          "expectedState":  "IN_TRIAGE",
+                                          "vexComponent":  "pkg:github/openssl/openssl@OpenSSL_1_1_1k",
+                                          "componentUuid":  "d8574182-4571-4f69-8b02-e96933304150",
+                                          "componentName":  "openssl@1.1.1k",
+                                          "gotState":  "IN_TRIAGE",
+                                          "suppressed":  false,
+                                          "result":  "APPLIED"
+                                      },
+                                      {
+                                          "vulnId":  "CVE-2021-44228",
+                                          "source":  "NVD",
+                                          "ref":  "zlib@1.2.11",
+                                          "expectedState":  "NOT_AFFECTED",
+                                          "vexComponent":  "pkg:github/madler/zlib@v1.2.11",
+                                          "componentUuid":  "53021d09-aaa6-434a-abe8-c0894410b38d",
+                                          "componentName":  "zlib@1.2.11",
+                                          "gotState":  "NOT_AFFECTED",
+                                          "suppressed":  true,
+                                          "result":  "STORED"
+                                      },
+                                      {
+                                          "vulnId":  "CVE-2099-99999",
+                                          "source":  "NVD",
+                                          "ref":  "zlib@1.2.11",
+                                          "expectedState":  "RESOLVED",
+                                          "vexComponent":  "pkg:github/madler/zlib@v1.2.11",
+                                          "result":  "PENDING_UNKNOWN_VULN"
+                                      }
+                                  ],
+                      "project":  "fcad431a-1dae-47b0-a1f6-857afefb0a82",
+                      "findingsBefore":  181,
+                      "counts":  {
+                                     "APPLIED":  3,
+                                     "STORED":  1,
+                                     "PENDING_UNKNOWN_VULN":  1
+                                 },
+                      "result":  "PENDING"
+                  },
+    "race":  {
+                 "note":  "VEX sent straight after the BOM, the old way",
+                 "toolExit":  1,
+                 "statementsNotApplied":  4,
+                 "report":  {
+                                "tool":  "dt-vex-upload.py 1.0",
+                                "vex":  "gap1.vex.cdx.json",
+                                "statements":  5,
+                                "steps":  [
+
+                                          ],
+                                "results":  [
+                                                {
+                                                    "vulnId":  "CVE-2022-37434",
+                                                    "source":  "NVD",
+                                                    "ref":  "zlib@1.2.11",
+                                                    "expectedState":  "RESOLVED",
+                                                    "vexComponent":  "pkg:github/madler/zlib@v1.2.11",
+                                                    "componentUuid":  "16bb1740-1153-4aa9-9b81-050101735993",
+                                                    "componentName":  "zlib@1.2.11",
+                                                    "gotState":  null,
+                                                    "suppressed":  false,
+                                                    "result":  "NOT_APPLIED",
+                                                    "differences":  [
+                                                                        "state None",
+                                                                        "suppressed False",
+                                                                        "response None",
+                                                                        "details None"
+                                                                    ]
+                                                },
+                                                {
+                                                    "vulnId":  "CVE-2019-11834",
+                                                    "source":  "NVD",
+                                                    "ref":  "cjson@1.7.10",
+                                                    "expectedState":  "NOT_AFFECTED",
+                                                    "vexComponent":  "pkg:github/davegamble/cjson@v1.7.10",
+                                                    "componentUuid":  "e35a08b4-e3fc-4888-9bc8-16e24d7859d4",
+                                                    "componentName":  "cjson@1.7.10",
+                                                    "gotState":  null,
+                                                    "suppressed":  false,
+                                                    "result":  "NOT_APPLIED",
+                                                    "differences":  [
+                                                                        "state None",
+                                                                        "suppressed False",
+                                                                        "justification None",
+                                                                        "details None"
+                                                                    ]
+                                                },
+                                                {
+                                                    "vulnId":  "CVE-2021-3711",
+                                                    "source":  "NVD",
+                                                    "ref":  "openssl@1.1.1k",
+                                                    "expectedState":  "IN_TRIAGE",
+                                                    "vexComponent":  "pkg:github/openssl/openssl@OpenSSL_1_1_1k",
+                                                    "componentUuid":  "c0c78d26-ecf6-4120-b38a-599b87476b34",
+                                                    "componentName":  "openssl@1.1.1k",
+                                                    "gotState":  null,
+                                                    "suppressed":  false,
+                                                    "result":  "NOT_APPLIED",
+                                                    "differences":  [
+                                                                        "state None",
+                                                                        "details None"
+                                                                    ]
+                                                },
+                                                {
+                                                    "vulnId":  "CVE-2021-44228",
+                                                    "source":  "NVD",
+                                                    "ref":  "zlib@1.2.11",
+                                                    "expectedState":  "NOT_AFFECTED",
+                                                    "vexComponent":  "pkg:github/madler/zlib@v1.2.11",
+                                                    "componentUuid":  "16bb1740-1153-4aa9-9b81-050101735993",
+                                                    "componentName":  "zlib@1.2.11",
+                                                    "gotState":  null,
+                                                    "suppressed":  false,
+                                                    "result":  "NOT_APPLIED",
+                                                    "differences":  [
+                                                                        "state None",
+                                                                        "suppressed False",
+                                                                        "justification None",
+                                                                        "details None"
+                                                                    ]
+                                                },
+                                                {
+                                                    "vulnId":  "CVE-2099-99999",
+                                                    "source":  "NVD",
+                                                    "ref":  "zlib@1.2.11",
+                                                    "expectedState":  "RESOLVED",
+                                                    "vexComponent":  "pkg:github/madler/zlib@v1.2.11",
+                                                    "result":  "PENDING_UNKNOWN_VULN"
+                                                }
+                                            ],
+                                "project":  "d40563a7-a489-4bc1-be50-471c43aacdd8",
+                                "findingsBefore":  181,
+                                "counts":  {
+                                               "NOT_APPLIED":  4,
+                                               "PENDING_UNKNOWN_VULN":  1
+                                           },
+                                "result":  "FAIL"
+                            }
+             }
+}

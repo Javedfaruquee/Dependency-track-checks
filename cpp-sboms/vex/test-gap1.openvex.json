@@ -1,0 +1,21 @@
+{
+  "@context": "https://openvex.dev/ns/v0.2.0",
+  "@id": "https://example.com/vex/TEST-gap1-sensorhub-fw-3.1.0",
+  "author": "TEST fixture for dt-vex-upload (not a real assessment)",
+  "timestamp": "2026-11-26T20:00:00Z",
+  "version": 1,
+  "statements": [
+    {"vulnerability": {"name": "CVE-2022-37434"}, "products": [{"@id": "pkg:github/madler/zlib@v1.2.11"}],
+     "status": "fixed", "status_notes": "TEST: expect APPLIED (DT has this finding; state RESOLVED, suppressed)"},
+    {"vulnerability": {"name": "CVE-2019-11834"}, "products": [{"@id": "pkg:github/davegamble/cjson@v1.7.10"}],
+     "status": "not_affected", "justification": "vulnerable_code_not_in_execute_path",
+     "impact_statement": "TEST: expect APPLIED (DT has this finding; state NOT_AFFECTED, suppressed)"},
+    {"vulnerability": {"name": "CVE-2021-3711"}, "products": [{"@id": "pkg:github/openssl/openssl@OpenSSL_1_1_1k"}],
+     "status": "under_investigation", "status_notes": "TEST: expect APPLIED (state IN_TRIAGE, not suppressed)"},
+    {"vulnerability": {"name": "CVE-2021-44228"}, "products": [{"@id": "pkg:github/madler/zlib@v1.2.11"}],
+     "status": "not_affected", "justification": "component_not_present",
+     "impact_statement": "TEST: expect STORED (DT knows the CVE but zlib has no such finding; DT keeps the analysis for later)"},
+    {"vulnerability": {"name": "CVE-2099-99999"}, "products": [{"@id": "pkg:github/madler/zlib@v1.2.11"}],
+     "status": "fixed", "status_notes": "TEST: expect PENDING_UNKNOWN_VULN (no such CVE in DT)"}
+  ]
+}

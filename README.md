@@ -30,6 +30,7 @@ Tokens live in `.env` (not committed): `TRIVY_TOKEN`, `VULNCHECK_TOKEN`. The scr
 | `cpp-sboms-dt-test.cmd` | The eight CMake-only C++ and firmware SBOMs from `cpp-sboms/`, plus two variants with ConanCenter identifiers | `cpp-sboms-dt-results.json`, `cpp-sboms/dt-exports/`, `cpp-sboms-dt-log.txt` |
 | `nvdpp-v2-verify.cmd` | NVD feed adapter version 2 on the stack: all feeds rebuilt, NVD mirror, findings for the `cpp-sbom-*` projects | `nvdpp-v2-verify-results.json`, `nvdpp-alias-suggestions.json` |
 | `sonar-sbom-test.cmd` | SonarQube staging: imports three sample SBOMs with `sonar.sca.sbomImportPaths` (asks for a Sonar token, hidden) | `sonar-sca-test/` (not in git: internal server data) |
+| `vex-verify.cmd` | Gap 1, VEX upload on DT 5.2.1: reproduces the lost-VEX race, runs `cpp-sboms/ci/dt-vex-upload.py` with a least-privilege CI key, checks DT's findings independently; commits and pushes only on PASS | `vex-verify-results.json` |
 
 Test SBOMs are in `sboms/`.
 

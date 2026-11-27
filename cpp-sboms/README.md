@@ -53,7 +53,7 @@ The coverage check is there because of one result. When OpenSSL was removed from
 ## Other converters
 
 - `generators/vcpkg-spdx-to-cdx.py`: vcpkg's per-port SPDX files to one CycloneDX 1.6 SBOM, because Dependency-Track accepts only CycloneDX. It keeps one component per port, with `pkg:conan` identifier, CPE, licence and source SHA-512. Generic converters lose either the package URL or the hashes.
-- `generators/openvex-to-cdx-vex.py`: OpenVEX (for example from Yocto's `sbom-cve-check --export-type openvex`) to a CycloneDX VEX for Dependency-Track's `PUT /api/v1/vex`. `vex/` has a worked example; its statuses are examples, not an assessment.
+- `generators/openvex-to-cdx-vex.py`: OpenVEX (for example from Yocto's `sbom-cve-check --export-type openvex`) to a CycloneDX VEX for Dependency-Track's `PUT /api/v1/vex`. `vex/` has a worked example; its statuses are examples, not an assessment. Upload the result with `ci/dt-vex-upload.py`, which waits for DT's analysis and checks every statement (see `ci/README.md`); DT 5.2.1 silently drops a VEX that arrives before the analysis.
 
 ## Comparing SBOM managers
 
