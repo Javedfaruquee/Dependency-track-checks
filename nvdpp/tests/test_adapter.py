@@ -3,8 +3,16 @@
 Dependency-Track 5.2.1's NVD mirroring rules (vuln-data-source/nvd: per-feed sha256 skip,
 global watermark, per-CVE lastModified skip, newest year first, "modified" last), and the
 restart and NIST-update cases where adapter version 1 lost VulnCheck CPEs.
+DT 5.2.2 adds one rule (NvdVulnDataSource, MODIFIED_FEED_COVERAGE): while the watermark is less
+than 6 days old it skips the yearly feeds and reads only "modified" (and keeps the watermark when
+the oldest CVE in "modified" is newer than it). The 5.2.2 scenario checks that VulnCheck CPEs added
+to an old CVE still reach DT (adapter 2.1 put them only into the CVE's yearly feed).
 
-usage: test_adapter.py <adapter.py> [--v1 <old adapter.py>]
+Also: a drop-guarded yearly feed that is accepted later (its rewrite must not come back below DT's
+watermark), a rewrite older than a day when DT mirrors (the 8-day window), and where "modified" finds
+the yearly copy (pre-2002 IDs, the feed kept in assigned.json). With --v21: the upgrade from 2.1.
+
+usage: test_adapter.py <adapter.py> [--v1 <old adapter.py>] [--v21 <adapter 2.1>]
 """
 import datetime as dt, gzip, hashlib, json, os, shutil, socket, subprocess, sys, tempfile, threading, time, urllib.request
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -64,8 +72,10 @@ class Nist:
 
 
 class DT:
-    """Dependency-Track 5.2.1 NVD mirroring rules (see NvdVulnDataSource / WatermarkManager)."""
-    def __init__(self, url): self.url = url; self.W = None; self.dig = {}; self.db = {}; self.ingested = 0; self.error = None
+    """Dependency-Track 5.2.1 NVD mirroring rules (see NvdVulnDataSource / WatermarkManager); v522: 5.2.2's."""
+    def __init__(self, url, v522=False):
+        self.url = url; self.W = None; self.dig = {}; self.db = {}; self.ingested = 0; self.error = None
+        self.v522 = v522; self.skipped_years = False; self.kept_watermark = False
 
     @staticmethod
     def inst(s):
@@ -74,7 +84,12 @@ class DT:
 
     def sync(self):
         pending, consumed, ok, n = None, [], True, 0
+        # 5.2.2: skipYearFeeds is decided once, from the watermark, when the mirror run starts
+        skip_years = self.v522 and self.W is not None and self.W > dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=6)
+        self.skipped_years, oldest_mod = skip_years, None
         for name in [str(y) for y in YEARS] + ["modified"]:
+            if skip_years and name != "modified":
+                continue
             try:
                 meta = urllib.request.urlopen(f"{self.url}/json/cve/2.0/nvdcve-2.0-{name}.meta", timeout=30).read().decode()
             except Exception as e:
@@ -86,12 +101,15 @@ class DT:
             data = json.loads(gzip.decompress(urllib.request.urlopen(f"{self.url}/json/cve/2.0/nvdcve-2.0-{name}.json.gz", timeout=60).read()))
             for it in data["vulnerabilities"]:
                 lm = self.inst(it["cve"]["lastModified"])
+                if name == "modified" and (oldest_mod is None or lm < oldest_mod): oldest_mod = lm
                 if self.W is not None and not self.W < lm: continue
                 self.db[it["cve"]["id"]] = it["cve"]; n += 1
                 if pending is None or lm > pending: pending = lm
             consumed.append((name, sha))
         for name, sha in consumed: self.dig[name] = sha
-        if ok and pending and (self.W is None or pending > self.W): self.W = pending
+        # 5.2.2 hasModifiedFeedCoverageGap: years skipped, but "modified" does not reach back to the watermark
+        self.kept_watermark = bool(skip_years and oldest_mod is not None and oldest_mod > self.W)
+        if ok and pending and not self.kept_watermark and (self.W is None or pending > self.W): self.W = pending
         self.ingested += n
         return ok, n
 
@@ -196,6 +214,176 @@ def scenario(script, label, use_aliases):
     return res
 
 
+def scenario_522(script, label):
+    """DT 5.2.2 reads only "modified" while its watermark is under 6 days old: VulnCheck CPEs for an old CVE
+    (one that is in no recent NIST change) must still reach it."""
+    tmp = tempfile.mkdtemp(prefix=f"nvdpp522-{label}-")
+    nist = Nist(os.path.join(tmp, "nist")); cache = os.path.join(tmp, "cache"); os.makedirs(cache)
+    now = dt.datetime.now(dt.timezone.utc)
+    ago = lambda d: (now - dt.timedelta(days=d)).strftime("%Y-%m-%dT%H:%M:%S.000")
+    nist.put(cve("CVE-2021-3000", "2023-03-01T10:00:00.000"), modified=False)   # old, NIST left it without CPEs
+    nist.put(cve("CVE-2026-2100", ago(7), [("cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*", {})]))   # the oldest recent change
+    nist.put(cve("CVE-2026-2200", ago(1), [("cpe:2.3:a:openssl:openssl:3.0.0:*:*:*:*:*:*:*", {})]))
+    nist.publish(); nist_url = nist.serve()
+    seed_vulncheck(cache, [])   # no VulnCheck data yet
+    res = {}
+    a = Adapter(script, cache, nist_url).start(); d = DT(a.url, v522=True)
+    ok, n = d.sync()
+    res["6 DT 5.2.2, first mirror (no watermark): reads every feed"] = ok and not d.skipped_years and {"CVE-2021-3000", "CVE-2026-2100", "CVE-2026-2200"} <= set(d.db)
+    # VulnCheck now has CPEs for the old CVE; the adapter rebuilds (its hourly refresh)
+    seed_vulncheck(cache, [cve("CVE-2021-3000", "2023-03-01T10:00:00.000", [("cpe:2.3:a:zlib:zlib:*:*:*:*:*:*:*:*", {"versionEndIncluding": "1.2.11"})])["cve"]])
+    a.rebuild()
+    res["7 the adapter copied 1 rewritten old CVE into modified (/stats)"] = (a.stats().get("feeds", {}).get("modified") or {}).get("recent_rewrites") == 1
+    ok, n = d.sync()
+    res["7 next mirror skips the yearly feeds (watermark under 6 days)"] = ok and d.skipped_years
+    res["7 ... zlib 1.2.11 matches CVE-2021-3000 (VulnCheck CPE for an old CVE)"] = "CVE-2021-3000" in d.matches("zlib", "zlib", "1.2.11")
+    res["7 ... watermark committed (no coverage gap)"] = not d.kept_watermark
+    a.stop(); a.start()
+    ok, n = d.sync()
+    res["8 restart, nothing changed: CVEs ingested"] = n
+    res["8 ... zlib still matches CVE-2021-3000"] = "CVE-2021-3000" in d.matches("zlib", "zlib", "1.2.11")
+    a.stop()
+    shutil.rmtree(tmp, ignore_errors=True)
+    return res
+
+
+ZLIB = [("cpe:2.3:a:zlib:zlib:*:*:*:*:*:*:*:*", {"versionEndIncluding": "1.2.11"})]
+
+
+def ago_ts(d):
+    return (dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=d)).strftime("%Y-%m-%dT%H:%M:%S.000")
+
+
+def post_rebuild(a, q):
+    req = urllib.request.Request(f"http://127.0.0.1:{a.port}/rebuild?{q}&wait=1", data=b"", method="POST", headers={"X-NVDPP-Rebuild": "1"})
+    urllib.request.urlopen(req, timeout=120).read()
+
+
+def scenario_guard(script, v522):
+    """A NIST yearly file shrinks (drop guard) in the pass that enriches one of its CVEs; DT mirrors other changes;
+    then the drop is accepted. The rewrite was issued but never served: it must get a fresh value above DT's watermark."""
+    tmp = tempfile.mkdtemp(prefix="nvdpp-guard-")
+    nist = Nist(os.path.join(tmp, "nist")); cache = os.path.join(tmp, "cache"); os.makedirs(cache)
+    for i in range(100):
+        nist.put(cve(f"CVE-2021-{i:04d}", "2022-01-01T00:00:00.000", [("cpe:2.3:a:x:y%d:1:*:*:*:*:*:*:*" % i, {})]), modified=False)
+    nist.put(cve("CVE-2021-3000", "2023-03-01T10:00:00.000"), modified=False)
+    nist.put(cve("CVE-2026-2100", ago_ts(7), [("cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*", {})]))
+    nist.put(cve("CVE-2026-2200", ago_ts(3), [("cpe:2.3:a:openssl:openssl:3.0.0:*:*:*:*:*:*:*", {})]))
+    nist.publish(); url = nist.serve(); seed_vulncheck(cache, [])
+    a = Adapter(script, cache, url).start(); d = DT(a.url, v522=v522); d.sync()
+    for i in range(50):
+        del nist.cves[f"CVE-2021-{i:04d}"]
+    nist.publish()
+    seed_vulncheck(cache, [cve("CVE-2021-3000", "2023-03-01T10:00:00.000", ZLIB)["cve"]])
+    a.rebuild()                                   # 2021 held back by the drop guard
+    nist.put(cve("CVE-2026-2300", ago_ts(1), [("cpe:2.3:a:openssl:openssl:3.0.1:*:*:*:*:*:*:*", {})])); nist.publish()
+    a.rebuild(); d.sync()                         # DT's watermark moves on
+    post_rebuild(a, "accept_feed_drop=1")
+    d.sync()
+    got = "CVE-2021-3000" in d.matches("zlib", "zlib", "1.2.11")
+    a.stop(); shutil.rmtree(tmp, ignore_errors=True)
+    return got
+
+
+def scenario_window(script):
+    """An old CVE is rewritten; NIST publishes on 3 more days and the adapter rebuilds each time; then DT 5.2.2 mirrors."""
+    tmp = tempfile.mkdtemp(prefix="nvdpp-window-")
+    nist = Nist(os.path.join(tmp, "nist")); cache = os.path.join(tmp, "cache"); os.makedirs(cache)
+    nist.put(cve("CVE-2021-3000", "2023-03-01T10:00:00.000"), modified=False)
+    nist.put(cve("CVE-2026-2100", ago_ts(7.5), [("cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*", {})]))
+    nist.put(cve("CVE-2026-2200", ago_ts(5), [("cpe:2.3:a:openssl:openssl:3.0.0:*:*:*:*:*:*:*", {})]))
+    nist.publish(); url = nist.serve(); seed_vulncheck(cache, [])
+    a = Adapter(script, cache, url).start(); d = DT(a.url, v522=True); d.sync()
+    seed_vulncheck(cache, [cve("CVE-2021-3000", "2023-03-01T10:00:00.000", ZLIB)["cve"]]); a.rebuild()
+    for k, day in enumerate((4, 3, 2)):
+        nist.put(cve(f"CVE-2026-23{k}0", ago_ts(day), [("cpe:2.3:a:openssl:openssl:3.0.%d:*:*:*:*:*:*:*" % (k + 2), {})])); nist.publish(); a.rebuild()
+    d.sync()
+    got = d.skipped_years and "CVE-2021-3000" in d.matches("zlib", "zlib", "1.2.11")
+    a.stop(); shutil.rmtree(tmp, ignore_errors=True)
+    return got
+
+
+def scenario_outside_window(script):
+    """A rewrite made when NIST's newest change was 20 days old; NIST then publishes today. The old rewrite is
+    outside the window: "modified" does not carry it (DT already read it from its yearly feed, and copying every
+    rewrite forever would make "modified" as big as all of them)."""
+    tmp = tempfile.mkdtemp(prefix="nvdpp-outside-")
+    nist = Nist(os.path.join(tmp, "nist")); cache = os.path.join(tmp, "cache"); os.makedirs(cache)
+    nist.put(cve("CVE-2021-3000", "2023-03-01T10:00:00.000"), modified=False)
+    nist.put(cve("CVE-2026-2100", ago_ts(20), [("cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*", {})]))
+    nist.publish(); url = nist.serve()
+    seed_vulncheck(cache, [cve("CVE-2021-3000", "2023-03-01T10:00:00.000", ZLIB)["cve"]])
+    a = Adapter(script, cache, url).start(); d = DT(a.url); d.sync()
+    first = (a.stats().get("feeds", {}).get("modified") or {}).get("recent_rewrites")
+    nist.put(cve("CVE-2026-2200", ago_ts(0.1), [("cpe:2.3:a:openssl:openssl:3.0.0:*:*:*:*:*:*:*", {})])); nist.publish(); a.rebuild()
+    later = (a.stats().get("feeds", {}).get("modified") or {}).get("recent_rewrites")
+    got = d.matches("zlib", "zlib", "1.2.11") == {"CVE-2021-3000"} and first == 1 and later == 0
+    a.stop(); shutil.rmtree(tmp, ignore_errors=True)
+    return got if got else f"no (copied {first}, then {later})"
+
+
+def scenario_late_nist(script):
+    """NIST publishes its feed files after the fact: a change made 12 hours ago can appear only now. A rewrite
+    in between must not lift DT's watermark above NIST's newest change, or DT skips that late change."""
+    tmp = tempfile.mkdtemp(prefix="nvdpp-late-")
+    nist = Nist(os.path.join(tmp, "nist")); cache = os.path.join(tmp, "cache"); os.makedirs(cache)
+    nist.put(cve("CVE-2021-3001", "2023-03-01T10:00:00.000"), modified=False)
+    nist.put(cve("CVE-2026-2100", ago_ts(1), [("cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*", {})]))
+    nist.publish(); url = nist.serve(); seed_vulncheck(cache, [])
+    a = Adapter(script, cache, url).start(); d = DT(a.url); d.sync()
+    seed_vulncheck(cache, [cve("CVE-2021-3001", "2023-03-01T10:00:00.000", ZLIB)["cve"]]); a.rebuild(); d.sync()
+    nist.put(cve("CVE-2026-2400", ago_ts(0.5), [("cpe:2.3:a:openssl:openssl:3.0.2:*:*:*:*:*:*:*", {})])); nist.publish()
+    a.rebuild(); d.sync()
+    got = "CVE-2026-2400" in d.db and "CVE-2021-3001" in d.matches("zlib", "zlib", "1.2.11")
+    a.stop(); shutil.rmtree(tmp, ignore_errors=True)
+    return got if got else f"no (watermark {d.W})"
+
+
+def unit_copy_lookup(script):
+    """iter_from_yearly: a pre-2002 ID is in the 2002 feed; a CVE whose feed assigned.json names is found there."""
+    import importlib.util
+    tmp = tempfile.mkdtemp(prefix="nvdpp-unit-")
+    old = os.environ.get("CACHE_DIR"); os.environ["CACHE_DIR"] = tmp
+    try:
+        spec = importlib.util.spec_from_file_location("adapter_unit", script); ad = importlib.util.module_from_spec(spec); spec.loader.exec_module(ad)
+    finally:
+        if old is None: os.environ.pop("CACHE_DIR", None)
+        else: os.environ["CACHE_DIR"] = old
+    os.makedirs(ad.FEEDS_DIR, exist_ok=True)
+    for y, ids in (("2002", ["CVE-1999-0001", "CVE-2002-0002"]), ("2019", ["CVE-2020-0009"]), ("2020", [])):
+        with gzip.open(os.path.join(ad.FEEDS_DIR, f"{y}.json.gz"), "wt") as f:
+            f.write(json.dumps({"format": "NVD_CVE", "vulnerabilities": [{"cve": {"id": c, "lastModified": "2026-11-26T00:00:00.000"}} for c in ids]}))
+    years = [str(y) for y in range(2026, 2001, -1)]
+    try:
+        got = {it["cve"]["id"] for it in ad.iter_from_yearly({"CVE-1999-0001", "CVE-2020-0009"}, years, {"CVE-2020-0009": "2019"})}
+    except TypeError:   # an adapter without the feed_of argument
+        got = {it["cve"]["id"] for it in ad.iter_from_yearly({"CVE-1999-0001", "CVE-2020-0009"}, years)}
+    shutil.rmtree(tmp, ignore_errors=True)
+    return got == {"CVE-1999-0001", "CVE-2020-0009"}
+
+
+def scenario_upgrade(v21, v22):
+    """Adapter 2.1 with DT 5.2.1, VulnCheck enriches an old CVE, then adapter 2.2 and DT 5.2.2 together:
+    only "modified" is rebuilt, and DT 5.2.2 gets the CPE."""
+    tmp = tempfile.mkdtemp(prefix="nvdpp-upgrade-")
+    nist = Nist(os.path.join(tmp, "nist")); cache = os.path.join(tmp, "cache"); os.makedirs(cache)
+    nist.put(cve("CVE-2021-3000", "2023-03-01T10:00:00.000"), modified=False)
+    nist.put(cve("CVE-2026-2100", ago_ts(7), [("cpe:2.3:a:openssl:openssl:1.1.1k:*:*:*:*:*:*:*", {})]))
+    nist.put(cve("CVE-2026-2200", ago_ts(3), [("cpe:2.3:a:openssl:openssl:3.0.0:*:*:*:*:*:*:*", {})]))
+    nist.publish(); url = nist.serve(); seed_vulncheck(cache, [])
+    a = Adapter(v21, cache, url).start(); d = DT(a.url); d.sync()
+    seed_vulncheck(cache, [cve("CVE-2021-3000", "2023-03-01T10:00:00.000", ZLIB)["cve"]]); a.rebuild()
+    nist.put(cve("CVE-2026-2300", ago_ts(2), [("cpe:2.3:a:openssl:openssl:3.0.1:*:*:*:*:*:*:*", {})])); nist.publish(); a.rebuild()
+    s1 = json.load(open(os.path.join(cache, "feeds", "state.json")))
+    a.stop(); a = Adapter(v22, cache, url, port=a.port).start()
+    s2 = json.load(open(os.path.join(cache, "feeds", "state.json")))
+    rebuilt = sorted(n for n in s2 if s1.get(n, {}).get("built_at") != s2[n].get("built_at"))
+    d.v522 = True; d.sync()
+    got = rebuilt == ["modified"] and d.skipped_years and "CVE-2021-3000" in d.matches("zlib", "zlib", "1.2.11")
+    a.stop(); shutil.rmtree(tmp, ignore_errors=True)
+    return got if got else f"no (rebuilt {rebuilt})"
+
+
 if __name__ == "__main__":
     v2 = sys.argv[1]
     runs = [("v2", v2, True)]
@@ -203,6 +391,15 @@ if __name__ == "__main__":
     allres = {}
     for label, script, al in runs:
         allres[label] = scenario(script, label, al)
+        allres[label].update(scenario_522(script, label))
+        allres[label]["9 drop guard accepted later (DT 5.2.1): zlib matches CVE-2021-3000"] = scenario_guard(script, False)
+        allres[label]["9 ... the same with DT 5.2.2"] = scenario_guard(script, True)
+        allres[label]["10 rewrite 3 days before DT 5.2.2 mirrors: zlib matches CVE-2021-3000"] = scenario_window(script)
+        allres[label]["11 copy lookup: CVE-1999 in the 2002 feed, feed from assigned.json"] = unit_copy_lookup(script)
+        allres[label]["13 a rewrite older than the window is no longer copied"] = scenario_outside_window(script)
+        allres[label]["14 a NIST change published late still reaches DT after a rewrite"] = scenario_late_nist(script)
+        if "--v21" in sys.argv and label == "v2":
+            allres[label]["12 upgrade 2.1 -> 2.2 with DT 5.2.2: only modified rebuilt, CPE arrives"] = scenario_upgrade(sys.argv[sys.argv.index("--v21") + 1], script)
     keys = list(next(iter(allres.values())).keys())
     w = max(len(k) for k in keys)
     print(f"{'check':{w}}  " + "  ".join(f"{l:>28}" for l in allres))
@@ -212,6 +409,15 @@ if __name__ == "__main__":
     good = (r["1 zlib 1.2.11 matches CVE-2026-1000 (VulnCheck CPE)"] and len(r["1 cjson_project:cjson 1.7.10 matches (expect 2 with aliases)"]) == 2
             and r["2 second mirror, nothing changed: CVEs ingested"] == 0 and r["3 ... zlib still matches CVE-2026-1000"]
             and r["4 after the adapter rebuilt: zlib matches CVE-2026-1000"] and r["5 restart again, nothing changed: CVEs ingested"] == 0
-            and r["5 ... zlib still matches CVE-2026-1000"])
+            and r["5 ... zlib still matches CVE-2026-1000"]
+            and r["6 DT 5.2.2, first mirror (no watermark): reads every feed"] and r["7 the adapter copied 1 rewritten old CVE into modified (/stats)"] and r["7 next mirror skips the yearly feeds (watermark under 6 days)"]
+            and r["7 ... zlib 1.2.11 matches CVE-2021-3000 (VulnCheck CPE for an old CVE)"] and r["7 ... watermark committed (no coverage gap)"]
+            and r["8 restart, nothing changed: CVEs ingested"] == 0 and r["8 ... zlib still matches CVE-2021-3000"]
+            and r["9 drop guard accepted later (DT 5.2.1): zlib matches CVE-2021-3000"] is True and r["9 ... the same with DT 5.2.2"] is True
+            and r["10 rewrite 3 days before DT 5.2.2 mirrors: zlib matches CVE-2021-3000"] is True
+            and r["11 copy lookup: CVE-1999 in the 2002 feed, feed from assigned.json"] is True
+            and r["13 a rewrite older than the window is no longer copied"] is True
+            and r["14 a NIST change published late still reaches DT after a rewrite"] is True
+            and r.get("12 upgrade 2.1 -> 2.2 with DT 5.2.2: only modified rebuilt, CPE arrives", True) is True)
     print("v2 RESULT:", "PASS" if good else "FAIL")
     sys.exit(0 if good else 1)

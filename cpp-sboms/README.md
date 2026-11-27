@@ -50,6 +50,8 @@ The full sbomqs reports are in `scores/`. All eight files pass CycloneDX JSON sc
 
 The coverage check is there because of one result. When OpenSSL was removed from the firmware SBOM, the SBOM still scored 10 out of 10 on BSI and NTIA. Only the check that every ELF file in the image is listed caught it.
 
+`ci/dt-health-check.py` watches the other half: that Dependency-Track's vulnerability data is still current and still reaches the findings. It checks the mirror runs, the NVD feed adapter's `/health`, and a canary project with one component per analyzer. See "Watch the data" in `ci/README.md`.
+
 ## Other converters
 
 - `generators/vcpkg-spdx-to-cdx.py`: vcpkg's per-port SPDX files to one CycloneDX 1.6 SBOM, because Dependency-Track accepts only CycloneDX. It keeps one component per port, with `pkg:conan` identifier, CPE, licence and source SHA-512. Generic converters lose either the package URL or the hashes.

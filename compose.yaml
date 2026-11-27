@@ -18,7 +18,7 @@ services:
       - postgres-data:/var/lib/postgresql
     restart: unless-stopped
   apiserver:
-    image: ghcr.io/dependencytrack/apiserver:5.2.1
+    image: ghcr.io/dependencytrack/apiserver:5.2.2
     depends_on:
       postgres:
         condition: service_healthy
@@ -37,7 +37,7 @@ services:
           memory: 3g
     restart: unless-stopped
   frontend:
-    image: ghcr.io/dependencytrack/frontend:5.2.1
+    image: ghcr.io/dependencytrack/frontend:5.2.2
     environment:
       API_BASE_URL: "http://localhost:8081"
     ports:

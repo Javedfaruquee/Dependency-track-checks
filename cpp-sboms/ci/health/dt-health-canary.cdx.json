@@ -1,0 +1,25 @@
+{
+ "bomFormat": "CycloneDX",
+ "specVersion": "1.6",
+ "serialNumber": "urn:uuid:5b7c3f2e-9d41-4f0a-8c3e-2a6e1d0b7c11",
+ "version": 1,
+ "metadata": {
+  "component": {"type": "application", "bom-ref": "dt-health-canary", "name": "dt-health-canary", "version": "1"},
+  "properties": [{"name": "dt-health:purpose",
+                  "value": "Canary for ci/dt-health-check.py. Each component is reported by one analyzer only, so a missing finding points at that analyzer or its data. Not a product."}]
+ },
+ "components": [
+  {"type": "library", "bom-ref": "zlib-cpe", "name": "zlib", "version": "1.2.11",
+   "cpe": "cpe:2.3:a:zlib:zlib:1.2.11:*:*:*:*:*:*:*",
+   "description": "CPE only: internal analyzer, NVD data (CVE-2022-37434)"},
+  {"type": "library", "bom-ref": "cjson-cpe", "name": "cjson", "version": "1.7.10",
+   "cpe": "cpe:2.3:a:cjson_project:cjson:1.7.10:*:*:*:*:*:*:*",
+   "description": "CPE only: NVD files CVE-2019-11834 under davegamble:cjson; found only through the adapter's vendor alias"},
+  {"type": "library", "bom-ref": "zlib-conan", "name": "zlib", "version": "1.2.11",
+   "purl": "pkg:conan/zlib@1.2.11",
+   "description": "Conan purl only: OSS Index (OSV and GitHub publish no ConanCenter data)"},
+  {"type": "library", "bom-ref": "nuget-system-net-http", "name": "System.Net.Http", "version": "4.3.0",
+   "purl": "pkg:nuget/System.Net.Http@4.3.0",
+   "description": "NuGet purl only: internal analyzer with OSV/GitHub data (GHSA-7jgj-8wvc-jh57), and Trivy (CVE-2018-8292, which OSS Index does not report for it)"}
+ ]
+}

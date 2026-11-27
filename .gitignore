@@ -19,3 +19,7 @@ vex-verify/
 vex-verify-log.txt
 vex-verify-status.json
 gap*-msg.tmp
+dt-health-verify/
+dt-health-verify-log.txt
+dt-health-verify-status.json
+__pycache__/

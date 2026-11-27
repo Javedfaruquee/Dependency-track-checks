@@ -53,6 +53,69 @@ The converter (`openvex-to-cdx-vex.py` 1.1) enforces the VEX policy before anyth
 - **Product matching.** Products are matched on their `@id`, `identifiers` and subcomponents, against SBOM components at any depth and the root. A product that is the root applies to the whole project. `sbom-cve-check` writes one product per identifier of the same component, often with a second CPE that isn't in the SBOM; such identifiers are listed as warnings, not errors.
 - **Repeats and metadata.** When statements repeat for the same vulnerability and component, the latest timestamp wins. It keeps the OpenVEX author and timestamps.
 
+## Watch the data (`dt-health-check.py`)
+
+The release gate only helps if Dependency-Track's vulnerability data is current. In DT 5.2 (5.2.1 and 5.2.2), that data can stop without anyone noticing:
+
+- **Mirrors.** A mirror that fails or stops running leaves the last data in place. A run stuck in `PENDING` blocks every later run. This happened for real: ENISA moved its EU KEV feed on 16 Nov 2026, and every ENISA mirror run on the test stack then failed with HTTP 404. The health check reported it, and DT's own alert reached the receiver. DT 5.2.2 reads the new feed, but an existing install keeps the old URL, because DT stores an extension's default settings at first start. After upgrading, set the ENISA source's feed URL to `https://raw.githubusercontent.com/enisaeu/CNW/main/eukev/eukev.json`.
+- **The NVD feed adapter.** It kept serving its last build when NIST or VulnCheck failed, and DT's NVD mirror still reported `COMPLETED`.
+- **Failed analyzers.** An analyzer that fails (for example, the Trivy server is down) keeps the findings it reported before, so they look current. DT only sends an `ANALYZER` notification, once per project.
+- **Disabled analyzers.** An analyzer that someone switches off loses its findings at the next analysis.
+- **OSS Index.** Results are cached for 24 hours, so a revoked token shows up a day late.
+- **Portfolio re-analysis.** DT re-analyses every project daily. If that stops, new CVEs never reach existing products.
+- **Trivy's database.** Trivy keeps scanning with an old database when it can't update it.
+
+Two things watch for this:
+
+1. **DT's own alert for failed mirrors.** Add a notification rule: scope SYSTEM, group `DATASOURCE_MIRRORING`, level ERROR, to the platform team's channel. It sends one alert per failed mirror run, between health check runs.
+   - Do not send `ANALYZER` to people. DT sends it once per project, and re-analyses projects around the clock, so a Trivy outage would send thousands. Route it to a receiver that groups alerts, or rely on the canary below.
+2. **`dt-health-check.py`, once a day** after the mirrors. Run it as a Kubernetes CronJob next to DT (`templates/dt-health.cronjob.yaml`), or from CI (`templates/dt-health.github-workflow.yml`). Keep `--state` between runs. It fails when any check finds a problem:
+
+| Check | Problem when |
+|---|---|
+| Mirror runs | the latest run of an enabled vulnerability or KEV source is `FAILED`, missing, older than `max_age_hours` (30), or `PENDING`/`RUNNING` for longer than that (needs `--state` when DT gives no start time) |
+| Configuration | a source or analyzer in `require_enabled` is disabled, or the NVD source no longer reads `nvd_feeds_url` (the adapter) |
+| DT's own alerts | no enabled SYSTEM rule covers `DATASOURCE_MIRRORING`. A rule that sends `ANALYZER` to Slack, Teams, Mattermost, Webex, e-mail or Jira gives a warning |
+| Live tests (`--test-extensions`) | DT's own extension test fails, for example the OSS Index token or the NVD feed URL, or DT refuses the test |
+| Adapter | its `/health` reports a problem (see `nvdpp/README.md`), answers anything else without a reason, or doesn't answer |
+| VulnCheck CPEs in DT | fewer than 90% of a sample of CVEs that the adapter first served at least 6 hours before DT's last NVD mirror run have CPE data in DT |
+| Portfolio re-analysis | more than 10% of a sample of active projects (the 20 with the oldest BOM import, plus 100 at random) were last analysed more than 36 hours ago. Raise `max_age_hours` with DT's `dt.task.portfolio-analysis.max-analysis-age-ms` |
+| Trivy database | `<trivy>/version` shows a database older than 48 hours. If the server gives no database metadata, this is a warning only |
+| Canary | an expectation fails (for example, the internal analyzer doesn't report CVE-2022-37434 on zlib 1.2.11 by CPE), or every analyzer failed (DT marks the canary's token `FAILED`) |
+| Analysis latency | DT took longer than `max_analysis_minutes` (30) to analyse the canary: its analysis is behind, so every finding is older than it looks. Over `warn_analysis_minutes` (10) is a warning |
+| Trend (`--state`) | a count drops by more than 20% since the last run (a warning only) |
+
+**How the canary works.** The canary is a small project, `dt-health-canary`, built from `health/dt-health-canary.cdx.json`.
+
+| Component | Reported by |
+|---|---|
+| zlib with a CPE | internal analyzer, NVD data (CVE-2022-37434) |
+| cJSON under the other vendor name | internal analyzer, through the adapter's alias (CVE-2019-11834) |
+| zlib with a Conan purl | OSS Index (OSV and GitHub publish no ConanCenter data) |
+| System.Net.Http 4.3.0 | internal analyzer with OSV/GitHub data (GHSA-7jgj-8wvc-jh57), and Trivy (CVE-2018-8292, which OSS Index doesn't report for it) |
+
+DT's findings list shows only the first analyzer that reported a finding. So each expectation uses a component or an ID that only one analyzer reports. If OSS Index starts reporting CVE-2018-8292, the Trivy expectation fails; the message lists every finding on the component, so the cause is visible.
+
+Every run re-creates the components, because their `group` alternates. This stops a failed analyzer's old findings from hiding the failure. It has one cost: DT reports about 15 canary findings as new on every run. Limit notification rules to projects or tags (the project is tagged `dt-health-canary`), and exclude it from dashboards. With `"rotate": false` the components stay, and only `--test-extensions` and DT's `ANALYZER` notifications catch failing analyzers.
+
+**Scale.** The check's cost doesn't grow with the portfolio. A run makes about 40 to 50 API calls, whether DT holds 50 projects or 10,000. The test suite checks this with 5,000 and 10,000 projects, and fails above 80 calls.
+
+- **What the calls cover:** each enabled source and analyzer, 20 sampled CVEs, the canary, and at most 6 calls for the portfolio sample. The report states the count (`apiCallsExcludingPolls`).
+- **Token polls are counted separately (`tokenPolls`).** While DT works through a backlog, the check polls the canary's token. That count grows with the backlog, so it is kept out of the 80-call budget. It is bounded: every few seconds in the first minute, then every 30 seconds. That gives at most 66 polls at the 30-minute limit.
+- **Queue priority:** BOM uploads (priority 50) are analysed before DT's scheduled re-analysis (priority 0), so the canary measures what a new release sees.
+- **Load:** `dt-health-verify` runs the check during a burst of 150 uploads and compares its calls with the baseline.
+- **Alert volume:** one result per run, not one per project.
+
+**API keys.**
+- **The health key** needs `VIEW_PORTFOLIO`, `VIEW_VULNERABILITY`, `SYSTEM_CONFIGURATION_READ`, `BOM_UPLOAD` and `PROJECT_CREATION_UPLOAD`. No key is sent to the adapter or to Trivy, and redirects are never followed.
+- **With portfolio ACL off (DT's default),** `BOM_UPLOAD` lets the key replace the components of any project, so treat it like a CI key. Prefer ACL on: create the canary project once, map the health team to it, and drop `PROJECT_CREATION_UPLOAD`. Under ACL the portfolio sample only sees mapped projects, so map a representative set or set `portfolio_analysis.enabled` to false.
+- **`--test-extensions`** also needs `SYSTEM_CONFIGURATION_UPDATE`, because DT requires it for its test endpoint. That permission can rewrite every extension setting, so give it to a separate key in a trusted scheduler, not to CI. Without it, a revoked OSS Index token shows within 24 hours plus one run, through the canary.
+- **OSS Index rate limits.** DT's OSS Index test counts HTTP 402 and 429 as authentication passed, but the analyzer fails on them. The canary catches that once the cache expires.
+
+**One scheduler only.** Two overlapping runs replace each other's canary. A run that finds its canary replaced reports a warning ("another dt-health-check run replaced the canary") and doesn't judge the canary in that run. Use the CronJob or a CI schedule, not both.
+
+**Exit codes.** `0` means healthy, with any warnings listed. `1` means problems were found; the report (`--report`) has every check. `2` means the check couldn't run (DT unreachable, key rejected, a redirect).
+
 ## Files
 
 | File | Use |
@@ -60,6 +123,7 @@ The converter (`openvex-to-cdx-vex.py` 1.1) enforces the VEX policy before anyth
 | `sbom-release.sh` | The entry point: `sbom-release.sh cmake <src> <build> <binary> <out>` or `sbom-release.sh firmware <manifest> <fw-dir> <src-dir> <out>` |
 | `../generators/sbom-gate.py` | The gate. It can also run on its own: `--sbom`, `--sbomqs`, `--link-txt` or `--rootfs`, `--cpe-exceptions`, `--own-supplier` |
 | `dt-vex-upload.py` | Uploads a CycloneDX VEX to Dependency-Track and checks every statement (above). Standard library only; `DT_API_KEY` or `DT_BEARER` |
+| `dt-health-check.py`, `health/dt-health.json`, `health/dt-health-canary.cdx.json` | The daily data health check, its configuration and the canary SBOM (above). Standard library only. `templates/dt-health.cronjob.yaml` (recommended) or `templates/dt-health.github-workflow.yml` schedules it |
 | `../generators/openvex-to-cdx-vex.py` | OpenVEX (for example from Yocto's `sbom-cve-check`) to CycloneDX VEX, with the VEX policy checks |
 | `install-sbomqs.sh` | Installs sbomqs 2.1.3 and checks it against the release checksum |
 | `sign-sbom.sh`, `verify-sbom.sh` | Sign with SignPath, and check a signature with its timestamp |
@@ -97,7 +161,7 @@ The SBOM manager should run this when an SBOM arrives, before importing it.
 - Both sample products pass the gate (BSI v2.1 required fields 10, NTIA 10).
 - These cases fail it, as they should: the Syft SBOM with no components; the firmware SBOM with OpenSSL removed; the CMake SBOM with the SHA-512 hashes removed.
 - Identifier check (gate 1.1), on the firmware SBOM: these fail, as they should: cJSON's CPE removed; zlib's CPE version changed to 1.2.13; OpenSSL's CPE version set to `*`; glibc's CPE in the old 2.2 form; an exception without a reason. These pass: a wildcard vendor (with a warning); distro version suffixes; cJSON without a CPE when the exceptions file lists it (with warnings for the used and the unused exception).
-- VEX upload (`tests/test_vex_gap1.py`, 42 checks, against `tests/mock_dt.py`, a stand-in for the DT 5.2.1 API written from its source):
+- VEX upload (`tests/test_vex_gap1.py`, 47 checks, against `tests/mock_dt.py`, a stand-in for the DT 5.2.1 API written from its source):
   - It reproduces the problem: a VEX sent right after the BOM is skipped and the upload still reports success.
   - With the tool, the found CVEs are `APPLIED`, a known CVE without a finding is `STORED`, and an unknown CVE is `PENDING_UNKNOWN_VULN`.
   - These fail the build: a statement DT didn't apply, an older analysis with the same state but other details, a component missing from the project (also when the project has no findings), and a VEX without statements.
@@ -107,5 +171,27 @@ The SBOM manager should run this when an SBOM arrives, before importing it.
   - `sbom-release.sh firmware` was run end to end with `OPENVEX_FILE`: with DT, without DT (fails), with `VEX_FAIL_ON_PENDING` and with a policy breach.
   - An independent review found 3 blocking and 9 other issues; all are fixed and covered by these tests.
   - The real-DT check is `vex-verify.cmd` in the test repository.
+- Data health (`tests/test_health_gap2.py`, 70 checks, against `tests/mock_dt.py`, which also copies DT 5.2.1's extensions, mirror runs, notification rules, projects, the reconciliation of analyzer results, and a `FAILED` token when every analyzer fails):
+  - It detects:
+    - a `FAILED`, stale, missing or stuck mirror run, including a `PENDING` one through `--state`;
+    - a disabled required analyzer;
+    - the NVD source switched back to NIST;
+    - a failing Trivy or internal analyzer, and every analyzer failing;
+    - a revoked OSS Index token (through the live test, while cached findings still look fine), and a test DT refuses;
+    - an adapter that reports problems, answers without reasons, or doesn't answer;
+    - enriched CVEs without CPEs in DT;
+    - a portfolio whose re-analysis stopped;
+    - an old Trivy database;
+    - analysis falling behind;
+    - a missing or disabled DT alert rule;
+    - `ANALYZER` alerts sent to chat.
+  - Without rotation, a failing analyzer is hidden by its old findings. This is why rotation is the default.
+  - It runs with the 5-permission key and with `DT_BEARER`. A key that is rejected, lacks a permission, or is redirected never gives a pass.
+  - API calls are the same for 5,000 and 10,000 projects, and stay within 80.
+  - Mutation tests:
+    - Two review rounds and our own runs removed or bent each check in turn, and the suite failed for each one.
+    - That covers every check above, including: reading the total, skipping just-uploaded and collection projects, counting never-analysed projects, the stuck-run signature, the empty-sample warning, the candidates trend, the timeout branch, the poll counter, the concurrency warning and the alert filter.
+    - One mutation is not covered by a test. If the adapter's `building` flag ignores the queue, nothing fails, because there is only a brief window to catch it in. The code reads the pass counters, so there is no such window.
+  - The real-DT check is `dt-health-verify.cmd` in the test repository. It injects six real faults and restores each one, and checks DT's own alert end to end. It also runs the check during a burst of 150 uploads, which must all be accepted and analysed, with the call budget checked without the polls.
 - Signing and verification were tested with a throwaway software key. A single changed character in the SBOM fails verification. The SignPath route itself (engine `pkcs11`) isn't tested here and needs a SignPath project and CI user.
-- The GitHub workflow passes actionlint 1.7.7. The GitLab template and the TeamCity DSL were only checked for syntax, not run in those systems.
+- The GitHub workflows pass actionlint 1.7.7 (`dt-health` with its `dt-network` runner label declared). The CronJob template was only checked as YAML, not deployed. The GitLab template and the TeamCity DSL were only checked for syntax, not run in those systems.

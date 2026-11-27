@@ -1,0 +1,458 @@
+﻿{
+    "run":  "2026-11-27T13:50:26",
+    "dt":  "5.2.2",
+    "result":  "PASS",
+    "readKeyPermissions":  [
+                               "VIEW_PORTFOLIO",
+                               "VIEW_VULNERABILITY",
+                               "SYSTEM_CONFIGURATION_READ",
+                               "BOM_UPLOAD",
+                               "PROJECT_CREATION_UPLOAD"
+                           ],
+    "testKeyPermissions":  [
+                               "VIEW_PORTFOLIO",
+                               "VIEW_VULNERABILITY",
+                               "SYSTEM_CONFIGURATION_READ",
+                               "BOM_UPLOAD",
+                               "PROJECT_CREATION_UPLOAD",
+                               "SYSTEM_CONFIGURATION_UPDATE"
+                           ],
+    "checks":  [
+                   {
+                       "check":  "adapter 2.2 /health after the upgrade",
+                       "expected":  "200, version 2.2",
+                       "got":  "200, version 2.2 ",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "adapter 2.2 built the modified feed before DT 5.2.2 starts",
+                       "expected":  "built by 2.2",
+                       "got":  "recent_rewrites 4877",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "DT runs 5.2.2 (compose.yaml)",
+                       "expected":  "5.2.2",
+                       "got":  "5.2.2",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "ENISA EU KEV source uses the current feed URL",
+                       "expected":  "https://raw.githubusercontent.com/enisaeu/CNW/main/eukev/eukev.json",
+                       "got":  "https://raw.githubusercontent.com/enisaeu/CNW/main/eukev/eukev.json",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "baseline (test key, --test-extensions, canary): PASS",
+                       "expected":  "exit 0",
+                       "got":  "exit 0, PASS",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "baseline: all 5 canary expectations hold on the real stack",
+                       "expected":  "5",
+                       "got":  "5",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "baseline with the read-only key (5 permissions): PASS",
+                       "expected":  "exit 0",
+                       "got":  "exit 0, PASS",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "canary components re-created in the other group on the next run",
+                       "expected":  "groups differ",
+                       "got":  "dt-health-canary-a -\u003e dt-health-canary-b",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "independent: the canary project has 4 components, all in the new group",
+                       "expected":  "4 in dt-health-canary-b",
+                       "got":  "4 in dt-health-canary-b",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "stale: mirror runs older than the limit are problems",
+                       "expected":  "exit 1, NVD mirror too old",
+                       "got":  "exit 1, FAIL; mirror/kev-data-source/cisa: the last mirror run completed 0.0 h ago (limit 0.001 h) | mirror/kev-data-source/enisa: the last mirror run completed 0.0 h ago (limit 0.001 h) | mirror/kev-data-source/vulncheck: the last mirror run completed 0.0 h ago (limit 0.001 h) | mirror/vuln-data-source/nvd: the last mirror run completed 0.0 h ago (limit 0.001 h) | mirror/vuln-data-source/osv: the last mirror run completed 0.0 h ago (limit 0.001 h)",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "independent: OSS Index now uses the revoked token",
+                       "expected":  "DT_HEALTH_VERIFY_REVOKED",
+                       "got":  "DT_HEALTH_VERIFY_REVOKED",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "OSS Index token revoked: the live test reports it",
+                       "expected":  "exit 1, authentication FAILED",
+                       "got":  "exit 1, FAIL; test/vuln-analyzer/oss-index: authentication FAILED: Authentication failed with status 401",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "restored: OSS Index configuration as before",
+                       "expected":  "unchanged",
+                       "got":  "compared",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "independent: DT has Trivy disabled now",
+                       "expected":  "enabled false",
+                       "got":  "False",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "Trivy analyzer disabled: reported as a required analyzer that is off",
+                       "expected":  "exit 1",
+                       "got":  "exit 1, FAIL; config/vuln-analyzer/trivy: required, but disabled: its data or findings are not updated (DT deletes a disabled analyzer\u0027s findings at the next analysis)",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "restored: Trivy configuration as before",
+                       "expected":  "unchanged",
+                       "got":  "compared",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "independent: the Trivy container is stopped",
+                       "expected":  "false",
+                       "got":  "false",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "Trivy server down: the canary trivy expectation fails, the other 4 hold",
+                       "expected":  "exit 1, trivy only",
+                       "got":  "exit 1, FAIL; canary/trivy: missing CVE-2018-8292 by trivy on System.Net.Http 4.3.0 (nuget-system-net-http); the component has: GHSA-7jgj-8wvc-jh57 [internal] (checks that the Trivy analyzer and its server answer); other canary ok: 4",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "restored: Trivy server answers",
+                       "expected":  "healthz 200",
+                       "got":  "True",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "independent: DT NVD mirror with the adapter down",
+                       "expected":  "FAILED",
+                       "got":  "FAILED Failed to retrieve feed metadata from http://nvdpp:8080/feeds/json/cve/2.0/nvdcve-2.0-modified.meta",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "adapter down: reported (adapter does not answer)",
+                       "expected":  "problem",
+                       "got":  "exit 1, FAIL; mirror/vuln-data-source/nvd: the last mirror run FAILED 0.0 h ago: Failed to retrieve feed metadata from http://nvdpp:8080/feeds/json/cve/2.0/nvdcve-2.0-modified.meta | test/vuln-data-source/nvd: connection FAILED: Connection failed, check logs for details | adapter/health: the NVD feed adapter does not answer: GET http://nvdpp:8080/health: [Errno -2] Name or service not known",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "adapter down: the failed NVD mirror run is reported",
+                       "expected":  "problem",
+                       "got":  "see above",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "adapter down: DT live NVD test fails",
+                       "expected":  "problem",
+                       "got":  "see above",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "DT\u0027s own alert: the failed NVD mirror notification reached the webhook receiver",
+                       "expected":  "received",
+                       "got":  "received",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "restored: adapter /health 200",
+                       "expected":  "200",
+                       "got":  "200",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "restored: NVD mirror COMPLETED",
+                       "expected":  "COMPLETED",
+                       "got":  "COMPLETED",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "adapter /health 503 naming VulnCheck, after a new VulnCheck attempt",
+                       "expected":  "503 VulnCheck, new attempt",
+                       "got":  "503 the last VulnCheck refresh failed: HTTPError: HTTP Error 401: Unauthorized | {\"error\":true,\"errors\":[\"unauthorized\"]}; serving the data loaded at 2026-11-26T14:08:33.298 (attempt 2026-11-27T12:45:36.075 -\u003e 2026-11-27T12:46:25.462)",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "independent: the adapter log shows VulnCheck refusing the token",
+                       "expected":  "a 401 or 403",
+                       "got":  "2 log lines",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "VulnCheck token rejected: reported through the adapter",
+                       "expected":  "exit 1",
+                       "got":  "exit 1, FAIL; adapter/health: the last VulnCheck refresh failed: HTTPError: HTTP Error 401: Unauthorized | {\"error\":true,\"errors\":[\"unauthorized\"]}; serving the data loaded at 2026-11-26T14:08:33.298",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "restored: adapter /health 200 with the real token",
+                       "expected":  "200",
+                       "got":  "200",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "load: no false alarm during the backlog (only analysis latency may be reported)",
+                       "expected":  "no other problem",
+                       "got":  "exit 0, PASS; latency: DT analysed the canary in 0.8 min",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "load: all test uploads accepted",
+                       "expected":  "150",
+                       "got":  "150",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "load: API calls (token polls apart) no more than at baseline plus the sample pages",
+                       "expected":  "at most 56",
+                       "got":  "54 (and 7 token polls)",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "load: token polls bounded",
+                       "expected":  "at most 67",
+                       "got":  "7",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "load: DT worked through the whole backlog",
+                       "expected":  "all analysed",
+                       "got":  "150 of 150 in 139 s",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "load: test projects deleted",
+                       "expected":  "0",
+                       "got":  "0",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "final (test key, --test-extensions, canary): PASS",
+                       "expected":  "exit 0",
+                       "got":  "exit 0, PASS",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "final: all 5 canary expectations hold",
+                       "expected":  "5",
+                       "got":  "5",
+                       "ok":  true
+                   },
+                   {
+                       "check":  "final with the read-only key: PASS",
+                       "expected":  "exit 0",
+                       "got":  "exit 0, PASS",
+                       "ok":  true
+                   }
+               ],
+    "runs":  {
+                 "baseline":  {
+                                  "exit":  0,
+                                  "result":  "PASS",
+                                  "seconds":  20,
+                                  "apiCalls":  55,
+                                  "problems":  [
+
+                                               ],
+                                  "canary":  {
+                                                 "project":  "62205320-6289-41ed-bd7e-36ee3bb098c4",
+                                                 "group":  "dt-health-canary-a",
+                                                 "findings":  23,
+                                                 "seconds":  5.6
+                                             }
+                              },
+                 "baseline-read-key":  {
+                                           "exit":  0,
+                                           "result":  "PASS",
+                                           "seconds":  18,
+                                           "apiCalls":  54,
+                                           "problems":  [
+
+                                                        ],
+                                           "canary":  {
+                                                          "project":  "62205320-6289-41ed-bd7e-36ee3bb098c4",
+                                                          "group":  "dt-health-canary-b",
+                                                          "findings":  23,
+                                                          "seconds":  5.1
+                                                      }
+                                       },
+                 "fault-stale":  {
+                                     "exit":  1,
+                                     "result":  "FAIL",
+                                     "seconds":  10,
+                                     "apiCalls":  46,
+                                     "problems":  [
+                                                      "mirror/kev-data-source/cisa: the last mirror run completed 0.0 h ago (limit 0.001 h)",
+                                                      "mirror/kev-data-source/enisa: the last mirror run completed 0.0 h ago (limit 0.001 h)",
+                                                      "mirror/kev-data-source/vulncheck: the last mirror run completed 0.0 h ago (limit 0.001 h)",
+                                                      "mirror/vuln-data-source/nvd: the last mirror run completed 0.0 h ago (limit 0.001 h)",
+                                                      "mirror/vuln-data-source/osv: the last mirror run completed 0.0 h ago (limit 0.001 h)"
+                                                  ],
+                                     "canary":  null
+                                 },
+                 "fault-ossindex":  {
+                                        "exit":  1,
+                                        "result":  "FAIL",
+                                        "seconds":  10,
+                                        "apiCalls":  48,
+                                        "problems":  [
+                                                         "test/vuln-analyzer/oss-index: authentication FAILED: Authentication failed with status 401"
+                                                     ],
+                                        "canary":  null
+                                    },
+                 "fault-trivy-disabled":  {
+                                              "exit":  1,
+                                              "result":  "FAIL",
+                                              "seconds":  10,
+                                              "apiCalls":  46,
+                                              "problems":  [
+                                                               "config/vuln-analyzer/trivy: required, but disabled: its data or findings are not updated (DT deletes a disabled analyzer\u0027s findings at the next analysis)"
+                                                           ],
+                                              "canary":  null
+                                          },
+                 "fault-trivy-down":  {
+                                          "exit":  1,
+                                          "result":  "FAIL",
+                                          "seconds":  226,
+                                          "apiCalls":  63,
+                                          "problems":  [
+                                                           "canary/trivy: missing CVE-2018-8292 by trivy on System.Net.Http 4.3.0 (nuget-system-net-http); the component has: GHSA-7jgj-8wvc-jh57 [internal] (checks that the Trivy analyzer and its server answer)"
+                                                       ],
+                                          "canary":  {
+                                                         "project":  "62205320-6289-41ed-bd7e-36ee3bb098c4",
+                                                         "group":  "dt-health-canary-a",
+                                                         "findings":  22,
+                                                         "seconds":  196.6
+                                                     }
+                                      },
+                 "fault-adapter-down":  {
+                                            "exit":  1,
+                                            "result":  "FAIL",
+                                            "seconds":  14,
+                                            "apiCalls":  28,
+                                            "problems":  [
+                                                             "mirror/vuln-data-source/nvd: the last mirror run FAILED 0.0 h ago: Failed to retrieve feed metadata from http://nvdpp:8080/feeds/json/cve/2.0/nvdcve-2.0-modified.meta",
+                                                             "test/vuln-data-source/nvd: connection FAILED: Connection failed, check logs for details",
+                                                             "adapter/health: the NVD feed adapter does not answer: GET http://nvdpp:8080/health: [Errno -2] Name or service not known"
+                                                         ],
+                                            "canary":  null
+                                        },
+                 "fault-vulncheck":  {
+                                         "exit":  1,
+                                         "result":  "FAIL",
+                                         "seconds":  8,
+                                         "apiCalls":  46,
+                                         "problems":  [
+                                                          "adapter/health: the last VulnCheck refresh failed: HTTPError: HTTP Error 401: Unauthorized | {\"error\":true,\"errors\":[\"unauthorized\"]}; serving the data loaded at 2026-11-26T14:08:33.298"
+                                                      ],
+                                         "canary":  null
+                                     },
+                 "load":  {
+                              "exit":  0,
+                              "result":  "PASS",
+                              "seconds":  84,
+                              "apiCalls":  61,
+                              "problems":  [
+
+                                           ],
+                              "canary":  {
+                                             "project":  "62205320-6289-41ed-bd7e-36ee3bb098c4",
+                                             "group":  "dt-health-canary-b",
+                                             "findings":  23,
+                                             "seconds":  45.4
+                                         },
+                              "canarySecondsBaseline":  5,
+                              "canarySecondsUnderLoad":  45,
+                              "drainSeconds":  139,
+                              "projects":  150,
+                              "componentsEach":  60
+                          },
+                 "final":  {
+                               "exit":  0,
+                               "result":  "PASS",
+                               "seconds":  21,
+                               "apiCalls":  56,
+                               "problems":  [
+
+                                            ],
+                               "canary":  {
+                                              "project":  "62205320-6289-41ed-bd7e-36ee3bb098c4",
+                                              "group":  "dt-health-canary-a",
+                                              "findings":  23,
+                                              "seconds":  5.1
+                                          }
+                           },
+                 "final-read-key":  {
+                                        "exit":  0,
+                                        "result":  "PASS",
+                                        "seconds":  17,
+                                        "apiCalls":  54,
+                                        "problems":  [
+
+                                                     ],
+                                        "canary":  {
+                                                       "project":  "62205320-6289-41ed-bd7e-36ee3bb098c4",
+                                                       "group":  "dt-health-canary-b",
+                                                       "findings":  23,
+                                                       "seconds":  8.5
+                                                   }
+                                    }
+             },
+    "adapterHealth":  {
+                          "status":  "ok",
+                          "version":  "2.2",
+                          "checked_at":  "2026-11-27T12:47:29.846",
+                          "problems":  [
+
+                                       ],
+                          "warnings":  [
+
+                                       ],
+                          "phase":  "ready",
+                          "building":  false,
+                          "build_passes":  1,
+                          "feeds":  {
+                                        "expected":  26,
+                                        "missing":  [
+
+                                                    ]
+                                    },
+                          "nist":  {
+                                       "last_ok_at":  "2026-11-27T12:46:57.664",
+                                       "age_hours":  0.009,
+                                       "last_attempt_at":  "2026-11-27T12:46:57.664",
+                                       "last_error":  null,
+                                       "newest_change":  "2026-11-27T11:00:05.000",
+                                       "newest_change_age_hours":  1.79
+                                   },
+                          "vulncheck":  {
+                                            "required":  true,
+                                            "token_set":  true,
+                                            "status":  "loaded",
+                                            "loaded_at":  "2026-11-26T14:08:33.298",
+                                            "age_hours":  22.649,
+                                            "backup_date":  "2026-11-26T08:38:42.995Z",
+                                            "records":  432709,
+                                            "vc_has_cpes":  387737,
+                                            "candidates":  62433,
+                                            "last_attempt_at":  "2026-11-27T12:46:57.663",
+                                            "last_error":  null
+                                        },
+                          "limits":  {
+                                         "FEED_STALE_HOURS":  72.0,
+                                         "NIST_MAX_AGE_HOURS":  6.0,
+                                         "NIST_QUIET_HOURS":  48.0,
+                                         "VC_STALE_HOURS":  48.0,
+                                         "VC_DROP_PCT":  1.0,
+                                         "FEED_DROP_PCT":  1.0
+                                     }
+                      }
+}

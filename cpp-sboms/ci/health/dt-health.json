@@ -1,0 +1,46 @@
+{
+ "_comment": "Configuration for ci/dt-health-check.py. Adjust require_enabled and nvd_feeds_url to your Dependency-Track. Keys are <extension point>/<extension name> as Dependency-Track 5 lists them.",
+ "max_age_hours": 30,
+ "sources": {
+  "_comment": "Per-source overrides of max_age_hours (DT's default schedules run every source once a day).",
+  "vuln-data-source/nvd": {"max_age_hours": 30}
+ },
+ "require_enabled": [
+  "vuln-data-source/nvd", "vuln-data-source/osv", "kev-data-source/cisa", "kev-data-source/enisa",
+  "vuln-analyzer/internal", "vuln-analyzer/oss-index", "vuln-analyzer/trivy"
+ ],
+ "nvd_feeds_url": "http://nvdpp:8080/feeds",
+ "require_notification_groups": ["DATASOURCE_MIRRORING"],
+ "_require_notification_groups": "DT reports these itself (an enabled SYSTEM notification rule). DATASOURCE_MIRRORING is one alert per failed mirror run. Do not route ANALYZER to people: DT sends it once per project.",
+ "adapter": {"_comment": "url: empty = take it from the NVD source's cveFeedsUrl (without /feeds).", "url": "", "required": true},
+ "vulncheck_sample": {"n": 20, "min_ratio": 0.9, "settle_hours": 6},
+ "portfolio_analysis": {"max_age_hours": 36, "max_stale_ratio": 0.1, "sample": 100,
+  "_comment": "DT re-analyses every project once its analysis is older than 24 h (dt.task.portfolio-analysis.max-analysis-age-ms; raise max_age_hours with it). The page with the oldest BOM imports plus random pages of active projects (6 API calls for any portfolio size) must be analysed within max_age_hours. With portfolio ACL on, the health team sees only the projects it is mapped to: map it to a representative set, or set enabled to false."},
+ "trivy": {"url": "", "db_max_age_hours": 48, "_comment": "url: empty = DT's Trivy analyzer apiUrl. Reads <url>/version; if the server gives no DB metadata, this is only a warning."},
+ "canary": {
+  "project": "dt-health-canary", "version": "1", "tag": "dt-health-canary",
+  "sbom": "dt-health-canary.cdx.json",
+  "rotate": true,
+  "max_analysis_minutes": 30, "warn_analysis_minutes": 10,
+  "_analysis_minutes": "How long DT may take to analyse the canary. Longer means DT's analysis is behind (a problem of its own, not an analyzer failure). BOM uploads (priority 50) are analysed before DT's scheduled re-analysis of the portfolio (priority 0).",
+  "_rotate": "true: the components are re-created each run (their group alternates), so a failing analyzer cannot hide behind the findings it reported earlier. DT then reports the canary's findings as new on every run: limit notification rules to projects or tags.",
+  "expect": [
+   {"id": "nvd-cpe", "ref": "zlib-cpe", "analyzer": "internal", "vuln": "CVE-2022-37434",
+    "when": ["vuln-analyzer/internal", "vuln-data-source/nvd"],
+    "means": "NVD data and CPE matching reach the findings"},
+   {"id": "nvd-alias", "ref": "cjson-cpe", "analyzer": "internal", "vuln": "CVE-2019-11834",
+    "when": ["vuln-analyzer/internal", "vuln-data-source/nvd"],
+    "means": "the adapter's CPE vendor aliases reach the findings"},
+   {"id": "osv", "ref": "nuget-system-net-http", "analyzer": "internal", "sources": ["OSV", "GITHUB"], "min": 1,
+    "when": ["vuln-analyzer/internal"], "when_any": ["vuln-data-source/osv", "vuln-data-source/github"],
+    "means": "OSV or GitHub advisories reach the findings through purls"},
+   {"id": "oss-index", "ref": "zlib-conan", "analyzer": "oss-index", "min": 1,
+    "when": ["vuln-analyzer/oss-index"],
+    "means": "the OSS Index analyzer answers (results are cached for 24 h: --test-extensions checks the token live)"},
+   {"id": "trivy", "ref": "nuget-system-net-http", "analyzer": "trivy", "vuln": "CVE-2018-8292",
+    "when": ["vuln-analyzer/trivy"],
+    "means": "the Trivy analyzer and its server answer"}
+  ]
+ },
+ "trend": {"max_drop_pct": 20, "min_drop": 2}
+}

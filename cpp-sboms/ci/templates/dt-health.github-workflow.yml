@@ -1,0 +1,47 @@
+# Daily Dependency-Track data health check (.github/workflows/dt-health.yml), for when it cannot run next to
+# DT (dt-health.cronjob.yaml is the recommended way). The job fails, and GitHub notifies the workflow's watchers,
+# when vulnerability data stopped updating or stopped reaching the findings. See ci/README.md, "Watch the data".
+# Pin every action to a commit SHA before use: this job holds a key with BOM_UPLOAD.
+name: dt-health
+on:
+  schedule:
+    - cron: "17 7 * * *"   # after DT's default mirror schedules (01:00 to 04:00 UTC)
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: dt-health   # one canary upload at a time; run one scheduler only (not this and the CronJob)
+jobs:
+  health:
+    # needs to reach Dependency-Track and the NVD feed adapter
+    runs-on: [self-hosted, dt-network]
+    timeout-minutes: 45   # above canary.max_analysis_minutes (30), so "analysis is behind" gets reported
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          repository: example-org/sbom-tooling
+          ref: 0000000000000000000000000000000000000000   # pin to a commit
+      - name: Previous trend state
+        uses: actions/cache/restore@v4
+        with:
+          path: dt-health-state.json
+          key: dt-health-${{ github.run_id }}
+          restore-keys: dt-health-
+      - name: Check
+        # read-only key: VIEW_PORTFOLIO, VIEW_VULNERABILITY, SYSTEM_CONFIGURATION_READ, BOM_UPLOAD,
+        # PROJECT_CREATION_UPLOAD. Add --test-extensions only with a key that also has SYSTEM_CONFIGURATION_UPDATE.
+        run: python3 -I ci/dt-health-check.py --url "$DT_URL" --report dt-health-report.json --state dt-health-state.json
+        env:
+          DT_URL: ${{ vars.DT_URL }}
+          DT_API_KEY: ${{ secrets.DT_HEALTH_API_KEY }}
+      - name: Save trend state
+        if: always()
+        uses: actions/cache/save@v4
+        with:
+          path: dt-health-state.json
+          key: dt-health-${{ github.run_id }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: dt-health-report
+          path: dt-health-report.json

@@ -1,0 +1,73 @@
+# Daily Dependency-Track data health check as a Kubernetes CronJob, deployed next to Dependency-Track.
+# Recommended over a CI schedule: it runs in DT's own network, never overlaps itself, and keeps its state.
+# A failed run (exit 1) shows as a failed Job: alert on it with your cluster monitoring, for example
+# kube-state-metrics kube_job_status_failed{job_name=~"dt-health-.*"} > 0, routed to the same channel as
+# DT's own DATASOURCE_MIRRORING notifications. See ci/README.md, "Watch the data".
+#
+# Create the key once (read-only health team: VIEW_PORTFOLIO, VIEW_VULNERABILITY, SYSTEM_CONFIGURATION_READ,
+# BOM_UPLOAD, PROJECT_CREATION_UPLOAD; with portfolio ACL on, map the team to the canary project only and drop
+# PROJECT_CREATION_UPLOAD after the first run):
+#   kubectl -n dependency-track create secret generic dt-health-key --from-literal=DT_API_KEY=<key>
+#   kubectl -n dependency-track create configmap dt-health-tool --from-file=ci/dt-health-check.py \
+#       --from-file=ci/health/dt-health.json --from-file=ci/health/dt-health-canary.cdx.json
+apiVersion: batch/v1
+kind: CronJob
+metadata:
+  name: dt-health
+  namespace: dependency-track
+spec:
+  schedule: "17 7 * * *"          # after DT's default mirror schedules (01:00 to 04:00 UTC)
+  timeZone: Etc/UTC
+  concurrencyPolicy: Forbid       # one canary upload at a time; run one scheduler only (not this and CI)
+  startingDeadlineSeconds: 3600
+  successfulJobsHistoryLimit: 3
+  failedJobsHistoryLimit: 7
+  jobTemplate:
+    spec:
+      backoffLimit: 0             # a failed check is a result, not something to retry
+      activeDeadlineSeconds: 2700 # canary.max_analysis_minutes (30) plus the other checks
+      template:
+        spec:
+          restartPolicy: Never
+          securityContext:
+            runAsNonRoot: true
+            runAsUser: 10001
+            fsGroup: 10001                       # the state volume must be writable for this user
+            fsGroupChangePolicy: OnRootMismatch
+            seccompProfile: {type: RuntimeDefault}
+          containers:
+            - name: check
+              image: python:3.13-slim   # pin by digest in production
+              command: ["python", "-I", "/tool/dt-health-check.py",
+                        "--url", "http://dependency-track-apiserver:8080", "--allow-http",
+                        "--config", "/tool/dt-health.json",
+                        "--state", "/state/dt-health-state.json",
+                        "--report", "/state/dt-health-report.json"]
+              envFrom:
+                - secretRef: {name: dt-health-key}
+              securityContext:
+                allowPrivilegeEscalation: false
+                readOnlyRootFilesystem: true
+                capabilities: {drop: ["ALL"]}
+              resources:
+                requests: {cpu: 50m, memory: 64Mi}
+                limits: {memory: 256Mi}
+              volumeMounts:
+                - {name: tool, mountPath: /tool, readOnly: true}
+                - {name: state, mountPath: /state}
+          volumes:
+            - name: tool
+              configMap: {name: dt-health-tool}
+            - name: state   # keeps the stuck-run and trend state between runs (a few KB)
+              persistentVolumeClaim: {claimName: dt-health-state}
+---
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: dt-health-state
+  namespace: dependency-track
+spec:
+  accessModes: ["ReadWriteOnce"]
+  resources:
+    requests:
+      storage: 16Mi
