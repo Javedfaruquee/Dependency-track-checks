@@ -1,4 +1,5 @@
-# Gap 1 check on the real Dependency-Track 5.2.1 stack: a VEX upload must never be lost silently.
+# Gap 1 check on the real Dependency-Track stack (5.2.1; re-checked on 5.2.2): a VEX upload must never be lost silently.
+# -Recheck (vex-verify-recheck.cmd): the same checks after a DT upgrade; on PASS it commits only the results.
 #  1. Creates a CI team with only the permissions the release pipeline needs, and uses its key for every step.
 #  2. Reproduces the problem: uploads the firmware SBOM and sends a VEX straight after it (the old way).
 #  3. Runs the fix: cpp-sboms/ci/dt-vex-upload.py (in a python container on the compose network) waits for
@@ -9,6 +10,7 @@
 # The CI team (and its key) is deleted and the containers are stopped at the end, also after a failure.
 # Results: vex-verify-results.json and vex-verify-log.txt.
 
+param([switch]$Recheck)
 $ErrorActionPreference = 'Continue'
 $ProgressPreference = 'SilentlyContinue'
 $Dir = Split-Path -Parent $MyInvocation.MyCommand.Path
@@ -154,7 +156,21 @@ try {
     Log "RESULT: $result"
 
     # ---------- 4. commit and push only when the check passed ----------
-    if ($pass) {
+    if ($pass -and $Recheck) {
+        Status 'push'
+        $msg = @"
+Gap 1 re-checked on Dependency-Track $($ver.version): PASS
+
+vex-verify -Recheck ran the gap 1 checks again after the upgrade: the VEX
+race still loses statements without the tool, and dt-vex-upload.py still
+gives exactly the expected results, confirmed from DT's own findings, with
+a CI key holding only 5 permissions. Only the results file is committed.
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_01Gtp89CuUSYYsi5XMxfwRvd
+"@
+        $files = @('vex-verify-results.json', 'vex-verify.ps1', 'vex-verify-recheck.cmd', 'README.md')
+    } elseif ($pass) {
         Status 'push'
         $msg = @'
 Gap 1: a VEX upload can no longer be lost silently
@@ -179,17 +195,24 @@ The upload reports success either way. Verified on DT 5.2.1 (vex-verify).
 Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
 Claude-Session: https://claude.ai/code/session_01Gtp89CuUSYYsi5XMxfwRvd
 '@
-        $msgFile = Join-Path $Dir 'gap1-msg.tmp'
-        [IO.File]::WriteAllText($msgFile, $msg.Replace("`r`n", "`n"))
         $files = @('cpp-sboms/generators/openvex-to-cdx-vex.py', 'cpp-sboms/ci/dt-vex-upload.py', 'cpp-sboms/ci/sbom-release.sh',
                    'cpp-sboms/ci/README.md', 'cpp-sboms/README.md', 'cpp-sboms/tests/mock_dt.py', 'cpp-sboms/tests/test_vex_gap1.py',
                    'cpp-sboms/vex/test-gap1.openvex.json', 'cpp-sboms/vex/example.vex.cdx.json',
                    'vex-verify.ps1', 'vex-verify.cmd', 'vex-verify-results.json', 'README.md', '.gitignore')
+    }
+    if ($pass) {
+        $msgFile = Join-Path $Dir 'gap1-msg.tmp'
+        [IO.File]::WriteAllText($msgFile, $msg.Replace("`r`n", "`n"))
         $missing = @($files | Where-Object { -not (Test-Path (Join-Path $Dir $_)) })
         if ($missing.Count -gt 0) { throw "not pushed: missing files $($missing -join ', ')" }
+        # before committing: this folder and GitHub must be at the same commit (nothing to pull, nothing unpushed)
+        if ((GitStep @('fetch', 'origin', 'main')) -ne 0) { throw 'not pushed: git fetch failed (nothing committed)' }
+        $behind = (git -C $Dir rev-list --count HEAD..origin/main 2>&1 | Select-Object -First 1)
+        $aheadBefore = (git -C $Dir rev-list --count origin/main..HEAD 2>&1 | Select-Object -First 1)
+        if ("$behind" -ne '0' -or "$aheadBefore" -ne '0') { throw "not pushed: this folder is $aheadBefore commits ahead of and $behind behind GitHub (nothing committed; check git status and git log)" }
         if ((GitStep (@('add', '--') + $files)) -ne 0) { throw 'not pushed: git add failed' }
-        git -C $Dir diff --cached --quiet; if ($LASTEXITCODE -eq 0) { throw 'not pushed: nothing staged' }
-        $cc = GitStep @('commit', '-F', $msgFile)
+        git -C $Dir diff --cached --quiet -- @files; if ($LASTEXITCODE -eq 0) { throw 'not pushed: nothing staged' }
+        $cc = GitStep (@('commit', '-F', $msgFile, '--') + $files)   # only these files, whatever else is staged
         Remove-Item -Force -ErrorAction SilentlyContinue $msgFile
         if ($cc -ne 0) { throw 'not pushed: git commit failed' }
         if ((GitStep @('push', 'origin', 'main')) -ne 0) { throw 'not pushed: git push failed (the commit is local; run git push later)' }

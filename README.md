@@ -41,6 +41,7 @@ ENISA moved its EU KEV feed on 16 Nov 2026 and changed its format. On DT 5.2.1 e
 | `nvdpp-v2-verify.cmd` | NVD feed adapter version 2 on the stack: all feeds rebuilt, NVD mirror, findings for the `cpp-sbom-*` projects | `nvdpp-v2-verify-results.json`, `nvdpp-alias-suggestions.json` |
 | `sonar-sbom-test.cmd` | SonarQube staging: imports three sample SBOMs with `sonar.sca.sbomImportPaths` (asks for a Sonar token, hidden) | `sonar-sca-test/` (not in git: internal server data) |
 | `vex-verify.cmd` | Gap 1, VEX upload on DT 5.2.1: reproduces the lost-VEX race, runs `cpp-sboms/ci/dt-vex-upload.py` with a least-privilege CI key, checks DT's findings independently; commits and pushes only on PASS | `vex-verify-results.json` |
+| `vex-verify-recheck.cmd` | Gap 1 re-check after a DT upgrade (run on 5.2.2): the same checks as `vex-verify.cmd`; commits only the results, and only on PASS | `vex-verify-results.json` |
 | `dt-health-verify.cmd` | Gap 2, vulnerability data health on DT 5.2.2: upgrades the stack from 5.2.1 and sets ENISA's new feed URL, loads adapter 2.2, runs every mirror, then injects six real faults one at a time (stale threshold, OSS Index token revoked, Trivy analyzer disabled, Trivy server stopped, adapter stopped, VulnCheck token rejected), checks that `cpp-sboms/ci/dt-health-check.py` reports each one, and restores it; checks DT's own failed-mirror alert end to end; runs the check during a burst of 150 uploads; commits and pushes only on PASS | `dt-health-verify-results.json` |
 
 Test SBOMs are in `sboms/`.
